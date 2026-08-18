@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deckhand — Your Pocket-Sized Command Deck</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Turn your phone into a customizable Stream-Deck-style control surface for Windows, macOS, and Linux — no extra hardware, no account, no cloud.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#090b15">
+<meta property="og:title" content="Deckhand — Your Pocket-Sized Command Deck">
+<meta property="og:description" content="Turn your phone into a customizable Stream-Deck-style control surface for Windows, macOS, and Linux — no extra hardware, no account, no cloud.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  @font-face {
+    font-family: 'Fira Sans';
+    font-style: normal; font-weight: 400; font-display: swap;
+    src: url('assets/fonts/fira-sans-400.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Fira Sans';
+    font-style: normal; font-weight: 600; font-display: swap;
+    src: url('assets/fonts/fira-sans-600.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Fira Sans Condensed';
+    font-style: normal; font-weight: 900; font-display: swap;
+    src: url('assets/fonts/fira-sans-condensed-900.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    --bg-0: #090b15;
+    --bg-1: #0d0f1a;
+    --surface: #12142380;
+    --surface-solid: #131526;
+    --surface-raised: #1a1d33;
+    --line: rgba(185,190,232,0.14);
+    --line-strong: rgba(185,190,232,0.30);
+    --ink: #f5f5ff;
+    --ink-soft: #cbcfec;
+    --ink-faint: #9fa6d0;
+    --accent: #00e5ff;
+    --accent-strong: #7bf2ff;
+    --accent-soft: rgba(0,229,255,0.13);
+    --on-accent: #04121a;
+    --tile: #ececff;
+    --good: #6fe3b4;
+    --r-sm: 10px;
+    --r-md: 16px;
+    --r-lg: 26px;
+    --display: 'Fira Sans Condensed', 'Arial Narrow', sans-serif;
+    --sans: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+    --shadow-lift: 0 30px 60px -30px rgba(0,0,0,0.65);
+    --measure: 62ch;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg-0);
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding-left: clamp(1.25rem, 4vw, 2.5rem); padding-right: clamp(1.25rem, 4vw, 2.5rem); }
+
+  h1, h2, h3 { font-family: var(--display); font-weight: 900; color: var(--ink); letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  .measure { max-width: var(--measure); }
+
+  .skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 100;
+    background: var(--accent); color: var(--on-accent); font-weight: 700;
+    padding: 0.75rem 1.25rem; border-radius: var(--r-sm); transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+    font-family: var(--sans); font-weight: 600; font-size: 1rem; line-height: 1;
+    padding: 0.95em 1.6em; border-radius: 999px; border: 1px solid transparent;
+    cursor: pointer; text-decoration: none; white-space: nowrap;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 0 0 1px rgba(0,229,255,0.4), 0 14px 30px -12px rgba(0,229,255,0.55); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(0,229,255,0.55), 0 18px 34px -12px rgba(0,229,255,0.7); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-strong); }
+  .btn-sm { padding: 0.6em 1.25em; font-size: 0.9rem; }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(9,11,21,0.72); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner { display: flex; align-items: center; gap: 1.5rem; height: 4.5rem; }
+  .brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--display); font-weight: 900; font-size: 1.25rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+  .brand svg { width: 26px; height: 26px; flex: none; }
+  .site-nav { display: flex; align-items: center; gap: 2rem; }
+  .site-nav a:not(.btn) { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.4rem 0.1rem; border-bottom: 2px solid transparent; }
+  .site-nav a:not(.btn):hover { color: var(--ink); border-color: var(--line-strong); }
+  .nav-toggle {
+    display: none; width: 2.75rem; height: 2.75rem; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
+    background: transparent; cursor: pointer; position: relative; flex: none;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+    content: ""; position: absolute; left: 25%; width: 50%; height: 2px; background: var(--ink); border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle span { top: 50%; transform: translateY(-50%); }
+  .nav-toggle span::before { top: -7px; }
+  .nav-toggle span::after { top: 7px; }
+  .nav-toggle[aria-expanded="true"] span { background: transparent; }
+  .nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+  @media (max-width: 780px) {
+    .header-inner .btn-sm.header-cta { display: none; }
+    .nav-toggle { display: block; }
+    .site-nav {
+      position: fixed; inset: 4.5rem 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
+      background: var(--bg-1); border-bottom: 1px solid var(--line);
+      transform: translateY(-8px); opacity: 0; visibility: hidden; pointer-events: none;
+      transition: transform 0.18s ease, opacity 0.18s ease, visibility 0.18s;
+      padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.25rem;
+    }
+    .site-nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+    .site-nav a:not(.btn) { border-bottom: 1px solid var(--line); padding: 0.9rem 0.1rem; width: 100%; }
+    .site-nav .btn { margin-top: 0.9rem; }
+  }
+
+  /* ---------- section rhythm ---------- */
+  section { position: relative; padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+  .section-flat { background: var(--bg-0); }
+  .section-raised { background: var(--bg-1); }
+  .eyebrow-num { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.08em; }
+  .section-head { max-width: 44rem; margin-bottom: clamp(2.25rem, 5vw, 3.5rem); }
+  .section-head h2 { font-size: clamp(1.9rem, 3.2vw, 2.75rem); line-height: 1.08; }
+  .section-head p { margin-top: 0.9rem; font-size: 1.05rem; color: var(--ink-faint); }
+
+  /* ---------- hero art layer ---------- */
+  .art-field { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; }
+  .art-field svg { width: 100%; height: 100%; display: block; }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: clamp(3rem, 8vw, 5rem); overflow: clip; }
+  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .hero-copy h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); line-height: 1.03; }
+  .hero-copy p.lede { margin-top: 1.4rem; font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: var(--ink-soft); max-width: 40rem; }
+  .hero-ctas { margin-top: 2.2rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
+  .hero-stats { margin-top: 2.75rem; display: flex; flex-wrap: wrap; gap: 0.6rem 2.4rem; }
+  .hero-stats .stat { display: flex; flex-direction: column; gap: 0.15rem; }
+  .hero-stats .stat b { font-family: var(--display); font-size: 1.5rem; color: var(--ink); font-weight: 900; }
+  .hero-stats .stat span { font-size: 0.8rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.07em; }
+
+  .hero-visual { position: relative; display: flex; justify-content: center; }
+  .phone { position: relative; width: min(300px, 62vw); aspect-ratio: 9/19.4; border-radius: 2.6rem; background: #060710; padding: 12px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.07), var(--shadow-lift), 0 0 90px -15px rgba(0,229,255,0.45); z-index: 1; }
+  .phone::before { content: ""; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 32%; height: 7px; border-radius: 5px; background: #010102; z-index: 2; }
+  .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 1.9rem; }
+  .hero-visual .glow { position: absolute; width: 120%; height: 60%; left: -10%; bottom: -6%; background: radial-gradient(closest-side, rgba(0,229,255,0.35), transparent 70%); filter: blur(10px); z-index: 0; }
+
+  /* ---------- how it works ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .step { padding: clamp(1.75rem, 3vw, 2.5rem); background: var(--surface-solid); position: relative; }
+  .step + .step { border-left: 1px solid var(--line); }
+  .step .num { font-family: var(--display); font-size: 2.75rem; font-weight: 900; color: transparent; -webkit-text-stroke: 1.5px var(--line-strong); line-height: 1; }
+  .step h3 { margin-top: 0.9rem; font-size: 1.3rem; }
+  .step p { margin-top: 0.6rem; color: var(--ink-faint); font-size: 0.98rem; }
+  @media (max-width: 720px) {
+    .steps { grid-template-columns: 1fr; }
+    .step + .step { border-left: none; border-top: 1px solid var(--line); }
+  }
+
+  /* ---------- feature rows ---------- */
+  .feature-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+  .feature-row + .feature-row { margin-top: clamp(4rem, 9vw, 7rem); }
+  .feature-row.is-reverse .feature-media { order: 2; }
+  .feature-row.is-reverse .feature-copy { order: 1; }
+  .feature-copy .tag { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.35em 0.85em; border-radius: 999px; }
+  .feature-copy h3 { margin-top: 1rem; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.08; }
+  .feature-copy p.desc { margin-top: 1rem; font-size: 1.05rem; color: var(--ink-soft); }
+  .feature-copy ul { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.65rem; }
+  .feature-copy li { display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.96rem; color: var(--ink-faint); }
+  .feature-copy li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); margin-top: 0.45em; transform: rotate(45deg); }
+  .feature-media { display: flex; justify-content: center; }
+  .feature-media .phone { width: min(260px, 68vw); box-shadow: 0 0 0 1px rgba(255,255,255,0.06), var(--shadow-lift), 0 0 70px -18px rgba(0,229,255,0.35); }
+  @media (max-width: 760px) {
+    .feature-row, .feature-row.is-reverse { grid-template-columns: 1fr; }
+    .feature-row.is-reverse .feature-media, .feature-row .feature-media { order: -1; }
+  }
+
+  /* ---------- spec checklist ---------- */
+  .spec-panel { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface-solid); padding: clamp(1.75rem, 4vw, 2.75rem); }
+  .spec-panel h3 { font-size: 1.5rem; }
+  .spec-panel > p { margin-top: 0.6rem; color: var(--ink-faint); }
+  .spec-grid { margin-top: 1.75rem; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.4rem 2rem; }
+  .spec-grid div { display: flex; gap: 0.65rem; padding: 0.55rem 0; border-top: 1px solid var(--line); font-size: 0.92rem; color: var(--ink-soft); font-family: var(--mono); }
+  .spec-grid div:nth-child(-n+3) { border-top: none; }
+  .spec-grid .ok { color: var(--good); flex: none; }
+  @media (max-width: 900px) { .spec-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } .spec-grid div:nth-child(3) { border-top: 1px solid var(--line); } }
+  @media (max-width: 560px) { .spec-grid { grid-template-columns: 1fr; } .spec-grid div:nth-child(2) { border-top: 1px solid var(--line); } }
+
+  /* ---------- screenshot gallery ---------- */
+  .gallery { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity; padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem; -webkit-overflow-scrolling: touch; }
+  .gallery::-webkit-scrollbar { height: 8px; }
+  .gallery::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; }
+  .gallery-item { flex: none; scroll-snap-align: start; width: min(220px, 62vw); }
+  .gallery-item .phone { width: 100%; }
+  .gallery-item figcaption { margin-top: 0.9rem; text-align: center; font-size: 0.85rem; color: var(--ink-faint); font-family: var(--mono); }
+  .gallery-item { margin: 0; }
+
+  /* ---------- pricing ---------- */
+  .price-lede { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: baseline; margin-bottom: 2rem; }
+  .price-lede .pill { font-family: var(--mono); font-size: 0.82rem; color: var(--good); border: 1px solid rgba(111,227,180,0.35); background: rgba(111,227,180,0.09); padding: 0.35em 0.85em; border-radius: 999px; }
+  .price-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); }
+  table.price-table { border-collapse: collapse; width: 100%; min-width: 780px; font-size: 0.92rem; }
+  .price-table th, .price-table td { padding: 1rem 1.35rem; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .price-table thead th { background: var(--surface-solid); font-family: var(--display); font-size: 1.1rem; font-weight: 900; color: var(--ink); position: sticky; top: 0; }
+  .price-table thead th .per { display: block; font-family: var(--sans); font-weight: 600; font-size: 0.8rem; color: var(--accent); margin-top: 0.3rem; }
+  .price-table tbody th { font-weight: 600; color: var(--ink-faint); font-family: var(--mono); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .price-table tbody td { color: var(--ink-soft); }
+  .price-table th[scope="row"], .price-table td:first-child { position: sticky; left: 0; background: var(--bg-1); }
+  .price-table thead th:first-child { position: sticky; left: 0; z-index: 3; background: var(--surface-solid); }
+  .price-table tr:last-child td, .price-table tr:last-child th { border-bottom: none; }
+  .price-table td.free-col, .price-table th.free-col { background: rgba(0,229,255,0.05); }
+  .price-table thead th.free-col { background: rgba(0,229,255,0.09); }
+  .price-note { margin-top: 1.5rem; color: var(--ink-faint); font-size: 0.92rem; }
+
+  /* ---------- download ---------- */
+  .download-groups { display: grid; gap: clamp(2rem, 5vw, 3rem); }
+  .download-group h3 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--sans); font-weight: 700; color: var(--ink-faint); }
+  .download-row { margin-top: 1.1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+  .dl-btn {
+    display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; border-radius: var(--r-md);
+    background: var(--surface-solid); border: 1px solid var(--line); text-decoration: none; color: var(--ink);
+    transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+  }
+  .dl-btn:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--surface-raised); }
+  .dl-btn .icon { flex: none; width: 30px; height: 30px; color: var(--accent); }
+  .dl-btn .icon svg { width: 100%; height: 100%; fill: currentColor; }
+  .dl-btn .txt { display: flex; flex-direction: column; gap: 0.15rem; }
+  .dl-btn .txt small { font-size: 0.74rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .dl-btn .txt strong { font-size: 1.05rem; font-family: var(--sans); }
+  .dl-btn .badge { margin-left: auto; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(0,229,255,0.35); padding: 0.2em 0.55em; border-radius: 999px; flex: none; }
+
+  .dl-btn.is-soon { cursor: default; opacity: 0.72; }
+  .dl-btn.is-soon:hover { transform: none; border-color: var(--line); background: var(--surface-solid); }
+  .dl-btn.is-soon .icon { color: var(--ink-faint); }
+  .dl-btn.is-soon .badge { color: var(--ink-faint); border-color: var(--line-strong); }
+
+  .download-note { margin-top: 2.5rem; padding: 1.1rem 1.4rem; border-radius: var(--r-md); background: var(--surface-solid); border: 1px solid var(--line); font-size: 0.92rem; color: var(--ink-faint); display: flex; gap: 0.8rem; }
+  .download-note svg { flex: none; width: 20px; height: 20px; color: var(--accent); margin-top: 0.1rem; }
+
+  /* ---------- footer ---------- */
+  footer.site-footer { border-top: 1px solid var(--line); background: var(--bg-1); padding: clamp(2.5rem, 6vw, 3.5rem) 0 2.5rem; }
+  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+  .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 900; font-size: 1.15rem; color: var(--ink); }
+  .footer-brand svg { width: 22px; height: 22px; }
+  .footer-tag { margin-top: 0.6rem; color: var(--ink-faint); font-size: 0.92rem; max-width: 26rem; }
+  .footer-links { display: flex; gap: clamp(2rem, 5vw, 4rem); flex-wrap: wrap; }
+  .footer-links h4 { margin: 0 0 0.75rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); font-weight: 700; font-family: var(--sans); }
+  .footer-links ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+  .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; }
+  .footer-links a:hover { color: var(--accent-strong); }
+  .footer-bottom { margin-top: 1.75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; font-size: 0.82rem; color: var(--ink-faint); }
+  .footer-bottom code { font-family: var(--mono); }
+
+  ::selection { background: var(--accent); color: var(--on-accent); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 108 108" aria-hidden="true"><path fill="#00E5FF" d="M37,33 L46,33 A4,4 0 0 1 50,37 L50,46 A4,4 0 0 1 46,50 L37,50 A4,4 0 0 1 33,46 L33,37 A4,4 0 0 1 37,33 Z"/><path fill="#ECECFF" d="M62,33 L71,33 A4,4 0 0 1 75,37 L75,46 A4,4 0 0 1 71,50 L62,50 A4,4 0 0 1 58,46 L58,37 A4,4 0 0 1 62,33 Z"/><path fill="#ECECFF" d="M37,58 L46,58 A4,4 0 0 1 50,62 L50,71 A4,4 0 0 1 46,75 L37,75 A4,4 0 0 1 33,71 L33,62 A4,4 0 0 1 37,58 Z"/><path fill="#00E5FF" d="M62,58 L71,58 A4,4 0 0 1 75,62 L75,71 A4,4 0 0 1 71,75 L62,75 A4,4 0 0 1 58,71 L58,62 A4,4 0 0 1 62,58 Z"/></svg>
+      Deckhand
+    </a>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn btn-primary btn-sm" href="#download">Get Deckhand</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-cta" href="#download">Get Deckhand</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero section-flat" id="top">
+    <div class="art-field" aria-hidden="true">
+      <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <defs>
+          <linearGradient id="gBase" gradientUnits="userSpaceOnUse" x1="-160" y1="-90" x2="1360" y2="860">
+            <stop offset="0%" stop-color="#090B15"/>
+            <stop offset="45%" stop-color="#11132A"/>
+            <stop offset="100%" stop-color="#1B1038"/>
+          </linearGradient>
+          <radialGradient id="gStage" gradientUnits="userSpaceOnUse" cx="420" cy="360" r="720">
+            <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.22"/>
+            <stop offset="45%" stop-color="#00E5FF" stop-opacity="0.07"/>
+            <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="gVignette" gradientUnits="userSpaceOnUse" cx="600" cy="380" r="860">
+            <stop offset="0%" stop-color="#05060D" stop-opacity="0"/>
+            <stop offset="60%" stop-color="#05060D" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#05060D" stop-opacity="0.8"/>
+          </radialGradient>
+          <pattern id="pTiles" width="108" height="108" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+            <rect x="11" y="11" width="86" height="86" rx="17" fill="none" stroke="#B9BEE8" stroke-width="2" opacity="0.09"/>
+          </pattern>
+          <pattern id="pAccent" width="432" height="432" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+            <rect x="119" y="11" width="86" height="86" rx="17" fill="#00E5FF" opacity="0.06"/>
+            <rect x="335" y="227" width="86" height="86" rx="17" fill="#00E5FF" opacity="0.05"/>
+          </pattern>
+        </defs>
+        <rect width="1200" height="760" fill="url(#gBase)"/>
+        <rect width="1200" height="760" fill="url(#pTiles)"/>
+        <rect width="1200" height="760" fill="url(#pAccent)"/>
+        <rect width="1200" height="760" fill="url(#gStage)"/>
+        <rect width="1200" height="760" fill="url(#gVignette)"/>
+      </svg>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <h1>Turn your phone into a Stream-Deck-style control surface.</h1>
+        <p class="lede">Pair with Windows, macOS, or Linux over your local network in seconds — no extra hardware, no account, no cloud. Build a deck of buttons, dials, and faders that's entirely yours.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#download">Get Deckhand — free</a>
+          <a class="btn btn-ghost" href="#screenshots">See it in action</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>14</b><span>Control types</span></div>
+          <div class="stat"><b>50</b><span>Deck skins</span></div>
+          <div class="stat"><b>3</b><span>Desktop platforms</span></div>
+          <div class="stat"><b>Free</b><span>Forever, for real</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow"></div>
+        <div class="phone"><img src="assets/screenshots/01_hero_grid.webp" alt="Deckhand's main deck screen showing a grid of colorful, glowing control tiles — buttons, a dial, and toggles."></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section-raised" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-num">001</span>
+        <h2>Three steps and you're live.</h2>
+        <p>No setup wizard, no cloud account, no hardware to buy.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Pair</h3>
+          <p>Install the free desktop app, then scan the QR code it shows (or type the on-screen PIN) from your phone. Both devices just need to share a network.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Design</h3>
+          <p>Drag tiles onto a grid across as many pages as your plan allows. Resize them, skin them, wire each one to whatever it should do.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Press</h3>
+          <p>Fire hotkeys, macros, OBS scenes, media controls, or a webhook to anything with a URL — straight from your pocket.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="section-flat" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-num">002</span>
+        <h2>Design it your way. Then go further than hardware can.</h2>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="tag">Appearance</span>
+          <h3>Skin every tile, every page.</h3>
+          <p class="desc">Your own icons, labels, and colors on every tile — or pick from 50 built-in deck skins across six style tiers, from clean recolors to living, animated scenes.</p>
+          <ul>
+            <li>Resizable tiles on a grid you control, across multiple pages</li>
+            <li>Two free built-in skins; 48 more across six rarity tiers</li>
+            <li>Separate skin packs for the app's own menus, too</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="phone"><img src="assets/screenshots/03_skin_store.webp" alt="Deckhand's skin store screen showing a grid of purchasable deck skin thumbnails."></div>
+        </div>
+      </div>
+
+      <div class="feature-row is-reverse">
+        <div class="feature-copy">
+          <span class="tag">Controls</span>
+          <h3>Way more than buttons.</h3>
+          <p class="desc">Fourteen control types in total — buttons, dials, faders, toggles, radial menus, text fields, gauges, color pickers, steppers, multi-state switches, XY pads, joysticks, D-pads, and sparklines.</p>
+          <ul>
+            <li>Dials and faders for continuous input — volume, brightness, MIDI CC</li>
+            <li>No extra hardware required for any of it</li>
+            <li>Live widget tiles show CPU/RAM, active app, or connection status</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="phone"><img src="assets/screenshots/02_dial_active.webp" alt="Deckhand deck screen for an OBS control layout with a live dial, mute button, and volume faders."></div>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-copy">
+          <span class="tag">Beyond hardware</span>
+          <h3>Things a hardware Stream Deck can't do.</h3>
+          <p class="desc">OBS Studio scene, stream, and recording control. HTTP webhooks that trigger smart-home devices, APIs, or anything with a URL. Shake-to-trigger, voice-activated tiles, and geofenced pages that switch automatically when you sit down at your desk.</p>
+          <ul>
+            <li>A macro recorder captures a sequence of your own tiles and replays it as one</li>
+            <li>Multiple phones can control one computer, or one phone can switch between several</li>
+            <li>Shell commands and system power actions — opt-in only, never on by default</li>
+          </ul>
+        </div>
+        <div class="feature-media">
+          <div class="phone"><img src="assets/screenshots/07_smart_home.webp" alt="Deckhand deck screen for a smart-home layout with light, thermostat, and lock control tiles."></div>
+        </div>
+      </div>
+
+      <div class="spec-panel" style="margin-top: clamp(4rem, 9vw, 7rem);">
+        <h3>Also in the box</h3>
+        <p>Everything else that ships today, at a glance.</p>
+        <div class="spec-grid">
+          <div><span class="ok">✓</span>Keyboard shortcuts &amp; text macros</div>
+          <div><span class="ok">✓</span>Launch apps, open URLs and files</div>
+          <div><span class="ok">✓</span>Media controls &amp; multi-step action chains</div>
+          <div><span class="ok">✓</span>Folders for organizing large decks</div>
+          <div><span class="ok">✓</span>Toggle buttons &amp; multi-state switches</div>
+          <div><span class="ok">✓</span>Radial menus &amp; joystick / D-pad controls</div>
+          <div><span class="ok">✓</span>Color pickers &amp; steppers</div>
+          <div><span class="ok">✓</span>Sparkline widgets for live data</div>
+          <div><span class="ok">✓</span>End-to-end encrypted local pairing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREENSHOTS ================= -->
+  <section class="section-raised" id="screenshots">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-num">003</span>
+        <h2>Made for your setup.</h2>
+        <p>The same deck engine, skinned differently for whatever you're actually doing.</p>
+      </div>
+    </div>
+    <div class="gallery" role="list">
+      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/09_dj_booth.webp" alt="Deckhand deck laid out as a DJ booth controller with crossfader, cue, and loop tiles" loading="lazy"></div><figcaption>DJ booth</figcaption></figure>
+      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/13_kitchen.webp" alt="Deckhand deck laid out as kitchen timers and smart-appliance controls" loading="lazy"></div><figcaption>Kitchen</figcaption></figure>
+      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/14_classroom.webp" alt="Deckhand deck laid out for classroom presentation control" loading="lazy"></div><figcaption>Classroom</figcaption></figure>
+      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/15_photo_studio.webp" alt="Deckhand deck laid out for photo studio lighting and camera tether control" loading="lazy"></div><figcaption>Photo studio</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="section-flat" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-num">004</span>
+        <h2>Free forever. Upgrade only if you need more room.</h2>
+      </div>
+      <div class="price-lede">
+        <span class="pill">Free tier is real functionality, not a trial</span>
+        <span style="color: var(--ink-faint); font-size: 0.92rem;">All prices billed monthly or yearly (yearly ≈ 2 months free).</span>
+      </div>
+      <div class="price-scroll">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col" class="free-col">Free<span class="per">Start here</span></th>
+              <th scope="col">Starter<span class="per">$5/mo · $50/yr</span></th>
+              <th scope="col">Creator<span class="per">$15/mo · $150/yr</span></th>
+              <th scope="col">Studio<span class="per">$35/mo · $350/yr</span></th>
+              <th scope="col">Pro Studio<span class="per">$60/mo · $600/yr</span></th>
+              <th scope="col">Elite<span class="per">$120/mo · $1200/yr</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Tile cells / page</th>
+              <td class="free-col">4</td><td>8</td><td>16</td><td>32</td><td>64</td><td>Unlimited</td>
+            </tr>
+            <tr>
+              <th scope="row">Pages</th>
+              <td class="free-col">1</td><td>2</td><td>4</td><td>8</td><td>16</td><td>Unlimited</td>
+            </tr>
+            <tr>
+              <th scope="row">Paired hosts</th>
+              <td class="free-col">1</td><td>1</td><td>2</td><td>5</td><td>15</td><td>Unlimited</td>
+            </tr>
+            <tr>
+              <th scope="row">Headline unlock</th>
+              <td class="free-col">Hotkey, text &amp; media actions</td>
+              <td>Full hardware-parity actions</td>
+              <td>OBS, webhooks, dials/faders/XY pad</td>
+              <td>Shell/system actions, macro recorder</td>
+              <td>Cloud deck backup &amp; sync</td>
+              <td>Everything, unlimited</td>
+            </tr>
+            <tr>
+              <th scope="row">Ads</th>
+              <td class="free-col">Banner + 2-min rewarded</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-note">Skins are always a separate one-time purchase at every tier, including Free, and are never bundled into a subscription — buy a skin once and it's yours for good. 2 skins are free built-ins; 48 more range $0.99–$69.99.</p>
+    </div>
+  </section>
+
+  <!-- ================= DOWNLOAD ================= -->
+  <section class="section-raised" id="download">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-num">005</span>
+        <h2>Get Deckhand.</h2>
+        <p>The desktop app is ready to try today. The phone app is finishing up app-store review — the buttons below will go live the moment it clears.</p>
+      </div>
+
+      <div class="download-groups">
+        <div class="download-group">
+          <h3>On your phone</h3>
+          <div class="download-row">
+            <div class="dl-btn is-soon" aria-disabled="true">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4 L19 12 L7 20 Z"/></svg></span>
+              <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
+              <span class="badge">Coming soon</span>
+            </div>
+            <div class="dl-btn is-soon" aria-disabled="true">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 20.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13ZM17 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M12.4 6.3c-.5.4-1.1.6-1.75.55-.08-.63.23-1.3.6-1.72.5-.5 1.2-.7 1.75-.7.06.65-.18 1.3-.6 1.87Z"/></svg></span>
+              <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
+              <span class="badge">Coming soon</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="download-group">
+          <h3>On your computer</h3>
+          <div class="download-row">
+            <a class="dl-btn" href="https://github.com/LeSplooch/deckhand-site/releases/latest/download/Deckhand-Installer-windows-x86_64.exe">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><g transform="rotate(-6 12 12)"><rect x="3" y="3" width="8" height="8" rx="0.6"/><rect x="13" y="3" width="8" height="8" rx="0.6"/><rect x="3" y="13" width="8" height="8" rx="0.6"/><rect x="13" y="13" width="8" height="8" rx="0.6"/></g></svg></span>
+              <span class="txt"><small>Download for</small><strong>Windows</strong></span>
+              <span class="badge">New</span>
+            </a>
+            <a class="dl-btn" href="https://github.com/LeSplooch/deckhand-site/releases/latest/download/Deckhand-Installer-macos-arm64">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 20.5a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13ZM17 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M12.4 6.3c-.5.4-1.1.6-1.75.55-.08-.63.23-1.3.6-1.72.5-.5 1.2-.7 1.75-.7.06.65-.18 1.3-.6 1.87Z"/></svg></span>
+              <span class="txt"><small>Download for</small><strong>macOS</strong></span>
+              <span class="badge">New · Apple Silicon</span>
+            </a>
+            <a class="dl-btn" href="https://github.com/LeSplooch/deckhand-site/releases/latest/download/Deckhand-Installer-linux-x86_64.AppImage">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="14.5" rx="5.5" ry="6.5"/><circle cx="12" cy="6.8" r="3.6"/><ellipse cx="9" cy="20.5" rx="2.2" ry="1.1"/><ellipse cx="15" cy="20.5" rx="2.2" ry="1.1"/></svg></span>
+              <span class="txt"><small>Download for</small><strong>Linux</strong></span>
+              <span class="badge">AppImage</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="download-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
+        <span>One installer, no admin/root needed — it places Deckhand under your user account, adds a Start Menu / Applications launcher, and registers it to start with your session. Windows and macOS builds are fresh; if something looks off, that's useful to hear about.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 108 108" aria-hidden="true"><path fill="#00E5FF" d="M37,33 L46,33 A4,4 0 0 1 50,37 L50,46 A4,4 0 0 1 46,50 L37,50 A4,4 0 0 1 33,46 L33,37 A4,4 0 0 1 37,33 Z"/><path fill="#ECECFF" d="M62,33 L71,33 A4,4 0 0 1 75,37 L75,46 A4,4 0 0 1 71,50 L62,50 A4,4 0 0 1 58,46 L58,37 A4,4 0 0 1 62,33 Z"/><path fill="#ECECFF" d="M37,58 L46,58 A4,4 0 0 1 50,62 L50,71 A4,4 0 0 1 46,75 L37,75 A4,4 0 0 1 33,71 L33,62 A4,4 0 0 1 37,58 Z"/><path fill="#00E5FF" d="M62,58 L71,58 A4,4 0 0 1 75,62 L75,71 A4,4 0 0 1 71,75 L62,75 A4,4 0 0 1 58,71 L58,62 A4,4 0 0 1 62,58 Z"/></svg>
+          Deckhand
+        </div>
+        <p class="footer-tag">Your pocket-sized command deck. A Stream-Deck-style control surface for Windows, macOS, and Linux — built by Day Dream Corp.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#download">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Day Dream Corp. All rights reserved.</span>
+      <span>"Stream Deck" is a trademark of Elgato — Deckhand is an independent product, not affiliated with or endorsed by Elgato.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('siteNav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('is-open', !open);
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+        toggle.focus();
+      }
+    });
+  })();
+</script>
+</body>
+</html>

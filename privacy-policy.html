@@ -1,0 +1,344 @@
+<title>Deckhand — Privacy Policy</title>
+<style>
+  :root {
+    --paper:        #F5F4F0;
+    --surface:      #FFFFFF;
+    --surface-sunk: #EBE9E3;
+    --ink:          #171C1E;
+    --ink-soft:     #4A5457;
+    --ink-faint:    #686F72;
+    --rule:         #DAD7CE;
+    --brass:        #8C6415;
+    --brass-soft:   #F0E6CE;
+    --signal:       #9E3B2E;
+    --signal-soft:  #F6E4E0;
+    --verify:       #3A7A69;
+    --verify-soft:  #DFEDE8;
+
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #11171A; --surface: #171E22; --surface-sunk: #0C1215;
+      --ink: #E4E9EA; --ink-soft: #A3AEB1; --ink-faint: #78868A;
+      --rule: #263135; --brass: #D6A63F; --brass-soft: #2E2617;
+      --signal: #E08575; --signal-soft: #2E1A17;
+      --verify: #6FBFA9; --verify-soft: #14261F;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #11171A; --surface: #171E22; --surface-sunk: #0C1215;
+    --ink: #E4E9EA; --ink-soft: #A3AEB1; --ink-faint: #78868A;
+    --rule: #263135; --brass: #D6A63F; --brass-soft: #2E2617;
+    --signal: #E08575; --signal-soft: #2E1A17;
+    --verify: #6FBFA9; --verify-soft: #14261F;
+  }
+  :root[data-theme="light"] {
+    --paper: #F5F4F0; --surface: #FFFFFF; --surface-sunk: #EBE9E3;
+    --ink: #171C1E; --ink-soft: #4A5457; --ink-faint: #686F72;
+    --rule: #DAD7CE; --brass: #8C6415; --brass-soft: #F0E6CE;
+    --signal: #9E3B2E; --signal-soft: #F6E4E0;
+    --verify: #3A7A69; --verify-soft: #DFEDE8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 720px; margin: 0 auto; padding: 4rem 1.75rem 6rem; }
+
+  header.top { margin-bottom: 2.75rem; }
+  .eyebrow {
+    font-size: .7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .16em; color: var(--brass); margin: 0 0 .9rem;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.12; letter-spacing: -.015em; margin: 0 0 .9rem; text-wrap: balance;
+  }
+  .updated {
+    font-family: var(--mono); font-size: .8rem; color: var(--ink-faint);
+    display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; align-items: baseline;
+  }
+  .updated b { color: var(--ink-soft); font-weight: 600; font-family: var(--sans); }
+
+  .draft-flag {
+    margin-top: 1.5rem; padding: .9rem 1.1rem; border-radius: 6px;
+    background: var(--signal-soft); border-left: 3px solid var(--signal);
+    font-size: .875rem; color: var(--ink-soft);
+  }
+  .draft-flag strong { color: var(--ink); }
+
+  .summary {
+    margin: 2.5rem 0; padding: 1.4rem 1.5rem; border-radius: 8px;
+    background: var(--surface); border: 1px solid var(--rule);
+  }
+  .summary h2 {
+    font-family: var(--sans); font-size: .72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .13em; color: var(--brass); margin: 0 0 .8rem;
+  }
+  .summary p { margin: 0; font-size: .98rem; color: var(--ink-soft); }
+  .summary p + p { margin-top: .7rem; }
+  .summary strong { color: var(--ink); font-weight: 650; }
+
+  section.sec { padding-top: 2.6rem; border-top: 1px solid var(--rule); scroll-margin-top: 1.5rem; }
+  section.sec:first-of-type { border-top: none; }
+
+  .sec-head { display: flex; align-items: baseline; gap: .8rem; margin-bottom: 1rem; }
+  .sec-num {
+    font-family: var(--mono); font-size: .82rem; font-weight: 600; color: var(--brass);
+    flex: none; padding-top: .2rem;
+  }
+  h2.sec-title {
+    font-family: var(--serif); font-weight: 400; font-size: 1.4rem;
+    letter-spacing: -.01em; margin: 0; text-wrap: balance;
+  }
+
+  .sec-body { padding-left: 1.85rem; }
+  .sec-body p { margin: 0 0 .95rem; color: var(--ink-soft); font-size: .97rem; }
+  .sec-body p:last-child { margin-bottom: 0; }
+  .sec-body strong { color: var(--ink); font-weight: 650; }
+  .sec-body ul { margin: 0 0 .95rem; padding-left: 1.2rem; color: var(--ink-soft); font-size: .97rem; }
+  .sec-body li { margin-bottom: .5rem; }
+  .sec-body li:last-child { margin-bottom: 0; }
+  .sec-body li strong { color: var(--ink); }
+
+  code.inline {
+    font-family: var(--mono); font-size: .86em; background: var(--surface-sunk);
+    padding: .08em .35em; border-radius: 3px; color: var(--ink);
+  }
+
+  .table-wrap { overflow-x: auto; margin: 0 0 .95rem; border-radius: 6px; border: 1px solid var(--rule); }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 460px; }
+  th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  th {
+    font-size: .67rem; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--ink-faint); font-weight: 700; background: var(--surface-sunk);
+  }
+  td:first-child { font-family: var(--mono); font-size: .85rem; white-space: nowrap; color: var(--ink); }
+  .status-inert {
+    display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--ink-faint); border: 1px solid var(--rule);
+    border-radius: 3px; padding: .05rem .4rem; margin-left: .4rem;
+  }
+
+  .not-collected {
+    margin: 0 0 .95rem; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: .55rem;
+  }
+  .not-collected li {
+    display: flex; gap: .6rem; align-items: baseline; font-size: .95rem; color: var(--ink-soft);
+  }
+  .not-collected li::before {
+    content: "\2014"; color: var(--verify); font-weight: 700; flex: none;
+  }
+
+  a { color: var(--brass); text-decoration-color: var(--rule); text-underline-offset: .15em; }
+  a:hover { text-decoration-color: var(--brass); }
+  a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+  a:visited { color: var(--brass); }
+
+  footer.bottom {
+    margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
+    font-size: .8rem; color: var(--ink-faint); display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: .5rem 1rem;
+  }
+  footer.bottom code { font-family: var(--mono); }
+
+  @media (max-width: 560px) {
+    .sec-body { padding-left: 0; }
+    .sec-head { flex-direction: column; gap: .2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+  <header class="top">
+    <p class="eyebrow">Deckhand</p>
+    <h1>Privacy Policy</h1>
+    <div class="updated">
+      <span><b>Last updated</b> 2026-08-13</span>
+      <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
+    </div>
+    <div class="draft-flag">
+      <strong>Not a substitute for legal review.</strong> Everything below
+      describes verified, current app behavior — cross-checked against the
+      Android manifest, the billing and geolocation source, and the pairing
+      security audit rather than carried forward unchecked from an earlier
+      draft — but a lawyer should review this before it's relied on. Also
+      note: <code class="inline">LICENSE</code> currently names an
+      individual (LeSplooch), not Day Dream Corp — worth reconciling if Day
+      Dream Corp isn't a registered entity yet.
+    </div>
+  </header>
+
+  <div class="summary">
+    <h2>In short</h2>
+    <p>Deckhand has <strong>no server and no account system</strong>. Your
+    deck layout and pairing information stay on your phone and your paired
+    computer. The only outside parties involved are your app store (for
+    purchases), Google (for ads on the free tier, and for OS-level speech
+    recognition if you use voice triggers), and your phone's own location
+    service if you use geofenced pages.</p>
+    <p>Nothing below changes that — this document exists to describe the
+    handful of places data leaves your device, in full, not to hedge it.</p>
+  </div>
+
+  <section class="sec" id="storage">
+    <div class="sec-head"><span class="sec-num">1</span><h2 class="sec-title">What Deckhand stores, and where</h2></div>
+    <div class="sec-body">
+      <ul>
+        <li><strong>Deck layout</strong> (pages, buttons, dials, skins, bound
+        actions) — a local file on your phone. There is no cloud sync or
+        cloud backup feature today. The app does keep local safety copies of
+        that file before risky operations like a schema migration, but those
+        copies never leave the device.</li>
+        <li><strong>Pairing records</strong> (which computers you've paired
+        with, and their public identity key — never a secret) — stored
+        locally on your phone.</li>
+        <li><strong>Geofence profiles</strong> (name, coordinates, radius,
+        which page to switch to) — stored locally on your phone. Never
+        transmitted to us, to the paired computer, or to any third party.</li>
+        <li><strong>Device identity key</strong> — a cryptographic keypair
+        generated on your phone the first time you pair a computer, proving
+        it's really your phone reconnecting later. Stays on your phone.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="network">
+    <div class="sec-head"><span class="sec-num">2</span><h2 class="sec-title">What crosses the network, and to whom</h2></div>
+    <div class="sec-body">
+      <p><strong>To your paired computer, on your local network only:</strong>
+      your deck layout and button presses. The connection is end-to-end
+      encrypted at the application layer — X25519 key exchange, AES-GCM, both
+      devices' identities authenticated with Ed25519 signatures — independent
+      of whether the underlying local-network transport itself uses TLS. This
+      never goes through the internet or through any Deckhand-operated
+      server; we don't operate one.</p>
+      <p><strong>To your app store</strong> (Google Play / Apple App Store):
+      purchase transactions for subscriptions and add-ons. We never see your
+      payment details — the store handles that directly.</p>
+      <p><strong>To Google</strong> (free tier only): standard AdMob
+      advertising requests, which include an advertising identifier subject
+      to your OS-level ad-tracking settings, to show the banner ad and
+      rewarded-ad offers. This stops entirely — no requests at all — once
+      you're on a paid tier.</p>
+      <p><strong>To Google or Apple's speech recognition service</strong>
+      (only if you use a voice-activated button): recognizing what you said
+      may be processed on-device or by the platform's own cloud speech
+      service, depending on your phone's settings — an OS-level behavior we
+      don't control or see the result of beyond the recognized text, which
+      stays on your phone to compare against your configured phrase. We never
+      store or transmit your voice recording ourselves.</p>
+      <p><strong>To Google/Apple's location services</strong> (only if you
+      use geofenced pages): your phone's OS resolves your location; Deckhand
+      only ever sees a latitude/longitude pair it uses locally, never sent
+      anywhere by us.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="permissions">
+    <div class="sec-head"><span class="sec-num">3</span><h2 class="sec-title">Permissions and why</h2></div>
+    <div class="sec-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Permission</th><th>Why</th><th>Optional?</th></tr></thead>
+          <tbody>
+            <tr><td>Local network</td><td>Discover and pair with your desktop host app</td><td>Required for the app to do anything</td></tr>
+            <tr><td>Camera</td><td>Scan the QR code the host app shows during pairing. The feed is never recorded or stored.</td><td>Only for that moment</td></tr>
+            <tr><td>Location<br>(foreground)</td><td>Geofenced auto-profiles, while the deck screen is open</td><td>Only if you create a geofence</td></tr>
+            <tr><td>Location<br>(background)</td><td>Declared for a future background-monitoring version of geofencing.<span class="status-inert">not used today</span> The current build only checks location while the deck screen is visible.</td><td>Requested, presently inert</td></tr>
+            <tr><td>Microphone</td><td>Voice-activated buttons</td><td>Only if you configure a voice trigger</td></tr>
+            <tr><td>Motion sensor</td><td>Shake-to-trigger buttons</td><td>Always available — no permission prompt on either platform</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="not-collected">
+    <div class="sec-head"><span class="sec-num">4</span><h2 class="sec-title">What Deckhand does not do</h2></div>
+    <div class="sec-body">
+      <ul class="not-collected">
+        <li>No account system, no sign-up, no password.</li>
+        <li>No analytics or crash-reporting SDK.</li>
+        <li>No selling or sharing of your data with third parties for their own purposes.</li>
+        <li>No advertising or tracking of any kind once you're on a paid tier.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="rights">
+    <div class="sec-head"><span class="sec-num">5</span><h2 class="sec-title">Your rights</h2></div>
+    <div class="sec-body">
+      <p>Because Deckhand has no server and no account system, there is no
+      Deckhand-held profile of you to request, correct, or delete —
+      everything above either stays on your device or is handled by
+      Google/Apple directly under their own privacy terms.</p>
+      <ul>
+        <li><strong>Ad personalization</strong> — controlled at the OS level
+        (Android Settings → Privacy → Ads; iOS Settings → Privacy →
+        Tracking), not by us.</li>
+        <li><strong>Location, camera, and microphone permissions</strong> —
+        revocable any time in your device's app-permission settings; the
+        corresponding features simply stop working until re-granted.</li>
+        <li><strong>Purchase records</strong> — held by your app store;
+        requests about them go to Google Play or the App Store directly.</li>
+      </ul>
+      <p>If this section doesn't cover a request you have, use the contact
+      information below and we'll do our best to help even where we hold no
+      data ourselves.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="children">
+    <div class="sec-head"><span class="sec-num">6</span><h2 class="sec-title">Children's privacy</h2></div>
+    <div class="sec-body">
+      <p>Deckhand is a utility for controlling your own computer and isn't
+      directed at children. We don't knowingly collect data from children;
+      since we don't collect data from anyone beyond what's described above,
+      there's nothing additional to say here — but formal COPPA/GDPR-K
+      compliance requirements vary by jurisdiction and this draft doesn't
+      attempt to satisfy them on its own.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="changes">
+    <div class="sec-head"><span class="sec-num">7</span><h2 class="sec-title">Changes to this policy</h2></div>
+    <div class="sec-body">
+      <p>If what Deckhand does with data changes — for example, if a
+      cloud-backup feature ships — this document will be updated and the
+      date at the top will change. Material changes will be called out here
+      for one release cycle rather than folded in silently.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="responsible">
+    <div class="sec-head"><span class="sec-num">8</span><h2 class="sec-title">Who is responsible for this app</h2></div>
+    <div class="sec-body">
+      <p>Day Dream Corp is responsible for Deckhand.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="sec-head"><span class="sec-num">9</span><h2 class="sec-title">Contact</h2></div>
+    <div class="sec-body">
+      <p>For privacy questions or requests, contact
+      <a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a>.</p>
+    </div>
+  </section>
+
+  <footer class="bottom">
+    <span>Source: <code>marketing/privacy_policy.md</code></span>
+    <span>Verified against the app's current permissions and network behavior, not assumed</span>
+  </footer>
+</div>
