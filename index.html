@@ -121,17 +121,25 @@
   .brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--display); font-weight: 900; font-size: 1.25rem; color: var(--ink); text-decoration: none; margin-right: auto; }
   .brand svg { width: 26px; height: 26px; flex: none; }
   .site-nav { display: flex; align-items: center; gap: 2rem; }
-  .site-nav a:not(.btn) { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.4rem 0.1rem; border-bottom: 2px solid transparent; }
-  .site-nav a:not(.btn):hover { color: var(--ink); border-color: var(--line-strong); }
+  .site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.4rem 0.1rem; border-bottom: 2px solid transparent; }
+  .site-nav a:hover { color: var(--ink); border-color: var(--line-strong); }
   .nav-toggle {
     display: none; width: 2.75rem; height: 2.75rem; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
     background: transparent; cursor: pointer; position: relative; flex: none;
   }
-  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
-    content: ""; position: absolute; left: 25%; width: 50%; height: 2px; background: var(--ink); border-radius: 2px;
+  .nav-toggle span {
+    position: absolute; left: 25%; width: 50%; height: 2px; background: var(--ink); border-radius: 2px;
+    top: 50%; transform: translateY(-50%);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
-  .nav-toggle span { top: 50%; transform: translateY(-50%); }
+  /* left/width here are relative to `span` (its containing block, since span
+     itself is absolutely positioned) -- 0/100% so before/after match span's
+     already-centered width exactly, instead of re-applying 25%/50% against
+     span's own box and rendering at half the intended size. */
+  .nav-toggle span::before, .nav-toggle span::after {
+    content: ""; position: absolute; left: 0; width: 100%; height: 2px; background: var(--ink); border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
   .nav-toggle span::before { top: -7px; }
   .nav-toggle span::after { top: 7px; }
   .nav-toggle[aria-expanded="true"] span { background: transparent; }
@@ -139,7 +147,6 @@
   .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
 
   @media (max-width: 780px) {
-    .header-inner .btn-sm.header-cta { display: none; }
     .nav-toggle { display: block; }
     .site-nav {
       position: fixed; inset: 4.5rem 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
@@ -149,8 +156,7 @@
       padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.25rem;
     }
     .site-nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
-    .site-nav a:not(.btn) { border-bottom: 1px solid var(--line); padding: 0.9rem 0.1rem; width: 100%; }
-    .site-nav .btn { margin-top: 0.9rem; }
+    .site-nav a { border-bottom: 1px solid var(--line); padding: 0.9rem 0.1rem; width: 100%; }
   }
 
   /* ---------- section rhythm ---------- */
@@ -199,8 +205,11 @@
   /* ---------- feature rows ---------- */
   .feature-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
   .feature-row + .feature-row { margin-top: clamp(4rem, 9vw, 7rem); }
-  .feature-row.is-reverse .feature-media { order: 2; }
-  .feature-row.is-reverse .feature-copy { order: 1; }
+  /* order: -1 so media sorts before copy's default order: 0 -- the previous
+     1/2 pairing was internally consistent but identical in *relative* order
+     to the unreversed default (copy still first either way), so is-reverse
+     rows rendered with the exact same left/right arrangement as normal ones. */
+  .feature-row.is-reverse .feature-media { order: -1; }
   .feature-copy .tag { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.35em 0.85em; border-radius: 999px; }
   .feature-copy h3 { margin-top: 1rem; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.08; }
   .feature-copy p.desc { margin-top: 1rem; font-size: 1.05rem; color: var(--ink-soft); }
@@ -307,7 +316,6 @@
       <a href="#features">Features</a>
       <a href="#screenshots">Screenshots</a>
       <a href="#pricing">Pricing</a>
-      <a class="btn btn-primary btn-sm" href="#download">Get Deckhand</a>
     </nav>
     <a class="btn btn-primary btn-sm header-cta" href="#download">Get Deckhand</a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu"><span></span></button>
