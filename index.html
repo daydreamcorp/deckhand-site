@@ -295,6 +295,29 @@
   .download-note { margin-top: 2.5rem; padding: 1.1rem 1.4rem; border-radius: var(--r-md); background: var(--surface-solid); border: 1px solid var(--line); font-size: 0.92rem; color: var(--ink-faint); display: flex; gap: 0.8rem; }
   .download-note svg { flex: none; width: 20px; height: 20px; color: var(--accent); margin-top: 0.1rem; }
 
+  /* ---------- per-platform install steps ----------
+     Nothing here is signed yet, so every platform interrupts the user in its
+     own way: SmartScreen on Windows, Gatekeeper on macOS, and an AppImage
+     that silently does nothing until it is marked executable. Each of those
+     looks like a broken download rather than a security prompt, so the steps
+     are on the page instead of in a support inbox. */
+  .install-guide { margin-top: 1.6rem; display: grid; gap: 0.7rem; }
+  .install-guide > h4 { margin: 0 0 0.1rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); font-weight: 700; }
+  .install-os { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-solid); overflow: hidden; }
+  .install-os[open] { border-color: var(--line-strong); }
+  .install-os > summary { cursor: pointer; list-style: none; padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 0.7rem; font-weight: 650; color: var(--ink); font-size: 0.95rem; }
+  .install-os > summary::-webkit-details-marker { display: none; }
+  .install-os > summary::after { content: "+"; margin-left: auto; color: var(--ink-faint); font-family: var(--mono); font-size: 1.1rem; line-height: 1; }
+  .install-os[open] > summary::after { content: "\2212"; }
+  .install-os > summary:hover { color: var(--accent-strong); }
+  .install-os .yours { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.2em 0.6em; border-radius: 999px; }
+  .install-body { padding: 0 1.2rem 1.1rem; color: var(--ink-soft); font-size: 0.92rem; }
+  .install-body ol { margin: 0; padding-left: 1.15rem; display: grid; gap: 0.55rem; }
+  .install-body li::marker { color: var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+  .install-body code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 0.15em 0.45em; color: var(--ink); overflow-wrap: anywhere; }
+  .install-body .cmd { display: block; margin-top: 0.4rem; padding: 0.6rem 0.75rem; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); font-family: var(--mono); font-size: 0.82rem; color: var(--ink); overflow-x: auto; white-space: pre; }
+  .install-body .why { margin: 0.7rem 0 0; font-size: 0.86rem; color: var(--ink-faint); }
+
   /* ---------- footer ---------- */
   footer.site-footer { border-top: 1px solid var(--line); background: var(--bg-1); padding: clamp(2.5rem, 6vw, 3.5rem) 0 2.5rem; }
   .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
@@ -580,11 +603,15 @@
         <div class="download-group">
           <h3>On your phone</h3>
           <div class="download-row">
-            <a class="dl-btn" href="https://play.google.com/store/apps/details?id=com.daydreamcorp.deckhand">
+            <!-- Not a link yet, deliberately. Deckhand is in closed testing, so
+                 its Play listing 404s for anyone who is not an enrolled tester;
+                 a "Coming soon" badge on a live link still sends people to an
+                 error page. Restore the href the day it reaches production. -->
+            <div class="dl-btn is-soon" role="button" aria-disabled="true" tabindex="-1">
               <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4 L19 12 L7 20 Z"/></svg></span>
               <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
               <span class="badge">Coming soon</span>
-            </a>
+            </div>
             <div class="dl-btn is-soon" role="button" aria-disabled="true" tabindex="-1">
               <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><mask id="appleBiteA"><rect width="24" height="24" fill="#fff"/><circle cx="16.5" cy="9.5" r="4.5" fill="#000"/></mask><circle cx="12" cy="13.5" r="6.5" mask="url(#appleBiteA)"/><ellipse cx="10.3" cy="6.4" rx="1.9" ry="0.95" transform="rotate(-30 10.3 6.4)"/></svg></span>
               <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
@@ -613,6 +640,59 @@
             </a>
           </div>
         </div>
+      </div>
+
+      <div class="install-guide" id="install-guide">
+        <h4>After the download — one step per platform</h4>
+
+        <details class="install-os" id="install-windows">
+          <summary>Windows<span class="yours" hidden>Your system</span></summary>
+          <div class="install-body">
+            <ol>
+              <li>Open the downloaded <code>Deckhand-Installer-windows-x86_64.exe</code>.</li>
+              <li>Windows will show <strong>“Windows protected your PC”</strong>. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+              <li>The installer runs without admin rights and puts Deckhand under your own user account.</li>
+            </ol>
+            <p class="why">That warning appears because the build isn’t code-signed yet, not because anything is wrong with it. A signing certificate is on the list.</p>
+          </div>
+        </details>
+
+        <details class="install-os" id="install-macos">
+          <summary>macOS — Apple Silicon<span class="yours" hidden>Your system</span></summary>
+          <div class="install-body">
+            <ol>
+              <li>The download is a plain binary with no file extension, so double-clicking it won’t work. Open <strong>Terminal</strong>.</li>
+              <li>Make it executable and clear the download quarantine:
+                <span class="cmd">cd ~/Downloads
+chmod +x Deckhand-Installer-macos-arm64
+xattr -d com.apple.quarantine Deckhand-Installer-macos-arm64</span>
+              </li>
+              <li>Run it:
+                <span class="cmd">./Deckhand-Installer-macos-arm64</span>
+              </li>
+            </ol>
+            <p class="why">Both commands are needed because the build isn’t signed or notarised yet — without them macOS reports the file as damaged, which it isn’t. Apple Silicon only; there’s no Intel build.</p>
+          </div>
+        </details>
+
+        <details class="install-os" id="install-linux">
+          <summary>Linux — AppImage<span class="yours" hidden>Your system</span></summary>
+          <div class="install-body">
+            <ol>
+              <li>Mark it executable — a freshly downloaded AppImage does nothing at all until you do:
+                <span class="cmd">cd ~/Downloads
+chmod +x Deckhand-Installer-linux-x86_64.AppImage</span>
+              </li>
+              <li>Run it:
+                <span class="cmd">./Deckhand-Installer-linux-x86_64.AppImage</span>
+              </li>
+              <li>If it complains about FUSE, either install <code>libfuse2</code> or run it without FUSE:
+                <span class="cmd">./Deckhand-Installer-linux-x86_64.AppImage --appimage-extract-and-run</span>
+              </li>
+            </ol>
+            <p class="why">Your file manager can set the executable bit too — Properties → Permissions → “Allow executing file as program”.</p>
+          </div>
+        </details>
       </div>
 
       <div class="download-note">
@@ -687,6 +767,34 @@
         toggle.focus();
       }
     });
+  })();
+
+  // Opens the install steps for whatever the visitor is on, and marks them as
+  // theirs. Progressive enhancement only -- all three <details> work closed,
+  // by hand, with no JS, which matters because platform sniffing is a guess:
+  // getting it wrong should cost a click, never hide the instructions.
+  (function () {
+    var guide = document.getElementById('install-guide');
+    if (!guide) return;
+
+    var ua = navigator.userAgent || '';
+    var platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+    var probe = platform + ' ' + ua;
+
+    var id = null;
+    // Android before Linux: every Android UA also says Linux, and an Android
+    // visitor wants the phone app, not AppImage instructions.
+    if (/Android/i.test(ua)) id = null;
+    else if (/Win/i.test(probe)) id = 'install-windows';
+    else if (/Mac|iPhone|iPad|iPod/i.test(probe)) id = 'install-macos';
+    else if (/Linux|X11|CrOS/i.test(probe)) id = 'install-linux';
+
+    var target = id && document.getElementById(id);
+    if (!target) return;
+
+    target.open = true;
+    var badge = target.querySelector('.yours');
+    if (badge) badge.hidden = false;
   })();
 </script>
 </body>
