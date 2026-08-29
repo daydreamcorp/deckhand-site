@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Deckhand — Your Pocket-Sized Command Deck</title>
+<title>Deckhand — Become a Tester</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Turn your phone into a customizable Stream-Deck-style control surface for Windows, macOS, and Linux — no extra hardware, no account, no cloud.">
+<meta name="description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Daily quests tell you what to try; finish and get 3 months of Elite free at launch.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#090b15">
-<meta property="og:title" content="Deckhand — Your Pocket-Sized Command Deck">
-<meta property="og:description" content="Turn your phone into a customizable Stream-Deck-style control surface for Windows, macOS, and Linux — no extra hardware, no account, no cloud.">
+<meta property="og:title" content="Deckhand is looking for 12 testers">
+<meta property="og:description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Daily quests tell you what to try; finish and get 3 months of Elite free at launch.">
 <meta property="og:image" content="assets/og-image.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -146,7 +146,10 @@
   .nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
 
-  @media (max-width: 780px) {
+  /* 900, not 780: a fifth nav item plus the CTA stops fitting on one line
+     well before 780px, and the nav then wraps inside a fixed-height header
+     and clips. The hero keeps its own 780px collapse below. */
+  @media (max-width: 900px) {
     .nav-toggle { display: block; }
     .site-nav {
       position: fixed; inset: 4.5rem 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
@@ -333,6 +336,157 @@
   .footer-bottom code { font-family: var(--mono); }
 
   ::selection { background: var(--accent); color: var(--on-accent); }
+  /* ---------- tester recruitment ---------- */
+  /* One new hue on the whole page, earned by one meaning: the reward. Bronze
+     and silver exist only as the two lower streak milestones, so the three
+     read as an ordered set rather than as a rainbow. */
+  :root {
+    --gold: #ffc75a;
+    --silver: #c6cde6;
+    --bronze: #e0956a;
+  }
+
+  .recruit-banner {
+    background: linear-gradient(90deg, rgba(0,229,255,0.16), rgba(255,199,90,0.12));
+    border-bottom: 1px solid var(--line);
+    font-size: 0.92rem;
+  }
+  .recruit-banner .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.9rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+  .recruit-banner b { color: var(--ink); font-weight: 600; }
+  .recruit-banner a { color: var(--accent-strong); font-weight: 600; text-underline-offset: 3px; }
+
+  /* The trade, shown as a trade: what you give on the left, what you get on
+     the right. Two columns of one idea each, not a grid of cards. */
+  .deal { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); }
+  .deal-side { border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 2.6vw, 2rem); background: var(--surface-solid); }
+  .deal-get { border-color: rgba(255,199,90,0.34); background: linear-gradient(165deg, rgba(255,199,90,0.09), var(--surface-solid) 62%); }
+  .deal-side h3 { font-size: 1.3rem; margin-bottom: 1.1rem; }
+  .deal-get h3 { color: var(--gold); }
+  .deal-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.05rem; counter-reset: deal; }
+  .deal-list li { position: relative; padding-left: 2.35rem; font-size: 0.97rem; color: var(--ink-faint); }
+  .deal-list li b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+  .deal-ask .deal-list li::before {
+    counter-increment: deal; content: counter(deal);
+    position: absolute; left: 0; top: -0.1rem;
+    width: 1.65rem; height: 1.65rem; border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--mono); font-size: 0.8rem; color: var(--accent);
+    border: 1px solid rgba(0,229,255,0.45); background: var(--accent-soft);
+  }
+  /* A drawn check, not a glyph font or an emoji: same stroke weight as the
+     rest of the page's iconography. */
+  .deal-get .deal-list li::before {
+    content: ""; position: absolute; left: 0.15rem; top: 0.25rem;
+    width: 1.15rem; height: 0.6rem;
+    border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+    transform: rotate(-45deg); border-radius: 1px;
+  }
+  .deal-worth { display: inline-block; margin-top: 0.35rem; font-family: var(--mono); font-size: 0.78rem; color: var(--gold); border: 1px solid rgba(255,199,90,0.35); border-radius: 999px; padding: 0.15rem 0.6rem; }
+
+  /* ---------- the 14-day strip ---------- */
+  .streak { margin-top: clamp(2.25rem, 5vw, 3.25rem); }
+  .streak h3 { font-size: 1.3rem; }
+  .streak > p { margin-top: 0.6rem; color: var(--ink-faint); max-width: var(--measure); font-size: 0.97rem; }
+  .streak-days { display: grid; grid-template-columns: repeat(14, minmax(0,1fr)); gap: clamp(0.25rem, 0.8vw, 0.6rem); margin: 1.5rem 0 0; padding: 0; list-style: none; }
+  .streak-days li {
+    position: relative; aspect-ratio: 1; border-radius: clamp(6px, 1.1vw, 12px);
+    border: 1px solid var(--line-strong); background: var(--surface-solid);
+    display: grid; place-items: center;
+    font-family: var(--mono); font-size: clamp(0.6rem, 1.15vw, 0.85rem); color: var(--ink-faint);
+  }
+  .streak-days .is-mark { color: var(--on-accent); font-weight: 700; border-color: transparent; }
+  .streak-days .m-bronze { background: var(--bronze); }
+  .streak-days .m-silver { background: var(--silver); }
+  .streak-days .m-gold   { background: var(--gold); box-shadow: 0 0 24px -6px rgba(255,199,90,0.65); }
+  .streak-legend { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-top: 1.25rem; padding: 0; list-style: none; }
+  .streak-legend li { font-size: 0.9rem; color: var(--ink-faint); border-top: 2px solid var(--line); padding-top: 0.65rem; }
+  .streak-legend b { display: block; color: var(--ink); font-weight: 600; }
+  .streak-legend .l-bronze { border-top-color: var(--bronze); }
+  .streak-legend .l-silver { border-top-color: var(--silver); }
+  .streak-legend .l-gold { border-top-color: var(--gold); }
+  .streak-legend .day { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+
+  /* ---------- the quest panel ---------- */
+  .quests { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,0.95fr) minmax(0,1.05fr); gap: clamp(1.75rem, 4vw, 3rem); align-items: center; }
+  .quest-copy h3 { font-size: 1.3rem; }
+  .quest-copy p { margin-top: 0.75rem; color: var(--ink-faint); font-size: 0.97rem; }
+  .quest-copy p + p { margin-top: 0.8rem; }
+  .quest-card { border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--surface-solid); padding: clamp(1.15rem, 2.2vw, 1.6rem); box-shadow: var(--shadow-lift); }
+  .quest-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .quest-head h4 { font-family: var(--display); font-weight: 900; font-size: 1.15rem; color: var(--ink); margin: 0; }
+  .quest-score { font-family: var(--mono); font-size: 1.05rem; color: var(--accent); }
+  .quest-score i { font-style: normal; color: var(--ink-faint); font-size: 0.85rem; }
+  .quest-bar { height: 8px; border-radius: 999px; background: rgba(185,190,232,0.16); margin: 0.85rem 0 1.35rem; overflow: hidden; }
+  .quest-bar span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-strong)); }
+  .quest-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+  .quest-list li { display: grid; grid-template-columns: 1.4rem 1fr auto; gap: 0.85rem; align-items: start; padding: 0.7rem 0.15rem; border-top: 1px solid var(--line); }
+  .quest-list li:first-child { border-top: 0; padding-top: 0; }
+  .quest-list .q-title { color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+  .quest-list .q-desc { display: block; color: var(--ink-faint); font-size: 0.85rem; font-weight: 400; margin-top: 0.1rem; }
+  .quest-list .q-pts { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-faint); white-space: nowrap; padding-top: 0.15rem; }
+  /* Three states, each with a shape as well as a colour: filled disc + check
+     for done, half-filled ring for running, empty ring for not started. */
+  .q-mark { width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1.5px solid var(--line-strong); position: relative; margin-top: 0.05rem; }
+  .is-done .q-mark { border-color: var(--good); background: var(--good); }
+  .is-done .q-mark::after { content: ""; position: absolute; left: 0.34rem; top: 0.4rem; width: 0.6rem; height: 0.3rem; border-left: 2px solid #05221a; border-bottom: 2px solid #05221a; transform: rotate(-45deg); }
+  .is-done .q-title { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: rgba(159,166,208,0.5); }
+  .is-done .q-pts { color: var(--good); }
+  .is-live .q-mark { border-color: var(--accent); }
+  .is-live .q-mark::after { content: ""; position: absolute; inset: 0.22rem; border-radius: 50%; background: conic-gradient(var(--accent) 0turn 0.5turn, transparent 0.5turn); }
+  .is-live .q-pts { color: var(--accent); }
+
+  /* ---------- requirements + join ---------- */
+  .join { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.5rem, 3.5vw, 2.5rem); align-items: start; }
+  .join h3 { font-size: 1.3rem; margin-bottom: 0.9rem; }
+  .need { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+  .need li { position: relative; padding-left: 1.5rem; font-size: 0.95rem; color: var(--ink-faint); }
+  .need li::before { content: ""; position: absolute; left: 0; top: 0.55rem; width: 0.5rem; height: 0.5rem; border-radius: 2px; background: var(--accent); }
+  .need b { color: var(--ink); font-weight: 600; }
+  .join-box { border: 1px solid rgba(0,229,255,0.35); border-radius: var(--r-lg); background: linear-gradient(165deg, var(--accent-soft), var(--surface-solid) 65%); padding: clamp(1.4rem, 2.6vw, 2rem); }
+  .join-box p { color: var(--ink-faint); font-size: 0.95rem; }
+  /* .btn is nowrap globally, which is right for the short labels elsewhere.
+     This one names its action ("Email us..."), so it is long enough that at
+     a 320px viewport its min-content pushed the whole grid track 21px past
+     the viewport. It wraps instead of being shortened into vagueness. */
+  .join-box .btn { margin-top: 1.2rem; width: 100%; white-space: normal; text-wrap: balance; line-height: 1.25; }
+  .join-box .after { margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-faint); }
+  .join-box .after code { font-family: var(--mono); font-size: 0.82rem; color: var(--ink-soft); }
+
+  /* ---------- straight answers ---------- */
+  .tester-faq { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--line); padding-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+  .tester-faq h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .tester-faq > p { color: var(--ink-faint); font-size: 0.95rem; max-width: var(--measure); }
+  .faq-q { border-bottom: 1px solid var(--line); }
+  .faq-q:first-of-type { border-top: 1px solid var(--line); margin-top: 1.5rem; }
+  .faq-q > summary { cursor: pointer; list-style: none; padding: 1.05rem 2.5rem 1.05rem 0; position: relative; color: var(--ink); font-weight: 600; font-size: 1rem; }
+  .faq-q > summary::-webkit-details-marker { display: none; }
+  .faq-q > summary::after {
+    content: ""; position: absolute; right: 0.35rem; top: 50%;
+    width: 0.6rem; height: 0.6rem; margin-top: -0.4rem;
+    border-right: 2px solid var(--ink-faint); border-bottom: 2px solid var(--ink-faint);
+    transform: rotate(45deg); transition: transform 0.2s ease;
+  }
+  .faq-q[open] > summary::after { transform: rotate(-135deg); margin-top: -0.15rem; }
+  .faq-q > summary:hover { color: var(--accent-strong); }
+  .faq-a { padding: 0 0 1.15rem; color: var(--ink-faint); font-size: 0.95rem; max-width: var(--measure); }
+  .faq-a p + p { margin-top: 0.7rem; }
+  .faq-a a { color: var(--accent-strong); }
+
+  @media (max-width: 900px) {
+    .quests { grid-template-columns: 1fr; }
+    .join { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 780px) {
+    .deal { grid-template-columns: 1fr; }
+    /* 14 across is unreadable on a phone; 7 across makes it two literal weeks,
+       which is a better read of the same fact. */
+    .streak-days { grid-template-columns: repeat(7, minmax(0,1fr)); }
+    .streak-legend { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+  @media (max-width: 520px) {
+    .quest-list li { grid-template-columns: 1.4rem 1fr; }
+    .quest-list .q-pts { grid-column: 2; padding-top: 0.15rem; }
+  }
 </style>
 </head>
 <body>
@@ -345,15 +499,23 @@
       Deckhand
     </a>
     <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="#testers">Testers</a>
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
       <a href="#screenshots">Screenshots</a>
       <a href="#pricing">Pricing</a>
     </nav>
-    <a class="btn btn-primary btn-sm header-cta" href="#download">Get Deckhand</a>
+    <a class="btn btn-primary btn-sm header-cta" href="#testers">Become a tester</a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu"><span></span></button>
   </div>
 </header>
+
+<div class="recruit-banner">
+  <div class="wrap">
+    <span><b>Deckhand is in closed testing</b> — we need 12 testers for 14 days before it can launch.</span>
+    <a href="#testers">See what's in it for you →</a>
+  </div>
+</div>
 
 <main id="main">
 
@@ -394,17 +556,17 @@
     </div>
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <h1>Turn your phone into a Stream-Deck-style control surface.</h1>
-        <p class="lede">Pair with Windows, macOS, or Linux over your local network in seconds — no extra hardware, no account, no cloud. Build a deck of buttons, dials, and faders that's entirely yours.</p>
+        <h1>Help launch Deckhand. Keep three months of Elite.</h1>
+        <p class="lede">Deckhand turns your phone into a Stream-Deck-style control surface for Windows, macOS and Linux — no extra hardware, no account, no cloud. It's finished. What it needs now is twelve people willing to use it daily for fourteen days, so Google Play will let it out.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#download">Get Deckhand — free</a>
-          <a class="btn btn-ghost" href="#screenshots">See it in action</a>
+          <a class="btn btn-primary" href="#testers">Become a tester</a>
+          <a class="btn btn-ghost" href="#screenshots">See what you'd be testing</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><b>14</b><span>Control types</span></div>
-          <div class="stat"><b>50</b><span>Deck skins</span></div>
-          <div class="stat"><b>3</b><span>Desktop platforms</span></div>
-          <div class="stat"><b>Free</b><span>Grows with you</span></div>
+          <div class="stat"><b>14</b><span>Days of testing</span></div>
+          <div class="stat"><b>5</b><span>Quests a day</span></div>
+          <div class="stat"><b>72</b><span>Quests &amp; badges</span></div>
+          <div class="stat"><b>3 mo</b><span>Elite, free</span></div>
         </div>
       </div>
       <div class="hero-visual">
@@ -414,11 +576,179 @@
     </div>
   </section>
 
-  <!-- ================= HOW IT WORKS ================= -->
-  <section class="section-raised" id="how">
+  <!-- ================= TESTERS ================= -->
+  <section class="section-raised" id="testers">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow-num">001</span>
+        <h2>Twelve testers. Fourteen days. Then Deckhand can launch.</h2>
+        <p>Google Play doesn't let a new developer publish anything until at least twelve people have run the app in a closed test for fourteen days in a row. That test is the only thing left between Deckhand and its public release — so this is the honest ask, with the deal written out in full.</p>
+      </div>
+
+      <div class="deal">
+        <div class="deal-side deal-ask">
+          <h3>What you'd do</h3>
+          <ol class="deal-list">
+            <li><b>Open the app once a day, for fourteen days.</b> Five minutes is plenty. The days have to be consecutive — that's Google's rule, not ours, and a gap restarts the clock for everybody.</li>
+            <li><b>Work through the day's quests.</b> Five arrive each morning, worth 100 points together. They're what tells you <em>what</em> to test, so you never have to open the app and wonder what to do with it.</li>
+            <li><b>Say what broke.</b> One line by email is fine. Finding the rough edges is the whole reason the test exists.</li>
+          </ol>
+        </div>
+        <div class="deal-side deal-get">
+          <h3>What you get</h3>
+          <ul class="deal-list">
+            <li><b>Three months of Elite, free, when Deckhand launches.</b> The top tier — unlimited tiles, pages and paired computers, and every action type there is: shell commands, OBS scenes, webhooks, the macro recorder, dials and faders. <span class="deal-worth">$360 at list price</span></li>
+            <li><b>Every paid feature unlocked from day one.</b> Test builds run at Elite already, so nothing is behind a paywall while you're testing. You're not evaluating a crippled free tier.</li>
+            <li><b>No ads. None.</b> The ad surface only exists on the free tier, and you're not on it.</li>
+            <li><b>A say in what ships.</b> Twelve people is a small enough room that what you report actually changes the product before anyone else sees it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="streak">
+        <h3>The fourteen days, and what they're worth</h3>
+        <p>The app keeps the count for you. Fill the daily bar and the streak carries; three of the badges exist only along this stretch, and the last one can't be earned any other way once the test is over.</p>
+        <ol class="streak-days">
+          <li>1</li>
+          <li>2</li>
+          <li class="is-mark m-bronze">3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li class="is-mark m-silver">7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>10</li>
+          <li>11</li>
+          <li>12</li>
+          <li>13</li>
+          <li class="is-mark m-gold">14</li>
+        </ol>
+        <ul class="streak-legend">
+          <li class="l-bronze"><span class="day">Day 3 · Bronze</span><b>On a roll</b>Fill the daily bar three days running.</li>
+          <li class="l-silver"><span class="day">Day 7 · Silver</span><b>Full week</b>Fill the daily bar seven days running.</li>
+          <li class="l-gold"><span class="day">Day 14 · Gold</span><b>Perfect attendance</b>Fill the daily bar fourteen days running. That's the whole test.</li>
+        </ul>
+      </div>
+
+      <div class="quests">
+        <div class="quest-copy">
+          <h3>You get quests, not homework.</h3>
+          <p>Five quests land each morning, drawn from a catalogue of <b>forty daily objectives and thirty-two badges</b> spanning eleven areas of the app — pairing, deck editing, macros, geofence triggers, skins, the desktop side, latency. The rotation won't hand you the same objective two days running, so each day pushes you at a different corner.</p>
+          <p>That's deliberate. A tester with nothing particular to do opens the app, looks at it, and closes it — and the corners nobody thinks to try are exactly the ones still holding bugs. The quests are how those corners get found.</p>
+          <p>Some can't be rushed on purpose: a few need action on several different days, so there's no way to grind the test out in one sitting. Fourteen days is fourteen days.</p>
+        </div>
+        <div class="quest-card">
+          <div class="quest-head">
+            <h4>Today</h4>
+            <span class="quest-score">45<i>/100</i></span>
+          </div>
+          <div class="quest-bar"><span style="width:45%"></span></div>
+          <ul class="quest-list">
+            <li class="is-done">
+              <span class="q-mark" aria-hidden="true"></span>
+              <span><span class="q-title">Handshake</span><span class="q-desc">Connect to your desktop host.</span></span>
+              <span class="q-pts">Done · 10</span>
+            </li>
+            <li class="is-done">
+              <span class="q-mark" aria-hidden="true"></span>
+              <span><span class="q-title">Warm hands</span><span class="q-desc">Fire 15 actions.</span></span>
+              <span class="q-pts">Done · 10</span>
+            </li>
+            <li class="is-done">
+              <span class="q-mark" aria-hidden="true"></span>
+              <span><span class="q-title">Wheel of fortune</span><span class="q-desc">Pick from a radial menu 3 times.</span></span>
+              <span class="q-pts">Done · 25</span>
+            </li>
+            <li class="is-live">
+              <span class="q-mark" aria-hidden="true"></span>
+              <span><span class="q-title">Hold the line</span><span class="q-desc">Stay connected through a 10-minute session.</span></span>
+              <span class="q-pts">5/10 min · 25</span>
+            </li>
+            <li>
+              <span class="q-mark" aria-hidden="true"></span>
+              <span><span class="q-title">Full range</span><span class="q-desc">Use 5 different kinds of action.</span></span>
+              <span class="q-pts">0/5 · 30</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="join">
+        <div>
+          <h3>What you need</h3>
+          <ul class="need">
+            <li><b>An Android phone or tablet.</b> The closed test runs on Google Play, so Android only for now — the iOS build isn't in testing yet.</li>
+            <li><b>A Windows, macOS or Linux computer</b> on the same network. Deckhand controls that computer; without one there's nothing to press.</li>
+            <li><b>A Google account email.</b> Play invites are tied to the exact account you'll download with — a different address from the one on the phone is the single most common way enrolment fails.</li>
+            <li><b>Play auto-update left on.</b> Test builds expire about a week after they're compiled and are replaced mid-window. If yours goes stale you're locked out and the cohort's clock resets.</li>
+            <li><b>Roughly five minutes a day</b>, fourteen days running.</li>
+          </ul>
+        </div>
+        <div class="join-box">
+          <h3>Join the test</h3>
+          <p>Send one email with your Google-account address and we'll add you to the tester list. Places are added by hand, so you'll get a reply rather than an automated void.</p>
+          <a class="btn btn-primary" href="mailto:admin@daydreamcorp.com?subject=Deckhand%20closed%20test%20-%20count%20me%20in&amp;body=Hi%20Deckhand%20team%2C%0A%0AI%27d%20like%20to%20join%20the%2014-day%20closed%20test.%0A%0AGoogle%20account%20email%20%28this%20is%20the%20address%20the%20Play%20invite%20needs%29%3A%0APhone%20model%20and%20Android%20version%3A%0AComputer%20I%27ll%20pair%20it%20with%20%28Windows%20/%20macOS%20/%20Linux%29%3A%0A%0AI%20understand%20the%20test%20runs%2014%20days%20in%20a%20row%20and%20that%20I%27ll%20open%20the%20app%20each%20day.%0A">Email us to become a tester</a>
+          <p class="after">The button opens your mail app with the details already filled in. If it doesn't, write to <code>admin@daydreamcorp.com</code> with your Google-account email, your phone, and which computer you'll pair with.</p>
+        </div>
+      </div>
+
+      <div class="tester-faq">
+        <h3>Straight answers before you commit</h3>
+        <p>A test build behaves differently from the app that eventually ships. Here's every way that's true, up front.</p>
+
+        <details class="faq-q">
+          <summary>Is my usage tracked during the test?</summary>
+          <div class="faq-a">
+            <p>Yes, and you should know exactly how before you sign up. Test builds collect anonymous usage analytics — which screens you open, which controls you use, connection quality, quest progress — and unlike the public release, the off-switch in Settings is hidden for testers outside the EEA and UK. A twelve-person funnel stops being readable if a few people quietly opt out, so for the closed test it's on.</p>
+            <p>What's never collected: the contents of your deck, your tile labels, what your buttons actually do, or anything you type into the app. Layout tracking is off and the <a href="privacy-policy.html">privacy policy</a> commits to that in writing. When Deckhand reaches production the toggle comes back for everyone.</p>
+          </div>
+        </details>
+
+        <details class="faq-q">
+          <summary>Why can't I take a screenshot?</summary>
+          <div class="faq-a">
+            <p>Test builds block screenshots, screen recording and casting, and show a blank thumbnail in the app switcher. The deck editor, the skins and the pricing surface aren't announced yet, and the closed test hands a complete build to twelve people outside the company.</p>
+            <p>It's a testing-phase measure and nothing more — it comes off before the public release. If you need to show us something, describe it or point a second camera at the screen; that's genuinely fine.</p>
+          </div>
+        </details>
+
+        <details class="faq-q">
+          <summary>What happens if I miss a day?</summary>
+          <div class="faq-a">
+            <p>Your streak resets and the gold badge is out of reach, but you're not thrown out — keep going and the fourteen days still count toward the reward. Tell us if life gets in the way rather than going quiet: what actually costs us is a tester who disappears without saying so, because Google measures continuous opted-in days across the whole group.</p>
+          </div>
+        </details>
+
+        <details class="faq-q">
+          <summary>When exactly do I get the three months of Elite?</summary>
+          <div class="faq-a">
+            <p>On release. Elite can't be granted against a store listing that doesn't exist publicly yet, so the free three months start when Deckhand reaches production and are applied to the same Google account you tested with. In the meantime the test build already runs at Elite, so you lose nothing by waiting.</p>
+          </div>
+        </details>
+
+        <details class="faq-q">
+          <summary>Can I quit partway through?</summary>
+          <div class="faq-a">
+            <p>Yes, at any point, by leaving the test from the Play listing or by telling us. No obligation and no hard feelings — an email saying you're out is worth a lot, because it tells us to recruit a replacement instead of waiting on someone who isn't coming back.</p>
+          </div>
+        </details>
+
+        <details class="faq-q">
+          <summary>Does it cost anything?</summary>
+          <div class="faq-a">
+            <p>No. The phone app and the desktop app are both free to install, there's nothing to pay during the test, and no card is collected at any point. The desktop installers aren't code-signed yet, so Windows and macOS will warn you on first run — the <a href="#download">install steps</a> further down cover exactly what to click.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section-flat" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-num">002</span>
         <h2>Three steps and you're live.</h2>
         <p>No setup wizard, no cloud account, no hardware to buy.</p>
       </div>
@@ -443,10 +773,10 @@
   </section>
 
   <!-- ================= FEATURES ================= -->
-  <section class="section-flat" id="features">
+  <section class="section-raised" id="features">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow-num">002</span>
+        <span class="eyebrow-num">003</span>
         <h2>Design it your way. Then go further than hardware can.</h2>
       </div>
 
@@ -517,10 +847,10 @@
   </section>
 
   <!-- ================= SCREENSHOTS ================= -->
-  <section class="section-raised" id="screenshots">
+  <section class="section-flat" id="screenshots">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow-num">003</span>
+        <span class="eyebrow-num">004</span>
         <h2>Made for your setup.</h2>
         <p>The same deck engine, skinned differently for whatever you're actually doing.</p>
       </div>
@@ -534,10 +864,10 @@
   </section>
 
   <!-- ================= PRICING ================= -->
-  <section class="section-flat" id="pricing">
+  <section class="section-raised" id="pricing">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow-num">004</span>
+        <span class="eyebrow-num">005</span>
         <h2>Start free. Your deck grows when you're ready.</h2>
       </div>
       <div class="price-lede">
@@ -591,12 +921,12 @@
   </section>
 
   <!-- ================= DOWNLOAD ================= -->
-  <section class="section-raised" id="download">
+  <section class="section-flat" id="download">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow-num">005</span>
+        <span class="eyebrow-num">006</span>
         <h2>Get Deckhand.</h2>
-        <p>The desktop app is ready to try today. The phone app is finishing up app-store review — the buttons below will go live the moment it clears.</p>
+        <p>The desktop app is ready to try today. The phone app is in closed testing and isn't publicly listed yet — <a href="#testers">join the test</a> and we'll send you an invite that unlocks it.</p>
       </div>
 
       <div class="download-groups">
@@ -718,6 +1048,7 @@ chmod +x Deckhand-Installer-linux-x86_64.AppImage</span>
         <div>
           <h4>Product</h4>
           <ul>
+            <li><a href="#testers">Become a tester</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#download">Download</a></li>
