@@ -1,0 +1,30 @@
+{
+  "version": "0.1.1",
+  "notes": "Rust AI relay, and the first build that can update itself.",
+  "targets": {
+    "linux-x86_64": {
+      "binaries": {
+        "deckhand-host": {
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64",
+          "sha256": "0dec5a3b08ec66e9d31d14e7072b103bd5d8a90d743ec0c2a202b831645ff09b"
+        },
+        "deckhand-desk": {
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64",
+          "sha256": "2c31052dfade27959023e724411ab5fef4e1249e9637d7c6256be076918736d2"
+        }
+      }
+    },
+    "windows-x86_64": {
+      "binaries": {
+        "deckhand-host.exe": {
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64.exe",
+          "sha256": "f60d909c4d2fa9ae764f7ec289168d266bc8251c9eb17bb7244fc07142c97c94"
+        },
+        "deckhand-desk.exe": {
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64.exe",
+          "sha256": "cf8636be7431fb1565e7bf59c7b00567d289c518fa2490e57bdea1957e29a958"
+        }
+      }
+    }
+  }
+}
