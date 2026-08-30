@@ -1,28 +1,28 @@
 {
-  "version": "0.1.1",
-  "notes": "Rust AI relay, and the first build that can update itself.",
+  "version": "0.1.2",
+  "notes": "AI generation enabled via the board's relay.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64",
-          "sha256": "0dec5a3b08ec66e9d31d14e7072b103bd5d8a90d743ec0c2a202b831645ff09b"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.2",
+          "sha256": "687390020c1938b99333e7f4859e438b1a269d708518e8e2b75656d62cd2bec3"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64",
-          "sha256": "2c31052dfade27959023e724411ab5fef4e1249e9637d7c6256be076918736d2"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.2",
+          "sha256": "21aa8bc14fe22957f85875feff98e2fc3892a9faeb33e6059da5dca609a797dd"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64.exe",
-          "sha256": "f60d909c4d2fa9ae764f7ec289168d266bc8251c9eb17bb7244fc07142c97c94"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.2.exe",
+          "sha256": "0972e46ee2ece4bf2a2b2cbbe92921eb54a7f739c99cf9222600cdcf581ba5ae"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64.exe",
-          "sha256": "cf8636be7431fb1565e7bf59c7b00567d289c518fa2490e57bdea1957e29a958"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.2.exe",
+          "sha256": "04108fa4a304ba7f45e3423596e8c65aff554015ae08d2823bdb1c60934e929f"
         }
       }
     }
