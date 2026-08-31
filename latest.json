@@ -1,28 +1,28 @@
 {
-  "version": "0.1.7",
+  "version": "0.1.9",
   "notes": "AI generation enabled via the board's relay.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.7",
-          "sha256": "d431ed0da47278ed103e93cb68c7f40f4902991d4749bb2e30eaf8350a3547b5"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.9",
+          "sha256": "91db16e60387fa1670145c8a8531d9ed3a5e0b577bf4005ee7b4a4f084e12ad6"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.7",
-          "sha256": "ae91711ad444df2970644236ca18437e9501cdf95ce567016294ec019d9bf400"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.9",
+          "sha256": "fde13468987aed97e3fcd4770942746fa8b578c3f54485523c23a4aed3b383e4"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.7.exe",
-          "sha256": "e13ec2d920c1510257cdcf005ba42ec1ae37117f383b0d32a266172ffa25a95c"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.9.exe",
+          "sha256": "9d536b6222650b9a23c361954627bdc77436a6c2e3ca69d46053fdab79d7de0a"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.7.exe",
-          "sha256": "3aadde332e86da05c59ca7372468745a0ba326261118ca2e040828bcacff1f31"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.9.exe",
+          "sha256": "c0bf0b29f0ef5db09fa3fd35571ff88ed463711906504c75c3cb7bf1c78a4a92"
         }
       }
     }
