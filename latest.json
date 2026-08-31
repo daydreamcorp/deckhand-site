@@ -1,28 +1,28 @@
 {
-  "version": "0.1.9",
-  "notes": "AI generation enabled via the board's relay.",
+  "version": "0.1.11",
+  "notes": "The studio shows the model's reasoning as it works, and a host can now forget a paired device.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.9",
-          "sha256": "91db16e60387fa1670145c8a8531d9ed3a5e0b577bf4005ee7b4a4f084e12ad6"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.11",
+          "sha256": "2a4229d9c65ce92117a7d56408490bcd90771c5b84a20b273875d1d5864c6129"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.9",
-          "sha256": "fde13468987aed97e3fcd4770942746fa8b578c3f54485523c23a4aed3b383e4"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.11",
+          "sha256": "d0e3a14514bce0858b7536fc44b4458dd8d4cd4a30a364f84de48b6b9851efa4"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.9.exe",
-          "sha256": "9d536b6222650b9a23c361954627bdc77436a6c2e3ca69d46053fdab79d7de0a"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.11.exe",
+          "sha256": "8cf8fd9f37c3151b34ee997d6c06ebb70d18227964c54eb523420dfa433767c1"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.9.exe",
-          "sha256": "c0bf0b29f0ef5db09fa3fd35571ff88ed463711906504c75c3cb7bf1c78a4a92"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.11.exe",
+          "sha256": "d1273d7726dafa556791f4212e8d39d9f406417d09454a6926d51c5577b6eae8"
         }
       }
     }
