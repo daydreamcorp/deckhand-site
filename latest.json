@@ -1,28 +1,28 @@
 {
-  "version": "0.1.12",
-  "notes": "Generated pages are sized by what each control needs and what the page is for, instead of everything landing in one cell.",
+  "version": "0.1.13",
+  "notes": "Fixes generated pages dropping tiles as 'no room on the page' when 0.1.12 sized them larger than the page it had worked out.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.12",
-          "sha256": "3164d7b4aaede58accd374971518d47a479b2e4777242819349c883cec0baae4"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.13",
+          "sha256": "8271b4509d08839bbc70dd6fae6aadb1f93d07a3dafa0378259c57f6a100c09f"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.12",
-          "sha256": "027b9a384ec2392483327341cef8f0582c567e507c39039e5de21e477cb8198a"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.13",
+          "sha256": "a0e3f31edd59ec55b7015aedb6995c1ee5fb489d00cba246571a7a4b596f1db9"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.12.exe",
-          "sha256": "c189e1190833b723bf1338f376f86ed515be423d6688c0dd7e83918385f3a982"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.13.exe",
+          "sha256": "cefa4af373ba838be9ca6fae924283b5b2f8b2a4573b65be108c9ca61a06025d"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.12.exe",
-          "sha256": "820a91d6573686c668c409a1d24a5a61c10c5c3ac4d58781b24e3e2d3ba6b268"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.13.exe",
+          "sha256": "05306d637dee3b935c05f81021f1e7df74466dbc419f59fbf978ffe852292719"
         }
       }
     }
