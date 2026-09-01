@@ -1,28 +1,28 @@
 {
-  "version": "0.1.11",
-  "notes": "The studio shows the model's reasoning as it works, and a host can now forget a paired device.",
+  "version": "0.1.12",
+  "notes": "Generated pages are sized by what each control needs and what the page is for, instead of everything landing in one cell.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.11",
-          "sha256": "2a4229d9c65ce92117a7d56408490bcd90771c5b84a20b273875d1d5864c6129"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.12",
+          "sha256": "3164d7b4aaede58accd374971518d47a479b2e4777242819349c883cec0baae4"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.11",
-          "sha256": "d0e3a14514bce0858b7536fc44b4458dd8d4cd4a30a364f84de48b6b9851efa4"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.12",
+          "sha256": "027b9a384ec2392483327341cef8f0582c567e507c39039e5de21e477cb8198a"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.11.exe",
-          "sha256": "8cf8fd9f37c3151b34ee997d6c06ebb70d18227964c54eb523420dfa433767c1"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.12.exe",
+          "sha256": "c189e1190833b723bf1338f376f86ed515be423d6688c0dd7e83918385f3a982"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.11.exe",
-          "sha256": "d1273d7726dafa556791f4212e8d39d9f406417d09454a6926d51c5577b6eae8"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.12.exe",
+          "sha256": "820a91d6573686c668c409a1d24a5a61c10c5c3ac4d58781b24e3e2d3ba6b268"
         }
       }
     }
