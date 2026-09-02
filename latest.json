@@ -1,28 +1,28 @@
 {
-  "version": "0.1.14",
-  "notes": "Generated pages are laid out the way you would reach for them: controls in order, groups kept together, the tile you use most made bigger, and labels that fit.",
+  "version": "0.1.15",
+  "notes": "The AI writes labels in your own language now, and no longer drifts into English part way through a page.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.14",
-          "sha256": "3844644cd11193b021ce0172e1ff1cfd5d47a499133244d4c5e3b4ffdbe50a07"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.15",
+          "sha256": "90097109b93219ffd9b8eec08c449e330f258bab185456a8b0a45453392b6a0d"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.14",
-          "sha256": "ae65d0315de6df4b629d3351a10b18b4315b732ae36084753889da10422feafe"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.15",
+          "sha256": "ab3caf249bf77b87b1a347de7870799917b2fc065dc8846c3464d0c8ef33f6f2"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.14.exe",
-          "sha256": "99ef7ffd01f4d8cb669bdad46d1795805c7c8bc6cb50426de2e83149df3ed0c9"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.15.exe",
+          "sha256": "4eecdb4fb85575b26acc4ef51948a891bd7504a9ea224c600766d6e2def005f8"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.14.exe",
-          "sha256": "d5e6c623eef7b0847a71b7caba54938c53105d3f24bf4015e7f48b85dbcc798d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.15.exe",
+          "sha256": "7a885e7e4368186b4b63b41f3023f7bfbfbad530a81bb38a4eeedfc421e12faf"
         }
       }
     }
