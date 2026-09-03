@@ -1,28 +1,28 @@
 {
-  "version": "0.1.16",
-  "notes": "The AI knows more about the kind of page it is building - mixers, remotes, streaming decks and controllers each have conventions it now follows.",
+  "version": "0.1.17",
+  "notes": "AI Studio builds better pages: it now knows your OBS scenes and the apps on this machine, so it stops inventing ones that do not exist, and it writes labels in your own language. Windows gets its own overhaul -- pairing gets through the firewall, the pairing code carries an address your phone can actually reach, and nothing opens a console window at login. Every part of Deckhand keeps a log now, so anything that survives all that can be sent in.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.16",
-          "sha256": "85126305691f738b8158f38f19506f0b4ed4601586c661fe2ca03aa5e84ddc81"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.17",
+          "sha256": "2b737a36c29e5778d89ef151f262e183fe9223118e41008c351d5995645892f1"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.16",
-          "sha256": "e5ff70c3ca656e8ff5d1d8afadf7a42566e76ff7e591483e9a1360c62191aafd"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.17",
+          "sha256": "197c9526b80c3ea9ef8560abf16f5e87ecff954d5fbef16726eb85e0e0faecbf"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.16.exe",
-          "sha256": "f5885ee2e524e8ec29a489ff23405066a6f539a8350466bbf110c3e857a6a047"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.17.exe",
+          "sha256": "67357fee69c996cad180e1b191ce7aed6bf1f982fbd0e3e3d2166c20768da6b2"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.16.exe",
-          "sha256": "51129f08a409c5a0744bd602e4b60a77be7e1273ae6c3ea735fa96e7cfb36890"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.17.exe",
+          "sha256": "d1ba2b15a4f118fe2f421abdfac953f9a2739039239a76568675feaabd027f28"
         }
       }
     }
