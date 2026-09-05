@@ -248,7 +248,7 @@
   @media (max-width: 560px) { .spec-grid { grid-template-columns: 1fr; } .spec-grid div:nth-child(2) { border-top: 1px solid var(--line); } }
 
   /* ---------- screenshot gallery ---------- */
-  .gallery { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity; padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem; -webkit-overflow-scrolling: touch; }
+  .gallery { display: flex; justify-content: safe center; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline-start: clamp(1.25rem, 4vw, 2.5rem); padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem; -webkit-overflow-scrolling: touch; }
   .gallery::-webkit-scrollbar { height: 8px; }
   .gallery::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; }
   .gallery-item { flex: none; scroll-snap-align: start; width: min(220px, 62vw); margin: 0; }
@@ -272,6 +272,8 @@
   .price-table td.free-col, .price-table th.free-col { background: rgba(0,229,255,0.05); }
   .price-table thead th.free-col { background: rgba(0,229,255,0.09); }
   .price-note { margin-top: 1.5rem; color: var(--ink-faint); font-size: 0.92rem; }
+  .price-note-lead { color: var(--gold); font-weight: 700; }
+  .price-lede .pill-launch { color: var(--gold); border-color: rgba(255,199,90,0.35); background: rgba(255,199,90,0.09); }
 
   /* ---------- download ---------- */
   .download-groups { display: grid; gap: clamp(2rem, 5vw, 3rem); }
@@ -315,7 +317,8 @@
   .install-os > summary:hover { color: var(--accent-strong); }
   .install-os .yours { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.2em 0.6em; border-radius: 999px; }
   .install-body { padding: 0 1.2rem 1.1rem; color: var(--ink-soft); font-size: 0.92rem; }
-  .install-body ol { margin: 0; padding-left: 1.15rem; display: grid; gap: 0.55rem; }
+  .install-body ol { margin: 0; padding-left: 1.15rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.55rem; }
+  .install-body li { min-width: 0; }
   .install-body li::marker { color: var(--accent); font-family: var(--mono); font-size: 0.85rem; }
   .install-body code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 0.15em 0.45em; color: var(--ink); overflow-wrap: anywhere; }
   .install-body .cmd { display: block; margin-top: 0.4rem; padding: 0.6rem 0.75rem; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); font-family: var(--mono); font-size: 0.82rem; color: var(--ink); overflow-x: auto; white-space: pre; }
@@ -381,7 +384,6 @@
     border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
     transform: rotate(-45deg); border-radius: 1px;
   }
-  .deal-worth { display: inline-block; margin-top: 0.35rem; font-family: var(--mono); font-size: 0.78rem; color: var(--gold); border: 1px solid rgba(255,199,90,0.35); border-radius: 999px; padding: 0.15rem 0.6rem; }
 
   /* ---------- the 14-day strip ---------- */
   .streak { margin-top: clamp(2.25rem, 5vw, 3.25rem); }
@@ -597,7 +599,7 @@
         <div class="deal-side deal-get">
           <h3>What you get</h3>
           <ul class="deal-list">
-            <li><b>Three months of Elite, free, when Deckhand launches.</b> The top tier — unlimited tiles, pages and paired computers, and every action type there is: shell commands, OBS scenes, webhooks, the macro recorder, dials and faders. <span class="deal-worth">$360 at list price</span></li>
+            <li><b>Three months of Elite, free, when Deckhand launches.</b> The top tier — unlimited tiles, pages and paired computers, and every action type there is: shell commands, OBS scenes, webhooks, the macro recorder, dials and faders.</li>
             <li><b>Every paid feature unlocked from day one.</b> Test builds run at Elite already, so nothing is behind a paywall while you're testing. You're not evaluating a crippled free tier.</li>
             <li><b>No ads. None.</b> The ad surface only exists on the free tier, and you're not on it.</li>
             <li><b>A say in what ships.</b> Twelve people is a small enough room that what you report actually changes the product before anyone else sees it.</li>
@@ -872,7 +874,8 @@
       </div>
       <div class="price-lede">
         <span class="pill">Free tier is real functionality, not a trial</span>
-        <span class="price-lede-detail">All prices billed monthly or yearly (yearly ≈ 2 months free).</span>
+        <span class="pill pill-launch">Launch pricing</span>
+        <span class="price-lede-detail">Starter and Creator are monthly only; Studio and up bill monthly or yearly (yearly ≈ 2 months free).</span>
       </div>
       <div class="price-scroll">
         <table class="price-table">
@@ -880,11 +883,11 @@
             <tr>
               <th></th>
               <th scope="col" class="free-col">Free<span class="per">Start here</span></th>
-              <th scope="col">Starter<span class="per">$5/mo · $50/yr</span></th>
-              <th scope="col">Creator<span class="per">$15/mo · $150/yr</span></th>
-              <th scope="col">Studio<span class="per">$35/mo · $350/yr</span></th>
-              <th scope="col">Pro Studio<span class="per">$60/mo · $600/yr</span></th>
-              <th scope="col">Elite<span class="per">$120/mo · $1200/yr</span></th>
+              <th scope="col">Starter<span class="per">$0.99/mo</span></th>
+              <th scope="col">Creator<span class="per">$1.49/mo</span></th>
+              <th scope="col">Studio<span class="per">$2.49/mo · $24.99/yr</span></th>
+              <th scope="col">Pro Studio<span class="per">$3.99/mo · $39.99/yr</span></th>
+              <th scope="col">Elite<span class="per">$5.99/mo · $59.99/yr</span></th>
             </tr>
           </thead>
           <tbody>
@@ -906,7 +909,7 @@
               <td>Full hardware-parity actions</td>
               <td>OBS, webhooks, dials/faders/XY pad</td>
               <td>Shell/system actions, macro recorder</td>
-              <td>Cloud deck backup &amp; sync</td>
+              <td>Twice the scale, priority support</td>
               <td>Everything, unlimited</td>
             </tr>
             <tr>
@@ -916,6 +919,7 @@
           </tbody>
         </table>
       </div>
+      <p class="price-note"><b class="price-note-lead">These are launch prices.</b> They're set deliberately low to get Deckhand's first decks into real hands, and they will rise over time as demand grows. What you see here is where the ladder starts, not where it settles.</p>
       <p class="price-note">Skins are always a separate one-time purchase at every tier, including Free, and are never bundled into a subscription — buy a skin once and it's yours for good. 2 skins are free built-ins; 48 more range $0.99–$69.99.</p>
     </div>
   </section>
@@ -961,7 +965,7 @@
             <a class="dl-btn" href="https://github.com/daydreamcorp/deckhand-site/releases/download/latest/Deckhand-Installer-macos-arm64">
               <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><mask id="appleBiteB"><rect width="24" height="24" fill="#fff"/><circle cx="16.5" cy="9.5" r="4.5" fill="#000"/></mask><circle cx="12" cy="13.5" r="6.5" mask="url(#appleBiteB)"/><ellipse cx="10.3" cy="6.4" rx="1.9" ry="0.95" transform="rotate(-30 10.3 6.4)"/></svg></span>
               <span class="txt"><small>Download for</small><strong>macOS</strong></span>
-              <span class="badge">New · Apple Silicon</span>
+              <span class="badge">Apple Silicon</span>
             </a>
             <a class="dl-btn" href="https://github.com/daydreamcorp/deckhand-site/releases/download/latest/Deckhand-Installer-linux-x86_64.AppImage">
               <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="14.5" rx="5.5" ry="6.5"/><circle cx="12" cy="6.8" r="3.6"/><ellipse cx="9" cy="20.5" rx="2.2" ry="1.1"/><ellipse cx="15" cy="20.5" rx="2.2" ry="1.1"/></svg></span>
@@ -1027,7 +1031,7 @@ chmod +x Deckhand-Installer-linux-x86_64.AppImage</span>
 
       <div class="download-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
-        <span>One installer, no admin/root needed — it places Deckhand under your user account, adds a Start Menu / Applications launcher, and registers it to start with your session. Windows and macOS builds are fresh; if something looks off, that's useful to hear about.</span>
+        <span>One installer, no admin/root needed — it places Deckhand under your user account, adds a Start Menu / Applications launcher, and registers it to start with your session. The Windows and Linux builds were rebuilt most recently; if something looks off, that's useful to hear about.</span>
       </div>
     </div>
   </section>
