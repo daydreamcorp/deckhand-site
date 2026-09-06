@@ -124,11 +124,6 @@
     color: var(--ink-faint); font-weight: 700; background: var(--surface-sunk);
   }
   td:first-child { font-family: var(--mono); font-size: .85rem; white-space: nowrap; color: var(--ink); }
-  .status-inert {
-    display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: .07em; color: var(--ink-faint); border: 1px solid var(--rule);
-    border-radius: 3px; padding: .05rem .4rem; margin-left: .4rem;
-  }
 
   .not-collected {
     margin: 0 0 .95rem; padding: 0; list-style: none;
@@ -165,26 +160,43 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-08-13</span>
+      <span><b>Last updated</b> 2026-08-28</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
     </div>
     <div class="draft-flag">
       <strong>Not a substitute for legal review.</strong> Everything below
       describes verified, current app behavior — cross-checked against the
-      Android manifest, the billing and geolocation source, and the pairing
-      security audit rather than carried forward unchecked from an earlier
-      draft — but a lawyer should review this before it's relied on.
+      Android manifest, the billing, geolocation and analytics source, and
+      the pairing security audit rather than carried forward unchecked from
+      an earlier draft — but a lawyer should review this before it's relied
+      on.
+    </div>
+    <div class="draft-flag">
+      <strong>Material change.</strong> This version adds AI page generation
+      (<a href="#ai">AI page generation</a>) — off until you turn it on, and
+      the first thing in Deckhand that sends anything you typed to a company
+      other than us. This version also adds Firebase
+      Analytics, Crashlytics, Performance Monitoring, Remote Config, and
+      Cloud Messaging. Earlier versions of this policy said Deckhand used no
+      analytics or crash-reporting SDK — that is no longer accurate, and
+      this document now describes what changed rather than leaving the old
+      claim in place. See <a href="#firebase">What we collect via
+      Firebase</a>. This notice stays for one release cycle, per the
+      commitment in <a href="#changes">Changes to this policy</a>.
     </div>
   </header>
 
   <div class="summary">
     <h2>In short</h2>
-    <p>Deckhand has <strong>no server and no account system</strong>. Your
-    deck layout and pairing information stay on your phone and your paired
-    computer. The only outside parties involved are your app store (for
-    purchases), Google (for ads on the free tier, and for OS-level speech
-    recognition if you use voice triggers), and your phone's own location
-    service if you use geofenced pages.</p>
+    <p>Deckhand has <strong>no account system</strong>. Your deck layout
+    and pairing information stay on your phone and your paired computer. AI
+    page generation is the one feature that leaves them: it goes through a
+    small Deckhand-run service, and only if you turn it on. The outside
+    parties involved are your app store (for purchases), that service and the
+    AI providers behind it (OpenRouter and DeepSeek), Google (for Firebase analytics and crash reporting, for ads
+    on the free tier, and for OS-level speech recognition if you use voice
+    triggers), and your phone's own location service if you use geofenced
+    pages.</p>
     <p>Nothing below changes that — this document exists to describe the
     handful of places data leaves your device, in full, not to hedge it.</p>
   </div>
@@ -243,8 +255,105 @@
     </div>
   </section>
 
+  <section class="sec" id="firebase">
+    <div class="sec-head"><span class="sec-num">3</span><h2 class="sec-title">What we collect via Firebase</h2></div>
+    <div class="sec-body">
+      <p>Deckhand uses Firebase, a Google product, for five things:
+      <strong>Analytics</strong> (product usage — which screens and features
+      you use, pairing and subscription events, your subscription tier),
+      <strong>Crashlytics</strong> (crash and error reports, including device
+      model, OS version, and the state of the app when it crashed),
+      <strong>Performance Monitoring</strong> (automatic app-start,
+      network-request and screen-render timing — not the content of what you
+      did, only how long it took), <strong>Remote Config</strong> (lets us
+      tune a couple of app behaviors, such as the free-tier rewarded-ad
+      cadence, without shipping a new build), and <strong>Cloud
+      Messaging</strong> (push notification infrastructure — captures a
+      device token so a future update could send you a notification; as of
+      this build, none are sent).</p>
+      <p>None of this includes your deck layout, pairing records, geofence
+      profiles, or anything else described under <a href="#storage">What
+      Deckhand stores, and where</a> — those stay exactly as private as they
+      always have.</p>
+      <ul>
+        <li><strong>Region-dependent by default, always adjustable</strong> —
+        outside the EEA and UK this collection starts automatically, the way
+        most apps work. Inside the EEA and UK, Google's User Messaging
+        Platform shows a consent prompt first and collection only starts if
+        you agree. Regardless of region, <strong>Settings → Privacy</strong>
+        has a toggle to turn analytics off at any time, and a
+        <strong>Reset analytics ID</strong> action that starts you over with
+        a fresh, unlinked pseudonymous identifier — the practical equivalent
+        of deleting your analytics history, since there is no account for a
+        deletion request to attach to.</li>
+        <li><strong>Retention</strong> — analytics data is kept for 2 months
+        from collection, then automatically deleted from Firebase's systems.
+        That is the shorter of the two retention windows Firebase offers,
+        chosen deliberately to keep only what is useful for recent
+        troubleshooting and trends.</li>
+        <li><strong>Where it goes</strong> — to Google, as the processor
+        operating Firebase on our behalf, under Google's Standard
+        Contractual Clauses for any transfer outside your region. Google
+        does not use this data to build its own advertising profile of you;
+        Firebase Analytics data is walled off from Google Ads targeting
+        unless a developer explicitly links the two, which we don't.</li>
+        <li><strong>Pseudonymous, not identified</strong> — none of this is
+        tied to your name, email, or any account, because there isn't one.
+        It is linked to a random identifier Firebase generates per install,
+        which the Reset analytics ID action above lets you rotate at
+        will.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="ai">
+    <div class="sec-head"><span class="sec-num">4</span><h2 class="sec-title">AI page generation</h2></div>
+    <div class="sec-body">
+      <p><strong>This is off until you turn it on.</strong> Deckhand can build a
+      deck page from a sentence you type. Doing that means sending something to
+      a company outside Deckhand, so nothing is sent until you have read what
+      goes and said yes. Turning it back off stops it again.</p>
+      <p><strong>Who receives it.</strong> First a small service Deckhand runs
+      itself, which holds the AI account and forwards the request; then
+      <a href="https://openrouter.ai/privacy" rel="noopener" target="_blank">OpenRouter</a>,
+      which routes it to DeepSeek's <code>deepseek-v4-flash-0731</code> model.
+      Every request is sent with routing that asks providers not to retain or
+      train on it. Reaching that service from the public internet may involve a
+      network provider that relays the connection; it carries the request the
+      same way any internet hop does.</p>
+      <p>The service keeps a count of how many pages each installation has
+      generated, so a daily limit can be applied. That count is a number and a
+      timestamp against your computer's public pairing fingerprint — not your
+      prompt, not the page, and nothing that names you.</p>
+      <p><strong>What is sent.</strong> Only these:</p>
+      <ul>
+        <li>The description you typed.</li>
+        <li>The size of the page being filled — its rows and columns.</li>
+        <li>Your computer's operating system, because a keyboard shortcut for
+        the wrong one simply does nothing.</li>
+        <li>If OBS is connected, the names of its scenes.</li>
+        <li>When you ask to extend or revise an existing page: the
+        <em>labels</em> of the tiles already on it and what <em>type</em> of
+        thing each one does — "a hotkey", "a web request" — and nothing more.</li>
+      </ul>
+      <p><strong>What is never sent.</strong> What your buttons actually do. Not
+      the commands, not the addresses, not the text you have saved, not the
+      contents of any header — a button can hold a password you typed or a token
+      for a service you use, and those are stripped before the request is built
+      rather than filtered out of it afterwards. Also never sent: your computer's
+      name, your phone's name, or the name of your deck.</p>
+      <p><strong>Your phone does not make this call, and neither of your
+      devices holds an AI account.</strong> Your phone asks the computer you
+      have paired with; that computer asks Deckhand's service; the service
+      holds the account and pays for the request. There is no key for you to
+      supply and none stored on either device. Generation also does nothing on
+      a computer with no phone paired to it — there would be no deck to build
+      for.</p>
+    </div>
+  </section>
+
   <section class="sec" id="permissions">
-    <div class="sec-head"><span class="sec-num">3</span><h2 class="sec-title">Permissions and why</h2></div>
+    <div class="sec-head"><span class="sec-num">5</span><h2 class="sec-title">Permissions and why</h2></div>
     <div class="sec-body">
       <div class="table-wrap">
         <table>
@@ -253,7 +362,6 @@
             <tr><td>Local network</td><td>Discover and pair with your desktop host app</td><td>Required for the app to do anything</td></tr>
             <tr><td>Camera</td><td>Scan the QR code the host app shows during pairing. The feed is never recorded or stored.</td><td>Only for that moment</td></tr>
             <tr><td>Location<br>(foreground)</td><td>Geofenced auto-profiles, while the deck screen is open</td><td>Only if you create a geofence</td></tr>
-            <tr><td>Location<br>(background)</td><td>Declared for a future background-monitoring version of geofencing.<span class="status-inert">not used today</span> The current build only checks location while the deck screen is visible.</td><td>Requested, presently inert</td></tr>
             <tr><td>Microphone</td><td>Voice-activated buttons</td><td>Only if you configure a voice trigger</td></tr>
             <tr><td>Motion sensor</td><td>Shake-to-trigger buttons</td><td>Always available — no permission prompt on either platform</td></tr>
           </tbody>
@@ -263,31 +371,48 @@
   </section>
 
   <section class="sec" id="not-collected">
-    <div class="sec-head"><span class="sec-num">4</span><h2 class="sec-title">What Deckhand does not do</h2></div>
+    <div class="sec-head"><span class="sec-num">6</span><h2 class="sec-title">What Deckhand does not do</h2></div>
     <div class="sec-body">
       <ul class="not-collected">
         <li>No account system, no sign-up, no password.</li>
-        <li>No analytics or crash-reporting SDK.</li>
         <li>No selling or sharing of your data with third parties for their own purposes.</li>
-        <li>No advertising or tracking of any kind once you're on a paid tier.</li>
+        <li>No advertising once you're on a paid tier. The Firebase
+        collection described above is separate from advertising and
+        continues on paid tiers unless you turn it off in Settings →
+        Privacy.</li>
+        <li>No collection of your deck layout, pairing records, or geofence
+        profiles — by Firebase or anything else.</li>
       </ul>
     </div>
   </section>
 
   <section class="sec" id="rights">
-    <div class="sec-head"><span class="sec-num">5</span><h2 class="sec-title">Your rights</h2></div>
+    <div class="sec-head"><span class="sec-num">7</span><h2 class="sec-title">Your rights</h2></div>
     <div class="sec-body">
-      <p>Because Deckhand has no server and no account system, there is no
-      Deckhand-held profile of you to request, correct, or delete —
-      everything above either stays on your device or is handled by
-      Google/Apple directly under their own privacy terms.</p>
+      <p>Because Deckhand has no account system, there is no Deckhand-held
+      profile of you to request, correct, or delete. Almost everything above
+      either stays on your device or is handled by Google/Apple directly under
+      their own privacy terms. The one exception is AI page generation, and
+      only if you turned it on: Deckhand's own service keeps a count of pages
+      generated per installation, against your computer's public pairing
+      fingerprint, so a daily limit can be applied. Ask and it is deleted; it
+      is a row of counters, and losing it costs you nothing but that day's
+      limit resetting.</p>
       <ul>
+        <li><strong>Analytics and crash reporting</strong> — turn it off at
+        any time in Settings → Privacy, and use Reset analytics ID for the
+        erasure mechanism described under <a href="#firebase">What we
+        collect via Firebase</a>. Since the data is pseudonymous and tied to
+        no account, rotating that identifier is what a deletion request
+        would otherwise achieve.</li>
         <li><strong>Ad personalization</strong> — controlled at the OS level
         (Android Settings → Privacy → Ads; iOS Settings → Privacy →
         Tracking), not by us.</li>
-        <li><strong>Location, camera, and microphone permissions</strong> —
-        revocable any time in your device's app-permission settings; the
-        corresponding features simply stop working until re-granted.</li>
+        <li><strong>Location, camera, microphone and notification
+        permissions</strong> — revocable any time in your device's
+        app-permission settings; the corresponding features simply stop
+        working until re-granted, or for notifications nothing changes,
+        since none are sent yet.</li>
         <li><strong>Purchase records</strong> — held by your app store;
         requests about them go to Google Play or the App Store directly.</li>
       </ul>
@@ -298,19 +423,23 @@
   </section>
 
   <section class="sec" id="children">
-    <div class="sec-head"><span class="sec-num">6</span><h2 class="sec-title">Children's privacy</h2></div>
+    <div class="sec-head"><span class="sec-num">8</span><h2 class="sec-title">Children's privacy</h2></div>
     <div class="sec-body">
       <p>Deckhand is a utility for controlling your own computer and isn't
-      directed at children. We don't knowingly collect data from children;
-      since we don't collect data from anyone beyond what's described above,
-      there's nothing additional to say here — but formal COPPA/GDPR-K
-      compliance requirements vary by jurisdiction and this draft doesn't
-      attempt to satisfy them on its own.</p>
+      directed at children, and we don't knowingly collect data from them.
+      This section carried more weight when the app collected nothing at
+      all; now that analytics and crash reporting ship (see <a
+      href="#firebase">What we collect via Firebase</a>), a real legal
+      review should confirm both this section and the app's actual Firebase
+      configuration — Google's child-directed-treatment settings in
+      particular — are sufficient before store submission. COPPA and GDPR-K
+      requirements vary by jurisdiction and this draft doesn't attempt to
+      satisfy them on its own.</p>
     </div>
   </section>
 
   <section class="sec" id="changes">
-    <div class="sec-head"><span class="sec-num">7</span><h2 class="sec-title">Changes to this policy</h2></div>
+    <div class="sec-head"><span class="sec-num">9</span><h2 class="sec-title">Changes to this policy</h2></div>
     <div class="sec-body">
       <p>If what Deckhand does with data changes — for example, if a
       cloud-backup feature ships — this document will be updated and the
@@ -320,14 +449,14 @@
   </section>
 
   <section class="sec" id="responsible">
-    <div class="sec-head"><span class="sec-num">8</span><h2 class="sec-title">Who is responsible for this app</h2></div>
+    <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">Who is responsible for this app</h2></div>
     <div class="sec-body">
       <p>Day Dream Corp is responsible for Deckhand.</p>
     </div>
   </section>
 
   <section class="sec" id="contact">
-    <div class="sec-head"><span class="sec-num">9</span><h2 class="sec-title">Contact</h2></div>
+    <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">Contact</h2></div>
     <div class="sec-body">
       <p>For privacy questions or requests, contact
       <a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a>.</p>
