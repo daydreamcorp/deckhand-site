@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <title>Deckhand — Become a Tester</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Daily quests tell you what to try; finish and get 3 months of Elite free at launch.">
+<meta name="description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Finish and get 3 months of Elite free at launch, plus another free month for every tester you bring.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#090b15">
 <meta property="og:title" content="Deckhand is looking for 12 testers">
-<meta property="og:description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Daily quests tell you what to try; finish and get 3 months of Elite free at launch.">
+<meta property="og:description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Finish and get 3 months of Elite free at launch, plus another free month for every tester you bring.">
 <meta property="og:image" content="assets/og-image.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -408,6 +408,52 @@
   .streak-legend .l-gold { border-top-color: var(--gold); }
   .streak-legend .day { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
 
+  /* ---------- refer a tester ----------
+     Gold, because gold is already this page's reward colour (deal-get, the
+     day-14 badge). Cyan stays the action colour, so the two never compete. */
+  .refer {
+    margin-top: clamp(2.25rem, 5vw, 3.25rem);
+    border: 1px solid rgba(255,199,90,0.34);
+    border-radius: var(--r-lg);
+    padding: clamp(1.5rem, 3.2vw, 2.4rem);
+    background: radial-gradient(125% 150% at 8% 0%, rgba(255,199,90,0.14), rgba(255,199,90,0) 60%), var(--surface-solid);
+  }
+  .refer h3 { font-family: var(--display); font-weight: 900; font-size: clamp(1.55rem, 3.6vw, 2.25rem); letter-spacing: -0.01em; line-height: 1.04; color: var(--gold); margin: 0; }
+  .refer-lede { margin: 0.8rem 0 0; color: var(--ink-soft); font-size: 1rem; max-width: var(--measure); }
+  .refer-lede b { color: var(--gold); font-weight: 600; }
+  .refer-grid { margin-top: clamp(1.6rem, 3.4vw, 2.4rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.6rem, 4vw, 3rem); align-items: center; }
+
+  /* the counter — the one thing in this block meant to catch an eye */
+  .refer-q { display: block; font-size: 0.97rem; color: var(--ink-faint); }
+  .refer-q output { font-family: var(--display); font-weight: 900; font-size: 1.45rem; color: var(--ink); font-variant-numeric: tabular-nums; vertical-align: -0.1em; padding: 0 0.12em; }
+  .refer-seats { display: grid; grid-template-columns: repeat(11, minmax(0,1fr)); gap: 0.3rem; margin: 0.85rem 0 0; padding: 0; list-style: none; }
+  .refer-seats li { height: 0.5rem; border-radius: 999px; background: rgba(185,190,232,0.18); transition: background 160ms ease, box-shadow 160ms ease; }
+  .refer-seats li.on { background: var(--gold); box-shadow: 0 0 14px -4px rgba(255,199,90,0.9); }
+  .refer-range { width: 100%; margin: 0.95rem 0 0; accent-color: var(--gold); }
+  .refer-range:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 999px; }
+  .refer-total { display: flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .refer-total b { font-family: var(--display); font-weight: 900; font-size: clamp(3.4rem, 9vw, 5.25rem); line-height: 0.85; color: var(--gold); font-variant-numeric: tabular-nums; text-shadow: 0 0 44px rgba(255,199,90,0.32); }
+  .refer-total span { font-size: 1rem; font-weight: 600; color: var(--ink); }
+  .refer-note { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-faint); min-height: 2.7em; }
+
+  .refer-rules { margin: 0; padding: 0 0 0 clamp(1rem, 2.2vw, 1.9rem); border-left: 1px solid rgba(255,199,90,0.22); list-style: none; display: grid; gap: 1.15rem; }
+  .refer-rules li { font-size: 0.95rem; color: var(--ink-faint); }
+  .refer-rules b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 0.25rem; }
+
+  .refer-urgent { margin: clamp(1.5rem, 3.2vw, 2.1rem) 0 0; padding: 0.95rem 0 0.95rem 1.15rem; border-left: 3px solid var(--gold); color: var(--ink-soft); font-size: 0.97rem; }
+  .refer-urgent b { color: var(--gold); font-weight: 600; }
+
+  .refer-cta { margin-top: clamp(1.4rem, 3vw, 1.9rem); padding-top: clamp(1.2rem, 2.6vw, 1.6rem); border-top: 1px solid rgba(255,199,90,0.22); display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
+  .btn-gold { background: var(--gold); color: #241a04; box-shadow: 0 0 0 1px rgba(255,199,90,0.45), 0 14px 30px -12px rgba(255,199,90,0.5); }
+  .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,199,90,0.6), 0 18px 34px -12px rgba(255,199,90,0.68); }
+  .btn-gold:active { transform: translateY(0); }
+  .refer-cta .hint { font-size: 0.88rem; color: var(--ink-faint); flex: 1 1 14rem; }
+  .refer-cta .is-copied { border-color: var(--gold); color: var(--gold); }
+  .hero-stats .stat-bonus b { color: var(--gold); }
+  .hero-stats .stat-bonus span { color: rgba(255,199,90,0.82); }
+  .join-refer { margin-top: 0.95rem; padding-top: 0.9rem; border-top: 1px solid rgba(255,199,90,0.24); font-size: 0.92rem; color: var(--ink-soft); }
+  .join-refer a { color: var(--gold); }
+
   /* ---------- the quest panel ---------- */
   .quests { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,0.95fr) minmax(0,1.05fr); gap: clamp(1.75rem, 4vw, 3rem); align-items: center; }
   .quest-copy h3 { font-size: 1.3rem; }
@@ -477,6 +523,8 @@
   @media (max-width: 900px) {
     .quests { grid-template-columns: 1fr; }
     .join { grid-template-columns: 1fr; }
+    .refer-grid { grid-template-columns: 1fr; align-items: start; }
+    .refer-rules { border-left: 0; padding-left: 0; }
   }
   @media (max-width: 780px) {
     .deal { grid-template-columns: 1fr; }
@@ -569,6 +617,7 @@
           <div class="stat"><b>5</b><span>Quests a day</span></div>
           <div class="stat"><b>72</b><span>Quests &amp; badges</span></div>
           <div class="stat"><b>3 mo</b><span>Elite, free</span></div>
+            <div class="stat stat-bonus"><b>+1 mo</b><span>Per tester you bring</span></div>
         </div>
       </div>
       <div class="hero-visual">
@@ -604,6 +653,35 @@
             <li><b>No ads. None.</b> The ad surface only exists on the free tier, and you're not on it.</li>
             <li><b>A say in what ships.</b> Twelve people is a small enough room that what you report actually changes the product before anyone else sees it.</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="refer" id="refer">
+        <h3>Bring a tester, add a month.</h3>
+        <p class="refer-lede">Twelve is Google's floor, not our ceiling. Every person you bring who gets approved and starts testing puts <b>another free month of Elite</b> on your account &mdash; stacked on top of your three, for as long as you keep finding people.</p>
+
+        <div class="refer-grid">
+          <div class="refer-calc">
+            <label class="refer-q" for="referCount">Testers you bring: <output id="referCount-out" for="referCount">3</output></label>
+            <ul class="refer-seats" id="referSeats" aria-hidden="true"><li class="on"></li><li class="on"></li><li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+            <input class="refer-range" type="range" id="referCount" min="0" max="11" step="1" value="3">
+            <output class="refer-total" id="referTotal" for="referCount"><b>6</b> <span>months of Elite, free, at launch</span></output>
+            <p class="refer-note" id="referNote">Three months for testing, plus one for each of the three you brought.</p>
+          </div>
+
+          <ul class="refer-rules">
+            <li><b>Every tester goes past us first.</b> Nobody is added automatically. Send us their name and Google-account email, or just point them at this page and tell them who sent them &mdash; we read and approve each one by hand before an invite goes out. A fourteen-day test only works with people who will actually show up, so the vetting is the point, not a formality.</li>
+            <li><b>The month lands when they do.</b> It's credited once they're approved, enrolled, and have opened the app for their first day &mdash; not when they email. That's what keeps the count honest for everyone.</li>
+            <li><b>No cap, and it all stacks.</b> Your own three months, your badges, and every month you earn by referring land together on the same Google account when Deckhand reaches the store.</li>
+          </ul>
+        </div>
+
+        <p class="refer-urgent"><b>And the reason to do it this week rather than next:</b> nobody's free months start until Deckhand is on the store, and Deckhand can't get there until fourteen unbroken days have run with a full room. Every tester you bring is a day closer to your own reward &mdash; and one more person standing between the cohort and the day somebody goes quiet.</p>
+
+        <div class="refer-cta">
+          <a class="btn btn-gold" href="mailto:admin@daydreamcorp.com?subject=Deckhand%20closed%20test%20-%20referring%20a%20tester&amp;body=Hi%20Deckhand%20team%2C%0A%0AI%27m%20already%20on%20the%20closed%20test%20and%20I%27d%20like%20to%20refer%20someone.%0A%0AMy%20Google-account%20email%20%28so%20you%20can%20credit%20the%20extra%20month%29%3A%0A%0AWho%20I%27m%20referring%20-%20name%20and%20Google-account%20email%3A%0A%0A">Refer someone now</a>
+          <button class="btn btn-ghost" id="referCopy" type="button" hidden>Copy the invite link</button>
+          <span class="hint">Not a tester yet? <a href="#join">Join first</a> &mdash; then every name you bring is another month.</span>
         </div>
       </div>
 
@@ -676,7 +754,7 @@
         </div>
       </div>
 
-      <div class="join">
+      <div class="join" id="join">
         <div>
           <h3>What you need</h3>
           <ul class="need">
@@ -691,6 +769,7 @@
           <h3>Join the test</h3>
           <p>Send one email with your Google-account address and we'll add you to the tester list. Places are added by hand, so you'll get a reply rather than an automated void.</p>
           <a class="btn btn-primary" href="mailto:admin@daydreamcorp.com?subject=Deckhand%20closed%20test%20-%20count%20me%20in&amp;body=Hi%20Deckhand%20team%2C%0A%0AI%27d%20like%20to%20join%20the%2014-day%20closed%20test.%0A%0AGoogle%20account%20email%20%28this%20is%20the%20address%20the%20Play%20invite%20needs%29%3A%0APhone%20model%20and%20Android%20version%3A%0AComputer%20I%27ll%20pair%20it%20with%20%28Windows%20/%20macOS%20/%20Linux%29%3A%0A%0AI%20understand%20the%20test%20runs%2014%20days%20in%20a%20row%20and%20that%20I%27ll%20open%20the%20app%20each%20day.%0A">Email us to become a tester</a>
+          <p class="join-refer">Already in the test? <a href="#refer">Bring someone with you</a> &mdash; every tester you refer who is approved and starts testing adds another free month of Elite to your own account.</p>
           <p class="after">The button opens your mail app with the details already filled in. If it doesn't, write to <code>admin@daydreamcorp.com</code> with your Google-account email, your phone, and which computer you'll pair with.</p>
         </div>
       </div>
@@ -726,6 +805,14 @@
           <summary>When exactly do I get the three months of Elite?</summary>
           <div class="faq-a">
             <p>On release. Elite can't be granted against a store listing that doesn't exist publicly yet, so the free three months start when Deckhand reaches production and are applied to the same Google account you tested with. In the meantime the test build already runs at Elite, so you lose nothing by waiting.</p>
+          </div>
+        </details>
+
+        <details class="faq-q">
+          <summary>How does the extra month for referring work?</summary>
+          <div class="faq-a">
+            <p>One extra month of Elite for every tester you bring who is approved and actually starts testing, on top of the three months the test itself earns you. There's no cap and no code to enter &mdash; email us their name and Google-account email, or have them say who sent them when they write in.</p>
+            <p>Two things worth knowing before you start asking around. Every referral is read and approved by hand before an invite goes out, so a name is a nomination rather than a guarantee. And the month is credited when they enrol and open the app for their first day, not when their email arrives &mdash; invites are tied to a specific Google account, so referring yourself from a second address doesn't get past us.</p>
           </div>
         </details>
 
@@ -1131,6 +1218,63 @@ chmod +x Deckhand-Installer-linux-x86_64.AppImage</span>
     var badge = target.querySelector('.yours');
     if (badge) badge.hidden = false;
   })();
+  /* ---- referral counter: 3 base months + 1 per tester you bring ---- */
+  (function () {
+    var range = document.getElementById('referCount');
+    if (!range) return;
+    var out   = document.getElementById('referCount-out');
+    var total = document.getElementById('referTotal');
+    var note  = document.getElementById('referNote');
+    var seats = document.getElementById('referSeats').children;
+    var word  = ['none','one','two','three','four','five','six','seven','eight','nine','ten','eleven'];
+
+    function render() {
+      var n = parseInt(range.value, 10) || 0;
+      var months = 3 + n;
+      out.textContent = n;
+      total.innerHTML = '<b>' + months + '</b> <span>month' + (months === 1 ? '' : 's') + ' of Elite, free, at launch</span>';
+      for (var i = 0; i < seats.length; i++) seats[i].classList.toggle('on', i < n);
+      if (n === 0)       note.textContent = 'Three months for testing, on its own. Every name you add from here is another month.';
+      else if (n === 1)  note.textContent = 'Three months for testing, plus one for the tester you brought.';
+      else if (n === 11) note.textContent = "That's the whole room filled single-handed — fourteen months is more than a year of Elite.";
+      else               note.textContent = 'Three months for testing, plus one for each of the ' + word[n] + ' you brought.';
+    }
+    range.addEventListener('input', render);
+    render();
+  })();
+
+  /* ---- copy the invite link (JS-only, so it reveals itself) ---- */
+  (function () {
+    var btn = document.getElementById('referCopy');
+    if (!btn) return;
+    var link = location.origin + location.pathname + '#testers';
+    var idle = btn.textContent, timer;
+    btn.hidden = false;
+
+    function say(text, ok) {
+      clearTimeout(timer);
+      btn.textContent = text;
+      btn.classList.toggle('is-copied', !!ok);
+      timer = setTimeout(function () { btn.textContent = idle; btn.classList.remove('is-copied'); }, 2600);
+    }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = link; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      if (ok) { document.body.removeChild(ta); say('Link copied', true); return; }
+      /* both paths refused: leave it selected so Ctrl+C still works */
+      say('Press Ctrl+C to copy', false);
+      ta.addEventListener('blur', function () { if (ta.parentNode) ta.parentNode.removeChild(ta); });
+    }
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(link).then(function () { say('Link copied', true); }, fallback);
+      } else { fallback(); }
+    });
+  })();
+
 </script>
 </body>
 </html>
