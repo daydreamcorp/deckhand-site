@@ -1,28 +1,28 @@
 {
-  "version": "0.1.19",
+  "version": "0.1.20",
   "notes": "The AI studio tells you what it is doing. A generation used to sit behind either silence or a wall of the model\u2019s own reasoning; it now names each step in a short line as it happens, counts the keys as they land, and titles the page itself instead of echoing back what you typed. What it offers to build comes from your own machine \u2014 the OBS scenes you have, the apps you have installed, the folders you actually use.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.19",
-          "sha256": "93b1a7d3808984e4edda26dc09d549813213cec91e71a01ec38640939cb5b141"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.20",
+          "sha256": "87121e9418c15c53e49f90d6963a5864a97e1f94925fa888fd0e3cc7cb4be958"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.19",
-          "sha256": "54290f908be3538183c669c7a2d2455a4678b328613a9bca4ee71d0151ab4042"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.20",
+          "sha256": "45ac2a49673f09a444c948e6ecac6068462593108b03f269f569e2b3920b9c5e"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.19.exe",
-          "sha256": "4973980a877e9074264fbfa5a4d03574ca4e5812fd69564f3a42f1e4deb44b44"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.20.exe",
+          "sha256": "497b85f1132c3c6f3153c9ec818eb8e935315bfcb5f14e54bb26bf0dfa070ff3"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.19.exe",
-          "sha256": "65594d58e5fa7cc3aad874b73a788fa298366ba8712819ebb66ead8f0e51860d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.20.exe",
+          "sha256": "0c4e48cb6efdf442bba3c94c1679c9ba55feeb108f3bf33385ec3aedf5b557e5"
         }
       }
     }
