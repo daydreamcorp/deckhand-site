@@ -323,6 +323,10 @@
   .install-body code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 0.15em 0.45em; color: var(--ink); overflow-wrap: anywhere; }
   .install-body .cmd { display: block; margin-top: 0.4rem; padding: 0.6rem 0.75rem; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); font-family: var(--mono); font-size: 0.82rem; color: var(--ink); overflow-x: auto; white-space: pre; }
   .install-body .why { margin: 0.7rem 0 0; font-size: 0.86rem; color: var(--ink-faint); }
+  .install-body .heads-up { margin: 0 0 1rem; padding: 0.7rem 0.9rem; font-size: 0.88rem;
+    color: var(--ink-soft); background: rgba(255,199,90,0.08);
+    border-left: 3px solid var(--gold); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+  .install-body .heads-up strong { color: var(--gold); }
 
   /* ---------- footer ---------- */
   footer.site-footer { border-top: 1px solid var(--line); background: var(--bg-1); padding: clamp(2.5rem, 6vw, 3.5rem) 0 2.5rem; }
@@ -1081,6 +1085,7 @@
         <details class="install-os" id="install-macos">
           <summary>macOS — Apple Silicon<span class="yours" hidden>Your system</span></summary>
           <div class="install-body">
+            <p class="heads-up"><strong>This build is from 24 August</strong> and is behind the Windows and Linux ones. The fixes to the AI page generator that landed at the end of August aren’t in it. Deckhand is built on Linux and a macOS build needs a Mac — until that is sorted, this is the honest state of it.</p>
             <ol>
               <li>The download is a plain binary with no file extension, so double-clicking it won’t work. Open <strong>Terminal</strong>.</li>
               <li>Make it executable and clear the download quarantine:
