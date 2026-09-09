@@ -1,28 +1,28 @@
 {
-  "version": "0.1.20",
-  "notes": "The AI studio tells you what it is doing. A generation used to sit behind either silence or a wall of the model\u2019s own reasoning; it now names each step in a short line as it happens, counts the keys as they land, and titles the page itself instead of echoing back what you typed. What it offers to build comes from your own machine \u2014 the OBS scenes you have, the apps you have installed, the folders you actually use.",
+  "version": "0.1.21",
+  "notes": "The AI studio tells you what it is doing \u2014 and on the desktop it now does so while the work is happening, instead of sitting blank and then resolving all at once. A generation names each step as it goes, counts the keys as they land, and titles the page itself rather than echoing back what you typed. What it offers to build comes from your own machine \u2014 the OBS scenes you have, the apps you have installed, the folders you actually use.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.20",
-          "sha256": "87121e9418c15c53e49f90d6963a5864a97e1f94925fa888fd0e3cc7cb4be958"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.21",
+          "sha256": "91ee35c1e4de87170e622c4f412dc19ff8fbe573032227a8e40bbffa3122aca0"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.20",
-          "sha256": "45ac2a49673f09a444c948e6ecac6068462593108b03f269f569e2b3920b9c5e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.21",
+          "sha256": "b5d8f221be5a79b774013104903713926d04f163be3239210aee79c33c6d463a"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.20.exe",
-          "sha256": "497b85f1132c3c6f3153c9ec818eb8e935315bfcb5f14e54bb26bf0dfa070ff3"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.21.exe",
+          "sha256": "1ca098b14a1851c0262e4ec525a6153a2e60853c556044a8696cdd110b16d4c0"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.20.exe",
-          "sha256": "0c4e48cb6efdf442bba3c94c1679c9ba55feeb108f3bf33385ec3aedf5b557e5"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.21.exe",
+          "sha256": "4f0a05f5669aa991cf18975b6622f50b1b91926f9c2ddc60cde9b60ebab1c229"
         }
       }
     }
