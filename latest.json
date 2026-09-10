@@ -1,28 +1,28 @@
 {
-  "version": "0.1.21",
-  "notes": "The AI studio tells you what it is doing \u2014 and on the desktop it now does so while the work is happening, instead of sitting blank and then resolving all at once. A generation names each step as it goes, counts the keys as they land, and titles the page itself rather than echoing back what you typed. What it offers to build comes from your own machine \u2014 the OBS scenes you have, the apps you have installed, the folders you actually use.",
+  "version": "0.1.22",
+  "notes": "Windows works. Until now the host could not start on Windows at all: the binary carried a malformed application manifest, and every Windows build this project has shipped died at launch on it. That is fixed, and the rest of the Windows path with it \u2014 the installer asks for what it needs up front instead of failing at its last step, the host starts by itself at the next logon with no console window and a tray icon in place, and Windows Firewall is a button in Desk rather than a command to copy into a console. A phone still holding a host it can no longer reach can be told to forget it and pair again.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.21",
-          "sha256": "91ee35c1e4de87170e622c4f412dc19ff8fbe573032227a8e40bbffa3122aca0"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.22",
+          "sha256": "0b93fc84b5cb596eddba49dfb024efdc7b50afbf3282356624d988ee04cdb700"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.21",
-          "sha256": "b5d8f221be5a79b774013104903713926d04f163be3239210aee79c33c6d463a"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.22",
+          "sha256": "10068948d8cdc0aa9bf3f31a16a1dc8dd4be4422d3efb7d493be0b617df159b5"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.21.exe",
-          "sha256": "1ca098b14a1851c0262e4ec525a6153a2e60853c556044a8696cdd110b16d4c0"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.22.exe",
+          "sha256": "ab8e7262ffef97e1f25d1671520282328249673e697517554468a8461bef4405"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.21.exe",
-          "sha256": "4f0a05f5669aa991cf18975b6622f50b1b91926f9c2ddc60cde9b60ebab1c229"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.22.exe",
+          "sha256": "ce76fe4145d339de16e17f3b99724d5fc5feec72c23c59778542a251606a5265"
         }
       }
     }
