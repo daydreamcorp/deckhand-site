@@ -1,0 +1,13 @@
+{
+  "notifications": [
+    {
+      "id": 1,
+      "title": "Windows: please re-download Deckhand",
+      "body": "Every Windows build before 0.1.22 could not start at all — the program was rejected by Windows before it ran, and it wasn't your machine. That's fixed. Deckhand can't update itself out of this one, so it needs one manual re-download. Tap to get it.",
+      "link": "https://daydreamcorp.github.io/deckhand-site/",
+      "channel": "build",
+      "createdTs": 1789058000
+    }
+  ],
+  "cursor": 1
+}
