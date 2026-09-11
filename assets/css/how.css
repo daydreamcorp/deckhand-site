@@ -69,12 +69,19 @@ html:not(.js-motion) .strip__track { padding-inline: var(--gutter); }
 html:not(.js-motion) .card { scroll-snap-align: center; }
 /* narrow */
 @media (max-width: 900px) {
-  html.js-motion .chapter--how .stage__grid { height: 100%; grid-template-rows: 40svh minmax(0, 1fr); }
+  html.js-motion .chapter--how .stage__grid { height: 100%; grid-template-rows: 36svh minmax(0, 1fr); row-gap: var(--s-2); }
   .how-scene { grid-template-columns: 1fr; justify-items: center; }
   .desk { position: absolute; left: 0; bottom: 6%; width: 300px; max-width: 60vw; transform: scale(.55); transform-origin: left bottom; z-index: 2; }
-  .chapter--how .phone { --phone-h: min(420px, 38svh); }
-  html.js-motion .acts { padding-bottom: 28%; }
-  .strip { height: 24%; bottom: 2%; }
+  .chapter--how .phone { --phone-h: min(420px, 34svh); }
+  /* the pinned copy region is short on a phone: the sub line steps aside for the film, type steps down, the strip takes the bottom fifth */
+  html.js-motion .chapter--how .stage__copy > .lede { display: none; }
+  html.js-motion .chapter--how h2 { font-size: var(--t-3); }
+  html.js-motion .acts { margin-top: var(--s-4); padding-bottom: 22%; }
+  html.js-motion .act { padding-left: 2.5rem; }
+  html.js-motion .act__num { font-size: 2rem; }
+  html.js-motion .act h3 { font-size: 1.2rem; }
+  html.js-motion .act p { font-size: var(--t-small); line-height: 1.45; margin-top: var(--s-1); }
+  .strip { height: 20%; bottom: 2%; }
 }
 
 /* Design act: the Sakura Storm backdrop crossfades over the Midnight one */

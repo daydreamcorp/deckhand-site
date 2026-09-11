@@ -6,10 +6,11 @@ const params = new URLSearchParams(location.search);
 export const IS_DEV = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 export const FORCE_REDUCED = IS_DEV && params.get('rm') === '1';       // B §11 (f); never true in production
 
-// Pins need at least 560 CSS px of viewport height: text zoom 200% and landscape phones fall to the resting layout.
+// Pins need at least 35 rem of viewport height (560 px at the default font size): page zoom shrinks the CSS viewport
+// and OS/browser font scaling grows the rem, so both landscape phones and large-text users fall to the resting layout.
 export const Q = {
-  motion:   FORCE_REDUCED ? 'not all' : '(prefers-reduced-motion: no-preference) and (min-height: 560px)',
-  reduce:   FORCE_REDUCED ? 'all'     : '(prefers-reduced-motion: reduce), (max-height: 559.99px)',
+  motion:   FORCE_REDUCED ? 'not all' : '(prefers-reduced-motion: no-preference) and (min-height: 35rem)',
+  reduce:   FORCE_REDUCED ? 'all'     : '(prefers-reduced-motion: reduce), (max-height: 34.99rem)',
   narrow:   '(max-width: 900px)',
   portrait: '(orientation: portrait)',
 };
