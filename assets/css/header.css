@@ -1,0 +1,61 @@
+/* ---------- header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(9,11,21,0.72); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner { display: flex; align-items: center; gap: 1.5rem; height: var(--header-h); }
+.brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--display); font-weight: 900; font-size: 1.25rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand svg { width: 26px; height: 26px; flex: none; }
+.site-nav { display: flex; align-items: center; gap: 2rem; }
+.site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.4rem 0.1rem; border-bottom: 2px solid transparent; }
+.site-nav a:hover { color: var(--ink); border-color: var(--line-strong); }
+.nav-toggle {
+  display: none; width: 2.75rem; height: 2.75rem; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
+  background: transparent; cursor: pointer; position: relative; flex: none;
+}
+.nav-toggle span {
+  position: absolute; left: 25%; width: 50%; height: 2px; background: var(--ink); border-radius: 2px;
+  top: 50%; transform: translateY(-50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+/* left/width here are relative to `span` (its containing block, since span
+   itself is absolutely positioned) -- 0/100% so before/after match span's
+   already-centered width exactly, instead of re-applying 25%/50% against
+   span's own box and rendering at half the intended size. */
+.nav-toggle span::before, .nav-toggle span::after {
+  content: ""; position: absolute; left: 0; width: 100%; height: 2px; background: var(--ink); border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle span::before { top: -7px; }
+.nav-toggle span::after { top: 7px; }
+.nav-toggle[aria-expanded="true"] span { background: transparent; }
+.nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+/* 900, not 780: a fifth nav item plus the CTA stops fitting on one line
+   well before 780px, and the nav then wraps inside a fixed-height header
+   and clips. The hero keeps its own 780px collapse below. */
+@media (max-width: 900px) {
+  .nav-toggle { display: block; }
+  .site-nav {
+    position: fixed; inset: var(--header-h) 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--bg-1); border-bottom: 1px solid var(--line);
+    transform: translateY(-8px); opacity: 0; visibility: hidden; pointer-events: none;
+    transition: transform 0.18s ease, opacity 0.18s ease, visibility 0.18s;
+    padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.25rem;
+  }
+  .site-nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
+  .site-nav a { border-bottom: 1px solid var(--line); padding: 0.9rem 0.1rem; width: 100%; }
+}
+.recruit-banner {
+  background: linear-gradient(90deg, rgba(0,229,255,0.16), rgba(255,199,90,0.12));
+  border-bottom: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+.recruit-banner .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.9rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+.recruit-banner b { color: var(--ink); font-weight: 600; }
+.recruit-banner a { color: var(--accent-strong); font-weight: 600; text-underline-offset: 3px; }
+/* scroll progress along the header's bottom edge (status, not decoration; driven by a plain scroll listener) */
+.header-progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+.site-nav a[aria-current="true"] { color: var(--ink); border-color: var(--accent); }

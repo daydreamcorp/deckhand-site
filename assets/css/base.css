@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+/* No scroll-behavior here: stage.css owns it (native scroll, D2). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-0);
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
+
+h1, h2, h3 { font-family: var(--display); font-weight: 900; color: var(--ink); letter-spacing: -0.01em; line-height: var(--lh-display); margin: 0; text-wrap: balance; }
+h1 { font-size: var(--t-1); }
+h2 { font-size: var(--t-2); }
+h3 { font-size: var(--t-3); }
+p { margin: 0; }
+.measure { max-width: var(--measure); }
+.lede { font-size: var(--t-lede); color: var(--ink-soft); }
+.faint { color: var(--ink-faint); }
+h2 + p, h3 + p { margin-top: var(--s-3); }
+
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* SplitText masked lines (B §5): the clip must not cut descenders */
+.line-mask { display: block; padding-bottom: 0.12em; margin-bottom: -0.12em; }
+.line { display: block; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--accent); color: var(--on-accent); font-weight: 700;
+  padding: 0.75rem 1.25rem; border-radius: var(--r-sm); transition: top 0.2s ease;
+}
+.skip-link:focus { top: 1rem; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  font-family: var(--sans); font-weight: 600; font-size: 1rem; line-height: 1;
+  padding: 0.95em 1.6em; border-radius: 999px; border: 1px solid transparent;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition-duration: var(--d-micro);
+}
+.btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 0 0 1px rgba(0,229,255,0.4), 0 14px 30px -12px rgba(0,229,255,0.55); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(0,229,255,0.55), 0 18px 34px -12px rgba(0,229,255,0.7); }
+.btn-primary:active { transform: translateY(0); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent-strong); }
+.btn-sm { padding: 0.6em 1.25em; font-size: 0.9rem; }
+.btn-gold { background: var(--gold); color: var(--on-gold); box-shadow: 0 0 0 1px rgba(255,199,90,0.45), 0 14px 30px -12px rgba(255,199,90,0.5); }
+.btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,199,90,0.6), 0 18px 34px -12px rgba(255,199,90,0.68); }
+.btn-gold:active { transform: translateY(0); }
+
+/* ---------- feature lists and tags (ported from the incumbent .feature-copy rules) ---------- */
+.tag { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.35em 0.85em; border-radius: 999px; }
+.feature-list { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.65rem; }
+.feature-list li { display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.96rem; color: var(--ink-faint); }
+.feature-list li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); margin-top: 0.45em; transform: rotate(45deg); }
+
+/* ---------- chapter rhythm ---------- */
+.chapter { position: relative; padding-block: var(--s-9); }
+/* a pinned stage starts exactly at the section top, so a deep link lands on the stage, not on empty padding */
+.chapter:has(> .pin:first-child) { padding-top: 0; }
+.chapter--raised { background: var(--bg-1); }
+.chapter__head { max-width: 44rem; margin-bottom: var(--s-7); }
+.chapter__head p { color: var(--ink-faint); font-size: var(--t-lede); }
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+/* ---------- forced colours (B §12 item 9) ---------- */
+@media (forced-colors: active) {
+  .tile, .keycap, .face { border: 1px solid CanvasText; }
+  .tile.is-lit, .face--toggle[data-on="true"] { outline: 3px solid Highlight; }
+  .phone__glow, .tile::after { display: none; }
+  .streak-days li.is-filled { border: 3px solid Highlight; }
+  :focus-visible { outline: 3px solid Highlight; }
+}

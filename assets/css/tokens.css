@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/fira-sans-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('assets/fonts/fira-sans-600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fira Sans Condensed';
+  font-style: normal; font-weight: 900; font-display: swap;
+  src: url('assets/fonts/fira-sans-condensed-900.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --bg-0: #090b15; --bg-1: #0d0f1a;
+  --surface-solid: #131526; --surface-raised: #1a1d33;
+  --line: rgba(185,190,232,0.14); --line-strong: rgba(185,190,232,0.30);
+  --ink: #f5f5ff; --ink-soft: #cbcfec; --ink-faint: #9fa6d0;
+  --accent: #00e5ff; --accent-strong: #7bf2ff; --accent-soft: rgba(0,229,255,0.13); --on-accent: #04121a;
+  --accent-alt: #7c8cff; /* the app's second light; used only by the AI sheet */
+  --good: #6fe3b4; --gold: #ffc75a; --silver: #c6cde6; --bronze: #e0956a; --on-gold: #241a04;
+  --shadow-lift: 0 30px 60px -30px rgba(0,0,0,0.65);
+  --r-sm: 10px; --r-md: 16px; --r-lg: 26px; --r-pill: 999px;
+  --s-1: 0.25rem; --s-2: 0.5rem; --s-3: 0.75rem; --s-4: 1rem; --s-5: 1.5rem; --s-6: 2rem; --s-7: 3rem; --s-8: 4rem; --s-9: 6rem; --s-10: 8rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem); --wrap: 1180px; --measure: 62ch;
+  --display: 'Fira Sans Condensed', 'Arial Narrow', sans-serif;
+  --sans: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+  --t-giant: clamp(6rem, 2rem + 20vw, 18rem);
+  --t-1: clamp(2.75rem, 1.2rem + 5.4vw, 5rem);
+  --t-2: clamp(2rem, 1rem + 3.4vw, 3.25rem);
+  --t-3: clamp(1.35rem, 1rem + 1.2vw, 1.75rem);
+  --t-lede: clamp(1.05rem, 1rem + 0.5vw, 1.25rem);
+  --t-body: 1rem; --t-small: 0.875rem; --t-label: 0.75rem;
+  --lh-display: 1.02; --lh-body: 1.6;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); --ease-in: cubic-bezier(0.4, 0, 1, 1); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-micro: 120ms; --d-enter: 200ms; --d-exit: 160ms;
+  --header-h: 4.5rem;
+}
