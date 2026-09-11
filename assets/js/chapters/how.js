@@ -87,7 +87,37 @@ function buildDesign(tl, ctx) {
   tl.fromTo(result, { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);     // hold hidden at the start
   tl.fromTo(working, { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
 }
-function buildPress(tl, ctx) { /* Task 11 */ }
+function buildPress(tl, ctx) {
+  const deck = ctx.deck, p0 = T.designEnd + 0.2;                    // 6.8
+  const track = ctx.q('.strip__track'), cards = ctx.qa('.card'), rows = ctx.qa('.win__log li');
+  const pairCard = ctx.q('.win__pair'), log = ctx.q('.win__log');
+  ctx.promote([track, ...cards]);
+  tl.to(pairCard, { opacity: 0, duration: 0.2 }, T.designEnd).fromTo(log, { opacity: 0 }, { opacity: 1, duration: 0.2 }, T.designEnd);
+  const step = () => cards[1].offsetLeft - cards[0].offsetLeft;
+  tl.fromTo(track, { x: 0 }, { x: () => -step() * 4, duration: 3.0, ease: 'none' }, p0);
+  const scenes = deck.tiles.get('slot-scenes').face, lights = deck.tiles.get('slot-lights').face;
+  const music = deck.tiles.get('slot-music').face, musicOut = music.querySelector('.face__readout');
+  const live = deck.tiles.get('slot-live').face, chat = deck.tiles.get('slot-chat').face, chatText = chat.querySelector('.face__text');
+  const fire = (i) => deck.press(['slot-mute', 'slot-scenes', 'slot-lights', 'slot-music', 'slot-scenes'][i]);
+  cards.forEach((card, i) => {
+    const t = p0 + 0.75 * i;
+    tl.fromTo(card, { scale: 1 }, { scale: 1.04, duration: 0.15, yoyo: true, repeat: 1, ease: 'power2.inOut' }, t - 0.15);
+    tl.call(fire, [i], t);
+    tl.fromTo(rows[i], { opacity: 0 }, { opacity: 1, duration: 0.1 }, t);
+  });
+  // persistent tile state per card — reversible primitives only (B §4): numeric proxies with onUpdate, and numeric custom properties
+  const wedge = { i: 0 };
+  tl.to(wedge, { i: 2, duration: 0.01, snap: 'i', onUpdate: () => { scenes.dataset.active = String(wedge.i); } }, p0 + 0.75);        // OBS · Pause
+  tl.fromTo(lights, { '--on': 1 }, { '--on': 0, duration: 0.1 }, p0 + 1.5);                                                          // webhook: lights off
+  const level = { db: -60 };
+  tl.to(music, { '--v': 0.7, duration: 0.2 }, p0 + 2.25);                                                                            // media: −18 dB
+  tl.to(level, { db: -18, duration: 0.2, snap: { db: 0.1 }, onUpdate: () => { musicOut.textContent = `${level.db.toFixed(1)}dB`; } }, p0 + 2.25);
+  tl.to(wedge, { i: 1, duration: 0.01, snap: 'i', onUpdate: () => { scenes.dataset.active = String(wedge.i); } }, p0 + 3.0);        // macro step 1: In Game
+  tl.call(() => deck.press('slot-mute'), null, p0 + 3.1);                                                                             // step 2
+  tl.fromTo(live, { '--on': 0 }, { '--on': 1, duration: 0.1 }, p0 + 3.2);                                                            // step 3: Live on
+  chatText.textContent = 'going live';                                                                                                // resting value (data-empty stays "true" so --typed rests at 0 on the how phone)
+  tl.fromTo(chat, { '--typed': 0 }, { '--typed': 1, duration: 0.1 }, p0 + 3.3);                                                      // step 4
+}
 
 function reset(ctx) {
   const deck = ctx.deck; if (!deck) return;
