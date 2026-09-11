@@ -76,3 +76,7 @@ html:not(.js-motion) .card { scroll-snap-align: center; }
   html.js-motion .acts { padding-bottom: 28%; }
   .strip { height: 24%; bottom: 2%; }
 }
+
+/* Design act: the Sakura Storm backdrop crossfades over the Midnight one */
+.chapter--how .deck { isolation: isolate; }
+.deck__skin { position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(110deg, #110F22, #221838, #38224E, #4A2C5E); }
