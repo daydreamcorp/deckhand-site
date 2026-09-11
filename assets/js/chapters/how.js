@@ -128,7 +128,8 @@ function reset(ctx) {
   const pos = new Map(deck.doc.pages[0].slots.map((s) => [s.id, { r: s.row + 1, c: s.col + 1 }]));
   const a = pos.get('slot-clip'), b = pos.get('slot-mute'); pos.set('slot-clip', b); pos.set('slot-mute', a);
   deck.tiles.forEach((t, id) => { const p = pos.get(id); t.el.style.setProperty('--c', p.c); t.el.style.setProperty('--r', p.r); });
-  gsap.set(ctx.qa('.face, .tile'), { clearProps: '--on,--lit,--typed' });      // never clear --v here: the demo values live in it; setValue restores the one tweened fader
+  gsap.set(ctx.qa('.face, .tile'), { clearProps: '--on,--lit,--typed' });
+  gsap.set(deck.root, { clearProps: '--dk-accent,--dk-face,--dk-pressed,--dk-text,--dk-bg' });   // the skin beat's inline overrides go too, so the rebuilt tween reads the stylesheet's Midnight values      // never clear --v here: the demo values live in it; setValue restores the one tweened fader
   deck.setValue('slot-scenes', 0); deck.setValue('slot-music', -60); deck.setValue('slot-lights', 'on'); deck.setValue('slot-live', false);
 }
 
