@@ -1,13 +1,13 @@
 import { mount, installRefreshPolicy, ScrollTrigger } from './engine/scroll.js';
 import { installAnchors, landOnHash } from './engine/anchors.js';
 import { renderDecks, handles } from './deck/render.js';
-import { initHeader } from './ui/header.js';
+import { initHeader, initProgress, initCurrentNav } from './ui/header.js';
 import { initRefer, initReferCopy } from './ui/refer.js';
 import { initInstall } from './ui/install.js';
 import './chapters/hero.js'; import './chapters/how.js'; import './chapters/controls.js';
 import './chapters/beyond.js'; import './chapters/scenes.js'; import './chapters/testers.js'; import './chapters/pricing.js';
 
-initHeader(); initRefer(); initReferCopy(); initInstall();
+initHeader(); initProgress(); initCurrentNav(); initRefer(); initReferCopy(); initInstall();
 renderDecks();                    // 1. synchronous DOM: every deck layer has its tiles before anything is measured
 window.__deckhand = { handles };  // verification hook only
 mount();                          // 2. contexts + triggers (each trigger refreshes itself on creation)
