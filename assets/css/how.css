@@ -9,7 +9,7 @@ html.js-motion .act:not(:first-child) { opacity: 0; }   /* hidden until the time
 .act__num { position: absolute; left: 0; top: -0.1rem; font-family: var(--display); font-size: 2.75rem; font-weight: 900; color: transparent; -webkit-text-stroke: 1.5px var(--line-strong); line-height: 1; }
 .act h3 { font-size: var(--t-3); } .act p { margin-top: var(--s-2); color: var(--ink-faint); max-width: 32rem; }
 /* scene: window left, phone right */
-.how-scene { display: grid; grid-template-columns: auto auto; align-items: center; gap: clamp(1rem, 3vw, 2.5rem); position: relative; }
+.how-scene { display: grid; grid-template-columns: auto auto; align-items: center; gap: clamp(2rem, 8vw, 6rem); position: relative; }   /* wide enough for the beam to read as a connector */
 .desk { width: min(380px, 30vw); aspect-ratio: 420 / 300; transform: scale(.8); transform-origin: right center; position: relative; }   /* the scaled box keeps its layout size; the grid gap absorbs it */
 .desk__inner { position: absolute; inset: 0; border-radius: 14px; background: #101114; border: 1px solid rgba(255,255,255,.08); color: #eceef2; font-family: var(--sans); overflow: clip; display: grid; grid-template-columns: 64px 1fr; grid-template-rows: 32px 1fr; }
 .desk__bar { grid-column: 1 / -1; display: flex; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .8rem; font-weight: 600; }
