@@ -1,0 +1,177 @@
+/* The trade, shown as a trade: what you give on the left, what you get on
+   the right. Two columns of one idea each, not a grid of cards. */
+.deal { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); }
+.deal-side { border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 2.6vw, 2rem); background: var(--surface-solid); }
+.deal-get { border-color: rgba(255,199,90,0.34); background: linear-gradient(165deg, rgba(255,199,90,0.09), var(--surface-solid) 62%); }
+.deal-side h3 { font-size: 1.3rem; margin-bottom: 1.1rem; }
+.deal-get h3 { color: var(--gold); }
+.deal-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.05rem; counter-reset: deal; }
+.deal-list li { position: relative; padding-left: 2.35rem; font-size: 0.97rem; color: var(--ink-faint); }
+.deal-list li b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.2rem; }
+.deal-ask .deal-list li::before {
+  counter-increment: deal; content: counter(deal);
+  position: absolute; left: 0; top: -0.1rem;
+  width: 1.65rem; height: 1.65rem; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 0.8rem; color: var(--accent);
+  border: 1px solid rgba(0,229,255,0.45); background: var(--accent-soft);
+}
+/* A drawn check, not a glyph font or an emoji: same stroke weight as the
+   rest of the page's iconography. */
+.deal-get .deal-list li::before {
+  content: ""; position: absolute; left: 0.15rem; top: 0.25rem;
+  width: 1.15rem; height: 0.6rem;
+  border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+  transform: rotate(-45deg); border-radius: 1px;
+}
+
+/* ---------- the 14-day strip ---------- */
+.streak { margin-top: clamp(2.25rem, 5vw, 3.25rem); }
+.streak h3 { font-size: 1.3rem; }
+.streak > p { margin-top: 0.6rem; color: var(--ink-faint); max-width: var(--measure); font-size: 0.97rem; }
+.streak-days { display: grid; grid-template-columns: repeat(14, minmax(0,1fr)); gap: clamp(0.25rem, 0.8vw, 0.6rem); margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.streak-days li {
+  position: relative; aspect-ratio: 1; border-radius: clamp(6px, 1.1vw, 12px);
+  border: 1px solid var(--line-strong); background: var(--surface-solid);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: clamp(0.6rem, 1.15vw, 0.85rem); color: var(--ink-faint);
+}
+.streak-days .is-mark { color: var(--on-accent); font-weight: 700; border-color: transparent; }
+.streak-days .m-bronze { background: var(--bronze); }
+.streak-days .m-silver { background: var(--silver); }
+.streak-days .m-gold   { background: var(--gold); box-shadow: 0 0 24px -6px rgba(255,199,90,0.65); }
+.streak-legend { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-top: 1.25rem; padding: 0; list-style: none; }
+.streak-legend li { font-size: 0.9rem; color: var(--ink-faint); border-top: 2px solid var(--line); padding-top: 0.65rem; }
+.streak-legend b { display: block; color: var(--ink); font-weight: 600; }
+.streak-legend .l-bronze { border-top-color: var(--bronze); }
+.streak-legend .l-silver { border-top-color: var(--silver); }
+.streak-legend .l-gold { border-top-color: var(--gold); }
+.streak-legend .day { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+
+/* ---------- refer a tester ----------
+   Gold, because gold is already this page's reward colour (deal-get, the
+   day-14 badge). Cyan stays the action colour, so the two never compete. */
+.refer {
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  border: 1px solid rgba(255,199,90,0.34);
+  border-radius: var(--r-lg);
+  padding: clamp(1.5rem, 3.2vw, 2.4rem);
+  background: radial-gradient(125% 150% at 8% 0%, rgba(255,199,90,0.14), rgba(255,199,90,0) 60%), var(--surface-solid);
+}
+.refer h3 { font-family: var(--display); font-weight: 900; font-size: clamp(1.55rem, 3.6vw, 2.25rem); letter-spacing: -0.01em; line-height: 1.04; color: var(--gold); margin: 0; }
+.refer-lede { margin: 0.8rem 0 0; color: var(--ink-soft); font-size: 1rem; max-width: var(--measure); }
+.refer-lede b { color: var(--gold); font-weight: 600; }
+.refer-grid { margin-top: clamp(1.6rem, 3.4vw, 2.4rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.6rem, 4vw, 3rem); align-items: center; }
+
+/* the counter — the one thing in this block meant to catch an eye */
+.refer-q { display: block; font-size: 0.97rem; color: var(--ink-faint); }
+.refer-q output { font-family: var(--display); font-weight: 900; font-size: 1.45rem; color: var(--ink); font-variant-numeric: tabular-nums; vertical-align: -0.1em; padding: 0 0.12em; }
+.refer-seats { display: grid; grid-template-columns: repeat(11, minmax(0,1fr)); gap: 0.3rem; margin: 0.85rem 0 0; padding: 0; list-style: none; }
+.refer-seats li { height: 0.5rem; border-radius: 999px; background: rgba(185,190,232,0.18); transition: background 160ms ease, box-shadow 160ms ease; }
+.refer-seats li.on { background: var(--gold); box-shadow: 0 0 14px -4px rgba(255,199,90,0.9); }
+.refer-range { width: 100%; margin: 0.95rem 0 0; accent-color: var(--gold); }
+.refer-range:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 999px; }
+.refer-total { display: flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.refer-total b { font-family: var(--display); font-weight: 900; font-size: clamp(3.4rem, 9vw, 5.25rem); line-height: 0.85; color: var(--gold); font-variant-numeric: tabular-nums; text-shadow: 0 0 44px rgba(255,199,90,0.32); }
+.refer-total span { font-size: 1rem; font-weight: 600; color: var(--ink); }
+.refer-note { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-faint); min-height: 2.7em; }
+
+.refer-rules { margin: 0; padding: 0 0 0 clamp(1rem, 2.2vw, 1.9rem); border-left: 1px solid rgba(255,199,90,0.22); list-style: none; display: grid; gap: 1.15rem; }
+.refer-rules li { font-size: 0.95rem; color: var(--ink-faint); }
+.refer-rules b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 0.25rem; }
+
+.refer-urgent { margin: clamp(1.5rem, 3.2vw, 2.1rem) 0 0; padding: 0.95rem 0 0.95rem 1.15rem; border-left: 3px solid var(--gold); color: var(--ink-soft); font-size: 0.97rem; }
+.refer-urgent b { color: var(--gold); font-weight: 600; }
+
+.refer-cta { margin-top: clamp(1.4rem, 3vw, 1.9rem); padding-top: clamp(1.2rem, 2.6vw, 1.6rem); border-top: 1px solid rgba(255,199,90,0.22); display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
+.btn-gold { background: var(--gold); color: #241a04; box-shadow: 0 0 0 1px rgba(255,199,90,0.45), 0 14px 30px -12px rgba(255,199,90,0.5); }
+.btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,199,90,0.6), 0 18px 34px -12px rgba(255,199,90,0.68); }
+.btn-gold:active { transform: translateY(0); }
+.refer-cta .hint { font-size: 0.88rem; color: var(--ink-faint); flex: 1 1 14rem; }
+.refer-cta .is-copied { border-color: var(--gold); color: var(--gold); }
+.join-refer { margin-top: 0.95rem; padding-top: 0.9rem; border-top: 1px solid rgba(255,199,90,0.24); font-size: 0.92rem; color: var(--ink-soft); }
+.join-refer a { color: var(--gold); }
+
+/* ---------- the quest panel ---------- */
+.quests { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,0.95fr) minmax(0,1.05fr); gap: clamp(1.75rem, 4vw, 3rem); align-items: center; }
+.quest-copy h3 { font-size: 1.3rem; }
+.quest-copy p { margin-top: 0.75rem; color: var(--ink-faint); font-size: 0.97rem; }
+.quest-copy p + p { margin-top: 0.8rem; }
+.quest-card { border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--surface-solid); padding: clamp(1.15rem, 2.2vw, 1.6rem); box-shadow: var(--shadow-lift); }
+.quest-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.quest-head h4 { font-family: var(--display); font-weight: 900; font-size: 1.15rem; color: var(--ink); margin: 0; }
+.quest-score { font-family: var(--mono); font-size: 1.05rem; color: var(--accent); }
+.quest-score i { font-style: normal; color: var(--ink-faint); font-size: 0.85rem; }
+.quest-bar { height: 8px; border-radius: 999px; background: rgba(185,190,232,0.16); margin: 0.85rem 0 1.35rem; overflow: hidden; }
+.quest-bar span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-strong)); }
+.quest-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.quest-list li { display: grid; grid-template-columns: 1.4rem 1fr auto; gap: 0.85rem; align-items: start; padding: 0.7rem 0.15rem; border-top: 1px solid var(--line); }
+.quest-list li:first-child { border-top: 0; padding-top: 0; }
+.quest-list .q-title { color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+.quest-list .q-desc { display: block; color: var(--ink-faint); font-size: 0.85rem; font-weight: 400; margin-top: 0.1rem; }
+.quest-list .q-pts { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-faint); white-space: nowrap; padding-top: 0.15rem; }
+/* Three states, each with a shape as well as a colour: filled disc + check
+   for done, half-filled ring for running, empty ring for not started. */
+.q-mark { width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1.5px solid var(--line-strong); position: relative; margin-top: 0.05rem; }
+.is-done .q-mark { border-color: var(--good); background: var(--good); }
+.is-done .q-mark::after { content: ""; position: absolute; left: 0.34rem; top: 0.4rem; width: 0.6rem; height: 0.3rem; border-left: 2px solid #05221a; border-bottom: 2px solid #05221a; transform: rotate(-45deg); }
+.is-done .q-title { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: rgba(159,166,208,0.5); }
+.is-done .q-pts { color: var(--good); }
+.is-live .q-mark { border-color: var(--accent); }
+.is-live .q-mark::after { content: ""; position: absolute; inset: 0.22rem; border-radius: 50%; background: conic-gradient(var(--accent) 0turn 0.5turn, transparent 0.5turn); }
+.is-live .q-pts { color: var(--accent); }
+
+/* ---------- requirements + join ---------- */
+.join { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.5rem, 3.5vw, 2.5rem); align-items: start; }
+.join h3 { font-size: 1.3rem; margin-bottom: 0.9rem; }
+.need { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+.need li { position: relative; padding-left: 1.5rem; font-size: 0.95rem; color: var(--ink-faint); }
+.need li::before { content: ""; position: absolute; left: 0; top: 0.55rem; width: 0.5rem; height: 0.5rem; border-radius: 2px; background: var(--accent); }
+.need b { color: var(--ink); font-weight: 600; }
+.join-box { border: 1px solid rgba(0,229,255,0.35); border-radius: var(--r-lg); background: linear-gradient(165deg, var(--accent-soft), var(--surface-solid) 65%); padding: clamp(1.4rem, 2.6vw, 2rem); }
+.join-box p { color: var(--ink-faint); font-size: 0.95rem; }
+/* .btn is nowrap globally, which is right for the short labels elsewhere.
+   This one names its action ("Email us..."), so it is long enough that at
+   a 320px viewport its min-content pushed the whole grid track 21px past
+   the viewport. It wraps instead of being shortened into vagueness. */
+.join-box .btn { margin-top: 1.2rem; width: 100%; white-space: normal; text-wrap: balance; line-height: 1.25; }
+.join-box .after { margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-faint); }
+.join-box .after code { font-family: var(--mono); font-size: 0.82rem; color: var(--ink-soft); }
+
+/* ---------- straight answers ---------- */
+.tester-faq { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--line); padding-top: clamp(1.75rem, 3.5vw, 2.5rem); }
+.tester-faq h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.tester-faq > p { color: var(--ink-faint); font-size: 0.95rem; max-width: var(--measure); }
+.faq-q { border-bottom: 1px solid var(--line); }
+.faq-q:first-of-type { border-top: 1px solid var(--line); margin-top: 1.5rem; }
+.faq-q > summary { cursor: pointer; list-style: none; padding: 1.05rem 2.5rem 1.05rem 0; position: relative; color: var(--ink); font-weight: 600; font-size: 1rem; }
+.faq-q > summary::-webkit-details-marker { display: none; }
+.faq-q > summary::after {
+  content: ""; position: absolute; right: 0.35rem; top: 50%;
+  width: 0.6rem; height: 0.6rem; margin-top: -0.4rem;
+  border-right: 2px solid var(--ink-faint); border-bottom: 2px solid var(--ink-faint);
+  transform: rotate(45deg); transition: transform 0.2s ease;
+}
+.faq-q[open] > summary::after { transform: rotate(-135deg); margin-top: -0.15rem; }
+.faq-q > summary:hover { color: var(--accent-strong); }
+.faq-a { padding: 0 0 1.15rem; color: var(--ink-faint); font-size: 0.95rem; max-width: var(--measure); }
+.faq-a p + p { margin-top: 0.7rem; }
+.faq-a a { color: var(--accent-strong); }
+
+@media (max-width: 900px) {
+  .quests { grid-template-columns: 1fr; }
+  .join { grid-template-columns: 1fr; }
+  .refer-grid { grid-template-columns: 1fr; align-items: start; }
+  .refer-rules { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 780px) {
+  .deal { grid-template-columns: 1fr; }
+  /* 14 across is unreadable on a phone; 7 across makes it two literal weeks,
+     which is a better read of the same fact. */
+  .streak-days { grid-template-columns: repeat(7, minmax(0,1fr)); }
+  .streak-legend { grid-template-columns: 1fr; gap: 0.75rem; }
+}
+@media (max-width: 520px) {
+  .quest-list li { grid-template-columns: 1.4rem 1fr; }
+  .quest-list .q-pts { grid-column: 2; padding-top: 0.15rem; }
+}

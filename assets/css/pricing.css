@@ -1,0 +1,19 @@
+/* ---------- pricing ---------- */
+.price-lede { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: baseline; margin-bottom: 2rem; }
+.price-lede-detail { color: var(--ink-faint); font-size: 0.92rem; }
+.price-lede .pill { font-family: var(--mono); font-size: 0.82rem; color: var(--good); border: 1px solid rgba(111,227,180,0.35); background: rgba(111,227,180,0.09); padding: 0.35em 0.85em; border-radius: 999px; }
+.price-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); }
+table.price-table { border-collapse: collapse; width: 100%; min-width: 780px; font-size: 0.92rem; }
+.price-table th, .price-table td { padding: 1rem 1.35rem; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.price-table thead th { background: var(--surface-solid); font-family: var(--display); font-size: 1.1rem; font-weight: 900; color: var(--ink); position: sticky; top: 0; }
+.price-table thead th .per { display: block; font-family: var(--sans); font-weight: 600; font-size: 0.8rem; color: var(--accent); margin-top: 0.3rem; }
+.price-table tbody th { font-weight: 600; color: var(--ink-faint); font-family: var(--mono); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.price-table tbody td { color: var(--ink-soft); }
+.price-table th[scope="row"], .price-table td:first-child { position: sticky; left: 0; background: var(--bg-1); }
+.price-table thead th:first-child { position: sticky; left: 0; z-index: 3; background: var(--surface-solid); }
+.price-table tr:last-child td, .price-table tr:last-child th { border-bottom: none; }
+.price-table td.free-col, .price-table th.free-col { background: rgba(0,229,255,0.05); }
+.price-table thead th.free-col { background: rgba(0,229,255,0.09); }
+.price-note { margin-top: 1.5rem; color: var(--ink-faint); font-size: 0.92rem; }
+.price-note-lead { color: var(--gold); font-weight: 700; }
+.price-lede .pill-launch { color: var(--gold); border-color: rgba(255,199,90,0.35); background: rgba(255,199,90,0.09); }

@@ -1,0 +1,13 @@
+/* ---------- footer ---------- */
+footer.site-footer { border-top: 1px solid var(--line); background: var(--bg-1); padding: clamp(2.5rem, 6vw, 3.5rem) 0 2.5rem; }
+.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.footer-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 900; font-size: 1.15rem; color: var(--ink); }
+.footer-brand svg { width: 22px; height: 22px; }
+.footer-tag { margin-top: 0.6rem; color: var(--ink-faint); font-size: 0.92rem; max-width: 26rem; }
+.footer-links { display: flex; gap: clamp(2rem, 5vw, 4rem); flex-wrap: wrap; }
+.footer-links h4 { margin: 0 0 0.75rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); font-weight: 700; font-family: var(--sans); }
+.footer-links ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.footer-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; }
+.footer-links a:hover { color: var(--accent-strong); }
+.footer-bottom { margin-top: 1.75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; font-size: 0.82rem; color: var(--ink-faint); }
+.footer-bottom code { font-family: var(--mono); }
