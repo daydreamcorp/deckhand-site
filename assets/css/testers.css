@@ -172,3 +172,12 @@
   .quest-list li { grid-template-columns: 1.4rem 1fr; }
   .quest-list .q-pts { grid-column: 2; padding-top: 0.15rem; }
 }
+.stage__grid--beat { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: clamp(1.5rem, 5vw, 4rem); }
+.numeral { position: relative; width: clamp(8rem, 28vw, 20rem); aspect-ratio: 1; display: grid; }
+.numeral__n { grid-area: 1 / 1; align-self: center; text-align: center; font-family: var(--display); font-weight: 900; font-size: var(--t-giant); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.numeral__n:not(.numeral__logo) { opacity: 0; }
+html:not(.js-motion) .numeral__n:not(.numeral__logo) { display: none; }
+.numeral__logo svg { width: 62%; height: auto; margin: auto; }
+.beat-h2 { font-size: var(--t-2); } .beat { display: block; }
+.testers-lede { margin-top: var(--s-7); }
+@media (max-width: 900px) { .stage__grid--beat { grid-template-columns: 1fr; grid-template-rows: auto auto; } .numeral { width: clamp(6rem, 40vw, 12rem); justify-self: center; } }
