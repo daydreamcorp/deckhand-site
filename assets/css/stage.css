@@ -42,6 +42,6 @@ html.js-motion .chapter__stage {
 }
 
 /* resting layout (no JS, reduced motion, short viewports): normal flow, generous rhythm */
-html:not(.js-motion) .stage__grid { height: auto; padding-block: clamp(3rem, 8vw, 6rem); }
+html:not(.js-motion) .stage__grid { height: auto; padding-block: clamp(3rem, 8vw, 6rem); align-items: start; }   /* the heading leads a tall stack (four phones) rather than floating beside its middle */
 html:not(.js-motion) .phone { --phone-h: min(646px, 70vh); }
 @media (max-width: 900px) { html:not(.js-motion) .stage__grid { grid-template-rows: auto auto; } }
