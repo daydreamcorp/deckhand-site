@@ -110,13 +110,6 @@
 /* Three states, each with a shape as well as a colour: filled disc + check
    for done, half-filled ring for running, empty ring for not started. */
 .q-mark { width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1.5px solid var(--line-strong); position: relative; margin-top: 0.05rem; }
-.is-done .q-mark { border-color: var(--good); background: var(--good); }
-.is-done .q-mark::after { content: ""; position: absolute; left: 0.34rem; top: 0.4rem; width: 0.6rem; height: 0.3rem; border-left: 2px solid #05221a; border-bottom: 2px solid #05221a; transform: rotate(-45deg); }
-.is-done .q-title { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: rgba(159,166,208,0.5); }
-.is-done .q-pts { color: var(--good); }
-.is-live .q-mark { border-color: var(--accent); }
-.is-live .q-mark::after { content: ""; position: absolute; inset: 0.22rem; border-radius: 50%; background: conic-gradient(var(--accent) 0turn 0.5turn, transparent 0.5turn); }
-.is-live .q-pts { color: var(--accent); }
 
 /* ---------- requirements + join ---------- */
 .join { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.5rem, 3.5vw, 2.5rem); align-items: start; }
@@ -181,3 +174,18 @@ html:not(.js-motion) .numeral__n:not(.numeral__logo) { display: none; }
 .beat-h2 { font-size: var(--t-2); } .beat { display: block; }
 .testers-lede { margin-top: var(--s-7); }
 @media (max-width: 900px) { .stage__grid--beat { grid-template-columns: 1fr; grid-template-rows: auto auto; } .numeral { width: clamp(6rem, 40vw, 12rem); justify-self: center; } }
+
+/* ---------- Task 18: scroll fills the streak and the quests ---------- */
+.streak-days li { overflow: hidden; isolation: isolate; --fill: 1; }   /* --fill and --done are registered once, in deck.css */
+.streak-days li::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--accent-soft); transform: scaleX(var(--fill)); transform-origin: 0 50%; z-index: -1; }
+.streak-days .is-mark::after { display: none; }
+.quest-bar span { transform-origin: 0 50%; }
+/* quest rows: --done drives every "done" style so the film can tick a row with one numeric tween (B §4); the classes keep the resting markup honest */
+.quest-list li { --done: 0; --live: 0; } .quest-list li.is-done { --done: 1; } .quest-list li.is-live { --live: 1; }
+.quest-list .q-mark { border-color: color-mix(in srgb, var(--good) calc(var(--done) * 100%), color-mix(in srgb, var(--accent) calc(var(--live) * 100%), var(--line-strong))); background: color-mix(in srgb, var(--good) calc(var(--done) * 100%), transparent); }
+.quest-list .q-mark::after { content: ""; position: absolute; left: 0.34rem; top: 0.4rem; width: 0.6rem; height: 0.3rem; border-left: 2px solid #05221a; border-bottom: 2px solid #05221a; transform: rotate(-45deg); opacity: var(--done); }
+.quest-list .q-mark::before { content: ""; position: absolute; inset: 0.22rem; border-radius: 50%; background: conic-gradient(var(--accent) 0turn 0.5turn, transparent 0.5turn); opacity: calc(var(--live) * (1 - var(--done))); }
+.quest-list .q-title { text-decoration: line-through; text-decoration-color: color-mix(in srgb, rgba(159,166,208,0.5) calc(var(--done) * 100%), transparent); color: color-mix(in srgb, var(--ink-faint) calc(var(--done) * 100%), var(--ink)); }
+.quest-list .q-pts { position: relative; display: grid; }
+.quest-list .q-pts > span { grid-area: 1 / 1; } .quest-list .q-pts__done { opacity: var(--done); color: var(--good); } .quest-list .q-pts__now { opacity: calc(1 - var(--done)); color: color-mix(in srgb, var(--accent) calc(var(--live) * 100%), var(--ink-faint)); }
+

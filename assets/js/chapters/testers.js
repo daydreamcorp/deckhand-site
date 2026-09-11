@@ -12,4 +12,25 @@ if (open) createChapter({
     tl.to({}, { duration: 0.01 }, 10);
   },
 });
-// Task 18 appends the streak and quest scrubs below this line.
+if (section) createChapter({
+  scope: section, pin: false,
+  build(tl, ctx) {
+    if (ctx.reduced) return;
+    // M9 — scroll is the calendar (resting: all fourteen filled)
+    const strip = section.querySelector('.streak-days'), cells = [...strip.querySelectorAll('li')];
+    const s = gsap.timeline({ scrollTrigger: { trigger: strip, start: 'top 85%', end: 'bottom 45%', scrub: 0.5 } });
+    cells.forEach((c, k) => {
+      s.fromTo(c, { '--fill': 0 }, { '--fill': 1, duration: 1 / 15, ease: 'none' }, k / 15);
+      if (c.classList.contains('is-mark')) s.fromTo(c, { scale: 0.6, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 1 / 15, ease: 'back.out(2)' }, k / 15);
+    });
+    // M10 — progress as scroll (resting: the honest mid-day card; motion ends at 100/100)
+    const card = section.querySelector('.quest-card'), rows = [...card.querySelectorAll('.quest-list li')];
+    const bar = card.querySelector('.quest-bar span'), score = card.querySelector('.quest-score').firstChild, counter = { n: 45 };
+    const q = gsap.timeline({ scrollTrigger: { trigger: card, start: 'top 85%', end: 'bottom 45%', scrub: 0.5 } });
+    q.to(counter, { n: 100, duration: 1, ease: 'none', onUpdate: () => { score.textContent = String(Math.round(counter.n)); } }, 0);
+    q.to(bar, { scaleX: 100 / 45, duration: 1, ease: 'none' }, 0);
+    q.fromTo(rows[3], { '--done': 0 }, { '--done': 1, duration: 0.05 }, 0.62);
+    q.fromTo(rows[4], { '--done': 0 }, { '--done': 1, duration: 0.05 }, 0.80);
+  },
+});
+
