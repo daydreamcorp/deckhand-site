@@ -122,7 +122,6 @@ function buildPress(tl, ctx) {
 function reset(ctx) {
   const deck = ctx.deck; if (!deck) return;
   gsap.set(ctx.qa('.act, .desk, .win__pair, .win__paired, .win__log li, .pairing, .pairing__status, .beam__reveal, .cursor, .skinchip, .sheet, .sheet__stages li, .sheet__prompt span, .sheet__result, .sheet__tiles span, .strip__track, .card, .deck__wifi, .lbl-more, .deck__skin'), { clearProps: 'all' });
-  ctx.qa('.sheet__stages li').forEach((li) => li.classList.remove('is-done'));
   deck.tiles.forEach((t) => { t.el.classList.remove('is-pressed', 'is-lit'); gsap.set(t.el, { clearProps: 'transform,opacity' }); });
   // restore the swapped resting layout from the document
   const pos = new Map(deck.doc.pages[0].slots.map((s) => [s.id, { r: s.row + 1, c: s.col + 1 }]));
