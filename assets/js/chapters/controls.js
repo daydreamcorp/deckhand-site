@@ -1,6 +1,7 @@
 import { createChapter, gsap } from '../engine/scroll.js';
 import { buildFace, setFaceValue, formatReadout } from '../deck/faces.js';
 import { attachDial, attachFader, attachXY, attachJoystick, attachHue } from '../widgets/continuous.js';
+import { attachButton, attachToggle, attachMultiState, attachDpad, attachStepper, attachRadial, attachTextField } from '../widgets/discrete.js';
 export const WIDGETS = [
   { type: 'button',      caption: 'Button',             slot: { id: 'w-button', label: 'Clip', icon: 'star', control: { control: 'button' } } },
   { type: 'toggle',      caption: 'Toggle',             slot: { id: 'w-toggle', label: 'Live', icon: 'none', control: { control: 'toggle' } }, value: false },
@@ -50,6 +51,13 @@ function wire() {
     attachJoystick(face, { reduced: () => !document.documentElement.classList.contains('js-motion'), onValue: ({ x, y }) => { out.textContent = `dx ${(x - 0.5).toFixed(2)} · dy ${(y - 0.5).toFixed(2)}`; } }); }
   { const { face, out } = g('colorPicker'); slider(face, 'Color picker: Lights', 0, 360, 187, 'hue 187°'); out.textContent = 'hue 187°';
     attachHue(face, { onValue: (h) => { out.textContent = `hue ${Math.round(h)}°`; } }); }
+{ const { tile, face, out } = g('button'); out.textContent = 'Pressed ×0'; face.setAttribute('aria-label', 'Button: Clip'); attachButton(tile, face, { onValue: (n) => { out.textContent = `Pressed ×${n}`; } }); }
+{ const { face, out } = g('toggle'); out.textContent = 'Off'; face.setAttribute('aria-label', 'Toggle: Live'); attachToggle(face, { onValue: (on) => { out.textContent = on ? 'On' : 'Off'; } }); }
+{ const { face, out, slot } = g('multiState'); out.textContent = 'Low'; attachMultiState(face, slot, { onValue: (s) => { out.textContent = s; } }); }
+{ const { face, out } = g('dpad'); face.setAttribute('aria-label', 'D-pad: Window Snap, arrow keys'); out.textContent = '—'; attachDpad(face, { onValue: (d) => { out.textContent = d || '—'; } }); }
+{ const { face, out, slot } = g('stepper'); face.setAttribute('aria-label', 'Stepper: BPM'); out.textContent = '120'; attachStepper(face, slot, { onValue: (v) => { out.textContent = String(v); } }); }
+{ const { face, out, slot } = g('radialMenu'); out.textContent = 'Starting'; attachRadial(face, slot, { onValue: (s) => { out.textContent = s; } }); }
+{ const { face, out, slot } = g('textField'); out.textContent = ''; attachTextField(face, slot, { onValue: (v) => { out.textContent = v; } }); }
 }
 if (grid) { buildWidgets(); wire(); }
 
