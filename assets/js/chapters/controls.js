@@ -1,4 +1,6 @@
-import { createChapter, gsap } from '../engine/scroll.js';
+import { createChapter, gsap, isReduced } from '../engine/scroll.js';
+import { idle } from '../widgets/idle.js';
+import { startGauge, startSparkline } from '../widgets/readouts.js';
 import { buildFace, setFaceValue, formatReadout } from '../deck/faces.js';
 import { attachDial, attachFader, attachXY, attachJoystick, attachHue } from '../widgets/continuous.js';
 import { attachButton, attachToggle, attachMultiState, attachDpad, attachStepper, attachRadial, attachTextField } from '../widgets/discrete.js';
@@ -59,7 +61,11 @@ function wire() {
 { const { face, out, slot } = g('radialMenu'); out.textContent = 'Starting'; attachRadial(face, slot, { onValue: (s) => { out.textContent = s; } }); }
 { const { face, out, slot } = g('textField'); out.textContent = ''; attachTextField(face, slot, { onValue: (v) => { out.textContent = v; } }); }
 }
-if (grid) { buildWidgets(); wire(); }
+if (grid) {
+  buildWidgets(); wire();
+  // Reduced motion: labels and readouts only (idle() returns null there); the motion build below creates the loops inside its context.
+  if (isReduced()) { startGauge(widgetEls.get('gauge').face, widgetEls.get('gauge').out); startSparkline(widgetEls.get('sparkline').face, widgetEls.get('sparkline').out); }
+}
 
 if (section) createChapter({
   scope: section, pin: false,
@@ -67,5 +73,8 @@ if (section) createChapter({
     if (ctx.reduced) return;
     gsap.from(ctx.qa('.widget'), { y: 24, opacity: 0, duration: 0.6, ease: 'power3.out', stagger: 0.05,
       scrollTrigger: { trigger: grid, start: 'top 80%', toggleActions: 'play none none none', once: true } });
+    idles.dial = idle(widgetEls.get('dial').tile, (t) => t.fromTo(widgetEls.get('dial').tile, { '--lit': 0 }, { '--lit': 0.37, duration: 3 }));   // ring .14 ↔ .40
+    idles.gauge = startGauge(widgetEls.get('gauge').face, widgetEls.get('gauge').out);
+    idles.spark = startSparkline(widgetEls.get('sparkline').face, widgetEls.get('sparkline').out);
   },
 });
