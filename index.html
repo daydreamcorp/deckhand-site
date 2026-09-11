@@ -7,542 +7,42 @@
 <meta name="description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Finish and get 3 months of Elite free at launch, plus another free month for every tester you bring.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#090b15">
+<link rel="canonical" href="https://daydreamcorp.github.io/deckhand-site/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://daydreamcorp.github.io/deckhand-site/">
+<meta property="og:site_name" content="Deckhand">
 <meta property="og:title" content="Deckhand is looking for 12 testers">
 <meta property="og:description" content="Deckhand needs 12 testers for 14 days to clear Google Play's closed-test requirement. Finish and get 3 months of Elite free at launch, plus another free month for every tester you bring.">
-<meta property="og:image" content="assets/og-image.png">
-<meta property="og:type" content="website">
+<meta property="og:image" content="https://daydreamcorp.github.io/deckhand-site/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deckhand is looking for 12 testers">
+<meta name="twitter:description" content="Deckhand turns your phone into a Stream-Deck-style control surface for Windows, macOS and Linux — no extra hardware, no account, no cloud.">
+<meta name="twitter:image" content="https://daydreamcorp.github.io/deckhand-site/assets/og-image.png">
 <link rel="icon" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<style>
-  @font-face {
-    font-family: 'Fira Sans';
-    font-style: normal; font-weight: 400; font-display: swap;
-    src: url('assets/fonts/fira-sans-400.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Fira Sans';
-    font-style: normal; font-weight: 600; font-display: swap;
-    src: url('assets/fonts/fira-sans-600.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Fira Sans Condensed';
-    font-style: normal; font-weight: 900; font-display: swap;
-    src: url('assets/fonts/fira-sans-condensed-900.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-
-  :root {
-    --bg-0: #090b15;
-    --bg-1: #0d0f1a;
-    --surface: #12142380;
-    --surface-solid: #131526;
-    --surface-raised: #1a1d33;
-    --line: rgba(185,190,232,0.14);
-    --line-strong: rgba(185,190,232,0.30);
-    --ink: #f5f5ff;
-    --ink-soft: #cbcfec;
-    --ink-faint: #9fa6d0;
-    --accent: #00e5ff;
-    --accent-strong: #7bf2ff;
-    --accent-soft: rgba(0,229,255,0.13);
-    --on-accent: #04121a;
-    --tile: #ececff;
-    --good: #6fe3b4;
-    --r-sm: 10px;
-    --r-md: 16px;
-    --r-lg: 26px;
-    --display: 'Fira Sans Condensed', 'Arial Narrow', sans-serif;
-    --sans: 'Fira Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
-    --shadow-lift: 0 30px 60px -30px rgba(0,0,0,0.65);
-    --measure: 62ch;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
-  }
-
-  body {
-    margin: 0;
-    background: var(--bg-0);
-    color: var(--ink-soft);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  img { max-width: 100%; display: block; }
-  a { color: inherit; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding-left: clamp(1.25rem, 4vw, 2.5rem); padding-right: clamp(1.25rem, 4vw, 2.5rem); }
-
-  h1, h2, h3 { font-family: var(--display); font-weight: 900; color: var(--ink); letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
-  p { margin: 0; }
-  .measure { max-width: var(--measure); }
-
-  .skip-link {
-    position: absolute; left: 1rem; top: -4rem; z-index: 100;
-    background: var(--accent); color: var(--on-accent); font-weight: 700;
-    padding: 0.75rem 1.25rem; border-radius: var(--r-sm); transition: top 0.2s ease;
-  }
-  .skip-link:focus { top: 1rem; }
-
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-
-  /* ---------- buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
-    font-family: var(--sans); font-weight: 600; font-size: 1rem; line-height: 1;
-    padding: 0.95em 1.6em; border-radius: 999px; border: 1px solid transparent;
-    cursor: pointer; text-decoration: none; white-space: nowrap;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-  }
-  .btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: 0 0 0 1px rgba(0,229,255,0.4), 0 14px 30px -12px rgba(0,229,255,0.55); }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(0,229,255,0.55), 0 18px 34px -12px rgba(0,229,255,0.7); }
-  .btn-primary:active { transform: translateY(0); }
-  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-strong); }
-  .btn-sm { padding: 0.6em 1.25em; font-size: 0.9rem; }
-
-  /* ---------- header ---------- */
-  .site-header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(9,11,21,0.72); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border-bottom: 1px solid var(--line);
-  }
-  .header-inner { display: flex; align-items: center; gap: 1.5rem; height: 4.5rem; }
-  .brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--display); font-weight: 900; font-size: 1.25rem; color: var(--ink); text-decoration: none; margin-right: auto; }
-  .brand svg { width: 26px; height: 26px; flex: none; }
-  .site-nav { display: flex; align-items: center; gap: 2rem; }
-  .site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.4rem 0.1rem; border-bottom: 2px solid transparent; }
-  .site-nav a:hover { color: var(--ink); border-color: var(--line-strong); }
-  .nav-toggle {
-    display: none; width: 2.75rem; height: 2.75rem; border-radius: var(--r-sm); border: 1px solid var(--line-strong);
-    background: transparent; cursor: pointer; position: relative; flex: none;
-  }
-  .nav-toggle span {
-    position: absolute; left: 25%; width: 50%; height: 2px; background: var(--ink); border-radius: 2px;
-    top: 50%; transform: translateY(-50%);
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-  /* left/width here are relative to `span` (its containing block, since span
-     itself is absolutely positioned) -- 0/100% so before/after match span's
-     already-centered width exactly, instead of re-applying 25%/50% against
-     span's own box and rendering at half the intended size. */
-  .nav-toggle span::before, .nav-toggle span::after {
-    content: ""; position: absolute; left: 0; width: 100%; height: 2px; background: var(--ink); border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-  .nav-toggle span::before { top: -7px; }
-  .nav-toggle span::after { top: 7px; }
-  .nav-toggle[aria-expanded="true"] span { background: transparent; }
-  .nav-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
-  .nav-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
-
-  /* 900, not 780: a fifth nav item plus the CTA stops fitting on one line
-     well before 780px, and the nav then wraps inside a fixed-height header
-     and clips. The hero keeps its own 780px collapse below. */
-  @media (max-width: 900px) {
-    .nav-toggle { display: block; }
-    .site-nav {
-      position: fixed; inset: 4.5rem 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
-      background: var(--bg-1); border-bottom: 1px solid var(--line);
-      transform: translateY(-8px); opacity: 0; visibility: hidden; pointer-events: none;
-      transition: transform 0.18s ease, opacity 0.18s ease, visibility 0.18s;
-      padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.25rem;
-    }
-    .site-nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; }
-    .site-nav a { border-bottom: 1px solid var(--line); padding: 0.9rem 0.1rem; width: 100%; }
-  }
-
-  /* ---------- section rhythm ---------- */
-  section { position: relative; padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
-  .section-flat { background: var(--bg-0); }
-  .section-raised { background: var(--bg-1); }
-  .eyebrow-num { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.08em; }
-  .section-head { max-width: 44rem; margin-bottom: clamp(2.25rem, 5vw, 3.5rem); }
-  .section-head h2 { font-size: clamp(1.9rem, 3.2vw, 2.75rem); line-height: 1.08; }
-  .section-head p { margin-top: 0.9rem; font-size: 1.05rem; color: var(--ink-faint); }
-
-  /* ---------- hero art layer ---------- */
-  .art-field { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; }
-  .art-field svg { width: 100%; height: 100%; display: block; }
-
-  /* ---------- hero ---------- */
-  .hero { padding-top: clamp(3rem, 8vw, 5rem); overflow: clip; }
-  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-  .hero-copy h1 { font-size: clamp(2.6rem, 5.2vw, 4.2rem); line-height: 1.03; }
-  .hero-copy p.lede { margin-top: 1.4rem; font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: var(--ink-soft); max-width: 40rem; }
-  .hero-ctas { margin-top: 2.2rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
-  .hero-stats { margin-top: 2.75rem; display: flex; flex-wrap: wrap; gap: 0.6rem 2.4rem; }
-  .hero-stats .stat { display: flex; flex-direction: column; gap: 0.15rem; }
-  .hero-stats .stat b { font-family: var(--display); font-size: 1.5rem; color: var(--ink); font-weight: 900; }
-  .hero-stats .stat span { font-size: 0.8rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.07em; }
-
-  .hero-visual { position: relative; display: flex; justify-content: center; }
-  .phone { position: relative; width: min(300px, 62vw); aspect-ratio: 9/19.4; border-radius: 2.6rem; background: #060710; padding: 12px;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.07), var(--shadow-lift), 0 0 90px -15px rgba(0,229,255,0.45); z-index: 1; }
-  .phone::before { content: ""; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 32%; height: 7px; border-radius: 5px; background: #010102; z-index: 2; }
-  .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 1.9rem; }
-  .hero-visual .glow { position: absolute; width: 120%; height: 60%; left: -10%; bottom: -6%; background: radial-gradient(closest-side, rgba(0,229,255,0.35), transparent 70%); filter: blur(10px); z-index: 0; }
-  /* Every other multi-column section here (.feature-row, .steps) collapses
-     to one column on narrow viewports -- the hero, the single most
-     prominent section on the page, was missing that override entirely.
-     Without it the grid stayed 2-column at any width, squeezing the
-     headline into a ~35%-of-viewport column and wrapping it to one or two
-     words per line well before the phone image was actually cramped. */
-  @media (max-width: 780px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { margin-top: 1rem; }
-  }
-
-  /* ---------- how it works ---------- */
-  .steps { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
-  .step { padding: clamp(1.75rem, 3vw, 2.5rem); background: var(--surface-solid); position: relative; }
-  .step + .step { border-left: 1px solid var(--line); }
-  .step .num { font-family: var(--display); font-size: 2.75rem; font-weight: 900; color: transparent; -webkit-text-stroke: 1.5px var(--line-strong); line-height: 1; }
-  .step h3 { margin-top: 0.9rem; font-size: 1.3rem; }
-  .step p { margin-top: 0.6rem; color: var(--ink-faint); font-size: 0.98rem; }
-  @media (max-width: 720px) {
-    .steps { grid-template-columns: 1fr; }
-    .step + .step { border-left: none; border-top: 1px solid var(--line); }
-  }
-
-  /* ---------- feature rows ---------- */
-  .feature-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
-  .feature-row + .feature-row { margin-top: clamp(4rem, 9vw, 7rem); }
-  /* order: -1 so media sorts before copy's default order: 0 -- the previous
-     1/2 pairing was internally consistent but identical in *relative* order
-     to the unreversed default (copy still first either way), so is-reverse
-     rows rendered with the exact same left/right arrangement as normal ones. */
-  .feature-row.is-reverse .feature-media { order: -1; }
-  .feature-copy .tag { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.35em 0.85em; border-radius: 999px; }
-  .feature-copy h3 { margin-top: 1rem; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.08; }
-  .feature-copy p.desc { margin-top: 1rem; font-size: 1.05rem; color: var(--ink-soft); }
-  .feature-copy ul { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.65rem; }
-  .feature-copy li { display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.96rem; color: var(--ink-faint); }
-  .feature-copy li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); margin-top: 0.45em; transform: rotate(45deg); }
-  .feature-media { display: flex; justify-content: center; }
-  .feature-media .phone { width: min(260px, 68vw); box-shadow: 0 0 0 1px rgba(255,255,255,0.06), var(--shadow-lift), 0 0 70px -18px rgba(0,229,255,0.35); }
-  @media (max-width: 760px) {
-    .feature-row, .feature-row.is-reverse { grid-template-columns: 1fr; }
-    .feature-row.is-reverse .feature-media, .feature-row .feature-media { order: -1; }
-  }
-
-  /* ---------- spec checklist ---------- */
-  .spec-panel { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface-solid); padding: clamp(1.75rem, 4vw, 2.75rem); margin-top: clamp(4rem, 9vw, 7rem); }
-  .spec-panel h3 { font-size: 1.5rem; }
-  .spec-panel > p { margin-top: 0.6rem; color: var(--ink-faint); }
-  .spec-grid { margin-top: 1.75rem; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.4rem 2rem; }
-  .spec-grid div { display: flex; gap: 0.65rem; padding: 0.55rem 0; border-top: 1px solid var(--line); font-size: 0.92rem; color: var(--ink-soft); font-family: var(--mono); }
-  .spec-grid div:nth-child(-n+3) { border-top: none; }
-  .spec-grid .ok { color: var(--good); flex: none; }
-  @media (max-width: 900px) { .spec-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } .spec-grid div:nth-child(3) { border-top: 1px solid var(--line); } }
-  @media (max-width: 560px) { .spec-grid { grid-template-columns: 1fr; } .spec-grid div:nth-child(2) { border-top: 1px solid var(--line); } }
-
-  /* ---------- screenshot gallery ---------- */
-  .gallery { display: flex; justify-content: safe center; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline-start: clamp(1.25rem, 4vw, 2.5rem); padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1.5rem; -webkit-overflow-scrolling: touch; }
-  .gallery::-webkit-scrollbar { height: 8px; }
-  .gallery::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; }
-  .gallery-item { flex: none; scroll-snap-align: start; width: min(220px, 62vw); margin: 0; }
-  .gallery-item .phone { width: 100%; }
-  .gallery-item figcaption { margin-top: 0.9rem; text-align: center; font-size: 0.85rem; color: var(--ink-faint); font-family: var(--mono); }
-
-  /* ---------- pricing ---------- */
-  .price-lede { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: baseline; margin-bottom: 2rem; }
-  .price-lede-detail { color: var(--ink-faint); font-size: 0.92rem; }
-  .price-lede .pill { font-family: var(--mono); font-size: 0.82rem; color: var(--good); border: 1px solid rgba(111,227,180,0.35); background: rgba(111,227,180,0.09); padding: 0.35em 0.85em; border-radius: 999px; }
-  .price-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); }
-  table.price-table { border-collapse: collapse; width: 100%; min-width: 780px; font-size: 0.92rem; }
-  .price-table th, .price-table td { padding: 1rem 1.35rem; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
-  .price-table thead th { background: var(--surface-solid); font-family: var(--display); font-size: 1.1rem; font-weight: 900; color: var(--ink); position: sticky; top: 0; }
-  .price-table thead th .per { display: block; font-family: var(--sans); font-weight: 600; font-size: 0.8rem; color: var(--accent); margin-top: 0.3rem; }
-  .price-table tbody th { font-weight: 600; color: var(--ink-faint); font-family: var(--mono); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  .price-table tbody td { color: var(--ink-soft); }
-  .price-table th[scope="row"], .price-table td:first-child { position: sticky; left: 0; background: var(--bg-1); }
-  .price-table thead th:first-child { position: sticky; left: 0; z-index: 3; background: var(--surface-solid); }
-  .price-table tr:last-child td, .price-table tr:last-child th { border-bottom: none; }
-  .price-table td.free-col, .price-table th.free-col { background: rgba(0,229,255,0.05); }
-  .price-table thead th.free-col { background: rgba(0,229,255,0.09); }
-  .price-note { margin-top: 1.5rem; color: var(--ink-faint); font-size: 0.92rem; }
-  .price-note-lead { color: var(--gold); font-weight: 700; }
-  .price-lede .pill-launch { color: var(--gold); border-color: rgba(255,199,90,0.35); background: rgba(255,199,90,0.09); }
-
-  /* ---------- download ---------- */
-  .download-groups { display: grid; gap: clamp(2rem, 5vw, 3rem); }
-  .download-group h3 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--sans); font-weight: 700; color: var(--ink-faint); }
-  .download-row { margin-top: 1.1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
-  .dl-btn {
-    display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.3rem; border-radius: var(--r-md);
-    background: var(--surface-solid); border: 1px solid var(--line); text-decoration: none; color: var(--ink);
-    transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
-  }
-  .dl-btn:hover { border-color: var(--accent); transform: translateY(-2px); background: var(--surface-raised); }
-  .dl-btn .icon { flex: none; width: 30px; height: 30px; color: var(--accent); }
-  .dl-btn .icon svg { width: 100%; height: 100%; fill: currentColor; }
-  .dl-btn .txt { display: flex; flex-direction: column; gap: 0.15rem; }
-  .dl-btn .txt small { font-size: 0.74rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
-  .dl-btn .txt strong { font-size: 1.05rem; font-family: var(--sans); }
-  .dl-btn .badge { margin-left: auto; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(0,229,255,0.35); padding: 0.2em 0.55em; border-radius: 999px; flex: none; }
-
-  .dl-btn.is-soon { cursor: default; opacity: 0.72; }
-  .dl-btn.is-soon:hover { transform: none; border-color: var(--line); background: var(--surface-solid); }
-  .dl-btn.is-soon .icon { color: var(--ink-faint); }
-  .dl-btn.is-soon .badge { color: var(--ink-faint); border-color: var(--line-strong); }
-
-  .download-note { margin-top: 2.5rem; padding: 1.1rem 1.4rem; border-radius: var(--r-md); background: var(--surface-solid); border: 1px solid var(--line); font-size: 0.92rem; color: var(--ink-faint); display: flex; gap: 0.8rem; }
-  .download-note svg { flex: none; width: 20px; height: 20px; color: var(--accent); margin-top: 0.1rem; }
-
-  /* ---------- per-platform install steps ----------
-     Nothing here is signed yet, so every platform interrupts the user in its
-     own way: SmartScreen on Windows, Gatekeeper on macOS, and an AppImage
-     that silently does nothing until it is marked executable. Each of those
-     looks like a broken download rather than a security prompt, so the steps
-     are on the page instead of in a support inbox. */
-  .install-guide { margin-top: 1.6rem; display: grid; gap: 0.7rem; }
-  .install-guide > h4 { margin: 0 0 0.1rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); font-weight: 700; }
-  .install-os { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-solid); overflow: hidden; }
-  .install-os[open] { border-color: var(--line-strong); }
-  .install-os > summary { cursor: pointer; list-style: none; padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 0.7rem; font-weight: 650; color: var(--ink); font-size: 0.95rem; }
-  .install-os > summary::-webkit-details-marker { display: none; }
-  .install-os > summary::after { content: "+"; margin-left: auto; color: var(--ink-faint); font-family: var(--mono); font-size: 1.1rem; line-height: 1; }
-  .install-os[open] > summary::after { content: "\2212"; }
-  .install-os > summary:hover { color: var(--accent-strong); }
-  .install-os .yours { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(0,229,255,0.3); padding: 0.2em 0.6em; border-radius: 999px; }
-  .install-body { padding: 0 1.2rem 1.1rem; color: var(--ink-soft); font-size: 0.92rem; }
-  .install-body ol { margin: 0; padding-left: 1.15rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.55rem; }
-  .install-body li { min-width: 0; }
-  .install-body li::marker { color: var(--accent); font-family: var(--mono); font-size: 0.85rem; }
-  .install-body code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 0.15em 0.45em; color: var(--ink); overflow-wrap: anywhere; }
-  .install-body .cmd { display: block; margin-top: 0.4rem; padding: 0.6rem 0.75rem; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r-sm); font-family: var(--mono); font-size: 0.82rem; color: var(--ink); overflow-x: auto; white-space: pre; }
-  .install-body .why { margin: 0.7rem 0 0; font-size: 0.86rem; color: var(--ink-faint); }
-  .install-body .heads-up { margin: 0 0 1rem; padding: 0.7rem 0.9rem; font-size: 0.88rem;
-    color: var(--ink-soft); background: rgba(255,199,90,0.08);
-    border-left: 3px solid var(--gold); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
-  .install-body .heads-up strong { color: var(--gold); }
-
-  /* ---------- footer ---------- */
-  footer.site-footer { border-top: 1px solid var(--line); background: var(--bg-1); padding: clamp(2.5rem, 6vw, 3.5rem) 0 2.5rem; }
-  .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
-  .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 900; font-size: 1.15rem; color: var(--ink); }
-  .footer-brand svg { width: 22px; height: 22px; }
-  .footer-tag { margin-top: 0.6rem; color: var(--ink-faint); font-size: 0.92rem; max-width: 26rem; }
-  .footer-links { display: flex; gap: clamp(2rem, 5vw, 4rem); flex-wrap: wrap; }
-  .footer-links h4 { margin: 0 0 0.75rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); font-weight: 700; font-family: var(--sans); }
-  .footer-links ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
-  .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; }
-  .footer-links a:hover { color: var(--accent-strong); }
-  .footer-bottom { margin-top: 1.75rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; font-size: 0.82rem; color: var(--ink-faint); }
-  .footer-bottom code { font-family: var(--mono); }
-
-  ::selection { background: var(--accent); color: var(--on-accent); }
-  /* ---------- tester recruitment ---------- */
-  /* One new hue on the whole page, earned by one meaning: the reward. Bronze
-     and silver exist only as the two lower streak milestones, so the three
-     read as an ordered set rather than as a rainbow. */
-  :root {
-    --gold: #ffc75a;
-    --silver: #c6cde6;
-    --bronze: #e0956a;
-  }
-
-  .recruit-banner {
-    background: linear-gradient(90deg, rgba(0,229,255,0.16), rgba(255,199,90,0.12));
-    border-bottom: 1px solid var(--line);
-    font-size: 0.92rem;
-  }
-  .recruit-banner .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.9rem; padding-top: 0.7rem; padding-bottom: 0.7rem; }
-  .recruit-banner b { color: var(--ink); font-weight: 600; }
-  .recruit-banner a { color: var(--accent-strong); font-weight: 600; text-underline-offset: 3px; }
-
-  /* The trade, shown as a trade: what you give on the left, what you get on
-     the right. Two columns of one idea each, not a grid of cards. */
-  .deal { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); }
-  .deal-side { border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.4rem, 2.6vw, 2rem); background: var(--surface-solid); }
-  .deal-get { border-color: rgba(255,199,90,0.34); background: linear-gradient(165deg, rgba(255,199,90,0.09), var(--surface-solid) 62%); }
-  .deal-side h3 { font-size: 1.3rem; margin-bottom: 1.1rem; }
-  .deal-get h3 { color: var(--gold); }
-  .deal-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.05rem; counter-reset: deal; }
-  .deal-list li { position: relative; padding-left: 2.35rem; font-size: 0.97rem; color: var(--ink-faint); }
-  .deal-list li b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.2rem; }
-  .deal-ask .deal-list li::before {
-    counter-increment: deal; content: counter(deal);
-    position: absolute; left: 0; top: -0.1rem;
-    width: 1.65rem; height: 1.65rem; border-radius: 50%;
-    display: grid; place-items: center;
-    font-family: var(--mono); font-size: 0.8rem; color: var(--accent);
-    border: 1px solid rgba(0,229,255,0.45); background: var(--accent-soft);
-  }
-  /* A drawn check, not a glyph font or an emoji: same stroke weight as the
-     rest of the page's iconography. */
-  .deal-get .deal-list li::before {
-    content: ""; position: absolute; left: 0.15rem; top: 0.25rem;
-    width: 1.15rem; height: 0.6rem;
-    border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
-    transform: rotate(-45deg); border-radius: 1px;
-  }
-
-  /* ---------- the 14-day strip ---------- */
-  .streak { margin-top: clamp(2.25rem, 5vw, 3.25rem); }
-  .streak h3 { font-size: 1.3rem; }
-  .streak > p { margin-top: 0.6rem; color: var(--ink-faint); max-width: var(--measure); font-size: 0.97rem; }
-  .streak-days { display: grid; grid-template-columns: repeat(14, minmax(0,1fr)); gap: clamp(0.25rem, 0.8vw, 0.6rem); margin: 1.5rem 0 0; padding: 0; list-style: none; }
-  .streak-days li {
-    position: relative; aspect-ratio: 1; border-radius: clamp(6px, 1.1vw, 12px);
-    border: 1px solid var(--line-strong); background: var(--surface-solid);
-    display: grid; place-items: center;
-    font-family: var(--mono); font-size: clamp(0.6rem, 1.15vw, 0.85rem); color: var(--ink-faint);
-  }
-  .streak-days .is-mark { color: var(--on-accent); font-weight: 700; border-color: transparent; }
-  .streak-days .m-bronze { background: var(--bronze); }
-  .streak-days .m-silver { background: var(--silver); }
-  .streak-days .m-gold   { background: var(--gold); box-shadow: 0 0 24px -6px rgba(255,199,90,0.65); }
-  .streak-legend { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-top: 1.25rem; padding: 0; list-style: none; }
-  .streak-legend li { font-size: 0.9rem; color: var(--ink-faint); border-top: 2px solid var(--line); padding-top: 0.65rem; }
-  .streak-legend b { display: block; color: var(--ink); font-weight: 600; }
-  .streak-legend .l-bronze { border-top-color: var(--bronze); }
-  .streak-legend .l-silver { border-top-color: var(--silver); }
-  .streak-legend .l-gold { border-top-color: var(--gold); }
-  .streak-legend .day { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
-
-  /* ---------- refer a tester ----------
-     Gold, because gold is already this page's reward colour (deal-get, the
-     day-14 badge). Cyan stays the action colour, so the two never compete. */
-  .refer {
-    margin-top: clamp(2.25rem, 5vw, 3.25rem);
-    border: 1px solid rgba(255,199,90,0.34);
-    border-radius: var(--r-lg);
-    padding: clamp(1.5rem, 3.2vw, 2.4rem);
-    background: radial-gradient(125% 150% at 8% 0%, rgba(255,199,90,0.14), rgba(255,199,90,0) 60%), var(--surface-solid);
-  }
-  .refer h3 { font-family: var(--display); font-weight: 900; font-size: clamp(1.55rem, 3.6vw, 2.25rem); letter-spacing: -0.01em; line-height: 1.04; color: var(--gold); margin: 0; }
-  .refer-lede { margin: 0.8rem 0 0; color: var(--ink-soft); font-size: 1rem; max-width: var(--measure); }
-  .refer-lede b { color: var(--gold); font-weight: 600; }
-  .refer-grid { margin-top: clamp(1.6rem, 3.4vw, 2.4rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.6rem, 4vw, 3rem); align-items: center; }
-
-  /* the counter — the one thing in this block meant to catch an eye */
-  .refer-q { display: block; font-size: 0.97rem; color: var(--ink-faint); }
-  .refer-q output { font-family: var(--display); font-weight: 900; font-size: 1.45rem; color: var(--ink); font-variant-numeric: tabular-nums; vertical-align: -0.1em; padding: 0 0.12em; }
-  .refer-seats { display: grid; grid-template-columns: repeat(11, minmax(0,1fr)); gap: 0.3rem; margin: 0.85rem 0 0; padding: 0; list-style: none; }
-  .refer-seats li { height: 0.5rem; border-radius: 999px; background: rgba(185,190,232,0.18); transition: background 160ms ease, box-shadow 160ms ease; }
-  .refer-seats li.on { background: var(--gold); box-shadow: 0 0 14px -4px rgba(255,199,90,0.9); }
-  .refer-range { width: 100%; margin: 0.95rem 0 0; accent-color: var(--gold); }
-  .refer-range:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 999px; }
-  .refer-total { display: flex; align-items: baseline; gap: 0.55rem; flex-wrap: wrap; margin-top: 1.25rem; }
-  .refer-total b { font-family: var(--display); font-weight: 900; font-size: clamp(3.4rem, 9vw, 5.25rem); line-height: 0.85; color: var(--gold); font-variant-numeric: tabular-nums; text-shadow: 0 0 44px rgba(255,199,90,0.32); }
-  .refer-total span { font-size: 1rem; font-weight: 600; color: var(--ink); }
-  .refer-note { margin: 0.9rem 0 0; font-size: 0.92rem; color: var(--ink-faint); min-height: 2.7em; }
-
-  .refer-rules { margin: 0; padding: 0 0 0 clamp(1rem, 2.2vw, 1.9rem); border-left: 1px solid rgba(255,199,90,0.22); list-style: none; display: grid; gap: 1.15rem; }
-  .refer-rules li { font-size: 0.95rem; color: var(--ink-faint); }
-  .refer-rules b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 0.25rem; }
-
-  .refer-urgent { margin: clamp(1.5rem, 3.2vw, 2.1rem) 0 0; padding: 0.95rem 0 0.95rem 1.15rem; border-left: 3px solid var(--gold); color: var(--ink-soft); font-size: 0.97rem; }
-  .refer-urgent b { color: var(--gold); font-weight: 600; }
-
-  .refer-cta { margin-top: clamp(1.4rem, 3vw, 1.9rem); padding-top: clamp(1.2rem, 2.6vw, 1.6rem); border-top: 1px solid rgba(255,199,90,0.22); display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
-  .btn-gold { background: var(--gold); color: #241a04; box-shadow: 0 0 0 1px rgba(255,199,90,0.45), 0 14px 30px -12px rgba(255,199,90,0.5); }
-  .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 0 1px rgba(255,199,90,0.6), 0 18px 34px -12px rgba(255,199,90,0.68); }
-  .btn-gold:active { transform: translateY(0); }
-  .refer-cta .hint { font-size: 0.88rem; color: var(--ink-faint); flex: 1 1 14rem; }
-  .refer-cta .is-copied { border-color: var(--gold); color: var(--gold); }
-  .hero-stats .stat-bonus b { color: var(--gold); }
-  .hero-stats .stat-bonus span { color: rgba(255,199,90,0.82); }
-  .join-refer { margin-top: 0.95rem; padding-top: 0.9rem; border-top: 1px solid rgba(255,199,90,0.24); font-size: 0.92rem; color: var(--ink-soft); }
-  .join-refer a { color: var(--gold); }
-
-  /* ---------- the quest panel ---------- */
-  .quests { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,0.95fr) minmax(0,1.05fr); gap: clamp(1.75rem, 4vw, 3rem); align-items: center; }
-  .quest-copy h3 { font-size: 1.3rem; }
-  .quest-copy p { margin-top: 0.75rem; color: var(--ink-faint); font-size: 0.97rem; }
-  .quest-copy p + p { margin-top: 0.8rem; }
-  .quest-card { border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: var(--surface-solid); padding: clamp(1.15rem, 2.2vw, 1.6rem); box-shadow: var(--shadow-lift); }
-  .quest-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-  .quest-head h4 { font-family: var(--display); font-weight: 900; font-size: 1.15rem; color: var(--ink); margin: 0; }
-  .quest-score { font-family: var(--mono); font-size: 1.05rem; color: var(--accent); }
-  .quest-score i { font-style: normal; color: var(--ink-faint); font-size: 0.85rem; }
-  .quest-bar { height: 8px; border-radius: 999px; background: rgba(185,190,232,0.16); margin: 0.85rem 0 1.35rem; overflow: hidden; }
-  .quest-bar span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-strong)); }
-  .quest-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
-  .quest-list li { display: grid; grid-template-columns: 1.4rem 1fr auto; gap: 0.85rem; align-items: start; padding: 0.7rem 0.15rem; border-top: 1px solid var(--line); }
-  .quest-list li:first-child { border-top: 0; padding-top: 0; }
-  .quest-list .q-title { color: var(--ink); font-weight: 600; font-size: 0.95rem; }
-  .quest-list .q-desc { display: block; color: var(--ink-faint); font-size: 0.85rem; font-weight: 400; margin-top: 0.1rem; }
-  .quest-list .q-pts { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-faint); white-space: nowrap; padding-top: 0.15rem; }
-  /* Three states, each with a shape as well as a colour: filled disc + check
-     for done, half-filled ring for running, empty ring for not started. */
-  .q-mark { width: 1.4rem; height: 1.4rem; border-radius: 50%; border: 1.5px solid var(--line-strong); position: relative; margin-top: 0.05rem; }
-  .is-done .q-mark { border-color: var(--good); background: var(--good); }
-  .is-done .q-mark::after { content: ""; position: absolute; left: 0.34rem; top: 0.4rem; width: 0.6rem; height: 0.3rem; border-left: 2px solid #05221a; border-bottom: 2px solid #05221a; transform: rotate(-45deg); }
-  .is-done .q-title { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: rgba(159,166,208,0.5); }
-  .is-done .q-pts { color: var(--good); }
-  .is-live .q-mark { border-color: var(--accent); }
-  .is-live .q-mark::after { content: ""; position: absolute; inset: 0.22rem; border-radius: 50%; background: conic-gradient(var(--accent) 0turn 0.5turn, transparent 0.5turn); }
-  .is-live .q-pts { color: var(--accent); }
-
-  /* ---------- requirements + join ---------- */
-  .join { margin-top: clamp(2.5rem, 5vw, 3.5rem); display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(1.5rem, 3.5vw, 2.5rem); align-items: start; }
-  .join h3 { font-size: 1.3rem; margin-bottom: 0.9rem; }
-  .need { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
-  .need li { position: relative; padding-left: 1.5rem; font-size: 0.95rem; color: var(--ink-faint); }
-  .need li::before { content: ""; position: absolute; left: 0; top: 0.55rem; width: 0.5rem; height: 0.5rem; border-radius: 2px; background: var(--accent); }
-  .need b { color: var(--ink); font-weight: 600; }
-  .join-box { border: 1px solid rgba(0,229,255,0.35); border-radius: var(--r-lg); background: linear-gradient(165deg, var(--accent-soft), var(--surface-solid) 65%); padding: clamp(1.4rem, 2.6vw, 2rem); }
-  .join-box p { color: var(--ink-faint); font-size: 0.95rem; }
-  /* .btn is nowrap globally, which is right for the short labels elsewhere.
-     This one names its action ("Email us..."), so it is long enough that at
-     a 320px viewport its min-content pushed the whole grid track 21px past
-     the viewport. It wraps instead of being shortened into vagueness. */
-  .join-box .btn { margin-top: 1.2rem; width: 100%; white-space: normal; text-wrap: balance; line-height: 1.25; }
-  .join-box .after { margin-top: 0.9rem; font-size: 0.85rem; color: var(--ink-faint); }
-  .join-box .after code { font-family: var(--mono); font-size: 0.82rem; color: var(--ink-soft); }
-
-  /* ---------- straight answers ---------- */
-  .tester-faq { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--line); padding-top: clamp(1.75rem, 3.5vw, 2.5rem); }
-  .tester-faq h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
-  .tester-faq > p { color: var(--ink-faint); font-size: 0.95rem; max-width: var(--measure); }
-  .faq-q { border-bottom: 1px solid var(--line); }
-  .faq-q:first-of-type { border-top: 1px solid var(--line); margin-top: 1.5rem; }
-  .faq-q > summary { cursor: pointer; list-style: none; padding: 1.05rem 2.5rem 1.05rem 0; position: relative; color: var(--ink); font-weight: 600; font-size: 1rem; }
-  .faq-q > summary::-webkit-details-marker { display: none; }
-  .faq-q > summary::after {
-    content: ""; position: absolute; right: 0.35rem; top: 50%;
-    width: 0.6rem; height: 0.6rem; margin-top: -0.4rem;
-    border-right: 2px solid var(--ink-faint); border-bottom: 2px solid var(--ink-faint);
-    transform: rotate(45deg); transition: transform 0.2s ease;
-  }
-  .faq-q[open] > summary::after { transform: rotate(-135deg); margin-top: -0.15rem; }
-  .faq-q > summary:hover { color: var(--accent-strong); }
-  .faq-a { padding: 0 0 1.15rem; color: var(--ink-faint); font-size: 0.95rem; max-width: var(--measure); }
-  .faq-a p + p { margin-top: 0.7rem; }
-  .faq-a a { color: var(--accent-strong); }
-
-  @media (max-width: 900px) {
-    .quests { grid-template-columns: 1fr; }
-    .join { grid-template-columns: 1fr; }
-    .refer-grid { grid-template-columns: 1fr; align-items: start; }
-    .refer-rules { border-left: 0; padding-left: 0; }
-  }
-  @media (max-width: 780px) {
-    .deal { grid-template-columns: 1fr; }
-    /* 14 across is unreadable on a phone; 7 across makes it two literal weeks,
-       which is a better read of the same fact. */
-    .streak-days { grid-template-columns: repeat(7, minmax(0,1fr)); }
-    .streak-legend { grid-template-columns: 1fr; gap: 0.75rem; }
-  }
-  @media (max-width: 520px) {
-    .quest-list li { grid-template-columns: 1.4rem 1fr; }
-    .quest-list .q-pts { grid-column: 2; padding-top: 0.15rem; }
-  }
-</style>
+<link rel="preload" href="assets/fonts/fira-sans-condensed-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fira-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fira-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/header.css">
+<link rel="stylesheet" href="assets/css/stage.css">
+<link rel="stylesheet" href="assets/css/deck.css">
+<link rel="stylesheet" href="assets/css/widgets.css">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/how.css">
+<link rel="stylesheet" href="assets/css/controls.css">
+<link rel="stylesheet" href="assets/css/beyond.css">
+<link rel="stylesheet" href="assets/css/scenes.css">
+<link rel="stylesheet" href="assets/css/testers.css">
+<link rel="stylesheet" href="assets/css/pricing.css">
+<link rel="stylesheet" href="assets/css/download.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+<link rel="modulepreload" href="assets/js/main.js">
 </head>
+
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -555,13 +55,15 @@
     <nav class="site-nav" id="siteNav" aria-label="Primary">
       <a href="#testers">Testers</a>
       <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="#screenshots">Screenshots</a>
+      <a href="#features">Controls</a>
+      <a href="#screenshots">Scenes</a>
       <a href="#pricing">Pricing</a>
+      <a href="#download">Download</a>
     </nav>
     <a class="btn btn-primary btn-sm header-cta" href="#testers">Become a tester</a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu"><span></span></button>
   </div>
+  <span class="header-progress" aria-hidden="true"></span>
 </header>
 
 <div class="recruit-banner">
@@ -572,10 +74,9 @@
 </div>
 
 <main id="main">
-
-  <!-- ================= HERO ================= -->
-  <section class="hero section-flat" id="top">
+  <section class="chapter chapter--hero" id="top">
     <div class="art-field" aria-hidden="true">
+      <div class="art-field__layer">
       <svg viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" focusable="false">
         <defs>
           <linearGradient id="gBase" gradientUnits="userSpaceOnUse" x1="-160" y1="-90" x2="1360" y2="860">
@@ -607,6 +108,7 @@
         <rect width="1200" height="760" fill="url(#gStage)"/>
         <rect width="1200" height="760" fill="url(#gVignette)"/>
       </svg>
+      </div>
     </div>
     <div class="wrap hero-inner">
       <div class="hero-copy">
@@ -614,7 +116,7 @@
         <p class="lede">Deckhand turns your phone into a Stream-Deck-style control surface for Windows, macOS and Linux — no extra hardware, no account, no cloud. It's finished. What it needs now is twelve people willing to use it daily for fourteen days, so Google Play will let it out.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#testers">Become a tester</a>
-          <a class="btn btn-ghost" href="#screenshots">See what you'd be testing</a>
+          <a class="btn btn-ghost" href="#how">See what you'd be testing</a>
         </div>
         <div class="hero-stats">
           <div class="stat"><b>14</b><span>Days of testing</span></div>
@@ -624,662 +126,167 @@
             <div class="stat stat-bonus"><b>+1 mo</b><span>Per tester you bring</span></div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="glow"></div>
-        <div class="phone"><img src="assets/screenshots/01_hero_grid.webp" alt="Deckhand's main deck screen showing a grid of colorful, glowing control tiles — buttons, a dial, and toggles."></div>
-      </div>
+<div class="hero-visual">
+  <div class="phone" id="hero-phone"><div class="phone__glow" aria-hidden="true"></div><div class="phone__screen" data-deck="obs" data-skin="midnight">
+    <noscript><img src="assets/screenshots/01_hero_grid.webp" width="640" height="1138" alt="Deckhand's main deck screen showing a grid of colorful, glowing control tiles — buttons, a dial, and toggles."></noscript>
+  </div></div>
+</div>
+
     </div>
   </section>
 
-  <!-- ================= TESTERS ================= -->
-  <section class="section-raised" id="testers">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow-num">001</span>
-        <h2>Twelve testers. Fourteen days. Then Deckhand can launch.</h2>
-        <p>Google Play doesn't let a new developer publish anything until at least twelve people have run the app in a closed test for fourteen days in a row. That test is the only thing left between Deckhand and its public release — so this is the honest ask, with the deal written out in full.</p>
-      </div>
-
-      <div class="deal">
-        <div class="deal-side deal-ask">
-          <h3>What you'd do</h3>
-          <ol class="deal-list">
-            <li><b>Open the app once a day, for fourteen days.</b> Five minutes is plenty. The days have to be consecutive — that's Google's rule, not ours, and a gap restarts the clock for everybody.</li>
-            <li><b>Work through the day's quests.</b> Five arrive each morning, worth 100 points together. They're what tells you <em>what</em> to test, so you never have to open the app and wonder what to do with it.</li>
-            <li><b>Say what broke.</b> One line by email is fine. Finding the rough edges is the whole reason the test exists.</li>
-          </ol>
-        </div>
-        <div class="deal-side deal-get">
-          <h3>What you get</h3>
-          <ul class="deal-list">
-            <li><b>Three months of Elite, free, when Deckhand launches.</b> The top tier — unlimited tiles, pages and paired computers, and every action type there is: shell commands, OBS scenes, webhooks, the macro recorder, dials and faders.</li>
-            <li><b>Every paid feature unlocked from day one.</b> Test builds run at Elite already, so nothing is behind a paywall while you're testing. You're not evaluating a crippled free tier.</li>
-            <li><b>No ads. None.</b> The ad surface only exists on the free tier, and you're not on it.</li>
-            <li><b>A say in what ships.</b> Twelve people is a small enough room that what you report actually changes the product before anyone else sees it.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="refer" id="refer">
-        <h3>Bring a tester, add a month.</h3>
-        <p class="refer-lede">Twelve is Google's floor, not our ceiling. Every person you bring who gets approved and starts testing puts <b>another free month of Elite</b> on your account &mdash; stacked on top of your three, for as long as you keep finding people.</p>
-
-        <div class="refer-grid">
-          <div class="refer-calc">
-            <label class="refer-q" for="referCount">Testers you bring: <output id="referCount-out" for="referCount">3</output></label>
-            <ul class="refer-seats" id="referSeats" aria-hidden="true"><li class="on"></li><li class="on"></li><li class="on"></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
-            <input class="refer-range" type="range" id="referCount" min="0" max="11" step="1" value="3">
-            <output class="refer-total" id="referTotal" for="referCount"><b>6</b> <span>months of Elite, free, at launch</span></output>
-            <p class="refer-note" id="referNote">Three months for testing, plus one for each of the three you brought.</p>
+<section class="chapter chapter--how chapter--raised" id="how">
+  <div class="pin" style="--len:720">
+    <div class="chapter__stage">
+      <div class="stage__grid">
+        <div class="stage__copy">
+          <h2>Three steps and you're live.</h2>
+          <p class="lede">No setup wizard, no cloud account, no hardware to buy.</p>
+          <div class="acts">
+            <article class="act" data-act="pair"><span class="act__num" aria-hidden="true">01</span><h3>Pair</h3><p>Install the free desktop app, then scan the QR code it shows (or type the on-screen PIN) from your phone. Both devices just need to share a network.</p></article>
+            <article class="act" data-act="design"><span class="act__num" aria-hidden="true">02</span><h3>Design</h3><p>Drag tiles onto a grid across as many pages as your plan allows. Resize them, skin them, wire each one to whatever it should do.</p></article>
+            <article class="act" data-act="press"><span class="act__num" aria-hidden="true">03</span><h3>Press</h3><p>Fire hotkeys, macros, OBS scenes, media controls, or a webhook to anything with a URL — straight from your pocket.</p></article>
           </div>
-
-          <ul class="refer-rules">
-            <li><b>Every tester goes past me first.</b> Nobody is added automatically. Send me their name and Google-account email, or just point them at this page and tell them who sent them &mdash; I read and approve each one by hand before an invite goes out. A fourteen-day test only works with people who will actually show up, so the vetting is the point, not a formality.</li>
-            <li><b>The month lands when they do.</b> It's credited once they're approved, enrolled, and have opened the app for their first day &mdash; not when they email. That's what keeps the count honest for everyone.</li>
-            <li><b>No cap, and it all stacks.</b> Your own three months, your badges, and every month you earn by referring land together on the same Google account when Deckhand reaches the store.</li>
-          </ul>
         </div>
-
-        <p class="refer-urgent"><b>And the reason to do it this week rather than next:</b> nobody's free months start until Deckhand is on the store, and Deckhand can't get there until fourteen unbroken days have run with a full room. Every tester you bring is a day closer to your own reward &mdash; and one more person standing between the cohort and the day somebody goes quiet.</p>
-
-        <div class="refer-cta">
-          <a class="btn btn-gold" href="mailto:admin@daydreamcorp.com?subject=Deckhand%20closed%20test%20-%20referring%20a%20tester&amp;body=Hi%20Deckhand%20team%2C%0A%0AI%27m%20already%20on%20the%20closed%20test%20and%20I%27d%20like%20to%20refer%20someone.%0A%0AMy%20Google-account%20email%20%28so%20you%20can%20credit%20the%20extra%20month%29%3A%0A%0AWho%20I%27m%20referring%20-%20name%20and%20Google-account%20email%3A%0A%0A">Refer someone now</a>
-          <button class="btn btn-ghost" id="referCopy" type="button" hidden>Copy the invite link</button>
-          <span class="hint">Not a tester yet? <a href="#join">Join first</a> &mdash; then every name you bring is another month.</span>
-        </div>
-      </div>
-
-      <div class="streak">
-        <h3>The fourteen days, and what they're worth</h3>
-        <p>The app keeps the count for you. Fill the daily bar and the streak carries; three of the badges exist only along this stretch, and the last one can't be earned any other way once the test is over.</p>
-        <ol class="streak-days">
-          <li>1</li>
-          <li>2</li>
-          <li class="is-mark m-bronze">3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li class="is-mark m-silver">7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
-          <li>13</li>
-          <li class="is-mark m-gold">14</li>
-        </ol>
-        <ul class="streak-legend">
-          <li class="l-bronze"><span class="day">Day 3 · Bronze</span><b>On a roll</b>Fill the daily bar three days running.</li>
-          <li class="l-silver"><span class="day">Day 7 · Silver</span><b>Full week</b>Fill the daily bar seven days running.</li>
-          <li class="l-gold"><span class="day">Day 14 · Gold</span><b>Perfect attendance</b>Fill the daily bar fourteen days running. That's the whole test.</li>
-        </ul>
-      </div>
-
-      <div class="quests">
-        <div class="quest-copy">
-          <h3>You get quests, not homework.</h3>
-          <p>Five quests land each morning, drawn from a catalogue of <b>forty daily objectives and thirty-two badges</b> spanning eleven areas of the app — pairing, deck editing, macros, geofence triggers, skins, the desktop side, latency. The rotation won't hand you the same objective two days running, so each day pushes you at a different corner.</p>
-          <p>That's deliberate. A tester with nothing particular to do opens the app, looks at it, and closes it — and the corners nobody thinks to try are exactly the ones still holding bugs. The quests are how those corners get found.</p>
-          <p>Some can't be rushed on purpose: a few need action on several different days, so there's no way to grind the test out in one sitting. Fourteen days is fourteen days.</p>
-        </div>
-        <div class="quest-card">
-          <div class="quest-head">
-            <h4>Today</h4>
-            <span class="quest-score">45<i>/100</i></span>
-          </div>
-          <div class="quest-bar"><span style="width:45%"></span></div>
-          <ul class="quest-list">
-            <li class="is-done">
-              <span class="q-mark" aria-hidden="true"></span>
-              <span><span class="q-title">Handshake</span><span class="q-desc">Connect to your desktop host.</span></span>
-              <span class="q-pts">Done · 10</span>
-            </li>
-            <li class="is-done">
-              <span class="q-mark" aria-hidden="true"></span>
-              <span><span class="q-title">Warm hands</span><span class="q-desc">Fire 15 actions.</span></span>
-              <span class="q-pts">Done · 10</span>
-            </li>
-            <li class="is-done">
-              <span class="q-mark" aria-hidden="true"></span>
-              <span><span class="q-title">Wheel of fortune</span><span class="q-desc">Pick from a radial menu 3 times.</span></span>
-              <span class="q-pts">Done · 25</span>
-            </li>
-            <li class="is-live">
-              <span class="q-mark" aria-hidden="true"></span>
-              <span><span class="q-title">Hold the line</span><span class="q-desc">Stay connected through a 10-minute session.</span></span>
-              <span class="q-pts">5/10 min · 25</span>
-            </li>
-            <li>
-              <span class="q-mark" aria-hidden="true"></span>
-              <span><span class="q-title">Full range</span><span class="q-desc">Use 5 different kinds of action.</span></span>
-              <span class="q-pts">0/5 · 30</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="join" id="join">
-        <div>
-          <h3>What you need</h3>
-          <ul class="need">
-            <li><b>An Android phone or tablet.</b> The closed test runs on Google Play, so Android only for now — the iOS build isn't in testing yet.</li>
-            <li><b>A Windows, macOS or Linux computer</b> on the same network. Deckhand controls that computer; without one there's nothing to press.</li>
-            <li><b>A Google account email.</b> Play invites are tied to the exact account you'll download with — a different address from the one on the phone is the single most common way enrolment fails.</li>
-            <li><b>Play auto-update left on.</b> Test builds expire about a week after they're compiled and are replaced mid-window. If yours goes stale you're locked out and the cohort's clock resets.</li>
-            <li><b>Roughly five minutes a day</b>, fourteen days running.</li>
-          </ul>
-        </div>
-        <div class="join-box">
-          <h3>Join the test</h3>
-          <p>Send one email with your Google-account address and we'll add you to the tester list. Places are added by hand, so you'll get a reply rather than an automated void.</p>
-          <a class="btn btn-primary" href="mailto:admin@daydreamcorp.com?subject=Deckhand%20closed%20test%20-%20count%20me%20in&amp;body=Hi%20Deckhand%20team%2C%0A%0AI%27d%20like%20to%20join%20the%2014-day%20closed%20test.%0A%0AGoogle%20account%20email%20%28this%20is%20the%20address%20the%20Play%20invite%20needs%29%3A%0APhone%20model%20and%20Android%20version%3A%0AComputer%20I%27ll%20pair%20it%20with%20%28Windows%20/%20macOS%20/%20Linux%29%3A%0A%0AI%20understand%20the%20test%20runs%2014%20days%20in%20a%20row%20and%20that%20I%27ll%20open%20the%20app%20each%20day.%0A">Email us to become a tester</a>
-          <p class="join-refer">Already in the test? <a href="#refer">Bring someone with you</a> &mdash; every tester you refer who is approved and starts testing adds another free month of Elite to your own account.</p>
-          <p class="after">The button opens your mail app with the details already filled in. If it doesn't, write to <code>admin@daydreamcorp.com</code> with your Google-account email, your phone, and which computer you'll pair with.</p>
-        </div>
-      </div>
-
-      <div class="tester-faq">
-        <h3>Straight answers before you commit</h3>
-        <p>A test build behaves differently from the app that eventually ships. Here's every way that's true, up front.</p>
-
-        <details class="faq-q">
-          <summary>Is my usage tracked during the test?</summary>
-          <div class="faq-a">
-            <p>Yes, and you should know exactly how before you sign up. Test builds collect anonymous usage analytics — which screens you open, which controls you use, connection quality, quest progress — and unlike the public release, the off-switch in Settings is hidden for testers outside the EEA and UK. A twelve-person funnel stops being readable if a few people quietly opt out, so for the closed test it's on.</p>
-            <p>What's never collected: the contents of your deck, your tile labels, what your buttons actually do, or anything you type into the app. Layout tracking is off and the <a href="privacy-policy.html">privacy policy</a> commits to that in writing. When Deckhand reaches production the toggle comes back for everyone.</p>
-          </div>
-        </details>
-
-        <details class="faq-q">
-          <summary>Why can't I take a screenshot?</summary>
-          <div class="faq-a">
-            <p>Test builds block screenshots, screen recording and casting, and show a blank thumbnail in the app switcher. The deck editor, the skins and the pricing surface aren't announced yet, and the closed test hands a complete build to twelve people outside the company.</p>
-            <p>It's a testing-phase measure and nothing more — it comes off before the public release. If you need to show us something, describe it or point a second camera at the screen; that's genuinely fine.</p>
-          </div>
-        </details>
-
-        <details class="faq-q">
-          <summary>What happens if I miss a day?</summary>
-          <div class="faq-a">
-            <p>Your streak resets and the gold badge is out of reach, but you're not thrown out — keep going and the fourteen days still count toward the reward. Tell us if life gets in the way rather than going quiet: what actually costs us is a tester who disappears without saying so, because Google measures continuous opted-in days across the whole group.</p>
-          </div>
-        </details>
-
-        <details class="faq-q">
-          <summary>When exactly do I get the three months of Elite?</summary>
-          <div class="faq-a">
-            <p>On release. Elite can't be granted against a store listing that doesn't exist publicly yet, so the free three months start when Deckhand reaches production and are applied to the same Google account you tested with. In the meantime the test build already runs at Elite, so you lose nothing by waiting.</p>
-          </div>
-        </details>
-
-        <details class="faq-q">
-          <summary>How does the extra month for referring work?</summary>
-          <div class="faq-a">
-            <p>One extra month of Elite for every tester you bring who is approved and actually starts testing, on top of the three months the test itself earns you. There's no cap and no code to enter &mdash; email me their name and Google-account email, or have them say who sent them when they write in.</p>
-            <p>Two things worth knowing before you start asking around. I read and approve every referral by hand before an invite goes out, so a name is a nomination rather than a guarantee. And the month is credited when they enrol and open the app for their first day, not when their email arrives &mdash; invites are tied to a specific Google account, so referring yourself from a second address doesn't get past me.</p>
-          </div>
-        </details>
-
-        <details class="faq-q">
-          <summary>Can I quit partway through?</summary>
-          <div class="faq-a">
-            <p>Yes, at any point, by leaving the test from the Play listing or by telling us. No obligation and no hard feelings — an email saying you're out is worth a lot, because it tells us to recruit a replacement instead of waiting on someone who isn't coming back.</p>
-          </div>
-        </details>
-
-        <details class="faq-q">
-          <summary>Does it cost anything?</summary>
-          <div class="faq-a">
-            <p>No. The phone app and the desktop app are both free to install, there's nothing to pay during the test, and no card is collected at any point. The desktop installers aren't code-signed yet, so Windows and macOS will warn you on first run — the <a href="#download">install steps</a> further down cover exactly what to click.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= HOW IT WORKS ================= -->
-  <section class="section-flat" id="how">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow-num">002</span>
-        <h2>Three steps and you're live.</h2>
-        <p>No setup wizard, no cloud account, no hardware to buy.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <span class="num">01</span>
-          <h3>Pair</h3>
-          <p>Install the free desktop app, then scan the QR code it shows (or type the on-screen PIN) from your phone. Both devices just need to share a network.</p>
-        </div>
-        <div class="step">
-          <span class="num">02</span>
-          <h3>Design</h3>
-          <p>Drag tiles onto a grid across as many pages as your plan allows. Resize them, skin them, wire each one to whatever it should do.</p>
-        </div>
-        <div class="step">
-          <span class="num">03</span>
-          <h3>Press</h3>
-          <p>Fire hotkeys, macros, OBS scenes, media controls, or a webhook to anything with a URL — straight from your pocket.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FEATURES ================= -->
-  <section class="section-raised" id="features">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow-num">003</span>
-        <h2>Design it your way. Then go further than hardware can.</h2>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-copy">
-          <span class="tag">Appearance</span>
-          <h3>Skin every tile, every page.</h3>
-          <p class="desc">Your own icons, labels, and colors on every tile — or pick from 50 built-in deck skins across six style tiers, from clean recolors to living, animated scenes.</p>
-          <ul>
-            <li>Resizable tiles on a grid you control, across multiple pages</li>
-            <li>Two free built-in skins; 48 more across six rarity tiers</li>
-            <li>Separate skin packs for the app's own menus, too</li>
-          </ul>
-        </div>
-        <div class="feature-media">
-          <div class="phone"><img src="assets/screenshots/03_skin_store.webp" alt="Deckhand's skin store screen showing a grid of purchasable deck skin thumbnails."></div>
-        </div>
-      </div>
-
-      <div class="feature-row is-reverse">
-        <div class="feature-copy">
-          <span class="tag">Controls</span>
-          <h3>Way more than buttons.</h3>
-          <p class="desc">Fourteen control types in total — buttons, dials, faders, toggles, radial menus, text fields, gauges, color pickers, steppers, multi-state switches, XY pads, joysticks, D-pads, and sparklines.</p>
-          <ul>
-            <li>Dials and faders for continuous input — volume, brightness, MIDI CC</li>
-            <li>No extra hardware required for any of it</li>
-            <li>Live widget tiles show CPU/RAM, active app, or connection status</li>
-          </ul>
-        </div>
-        <div class="feature-media">
-          <div class="phone"><img src="assets/screenshots/02_dial_active.webp" alt="Deckhand deck screen for an OBS control layout with a live dial, mute button, and volume faders."></div>
-        </div>
-      </div>
-
-      <div class="feature-row">
-        <div class="feature-copy">
-          <span class="tag">Beyond hardware</span>
-          <h3>Things a hardware Stream Deck can't do.</h3>
-          <p class="desc">OBS Studio scene, stream, and recording control. HTTP webhooks that trigger smart-home devices, APIs, or anything with a URL. Shake-to-trigger, voice-activated tiles, and geofenced pages that switch automatically when you sit down at your desk.</p>
-          <ul>
-            <li>A macro recorder captures a sequence of your own tiles and replays it as one</li>
-            <li>Multiple phones can control one computer, or one phone can switch between several</li>
-            <li>Shell commands and system power actions — opt-in only, never on by default</li>
-          </ul>
-        </div>
-        <div class="feature-media">
-          <div class="phone"><img src="assets/screenshots/07_smart_home.webp" alt="Deckhand deck screen for a smart-home layout with light, thermostat, and lock control tiles."></div>
-        </div>
-      </div>
-
-      <div class="spec-panel">
-        <h3>Also in the box</h3>
-        <p>Everything else that ships today, at a glance.</p>
-        <div class="spec-grid">
-          <div><span class="ok">✓</span>Keyboard shortcuts &amp; text macros</div>
-          <div><span class="ok">✓</span>Launch apps, open URLs and files</div>
-          <div><span class="ok">✓</span>Media controls &amp; multi-step action chains</div>
-          <div><span class="ok">✓</span>Folders for organizing large decks</div>
-          <div><span class="ok">✓</span>Toggle buttons &amp; multi-state switches</div>
-          <div><span class="ok">✓</span>Radial menus &amp; joystick / D-pad controls</div>
-          <div><span class="ok">✓</span>Color pickers &amp; steppers</div>
-          <div><span class="ok">✓</span>Sparkline widgets for live data</div>
-          <div><span class="ok">✓</span>End-to-end encrypted local pairing</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SCREENSHOTS ================= -->
-  <section class="section-flat" id="screenshots">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow-num">004</span>
-        <h2>Made for your setup.</h2>
-        <p>The same deck engine, skinned differently for whatever you're actually doing.</p>
-      </div>
-    </div>
-    <div class="gallery" role="list">
-      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/09_dj_booth.webp" alt="Deckhand deck laid out as a DJ booth controller with crossfader, cue, and loop tiles" loading="lazy"></div><figcaption>DJ booth</figcaption></figure>
-      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/13_kitchen.webp" alt="Deckhand deck laid out as kitchen timers and smart-appliance controls" loading="lazy"></div><figcaption>Kitchen</figcaption></figure>
-      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/14_classroom.webp" alt="Deckhand deck laid out for classroom presentation control" loading="lazy"></div><figcaption>Classroom</figcaption></figure>
-      <figure class="gallery-item" role="listitem"><div class="phone"><img src="assets/screenshots/15_photo_studio.webp" alt="Deckhand deck laid out for photo studio lighting and camera tether control" loading="lazy"></div><figcaption>Photo studio</figcaption></figure>
-    </div>
-  </section>
-
-  <!-- ================= PRICING ================= -->
-  <section class="section-raised" id="pricing">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow-num">005</span>
-        <h2>Start free. Your deck grows when you're ready.</h2>
-      </div>
-      <div class="price-lede">
-        <span class="pill">Free tier is real functionality, not a trial</span>
-        <span class="pill pill-launch">Launch pricing</span>
-        <span class="price-lede-detail">Starter and Creator are monthly only; Studio and up bill monthly or yearly (yearly ≈ 2 months free).</span>
-      </div>
-      <div class="price-scroll">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th scope="col" class="free-col">Free<span class="per">Start here</span></th>
-              <th scope="col">Starter<span class="per">$0.99/mo</span></th>
-              <th scope="col">Creator<span class="per">$1.49/mo</span></th>
-              <th scope="col">Studio<span class="per">$2.49/mo · $24.99/yr</span></th>
-              <th scope="col">Pro Studio<span class="per">$3.99/mo · $39.99/yr</span></th>
-              <th scope="col">Elite<span class="per">$5.99/mo · $59.99/yr</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Tile cells / page</th>
-              <td class="free-col">4</td><td>8</td><td>16</td><td>32</td><td>64</td><td>Unlimited</td>
-            </tr>
-            <tr>
-              <th scope="row">Pages</th>
-              <td class="free-col">1</td><td>2</td><td>4</td><td>8</td><td>16</td><td>Unlimited</td>
-            </tr>
-            <tr>
-              <th scope="row">Paired hosts</th>
-              <td class="free-col">1</td><td>1</td><td>2</td><td>5</td><td>15</td><td>Unlimited</td>
-            </tr>
-            <tr>
-              <th scope="row">Headline unlock</th>
-              <td class="free-col">Hotkey, text &amp; media actions</td>
-              <td>Full hardware-parity actions</td>
-              <td>OBS, webhooks, dials/faders/XY pad</td>
-              <td>Shell/system actions, macro recorder</td>
-              <td>Twice the scale, priority support</td>
-              <td>Everything, unlimited</td>
-            </tr>
-            <tr>
-              <th scope="row">Ads</th>
-              <td class="free-col">Banner + 2-min rewarded</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="price-note"><b class="price-note-lead">These are launch prices.</b> They're set deliberately low to get Deckhand's first decks into real hands, and they will rise over time as demand grows. What you see here is where the ladder starts, not where it settles.</p>
-      <p class="price-note">Skins are always a separate one-time purchase at every tier, including Free, and are never bundled into a subscription — buy a skin once and it's yours for good. 2 skins are free built-ins; 48 more range $0.99–$69.99.</p>
-    </div>
-  </section>
-
-  <!-- ================= DOWNLOAD ================= -->
-  <section class="section-flat" id="download">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow-num">006</span>
-        <h2>Get Deckhand.</h2>
-        <p>The desktop app is ready to try today. The phone app is in closed testing and isn't publicly listed yet — <a href="#testers">join the test</a> and we'll send you an invite that unlocks it.</p>
-      </div>
-
-      <div class="download-groups">
-        <div class="download-group">
-          <h3>On your phone</h3>
-          <div class="download-row">
-            <!-- Not a link yet, deliberately. Deckhand is in closed testing, so
-                 its Play listing 404s for anyone who is not an enrolled tester;
-                 a "Coming soon" badge on a live link still sends people to an
-                 error page. Restore the href the day it reaches production. -->
-            <div class="dl-btn is-soon" role="button" aria-disabled="true" tabindex="-1">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4 L19 12 L7 20 Z"/></svg></span>
-              <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
-              <span class="badge">Coming soon</span>
-            </div>
-            <div class="dl-btn is-soon" role="button" aria-disabled="true" tabindex="-1">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><mask id="appleBiteA"><rect width="24" height="24" fill="#fff"/><circle cx="16.5" cy="9.5" r="4.5" fill="#000"/></mask><circle cx="12" cy="13.5" r="6.5" mask="url(#appleBiteA)"/><ellipse cx="10.3" cy="6.4" rx="1.9" ry="0.95" transform="rotate(-30 10.3 6.4)"/></svg></span>
-              <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-              <span class="badge">Coming soon</span>
+        <div class="stage__scene how-scene">
+          <div class="desk" role="img" aria-label="A Deckhand Desk window on a computer, showing the pairing card with a QR code and a six-digit PIN.">
+            <div class="desk__inner" aria-hidden="true">
+              <div class="desk__bar"><i></i><i></i><i></i><span>Deckhand Desk</span></div>
+              <div class="desk__side"><i></i><i class="is-on"></i><i></i><i></i></div>
+              <div class="desk__body">
+                <div class="win__pair">
+                  <h4>Pair a phone</h4>
+                  <div class="win__row"><div class="qr"><span></span></div><div><div class="pin-code">482 913</div><div class="win__dim">192.168.1.20:51230</div><div class="win__dim">Single-use PIN · 1:42</div></div></div>
+                </div>
+                <div class="win__paired"><i class="dot"></i><div><div>Alex's Pixel · paired</div><div class="win__dim">Local network · no cloud</div></div></div>
+                <ol class="win__log"><li>Mute toggled</li><li>Scene: Pause</li><li>200 OK</li><li>Now playing: next</li><li>4 of 4 steps done</li></ol>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="download-group">
-          <h3>On your computer</h3>
-          <div class="download-row">
-            <a class="dl-btn" href="https://github.com/daydreamcorp/deckhand-site/releases/download/latest/Deckhand-Installer-windows-x86_64.exe">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><g transform="rotate(-6 12 12)"><rect x="3" y="3" width="8" height="8" rx="0.6"/><rect x="13" y="3" width="8" height="8" rx="0.6"/><rect x="3" y="13" width="8" height="8" rx="0.6"/><rect x="13" y="13" width="8" height="8" rx="0.6"/></g></svg></span>
-              <span class="txt"><small>Download for</small><strong>Windows</strong></span>
-              <span class="badge">New</span>
-            </a>
-            <a class="dl-btn" href="https://github.com/daydreamcorp/deckhand-site/releases/download/latest/Deckhand-Installer-macos-arm64">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><mask id="appleBiteB"><rect width="24" height="24" fill="#fff"/><circle cx="16.5" cy="9.5" r="4.5" fill="#000"/></mask><circle cx="12" cy="13.5" r="6.5" mask="url(#appleBiteB)"/><ellipse cx="10.3" cy="6.4" rx="1.9" ry="0.95" transform="rotate(-30 10.3 6.4)"/></svg></span>
-              <span class="txt"><small>Download for</small><strong>macOS</strong></span>
-              <span class="badge">Apple Silicon</span>
-            </a>
-            <a class="dl-btn" href="https://github.com/daydreamcorp/deckhand-site/releases/download/latest/Deckhand-Installer-linux-x86_64.AppImage">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="14.5" rx="5.5" ry="6.5"/><circle cx="12" cy="6.8" r="3.6"/><ellipse cx="9" cy="20.5" rx="2.2" ry="1.1"/><ellipse cx="15" cy="20.5" rx="2.2" ry="1.1"/></svg></span>
-              <span class="txt"><small>Download for</small><strong>Linux · AppImage</strong></span>
-              <span class="badge">Verified</span>
-            </a>
+          <svg class="beam" aria-hidden="true" focusable="false"><defs><mask id="beamMask" maskUnits="userSpaceOnUse"><path class="beam__reveal" d="M0 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></mask></defs><path class="beam__dash" d="M0 0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 9" stroke-linecap="round" mask="url(#beamMask)"/></svg>
+          <div class="phone" id="how-phone"><div class="phone__glow" aria-hidden="true"></div>
+            <div class="phone__screen" data-deck="obs" data-skin="midnight" data-swap="slot-clip,slot-mute" data-relabel="slot-clip:Clip it">
+              <div class="pairing" aria-hidden="true">
+                <h4>Pair with Deckhand host</h4>
+                <div class="pairing__frame"></div>
+                <p>Point your camera at the QR code shown on your computer.</p>
+                <p class="pairing__alt">Enter manually instead</p>
+                <p class="pairing__status pairing__status--verify">Verifying PIN with host…</p>
+                <p class="pairing__status pairing__status--ok">Connected!</p>
+              </div>
+            </div>
+          </div>
+          <div class="cursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 2-3 6z" fill="#fff" stroke="#000" stroke-width="1.2"/></svg><span class="cursor__tip">Drag to move</span></div>
+          <div class="skinchip" aria-hidden="true">Sakura Storm · Captain</div>
+          <div class="sheet" aria-hidden="true">
+            <h4>Describe a page</h4>
+            <p>Say what you want the page to do. Your computer builds it and shows you the result before anything is added.</p>
+            <div class="sheet__field"><span class="sheet__prompt">streaming controls for OBS</span><span class="sheet__go">Generate</span></div>
+            <ol class="sheet__stages"><li>Checking what your computer can do</li><li>Working out which controls you need</li><li>Designing the page</li><li>Writing the tiles<span class="sheet__working">Building your page… 4 tiles so far.</span></li><li>Fitting it to your grid</li></ol>
+            <div class="sheet__result"><h5>Your page is ready</h5><p>6 tiles, 2 of which need a higher plan and will be greyed out. Add it to your deck?</p>
+              <div class="sheet__tiles"><span>Go Live</span><span>Stop</span><span>Mute</span><span>Intro</span><span class="is-ghost">Terminal<svg><use href="assets/icons/sprite.svg#lock"/></svg></span><span class="is-ghost">Level<svg><use href="assets/icons/sprite.svg#lock"/></svg></span></div>
+              <div class="sheet__actions"><span class="sheet__btn sheet__btn--primary">Add page</span><span class="sheet__btn">Discard</span></div></div>
           </div>
         </div>
       </div>
-
-      <div class="install-guide" id="install-guide">
-        <h4>After the download — one step per platform</h4>
-
-        <details class="install-os" id="install-windows">
-          <summary>Windows<span class="yours" hidden>Your system</span></summary>
-          <div class="install-body">
-            <ol>
-              <li>Open the downloaded <code>Deckhand-Installer-windows-x86_64.exe</code>.</li>
-              <li>Windows will show <strong>“Windows protected your PC”</strong>. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
-              <li>The installer runs without admin rights and puts Deckhand under your own user account.</li>
-            </ol>
-            <p class="why">That warning appears because the build isn’t code-signed yet, not because anything is wrong with it. A signing certificate is on the list.</p>
-          </div>
-        </details>
-
-        <details class="install-os" id="install-macos">
-          <summary>macOS — Apple Silicon<span class="yours" hidden>Your system</span></summary>
-          <div class="install-body">
-            <p class="heads-up"><strong>This build is from 24 August</strong> and is behind the Windows and Linux ones. The fixes to the AI page generator that landed at the end of August aren’t in it. Deckhand is built on Linux and a macOS build needs a Mac — until that is sorted, this is the honest state of it.</p>
-            <ol>
-              <li>The download is a plain binary with no file extension, so double-clicking it won’t work. Open <strong>Terminal</strong>.</li>
-              <li>Make it executable and clear the download quarantine:
-                <span class="cmd">cd ~/Downloads
-chmod +x Deckhand-Installer-macos-arm64
-xattr -d com.apple.quarantine Deckhand-Installer-macos-arm64</span>
-              </li>
-              <li>Run it:
-                <span class="cmd">./Deckhand-Installer-macos-arm64</span>
-              </li>
-            </ol>
-            <p class="why">Both commands are needed because the build isn’t signed or notarised yet — without them macOS reports the file as damaged, which it isn’t. Apple Silicon only; there’s no Intel build.</p>
-          </div>
-        </details>
-
-        <details class="install-os" id="install-linux">
-          <summary>Linux — AppImage<span class="yours" hidden>Your system</span></summary>
-          <div class="install-body">
-            <ol>
-              <li>Mark it executable — a freshly downloaded AppImage does nothing at all until you do:
-                <span class="cmd">cd ~/Downloads
-chmod +x Deckhand-Installer-linux-x86_64.AppImage</span>
-              </li>
-              <li>Run it:
-                <span class="cmd">./Deckhand-Installer-linux-x86_64.AppImage</span>
-              </li>
-              <li>If it complains about FUSE, either install <code>libfuse2</code> or run it without FUSE:
-                <span class="cmd">./Deckhand-Installer-linux-x86_64.AppImage --appimage-extract-and-run</span>
-              </li>
-            </ol>
-            <p class="why">Your file manager can set the executable bit too — Properties → Permissions → “Allow executing file as program”.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="download-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
-        <span>One installer, no admin/root needed — it places Deckhand under your user account, adds a Start Menu / Applications launcher, and registers it to start with your session. The Windows and Linux builds were rebuilt most recently; if something looks off, that's useful to hear about.</span>
-      </div>
+      <div class="strip" aria-hidden="true"><div class="strip__track">
+        <article class="card" data-i="0"><b>Hotkey</b><span>Ctrl+Shift+M</span></article>
+        <article class="card" data-i="1"><b>OBS</b><span>Switch scene → Pause</span></article>
+        <article class="card" data-i="2"><b>Webhook</b><span>POST /lights/off</span></article>
+        <article class="card" data-i="3"><b>Media</b><span>Next track</span></article>
+        <article class="card" data-i="4"><b>Macro</b><span>Go live (4 steps)</span></article>
+      </div></div>
     </div>
-  </section>
+  </div>
+</section>
+
+
+<section class="chapter chapter--controls" id="features">
+  <div class="wrap">
+    <div class="chapter__head">
+      <h2>Way more than buttons.</h2>
+      <p>Fourteen control types in total — buttons, dials, faders, toggles, radial menus, text fields, gauges, color pickers, steppers, multi-state switches, XY pads, joysticks, D-pads, and sparklines.</p>
+      <p class="controls-invite">They work here, too. Drag the dial.</p>
+      <ul class="feature-list">
+        <li>Dials and faders for continuous input — volume, brightness, MIDI CC</li>
+        <li>No extra hardware required for any of it</li>
+        <li>Live widget tiles show CPU/RAM, active app, or connection status</li>
+      </ul>
+    </div>
+    <div class="widgets" id="widgets"></div>
+  </div>
+</section>
+
+<section class="chapter chapter--beyond chapter--raised" id="beyond">
+  <div class="pin" style="--len:240"><div class="chapter__stage"><div class="stage__grid">
+    <div class="stage__copy">
+      <h2>Things a hardware Stream Deck can't do.</h2>
+      <p class="lede">OBS Studio scene, stream, and recording control. HTTP webhooks that trigger smart-home devices, APIs, or anything with a URL. Shake-to-trigger, voice-activated tiles, and geofenced pages that switch automatically when you sit down at your desk.</p>
+      <ol class="beats"><li data-beat="geo">Sit down at your desk. The page is already there.</li><li data-beat="shake">Shake the phone. The tile fires.</li><li data-beat="macro">One press, four steps.</li></ol>
+    </div>
+    <div class="stage__scene beyond-scene">
+      <svg class="geo" aria-hidden="true" viewBox="0 0 320 320"><path class="geo__path" d="M20 300 C 80 240, 120 120, 200 160" fill="none"/><circle class="geo__ring" cx="200" cy="160" r="46" fill="none"/><circle class="geo__dot" cx="200" cy="160" r="7"/></svg>
+      <div class="phone" id="beyond-phone"><div class="phone__glow" aria-hidden="true"></div><div class="phone__screen">
+        <div class="deck-layer" data-deck="home" data-skin="aurora_borealis_pack" data-layer="beyond-home"></div>
+        <div class="deck-layer" data-deck="obs" data-skin="midnight" data-layer="beyond-obs" data-lit="slot-scenes,slot-mute,slot-live,slot-chat" data-on="slot-live" data-text="slot-chat:going live"></div>
+      </div></div>
+    </div>
+  </div></div></div>
+  <div class="wrap">
+    <ul class="feature-list beyond-list"><li>A macro recorder captures a sequence of your own tiles and replays it as one</li><li>Multiple phones can control one computer, or one phone can switch between several</li><li>Shell commands and system power actions — opt-in only, never on by default</li></ul>
+  <div class="spec-panel">
+    <h3>Also in the box</h3>
+    <p>Everything else that ships today, at a glance.</p>
+    <div class="spec-grid">
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Keyboard shortcuts &amp; text macros</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Launch apps, open URLs and files</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Media controls &amp; multi-step action chains</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Folders for organizing large decks</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Toggle buttons &amp; multi-state switches</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Radial menus &amp; joystick / D-pad controls</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Color pickers &amp; steppers</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>Sparkline widgets for live data</div>
+      <div><svg class="ok" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>End-to-end encrypted local pairing</div>
+    </div>
+  </div>
+    <div class="skins-aside">
+      <span class="tag">Appearance</span>
+      <h3>Skin every tile, every page.</h3>
+      <p class="desc">Your own icons, labels, and colors on every tile — or pick from 50 built-in deck skins across six style tiers, from clean recolors to living, animated scenes.</p>
+      <ul class="feature-list"><li>Resizable tiles on a grid you control, across multiple pages</li><li>Two free built-in skins; 48 more across six rarity tiers</li><li>Separate skin packs for the app's own menus, too</li></ul>
+      <ul class="swatches" aria-label="Six of the deck skins">
+        <li><span class="swatch" data-skin="midnight"></span><b>Midnight</b><span>Free</span></li>
+        <li><span class="swatch" data-skin="aurora_borealis_pack"></span><b>Aurora Borealis</b><span>First Mate</span></li>
+        <li><span class="swatch" data-skin="neon_city_pack"></span><b>Neon City</b><span>First Mate</span></li>
+        <li><span class="swatch" data-skin="sakura_storm"></span><b>Sakura Storm</b><span>Captain</span></li>
+        <li><span class="swatch" data-skin="citrus_burst_pack"></span><b>Citrus Burst</b><span>Deckhand</span></li>
+        <li><span class="swatch" data-skin="rose_gold_pack"></span><b>Rose Gold</b><span>Bosun</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter chapter--scenes" id="screenshots">
+  <div class="pin" style="--len:260"><div class="chapter__stage"><div class="stage__grid">
+    <div class="stage__copy"><h2>Made for your setup.</h2><p class="lede">The same deck engine, skinned differently for whatever you're actually doing.</p></div>
+    <div class="stage__scene scenes-stack">
+      <figure class="scene" data-scene="dj" style="--i:0;--scene-hue:187"><div class="phone"><div class="phone__glow" aria-hidden="true"></div><div class="phone__screen" data-deck="dj" data-skin="neon_city_pack"></div></div><figcaption><b>Mix like a pro</b><span>DJ booth</span><span class="vh">Deckhand deck laid out as a DJ booth controller with crossfader, cue, and loop tiles</span></figcaption></figure>
+      <figure class="scene" data-scene="kitchen" style="--i:1;--scene-hue:32"><div class="phone"><div class="phone__glow" aria-hidden="true"></div><div class="phone__screen" data-deck="kitchen" data-skin="citrus_burst_pack"></div></div><figcaption><b>Yes, even the kitchen</b><span>Kitchen</span><span class="vh">Deckhand deck laid out as kitchen timers and smart-appliance controls</span></figcaption></figure>
+      <figure class="scene" data-scene="classroom" style="--i:2;--scene-hue:156"><div class="phone"><div class="phone__glow" aria-hidden="true"></div><div class="phone__screen" data-deck="classroom" data-skin="mint_fresh"></div></div><figcaption><b>Built for your classroom</b><span>Classroom</span><span class="vh">Deckhand deck laid out for classroom presentation control</span></figcaption></figure>
+      <figure class="scene" data-scene="photo" style="--i:3;--scene-hue:12"><div class="phone"><div class="phone__glow" aria-hidden="true"></div><div class="phone__screen" data-deck="photo" data-skin="rose_gold_pack"></div></div><figcaption><b>Your studio, your rules</b><span>Photo studio</span><span class="vh">Deckhand deck laid out for photo studio lighting and camera tether control</span></figcaption></figure>
+    </div>
+  </div></div></div>
+</section>
+
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand">
-          <svg viewBox="0 0 108 108" aria-hidden="true"><path fill="#00E5FF" d="M37,33 L46,33 A4,4 0 0 1 50,37 L50,46 A4,4 0 0 1 46,50 L37,50 A4,4 0 0 1 33,46 L33,37 A4,4 0 0 1 37,33 Z"/><path fill="#ECECFF" d="M62,33 L71,33 A4,4 0 0 1 75,37 L75,46 A4,4 0 0 1 71,50 L62,50 A4,4 0 0 1 58,46 L58,37 A4,4 0 0 1 62,33 Z"/><path fill="#ECECFF" d="M37,58 L46,58 A4,4 0 0 1 50,62 L50,71 A4,4 0 0 1 46,75 L37,75 A4,4 0 0 1 33,71 L33,62 A4,4 0 0 1 37,58 Z"/><path fill="#00E5FF" d="M62,58 L71,58 A4,4 0 0 1 75,62 L75,71 A4,4 0 0 1 71,75 L62,75 A4,4 0 0 1 58,71 L58,62 A4,4 0 0 1 62,58 Z"/></svg>
-          Deckhand
-        </div>
-        <p class="footer-tag">Your pocket-sized command deck. A Stream-Deck-style control surface for Windows, macOS, and Linux — built by Day Dream Corp.</p>
-      </div>
-      <div class="footer-links">
-        <div>
-          <h4>Product</h4>
-          <ul>
-            <li><a href="#testers">Become a tester</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#download">Download</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy-policy.html">Privacy policy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Day Dream Corp. All rights reserved.</span>
-      <span>"Stream Deck" is a trademark of Elgato — Deckhand is an independent product, not affiliated with or endorsed by Elgato.</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  (function () {
-    var toggle = document.getElementById('navToggle');
-    var nav = document.getElementById('siteNav');
-    if (!toggle || !nav) return;
-    toggle.addEventListener('click', function () {
-      var open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      nav.classList.toggle('is-open', !open);
-    });
-    nav.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        toggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('is-open');
-      });
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-        toggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('is-open');
-        toggle.focus();
-      }
-    });
-  })();
-
-  // Opens the install steps for whatever the visitor is on, and marks them as
-  // theirs. Progressive enhancement only -- all three <details> work closed,
-  // by hand, with no JS, which matters because platform sniffing is a guess:
-  // getting it wrong should cost a click, never hide the instructions.
-  (function () {
-    var guide = document.getElementById('install-guide');
-    if (!guide) return;
-
-    var ua = navigator.userAgent || '';
-    var platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
-    var probe = platform + ' ' + ua;
-
-    var id = null;
-    // Android before Linux: every Android UA also says Linux, and an Android
-    // visitor wants the phone app, not AppImage instructions.
-    if (/Android/i.test(ua)) id = null;
-    else if (/Win/i.test(probe)) id = 'install-windows';
-    else if (/Mac|iPhone|iPad|iPod/i.test(probe)) id = 'install-macos';
-    else if (/Linux|X11|CrOS/i.test(probe)) id = 'install-linux';
-
-    var target = id && document.getElementById(id);
-    if (!target) return;
-
-    target.open = true;
-    var badge = target.querySelector('.yours');
-    if (badge) badge.hidden = false;
-  })();
-  /* ---- referral counter: 3 base months + 1 per tester you bring ---- */
-  (function () {
-    var range = document.getElementById('referCount');
-    if (!range) return;
-    var out   = document.getElementById('referCount-out');
-    var total = document.getElementById('referTotal');
-    var note  = document.getElementById('referNote');
-    var seats = document.getElementById('referSeats').children;
-    var word  = ['none','one','two','three','four','five','six','seven','eight','nine','ten','eleven'];
-
-    function render() {
-      var n = parseInt(range.value, 10) || 0;
-      var months = 3 + n;
-      out.textContent = n;
-      total.innerHTML = '<b>' + months + '</b> <span>month' + (months === 1 ? '' : 's') + ' of Elite, free, at launch</span>';
-      for (var i = 0; i < seats.length; i++) seats[i].classList.toggle('on', i < n);
-      if (n === 0)       note.textContent = 'Three months for testing, on its own. Every name you add from here is another month.';
-      else if (n === 1)  note.textContent = 'Three months for testing, plus one for the tester you brought.';
-      else if (n === 11) note.textContent = "That's the whole room filled single-handed — fourteen months is more than a year of Elite.";
-      else               note.textContent = 'Three months for testing, plus one for each of the ' + word[n] + ' you brought.';
-    }
-    range.addEventListener('input', render);
-    render();
-  })();
-
-  /* ---- copy the invite link (JS-only, so it reveals itself) ---- */
-  (function () {
-    var btn = document.getElementById('referCopy');
-    if (!btn) return;
-    var link = location.origin + location.pathname + '#testers';
-    var idle = btn.textContent, timer;
-    btn.hidden = false;
-
-    function say(text, ok) {
-      clearTimeout(timer);
-      btn.textContent = text;
-      btn.classList.toggle('is-copied', !!ok);
-      timer = setTimeout(function () { btn.textContent = idle; btn.classList.remove('is-copied'); }, 2600);
-    }
-    function fallback() {
-      var ta = document.createElement('textarea');
-      ta.value = link; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
-      document.body.appendChild(ta); ta.select();
-      var ok = false;
-      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-      if (ok) { document.body.removeChild(ta); say('Link copied', true); return; }
-      /* both paths refused: leave it selected so Ctrl+C still works */
-      say('Press Ctrl+C to copy', false);
-      ta.addEventListener('blur', function () { if (ta.parentNode) ta.parentNode.removeChild(ta); });
-    }
-    btn.addEventListener('click', function () {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(link).then(function () { say('Link copied', true); }, fallback);
-      } else { fallback(); }
-    });
-  })();
-
-</script>
+<script defer src="assets/vendor/gsap/gsap.min.js"></script>
+<script defer src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script defer src="assets/vendor/gsap/SplitText.min.js"></script>
+<script defer src="assets/vendor/gsap/Flip.min.js"></script>
+<script defer src="assets/vendor/gsap/DrawSVGPlugin.min.js"></script>
+<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
