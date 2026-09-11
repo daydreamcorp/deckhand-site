@@ -1,2 +1,3 @@
 .chapter--controls .chapter__head { max-width: 48rem; }
 .widget--gauge .face__readout { display: none; }   /* the figure's own readout replaces it */
+.widget--fader .face__readout { display: none; }   /* the figure's own readout replaces it, like the gauge */

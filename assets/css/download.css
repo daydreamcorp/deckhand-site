@@ -50,3 +50,4 @@
   color: var(--ink-soft); background: rgba(255,199,90,0.08);
   border-left: 3px solid var(--gold); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
 .install-body .heads-up strong { color: var(--gold); }
+.install-os > summary:focus-visible { outline-offset: -3px; }   /* .install-os clips its overflow, so the ring sits inside */

@@ -29,7 +29,7 @@
 .deck__tool { position: relative; width: calc(15 * var(--dk-dp)); height: calc(15 * var(--dk-dp)); }
 .deck__tool svg { width: 100%; height: 100%; fill: var(--dk-accent); }
 .deck__tool.has-badge::after { content: ""; position: absolute; right: -10%; top: -10%; width: 40%; height: 40%; border-radius: 50%; background: var(--dk-accent); }
-.deck__wifi svg { opacity: .45; } .deck__wifi.is-on svg { opacity: 1; }
+/* the wifi glyph rests lit (a paired deck); the Pair act tweens the span's opacity from .45 */
 .deck__grid { display: grid; grid-template-columns: repeat(var(--dk-cols), var(--dk-cell)); grid-auto-rows: var(--dk-cell); justify-content: center; }
 /* --lit drives both the accent ring and the glow; classes set it for the resting markup, GSAP writes it inline for the film */
 .tile { position: relative; isolation: isolate; grid-column: var(--c) / span var(--w); grid-row: var(--r) / span var(--h); padding: calc(6 * var(--dk-dp)); display: grid; grid-template-rows: auto 1fr; row-gap: calc(4 * var(--dk-dp)); min-width: 0; min-height: 0; --lit: 0; --ring: calc(0.14 + var(--lit) * 0.71); }

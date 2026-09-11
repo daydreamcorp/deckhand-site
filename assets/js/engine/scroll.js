@@ -10,7 +10,7 @@ export const FORCE_REDUCED = IS_DEV && params.get('rm') === '1';       // B §11
 // and OS/browser font scaling grows the rem, so both landscape phones and large-text users fall to the resting layout.
 export const Q = {
   motion:   FORCE_REDUCED ? 'not all' : '(prefers-reduced-motion: no-preference) and (min-height: 35rem)',
-  reduce:   FORCE_REDUCED ? 'all'     : '(prefers-reduced-motion: reduce), (max-height: 34.99rem)',
+  reduce:   FORCE_REDUCED ? 'all'     : '(prefers-reduced-motion: reduce), (max-height: 34.999rem)',
   narrow:   '(max-width: 900px)',
   portrait: '(orientation: portrait)',
 };
@@ -91,6 +91,9 @@ function buildStatic(rec) {
 
 function rebuild(rec) {
   if (!rec.tl || !rec.st) return;
+  rec.ctx.cleanups.forEach((fn) => fn()); rec.ctx.cleanups.length = 0;   // a rebuild re-registers its listeners
+  rec.ctx.promoted.length = 0;                                             // and re-promotes its layers
+  rec.ctx.narrow = matchMedia(Q.narrow).matches; rec.ctx.portrait = matchMedia(Q.portrait).matches;
   rec.reset(rec.ctx);
   rec.tl.clear();
   safeBuild(rec, rec.tl, rec.ctx);

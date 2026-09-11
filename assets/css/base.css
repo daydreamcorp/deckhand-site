@@ -43,6 +43,7 @@ h2 + p, h3 + p { margin-top: var(--s-3); }
 .skip-link:focus { top: 1rem; }
 
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+[tabindex="-1"]:focus { outline: 0; }   /* anchors.js focuses the landed section for sequential focus; it is not a Tab stop */
 
 /* ---------- buttons ---------- */
 .btn {

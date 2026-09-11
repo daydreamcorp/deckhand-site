@@ -1,4 +1,4 @@
-import { createChapter, gsap, ScrollTrigger } from '../engine/scroll.js';
+import { createChapter, gsap, ScrollTrigger, Q } from '../engine/scroll.js';
 import { handles } from '../deck/render.js';
 const section = document.getElementById('how');
 const scope = section && section.querySelector('.pin');
@@ -23,11 +23,18 @@ function buildPair(tl, ctx) {
   tl.fromTo(paired, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.4);
   // beam (B §7)
   const reveal = ctx.q('.beam__reveal'), dash = ctx.q('.beam__dash'), phone = ctx.q('#how-phone');
+  // The beam svg and the cursor are absolutely positioned inside .how-scene, so every coordinate is measured in the
+  // scene's frame (offsetParent chain up to the scene; offsets ignore transforms). The window's own CSS scale is applied
+  // by hand: right-centre origin on desktop (visual right edge and centre line unchanged), left-bottom origin on phones.
+  const scene = ctx.q('.how-scene');
+  const box = (el) => { const o = offsetIn(el, scene); return { x: o.x, y: o.y, w: el.offsetWidth, h: el.offsetHeight }; };
   const recompute = () => {
-    const a = offsetIn(win, ctx.stage), b = offsetIn(phone, ctx.stage);
-    const d = ctx.narrow
-      ? `M${a.x + win.offsetWidth / 2} ${a.y} C ${a.x + win.offsetWidth / 2} ${a.y - 80}, ${b.x + phone.offsetWidth / 2} ${b.y + phone.offsetHeight + 80}, ${b.x + phone.offsetWidth / 2} ${b.y + phone.offsetHeight}`
-      : (() => { const x1 = a.x + win.offsetWidth, y1 = a.y + win.offsetHeight * 0.5, x2 = b.x, y2 = b.y + phone.offsetHeight * 0.32;
+    const s = (new DOMMatrix(getComputedStyle(win).transform)).a || 1;
+    const a = box(win), b = box(phone);
+    const d = matchMedia(Q.narrow).matches   // live, not ctx.narrow: a refresh can arrive before the context flips
+      ? (() => { const cx = a.x + (a.w * s) / 2, top = a.y + a.h * (1 - s), px = b.x + b.w / 2, py = b.y + b.h * 0.42, m = (top - py) / 2;   // narrow: the window overlaps the phone's lower third, so the beam rises from its top edge onto the screen
+          return `M${cx} ${top} C ${cx} ${top - m}, ${px} ${py + m}, ${px} ${py}`; })()
+      : (() => { const x1 = a.x + a.w, y1 = a.y + a.h / 2, x2 = b.x, y2 = b.y + b.h * 0.32;
           return `M${x1} ${y1} C ${x1 + (x2 - x1) * 0.45} ${y1}, ${x2 - (x2 - x1) * 0.45} ${y2}, ${x2} ${y2}`; })();
     reveal.setAttribute('d', d); dash.setAttribute('d', d);
   };
@@ -51,7 +58,7 @@ function buildDesign(tl, ctx) {
   const cursor = ctx.q('.cursor'), chip = ctx.q('.skinchip');
   ctx.promote([a, b, cursor]);
   // --- by hand: cursor travels to the Clip tile, then to Mute's cell, and the two swap (B §6)
-  const rel = (el) => { const o = offsetIn(el, ctx.stage); return { x: o.x + el.offsetWidth / 2, y: o.y + el.offsetHeight / 2 }; };
+  const rel = (el) => { const o = offsetIn(el, ctx.q('.how-scene')); return { x: o.x + el.offsetWidth / 2, y: o.y + el.offsetHeight / 2 }; };   // the cursor lives in .how-scene
   const pa = () => rel(b), pb = () => rel(a);                       // resting layout is swapped: b sits where Clip started
   tl.fromTo(cursor, { opacity: 0, x: () => pa().x - 60, y: () => pa().y + 40 }, { opacity: 1, x: () => pa().x, y: () => pa().y, duration: 0.4, ease: 'power2.out' }, d0 + 0.0);
   tl.to(cursor, { x: () => pb().x, y: () => pb().y, duration: 0.5, ease: 'power2.inOut' }, d0 + 0.6);

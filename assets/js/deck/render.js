@@ -54,5 +54,9 @@ export function renderDecks(root = document) {
     const phone = m.closest('.phone');
     handles.set(m.dataset.layer || (phone && phone.id) || key, h);
   }
+  for (const phone of root.querySelectorAll('.phone')) {                 // the tiles are props: one image per phone, named after its deck(s)
+    const names = [...phone.querySelectorAll('[data-deck]')].map((m) => PRESETS[m.dataset.deck]?.pages[0].name).filter(Boolean);
+    if (names.length) { phone.setAttribute('role', 'img'); phone.setAttribute('aria-label', `A phone showing the ${names.join(' and the ')} ${names.length > 1 ? 'pages' : 'page'} in Deckhand`); }
+  }
   return handles;
 }

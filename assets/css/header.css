@@ -59,3 +59,4 @@
 /* scroll progress along the header's bottom edge (status, not decoration; driven by a plain scroll listener) */
 .header-progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
 .site-nav a[aria-current="true"] { color: var(--ink); border-color: var(--accent); }
+@media (max-width: 400px) { .header-cta { display: none; } }   /* brand + CTA + toggle need ~380 px; the hero and the drawer keep the ask */

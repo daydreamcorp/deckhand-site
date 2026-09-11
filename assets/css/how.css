@@ -10,31 +10,35 @@ html.js-motion .act:not(:first-child) { opacity: 0; }   /* hidden until the time
 .act h3 { font-size: var(--t-3); } .act p { margin-top: var(--s-2); color: var(--ink-faint); max-width: 32rem; }
 /* scene: window left, phone right */
 .how-scene { display: grid; grid-template-columns: auto auto; align-items: center; gap: clamp(2rem, 8vw, 6rem); position: relative; }   /* wide enough for the beam to read as a connector */
-.desk { width: min(380px, 30vw); aspect-ratio: 420 / 300; transform: scale(.8); transform-origin: right center; position: relative; }   /* the scaled box keeps its layout size; the grid gap absorbs it */
-.desk__inner { position: absolute; inset: 0; border-radius: 14px; background: #101114; border: 1px solid rgba(255,255,255,.08); color: #eceef2; font-family: var(--sans); overflow: clip; display: grid; grid-template-columns: 64px 1fr; grid-template-rows: 32px 1fr; }
-.desk__bar { grid-column: 1 / -1; display: flex; align-items: center; gap: 6px; padding: 0 12px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: .8rem; font-weight: 600; }
-.desk__bar i { width: 10px; height: 10px; border-radius: 50%; background: rgba(236,238,242,.29); } .desk__bar span { margin-left: 8px; }
-.desk__side { background: #16171c; border-right: 1px solid rgba(255,255,255,.08); padding: 14px 12px; display: grid; gap: 10px; align-content: start; }
-.desk__side i { display: block; height: 8px; border-radius: 4px; background: rgba(236,238,242,.16); } .desk__side i.is-on { background: #00e5ff; }
-.desk__body { position: relative; padding: 16px 18px; display: grid; align-content: start; gap: 14px; }
-.win__pair h4 { margin: 0 0 10px; font-family: var(--display); font-weight: 900; font-size: 1.3rem; }
-.win__row { display: flex; gap: 12px; align-items: center; }
-.qr { width: 84px; height: 84px; flex: none; border-radius: 7px; background: #fff; position: relative;
-  background-image: repeating-conic-gradient(#16171c 0 25%, #fff 0 50%); background-size: 10px 10px; background-position: 5px 5px; }
-.qr::before, .qr::after, .qr span { content: ""; position: absolute; width: 22px; height: 22px; border: 5px solid #16171c; background: #fff; box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 8px #16171c; }
-.qr::before { left: 5px; top: 5px; } .qr::after { right: 5px; top: 5px; } .qr span { left: 5px; bottom: 5px; }
-.pin-code { font-family: var(--mono); font-size: 1.35rem; font-weight: 700; letter-spacing: .3em; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.win__dim { color: rgba(236,238,242,.58); font-size: .78rem; }
-.win__paired { display: flex; gap: 10px; align-items: center; font-size: .85rem; }
-.win__paired .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--good); flex: none; }
-.win__log { margin: 0; padding: 0; list-style: none; font-family: var(--mono); font-size: .78rem; display: grid; gap: 4px; opacity: 0; }
+.desk { width: min(380px, 30vw); aspect-ratio: 420 / 300; transform: scale(.8); transform-origin: right center; position: relative; container-type: inline-size; }   /* the scaled box keeps its layout size; the grid gap absorbs it */
+/* The window's interior is measured in cqw (1cqw = 1% of the window's width, 4.2 px at 420), so it scales with the box
+   at every viewport instead of clipping; the pair card and the log share one grid cell and crossfade (Press act). */
+.desk__inner { position: absolute; inset: 0; border-radius: 3.3cqw; background: #101114; border: 1px solid rgba(255,255,255,.08); color: #eceef2; font-family: var(--sans); overflow: clip; display: grid; grid-template-columns: 15.2cqw 1fr; grid-template-rows: 7.6cqw 1fr; }
+.desk__bar { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.4cqw; padding: 0 2.9cqw; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 3cqw; font-weight: 600; }
+.desk__bar i { width: 2.4cqw; height: 2.4cqw; border-radius: 50%; background: rgba(236,238,242,.29); } .desk__bar span { margin-left: 1.9cqw; }
+.desk__side { background: #16171c; border-right: 1px solid rgba(255,255,255,.08); padding: 3.3cqw 2.9cqw; display: grid; gap: 2.4cqw; align-content: start; }
+.desk__side i { display: block; height: 1.9cqw; border-radius: 1cqw; background: rgba(236,238,242,.16); } .desk__side i.is-on { background: #00e5ff; }
+.desk__body { position: relative; padding: 3.8cqw 4.3cqw; display: grid; grid-template-rows: 1fr auto; align-content: start; gap: 3.3cqw; }
+.win__pair, .win__log { grid-area: 1 / 1; }
+.win__paired { grid-area: 2 / 1; }
+.win__pair h4 { margin: 0 0 2.4cqw; font-family: var(--display); font-weight: 900; font-size: 5cqw; line-height: 1.05; }
+.win__row { display: flex; gap: 2.9cqw; align-items: center; }
+.qr { width: 20cqw; height: 20cqw; flex: none; border-radius: 1.7cqw; background: #fff; position: relative;
+  background-image: repeating-conic-gradient(#16171c 0 25%, #fff 0 50%); background-size: 2.4cqw 2.4cqw; background-position: 1.2cqw 1.2cqw; }
+.qr::before, .qr::after, .qr span { content: ""; position: absolute; width: 5.2cqw; height: 5.2cqw; border: 1.2cqw solid #16171c; background: #fff; box-shadow: inset 0 0 0 .7cqw #fff, inset 0 0 0 1.9cqw #16171c; }
+.qr::before { left: 1.2cqw; top: 1.2cqw; } .qr::after { right: 1.2cqw; top: 1.2cqw; } .qr span { left: 1.2cqw; bottom: 1.2cqw; }
+.pin-code { font-family: var(--mono); font-size: 5.1cqw; font-weight: 700; letter-spacing: .3em; white-space: nowrap; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.win__dim { color: rgba(236,238,242,.58); font-size: 2.95cqw; line-height: 1.4; }
+.win__paired { display: flex; gap: 2.4cqw; align-items: center; font-size: 3.2cqw; line-height: 1.35; }
+.win__paired .dot { width: 2.4cqw; height: 2.4cqw; border-radius: 50%; background: var(--good); flex: none; }
+.win__log { margin: 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 2.95cqw; line-height: 1.3; display: grid; gap: .7cqw; align-content: start; opacity: 0; }
 html:not(.js-motion) .win__log { display: none; }
-.win__log li { padding: 3px 0; border-top: 1px solid rgba(255,255,255,.08); }
+.win__log li { padding: .9cqw 0; border-top: 1px solid rgba(255,255,255,.08); }
 /* beam (B §7) */
 .beam { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 1; }
 html:not(.js-motion) .beam { display: none; }
 /* phone overlays */
-.pairing, .sheet { position: absolute; inset: 0; z-index: 3; padding: 14cqw 8cqw; display: grid; align-content: start; gap: 4cqw; background: var(--bg-1); color: var(--ink); font-family: system-ui, sans-serif; }
+.pairing, .sheet { position: absolute; inset: 0; z-index: 3; padding: 12cqw 6.5cqw; display: grid; align-content: start; gap: 4cqw; background: var(--bg-1); color: var(--ink); font-family: system-ui, sans-serif; }
 .pairing { opacity: 0; } html:not(.js-motion) .pairing { display: none; }
 .pairing h4 { margin: 0; font-size: 6cqw; font-weight: 600; } .pairing p { font-size: 4cqw; color: var(--ink-faint); }
 .pairing__frame { aspect-ratio: 1; border: 2px solid var(--accent); border-radius: 6cqw; margin: 4cqw 10cqw; }
@@ -60,7 +64,7 @@ html:not(.js-motion) .cursor, html:not(.js-motion) .skinchip { display: none; }
 .skinchip { position: absolute; right: 0; top: -2.4rem; opacity: 0; font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; color: #FF9FCB; border: 1px solid rgba(255,159,203,.4); border-radius: 999px; padding: .25rem .7rem; }
 /* action strip (B §8) */
 .strip { position: absolute; left: 0; right: 0; bottom: 4%; height: 30%; overflow: clip; }
-.strip__track { --card-w: min(300px, 62vw); --card-gap: 1.5rem; display: flex; gap: var(--card-gap); width: max-content; height: 100%; align-items: center; padding-inline: calc(50vw - var(--card-w) / 2); }
+.strip__track { --card-w: min(300px, 62vw); --card-gap: 1.5rem; display: flex; gap: var(--card-gap); width: max-content; height: 100%; align-items: center; padding-inline: calc(50% - var(--card-w) / 2); }
 .card { flex: none; width: var(--card-w); padding: var(--s-4) var(--s-5); border-radius: var(--r-md); background: var(--surface-solid); border: 1px solid var(--line); display: grid; gap: .25rem; }
 .card b { font-family: var(--mono); font-size: var(--t-label); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 .card span { font-size: 1.05rem; color: var(--ink); }
