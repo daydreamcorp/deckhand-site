@@ -1,3 +1,4 @@
+@property --scene-hue { syntax: '<number>'; inherits: true; initial-value: 187; }   /* registered: it is scrubbed (B §4) */
 .chapter--scenes { --scene-hue: 187; }
 .scenes-stack { position: relative; display: grid; }
 .scenes-stack::before { content: ""; position: absolute; inset: -20% -30%; z-index: 0; pointer-events: none; background: radial-gradient(closest-side, hsl(var(--scene-hue) 70% 50% / .22), transparent 72%); }

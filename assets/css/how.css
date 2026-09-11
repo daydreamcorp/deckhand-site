@@ -74,7 +74,8 @@ html:not(.js-motion) .card { scroll-snap-align: center; }
   .desk { position: absolute; left: 0; bottom: 6%; width: 300px; max-width: 60vw; transform: scale(.55); transform-origin: left bottom; z-index: 2; }
   .chapter--how .phone { --phone-h: min(420px, 34svh); }
   /* the pinned copy region is short on a phone: the sub line steps aside for the film, type steps down, the strip takes the bottom fifth */
-  html.js-motion .chapter--how .stage__copy > .lede { display: none; }
+  /* the sub line leaves the pinned phone layout visually but stays in the accessibility tree (it is part of the chapter's copy) */
+  html.js-motion .chapter--how .stage__copy > .lede { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   html.js-motion .chapter--how h2 { font-size: var(--t-3); }
   html.js-motion .acts { margin-top: var(--s-4); padding-bottom: 22%; }
   html.js-motion .act { padding-left: 2.5rem; }
