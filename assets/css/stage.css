@@ -5,6 +5,7 @@ html { scroll-behavior: auto; scroll-padding-top: calc(var(--header-h) + 0.5rem)
 html.js-motion .pin { height: calc(var(--len) * 1vh); }             /* 1vh == large viewport on iOS: stable while the URL bar moves */
 
 .chapter__stage { position: relative; width: 100%; }
+html.js-motion .pin > .chapter__stage { position: sticky; top: var(--header-h); }   /* the stage sticks under the header for the scope's reserved height; scroll.js sets the exact top */
 html.js-motion .chapter__stage {
   height: calc(100vh - var(--header-h));                            /* fallback for browsers without svh */
   height: calc(100svh - var(--header-h));                           /* never taller than the visible area on iOS */

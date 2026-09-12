@@ -61,15 +61,19 @@ function makeCtx(rec, flags) {
 
 function buildMotion(rec, flags) {
   const ctx = makeCtx(rec, { reduced: false, ...flags });
+  // A "pinned" stage is position: sticky (stage.css) inside its .pin scope, so the browser holds it under the header with no
+  // fixed/static hand-off — ScrollTrigger's own pin reported a full-viewport layout shift at every pin start and end (R24).
+  // The trigger window is the same as the pin's would be: scope top meets the header, scope bottom meets the stage bottom.
+  const stickTop = () => { rec.stage.style.top = headerH() + 'px'; };
+  if (rec.pin) stickTop();
   const tl = gsap.timeline({
     defaults: { ease: 'none' },
     scrollTrigger: rec.pin ? {
       trigger: rec.scope,
-      pin: rec.stage,
-      pinSpacing: false,                                           // CSS reserves the length: no spacer insertion, no CLS
       start: () => `top top+=${headerH()}`,                        // stage top meets the header's bottom edge
-      end:   () => `+=${rec.scope.offsetHeight - rec.stage.offsetHeight}`,   // unpins when the scope bottom reaches the stage bottom
-      scrub: rec.scrub, anticipatePin: 1, invalidateOnRefresh: true,
+      end:   () => `+=${rec.scope.offsetHeight - rec.stage.offsetHeight}`,   // the stage unsticks when the scope bottom reaches its bottom
+      scrub: rec.scrub, invalidateOnRefresh: true,
+      onRefreshInit: stickTop,                                     // the header is rem-based: re-measure before the trigger does
       onToggle: (self) => ctx.promoted.length && gsap.set(ctx.promoted, self.isActive ? { willChange: 'transform' } : { clearProps: 'willChange' }),
     } : undefined,
   });
@@ -101,7 +105,7 @@ function rebuild(rec) {
 }
 
 function teardown() {
-  chapters.forEach((rec) => { rec.ctx && rec.ctx.cleanups.forEach((fn) => fn()); rec.tl = rec.st = rec.ctx = null; });
+  chapters.forEach((rec) => { rec.ctx && rec.ctx.cleanups.forEach((fn) => fn()); if (rec.pin && rec.stage) rec.stage.style.top = ''; rec.tl = rec.st = rec.ctx = null; });
 }
 
 export function mount() {
