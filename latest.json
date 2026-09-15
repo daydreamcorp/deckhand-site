@@ -1,28 +1,28 @@
 {
-  "version": "0.1.23",
-  "notes": "Deckhand Host now tells Windows which version it is. Right-click deckhand-host.exe, Properties, Details \u2014 that panel used to be entirely blank, which is awkward when the first thing anyone asks is what build you are on. Nothing else about how Deckhand behaves has changed here; the rest of this release is tests, including one that checks the file whose fault made every Windows build before 0.1.22 unable to start.",
+  "version": "0.1.24",
+  "notes": "Deckhand Desk redraws every deck control (dial, fader, XY pad, joystick, toggle, D-pad, stepper, radial menu, gauge, graph, colour picker, text field) in the same lit material as the keys, matching the phone app instead of the old flat glyph badges. Right-click in Desk no longer opens the browser-style Back/Forward/Reload/Inspect Element menu.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.23",
-          "sha256": "c038b7f434619d8e3c44ca550f1b915d3fc935b9104a50ca1f57a5e769d9b272"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.24",
+          "sha256": "dbb6086d2284d22b6e0f1a47e4c3d7ab89be641d392c467347e828a006819d0e"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.23",
-          "sha256": "29b0ba89c2cd13321775fbdffdcb765836ae1e025fd42500c031ba8d39a8b72d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.24",
+          "sha256": "5712b52efecec1e4f79a1d3e52dc4845daab2255be3b740076b729f263960987"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.23.exe",
-          "sha256": "927ae0e6296ebe35aedb64e28d574b6ca916fdf457cd516a72271faed24ce6fb"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.24.exe",
+          "sha256": "1c8dcb9d0b91ad7967616181c74706422bb14adbc373eaddfa9e60c29aab3ce6"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.23.exe",
-          "sha256": "e9449287300c9c4adc742b173eabb358e68c1e49dfeac8234c40908d115890cf"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.24.exe",
+          "sha256": "1c77ecbd7259bc286413d11a60b90ee4236f50ba4fa47730c86c43d406a0f2e8"
         }
       }
     }
