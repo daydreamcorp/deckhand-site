@@ -1,28 +1,28 @@
 {
-  "version": "0.1.24",
-  "notes": "Deckhand Desk redraws every deck control (dial, fader, XY pad, joystick, toggle, D-pad, stepper, radial menu, gauge, graph, colour picker, text field) in the same lit material as the keys, matching the phone app instead of the old flat glyph badges. Right-click in Desk no longer opens the browser-style Back/Forward/Reload/Inspect Element menu.",
+  "version": "0.1.25",
+  "notes": "Deckhand Desk now renders in Manrope instead of the platform default, matching the phone app's own typeface.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.24",
-          "sha256": "dbb6086d2284d22b6e0f1a47e4c3d7ab89be641d392c467347e828a006819d0e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.25",
+          "sha256": "0bc09f33bd23eb72012039765671a06d820776cd86cc7c2e85e6319d65a50fa4"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.24",
-          "sha256": "5712b52efecec1e4f79a1d3e52dc4845daab2255be3b740076b729f263960987"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.25",
+          "sha256": "615798294b77f96564444591406d8494f2d6e84ebece66f0aba63ea329825a1f"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.24.exe",
-          "sha256": "1c8dcb9d0b91ad7967616181c74706422bb14adbc373eaddfa9e60c29aab3ce6"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.25.exe",
+          "sha256": "05ad38185e21ee04caf4e27bebe8687afdbb1e81225578fa1e5af78af1c5c173"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.24.exe",
-          "sha256": "1c77ecbd7259bc286413d11a60b90ee4236f50ba4fa47730c86c43d406a0f2e8"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.25.exe",
+          "sha256": "9709eefdf5cf284fabf6fc660d5cb7d849e7480670422cf4521ecc3b95303cdb"
         }
       }
     }
