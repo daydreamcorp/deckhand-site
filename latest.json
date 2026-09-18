@@ -1,28 +1,28 @@
 {
-  "version": "0.1.25",
-  "notes": "Deckhand Desk now renders in Manrope instead of the platform default, matching the phone app's own typeface.",
+  "version": "0.1.26",
+  "notes": "Settings, the skin store, paired hosts, the upgrade screen, and AI Studio now follow your active skin instead of a fixed look. Pairing errors are clearer too.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.25",
-          "sha256": "0bc09f33bd23eb72012039765671a06d820776cd86cc7c2e85e6319d65a50fa4"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.26",
+          "sha256": "a7003b9a7606fe997bb06b57210eac3bc0c73b9508b721ff5a542d31fa5966a5"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.25",
-          "sha256": "615798294b77f96564444591406d8494f2d6e84ebece66f0aba63ea329825a1f"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.26",
+          "sha256": "588b9ce629806c2cbe0dd6678bf9654839031cfae9767d57e23e25215ee66d3f"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.25.exe",
-          "sha256": "05ad38185e21ee04caf4e27bebe8687afdbb1e81225578fa1e5af78af1c5c173"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.26.exe",
+          "sha256": "0f90855c822c8c9bcd6eeb61dedca607bfcd0f39a50df35a4b0ef15da149c96d"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.25.exe",
-          "sha256": "9709eefdf5cf284fabf6fc660d5cb7d849e7480670422cf4521ecc3b95303cdb"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.26.exe",
+          "sha256": "6fa5d156305a2db4a2b57fe0f572e39a68933b0dd05b90d109a813bf21d64373"
         }
       }
     }
