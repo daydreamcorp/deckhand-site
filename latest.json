@@ -1,28 +1,28 @@
 {
-  "version": "0.1.26",
-  "notes": "Settings, the skin store, paired hosts, the upgrade screen, and AI Studio now follow your active skin instead of a fixed look. Pairing errors are clearer too.",
+  "version": "0.1.27",
+  "notes": "Deckhand can now suggest a page idea a few times a day: click one to open it in AI Studio, or turn suggestions off in Settings. AI Studio also builds better pages when you write in a language other than English, and its launcher follows your skin.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.26",
-          "sha256": "a7003b9a7606fe997bb06b57210eac3bc0c73b9508b721ff5a542d31fa5966a5"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.27",
+          "sha256": "63c1a40eca999f783636f3ec339bd2c3beeac32da708030efe04f02d71333187"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.26",
-          "sha256": "588b9ce629806c2cbe0dd6678bf9654839031cfae9767d57e23e25215ee66d3f"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.27",
+          "sha256": "a62b6cc74dc24a2db2b4c1ba3b44d5716319d295b10cc82aed7a119278c9dbb8"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.26.exe",
-          "sha256": "0f90855c822c8c9bcd6eeb61dedca607bfcd0f39a50df35a4b0ef15da149c96d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.27.exe",
+          "sha256": "180dc5b234089e473c11fd9fdd9d7aefbb4e5cccd9858aa771b2e762f3c1e59d"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.26.exe",
-          "sha256": "6fa5d156305a2db4a2b57fe0f572e39a68933b0dd05b90d109a813bf21d64373"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.27.exe",
+          "sha256": "12e940d77f916ecaec18cb4bba26e53a374ddc996b198d4398b4aa5dcf1ece3d"
         }
       }
     }
