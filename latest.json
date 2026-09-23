@@ -1,28 +1,28 @@
 {
-  "version": "0.1.31",
-  "notes": "Desk now asks before AI Studio sends anything, the same way the phone does, and you can turn it off again in Settings.",
+  "version": "0.1.32",
+  "notes": "From the next update on, Desk moves to new versions by itself: quietly when it is in the background, or with a Restart button when it is open.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.31",
-          "sha256": "84cb66f249cebdde2c2419024c2592f891c90218511da050d63cb439f344b1f1"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.32",
+          "sha256": "48c98a43d846d09f562a227a3e362997112c5ef67156a176c7dd5fa972609e9c"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.31",
-          "sha256": "126db6acc940fbf1cd7d3f5c84c8bfd9b80763a4efebd67b90d3c64fffd3658a"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.32",
+          "sha256": "86507dd9278552734b843ef9a37cc63986116751d0f5567d996dd1271a74de4b"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.31.exe",
-          "sha256": "b97cc73e97c270adc5b3f8e57bcc7ad3be9c362a2c22752b6735033a419bda15"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.32.exe",
+          "sha256": "644485645247be2ccb732acbf8de00ad91ff4a6e1629b6ed9a4f77862e253603"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.31.exe",
-          "sha256": "6dd2d074cf461d51932f54a2a6ad920f952d00f6d7a58666959e0274a2734f9e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.32.exe",
+          "sha256": "f77522496cd5f81fd5d52a823b3caca7f3771d53feb39f7dcae0bb23b0ef0d3c"
         }
       }
     }
