@@ -1,28 +1,28 @@
 {
-  "version": "0.1.28",
-  "notes": "Behind the scenes: AI Studio now describes pages in a simpler format that more AI services accept, so we can keep choosing the fastest and most reliable one to build your pages.",
+  "version": "0.1.29",
+  "notes": "Groundwork for AI Studio to double-check new pages before you see them. Nothing changes yet.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.28",
-          "sha256": "9d0f60787a318b1ee2e2e05091f4aaf7c5aa5d2bd2b9494e74127f3a9b9110cd"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.29",
+          "sha256": "921d375c5f9238e4dd76e1dbb8abcdb13438bbcdb3d4c5349e16ba7d49885a90"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.28",
-          "sha256": "e271c586860e0a177d9f51727efeae67e3bf0dc90842b9d138606c3f64cded54"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.29",
+          "sha256": "e8a3d7efcd9f82055956ec79809d392de4bbe385688c5fe11074468790f55dc1"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.28.exe",
-          "sha256": "c678127d933d8987cdb1260796d2245e93a5eb3657e156a2ab24abdf220f79b3"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.29.exe",
+          "sha256": "e15ceb09a38aaee9db23ebce6b1134d5d92bd896ac543d0b5bf008cd83df776e"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.28.exe",
-          "sha256": "30eb18a7ae051e2b16539bd4ae145f5126dd799750490319d63c8ebdf3fbd16d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.29.exe",
+          "sha256": "b5adda5b9b764a851e7d832964299e9e496cd97a5a84a2c28bdb9eea058a888f"
         }
       }
     }
