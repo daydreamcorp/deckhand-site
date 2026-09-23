@@ -1,28 +1,28 @@
 {
-  "version": "0.1.32",
-  "notes": "From the next update on, Desk moves to new versions by itself: quietly when it is in the background, or with a Restart button when it is open.",
+  "version": "0.1.33",
+  "notes": "AI Studio on your phone no longer loses a page when you switch to another app while it is being made: the page arrives when you come back.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.32",
-          "sha256": "48c98a43d846d09f562a227a3e362997112c5ef67156a176c7dd5fa972609e9c"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.33",
+          "sha256": "028d5088737f60b578f1e40d48f52e904ddd5820fa8cbc201acdc7f189749a94"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.32",
-          "sha256": "86507dd9278552734b843ef9a37cc63986116751d0f5567d996dd1271a74de4b"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.33",
+          "sha256": "e26b1198419933fc1643956b264bfbdcaa2c2488a1d28a37f7ae2e393f151ed1"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.32.exe",
-          "sha256": "644485645247be2ccb732acbf8de00ad91ff4a6e1629b6ed9a4f77862e253603"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.33.exe",
+          "sha256": "3ec4d7000a140d5714b8972eefd4fc0172e6416b4fb507a0f5f710a7fb15913b"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.32.exe",
-          "sha256": "f77522496cd5f81fd5d52a823b3caca7f3771d53feb39f7dcae0bb23b0ef0d3c"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.33.exe",
+          "sha256": "c263a0e3d909e3bba2ae055bbfb9d7bde810052e36570e1102ccaff6dffcdc96"
         }
       }
     }
