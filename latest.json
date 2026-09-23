@@ -1,28 +1,28 @@
 {
-  "version": "0.1.29",
-  "notes": "Groundwork for AI Studio to double-check new pages before you see them. Nothing changes yet.",
+  "version": "0.1.30",
+  "notes": "A small tweak to how AI Studio lays out music controls: play and pause share one button, as they do on a keyboard.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.29",
-          "sha256": "921d375c5f9238e4dd76e1dbb8abcdb13438bbcdb3d4c5349e16ba7d49885a90"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.30",
+          "sha256": "24e24c0cc86cb41a57ea2cfed4456190dca18eb00e6ef224ff92f2efffe980ca"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.29",
-          "sha256": "e8a3d7efcd9f82055956ec79809d392de4bbe385688c5fe11074468790f55dc1"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.30",
+          "sha256": "bb26c3e60a2e03bb19573d6eaa5218b67660ceaf90cff9a7594873f2772bc0af"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.29.exe",
-          "sha256": "e15ceb09a38aaee9db23ebce6b1134d5d92bd896ac543d0b5bf008cd83df776e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.30.exe",
+          "sha256": "dd9ca4ba4c89d87f9cfb798d45e4311d9fa5486ffa544a679f744d94210d2e58"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.29.exe",
-          "sha256": "b5adda5b9b764a851e7d832964299e9e496cd97a5a84a2c28bdb9eea058a888f"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.30.exe",
+          "sha256": "894e2c5935a1d72ac818447ea1196686153991ef25fff44e91f35d2122c83a90"
         }
       }
     }
