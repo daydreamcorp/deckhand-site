@@ -1,28 +1,28 @@
 {
-  "version": "0.1.36",
-  "notes": "Deckhand Desk's link to the Deckhand service now refuses web pages.",
+  "version": "0.1.38",
+  "notes": "A web-request button aimed at a device that does not answer no longer delays your other buttons, and AI Studio now says when this computer cannot reach the Deckhand AI service instead of blaming OpenRouter.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.36",
-          "sha256": "31f680bd283ce8ec6c3e5e6d263185948c804aba8e8b468851dc68d90accb6e0"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.38",
+          "sha256": "f08ca6f7ef02f237d137d4cfaaa86d5efd7ea15d4d7e5bad2693ed356b00586f"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.36",
-          "sha256": "c406d5e6032874f8c1750794d06ea34108ae0bedb948529ef93d3bd90cb51b59"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.38",
+          "sha256": "dec746707648ea287f254bc49016d8f9b03a03e533574e670a9851aaaa6e5ed7"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.36.exe",
-          "sha256": "9c6b64b6c4f1ea14ea6617ef5632eec806eb8bb9c6254e1b0250e002b00b3e65"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.38.exe",
+          "sha256": "b78b05354208c1bc08bb4925ddeabef0dfe82ef9a81884928d25f793291f5bd9"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.36.exe",
-          "sha256": "0ce9dab8eab55cd1ac21f3a2999a609953de2bd1d69c1a75dde5973f2e670c21"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.38.exe",
+          "sha256": "a8ed53c3d64a2dc4f622b281f81f75a2ab32d32c08dae54229afce131d1ae343"
         }
       }
     }
