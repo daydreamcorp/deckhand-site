@@ -1,28 +1,28 @@
 {
-  "version": "0.1.35",
-  "notes": "Desk now moves to a new version within seconds of an update, instead of up to two minutes later.",
+  "version": "0.1.36",
+  "notes": "Deckhand Desk's link to the Deckhand service now refuses web pages.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.35",
-          "sha256": "c260dd321b70b67f8393f68d183fbc219067e12b85ddfa0f20df6485d516b2bd"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.36",
+          "sha256": "31f680bd283ce8ec6c3e5e6d263185948c804aba8e8b468851dc68d90accb6e0"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.35",
-          "sha256": "bc7e1d1607268459a8b394f53723a98fd7130696348c0231566b4ff510a58b42"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.36",
+          "sha256": "c406d5e6032874f8c1750794d06ea34108ae0bedb948529ef93d3bd90cb51b59"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.35.exe",
-          "sha256": "f0356a31c7607932ecd03acaafac8eb7ac4eb4274073185f69c5edd767dfc107"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.36.exe",
+          "sha256": "9c6b64b6c4f1ea14ea6617ef5632eec806eb8bb9c6254e1b0250e002b00b3e65"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.35.exe",
-          "sha256": "96d2d8b30431f6cf1a6ed52d50628a64aa83fde5863c4a64362c0f183769b9d3"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.36.exe",
+          "sha256": "0ce9dab8eab55cd1ac21f3a2999a609953de2bd1d69c1a75dde5973f2e670c21"
         }
       }
     }
