@@ -1,28 +1,28 @@
 {
-  "version": "0.1.38",
-  "notes": "A web-request button aimed at a device that does not answer no longer delays your other buttons, and AI Studio now says when this computer cannot reach the Deckhand AI service instead of blaming OpenRouter.",
+  "version": "0.1.39",
+  "notes": "Suggestion notifications now appear as a small card in the corner of your screen instead of taking it over on Linux, with a clearer look on every skin. Web-request buttons that send no body now work with servers that insisted on one, the shell-commands switch now also covers commands inside toggles and macros, and Deckhand can send its own crash and usage reports to help fix problems during the test (Desk > Settings > Privacy turns this off).",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.38",
-          "sha256": "f08ca6f7ef02f237d137d4cfaaa86d5efd7ea15d4d7e5bad2693ed356b00586f"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.39",
+          "sha256": "c75f675fd8663acd3f885f6c2a034c79269836d1827fd79ae714be20a277bb4e"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.38",
-          "sha256": "dec746707648ea287f254bc49016d8f9b03a03e533574e670a9851aaaa6e5ed7"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.39",
+          "sha256": "15a8f0cd276331a4055188adad4385a1c2321a97254b9be42aa839d616149163"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.38.exe",
-          "sha256": "b78b05354208c1bc08bb4925ddeabef0dfe82ef9a81884928d25f793291f5bd9"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.39.exe",
+          "sha256": "e44588d9648a02a04970b8eb4b992aa2e6d9a2c4c2d937982c7dda3d3f37679e"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.38.exe",
-          "sha256": "a8ed53c3d64a2dc4f622b281f81f75a2ab32d32c08dae54229afce131d1ae343"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.39.exe",
+          "sha256": "8a42c4685b55681a3af6574f0586da925ae356fc4033895263bbd14372131b28"
         }
       }
     }
