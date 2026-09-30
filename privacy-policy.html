@@ -160,7 +160,7 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-09-23</span>
+      <span><b>Last updated</b> 2026-09-30</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
     </div>
     <div class="draft-flag">
@@ -185,6 +185,19 @@
       commitment in <a href="#changes">Changes to this policy</a>.
     </div>
     <div class="draft-flag">
+      <strong>Material change, 2026-09-30.</strong> The desktop app (Host,
+      Desk and the installer) now sends its own usage, error and crash
+      reports to Deckhand's own service, instead of only handing counts to
+      your phone to forward. During the closed test this is on by default;
+      <strong>Desk → Settings → Privacy → Send usage and crash reports</strong>
+      turns it off, and turning it off deletes anything not yet sent. See
+      <a href="#desktop-reports">The desktop app's own reports</a>. This
+      version also brings this page in line with the closed-test rules the
+      phone app already follows, and removes a "Reset analytics ID" control
+      the app no longer has. This notice stays for one release cycle, per
+      the commitment in <a href="#changes">Changes to this policy</a>.
+    </div>
+    <div class="draft-flag">
       <strong>Material change, 2026-09-21.</strong> This version adds
       <a href="#suggestions">suggestion notifications</a> — on by default,
       switched off in Desk's Settings — the desktop app's second feature
@@ -205,7 +218,11 @@
     features send something built from them to a small Deckhand-run service:
     AI page generation (<a href="#ai">§4</a>), off until you turn it on, and
     the desktop app's suggestion notifications (<a href="#suggestions">§5</a>),
-    on by default and switched off in Desk's Settings. The outside
+    on by default and switched off in Desk's Settings. During the closed
+    test, the phone app and the desktop app also send usage and crash
+    reports — the desktop app to that same service
+    (<a href="#desktop-reports">§3</a>), with a switch in Desk's Settings.
+    None of them include what your buttons do. The outside
     parties involved are your app store (for purchases), that service and the
     AI providers behind it (OpenRouter and DeepSeek), Google (for Firebase analytics and crash reporting, for ads
     on the free tier, and for OS-level speech recognition if you use voice
@@ -246,7 +263,13 @@
       devices' identities authenticated with Ed25519 signatures — independent
       of whether the underlying local-network transport itself uses TLS. This
       never goes through the internet or through any Deckhand-operated
-      server; we don't operate one.</p>
+      server.</p>
+      <p><strong>To Deckhand's own service</strong>: AI page generation if
+      you turn it on (<a href="#ai">§4</a>), suggestion notifications
+      (<a href="#suggestions">§5</a>), and, during the closed test, usage
+      and crash reports from the phone app and the desktop app
+      (<a href="#firebase">§3</a>). It runs on our own hardware and is
+      reachable only over an encrypted connection.</p>
       <p><strong>To your app store</strong> (Google Play / Apple App Store):
       purchase transactions for subscriptions and add-ons. We never see your
       payment details — the store handles that directly.</p>
@@ -290,16 +313,35 @@
       Deckhand stores, and where</a> — those stay exactly as private as they
       always have.</p>
       <ul>
-        <li><strong>Region-dependent by default, always adjustable</strong> —
-        outside the EEA and UK this collection starts automatically, the way
-        most apps work. Inside the EEA and UK, Google's User Messaging
-        Platform shows a consent prompt first and collection only starts if
-        you agree. Regardless of region, <strong>Settings → Privacy</strong>
-        has a toggle to turn analytics off at any time, and a
-        <strong>Reset analytics ID</strong> action that starts you over with
-        a fresh, unlinked pseudonymous identifier — the practical equivalent
-        of deleting your analytics history, since there is no account for a
-        deletion request to attach to.</li>
+        <li><strong>During the closed test, analytics is always on outside
+        the EEA and UK.</strong> Deckhand is in a closed testing phase, and
+        test builds of the phone app collect usage and crash data from the
+        start, without an off switch — the tester group is small enough that
+        a few opt-outs would leave the results unreadable. The
+        <strong>Settings → Privacy</strong> toggle is hidden in these builds
+        because it would not be honoured. This is temporary: when Deckhand
+        leaves the closed test, the toggle returns for everyone and this
+        paragraph goes with it.</li>
+        <li><strong>Inside the EEA and UK, nothing is forced.</strong>
+        Google's User Messaging Platform shows a consent prompt first,
+        collection only starts if you agree, and the <strong>Settings →
+        Privacy</strong> toggle stays visible so you can withdraw at any
+        time. A refusal is never overridden by a test build.</li>
+        <li><strong>What the test collects</strong>: which screens you open
+        and for how long, which controls you touch and how, which action
+        kinds you fire and whether they succeed, deck and page counts,
+        settings you change, permission outcomes, connection state and
+        latency, onboarding progress, and non-fatal errors. Never the
+        contents of anything: not your shell commands, macro steps, typed
+        text, clipboard, button or deck names, host names, IP addresses,
+        Wi-Fi networks or geofence coordinates, and not which tile you
+        touched.</li>
+        <li><strong>Where it goes during the closed test</strong>: test
+        builds also send this same event stream to the small private service
+        we run ourselves, so that we can read it. It receives exactly what is
+        described here and nothing more, stores it on our own hardware, is
+        reachable only over an encrypted connection, and is not shared with
+        anyone. It is deleted when the closed test ends.</li>
         <li><strong>Retention</strong> — analytics data is kept for 2 months
         from collection, then automatically deleted from Firebase's systems.
         That is the shorter of the two retention windows Firebase offers,
@@ -313,9 +355,53 @@
         unless a developer explicitly links the two, which we don't.</li>
         <li><strong>Pseudonymous, not identified</strong> — none of this is
         tied to your name, email, or any account, because there isn't one.
-        It is linked to a random identifier Firebase generates per install,
-        which the Reset analytics ID action above lets you rotate at
-        will.</li>
+        It is linked to a random identifier generated per install.</li>
+      </ul>
+
+      <h3 id="desktop-reports">The desktop app's own reports</h3>
+      <p>The desktop app — Deckhand Host, Deckhand Desk and the installer —
+      reports on itself directly to Deckhand's own service. It does not use
+      Firebase or any other third-party SDK. Before this, a desktop app with
+      no phone paired, or one that crashed, left nothing but a log file on
+      your computer.</p>
+      <ul>
+        <li><strong>What it sends.</strong> <em>Usage</em>: when it starts
+        and stops and why, whether an update installed, whether pairing a
+        phone worked (and if not, what kind of failure — never the PIN),
+        how long phones stay connected, every 15 minutes how many actions
+        ran and failed by kind and how long they took, its own CPU and memory
+        use, which parts of Desk's window you used, how AI page generations
+        ended and how long they took (never what you typed), and which of
+        Desk's switches you changed. <em>Errors</em>: warning and error lines
+        from its own log, grouped by where in the code they came from, with a
+        count. <em>Crashes</em>: when a part of the app stops unexpectedly,
+        where in the code it happened, a stack trace, and the last few
+        hundred lines of its log; and, when the app was stopped without
+        shutting down, that it happened and whether the computer had been
+        restarted. Each report says which of the three programs sent it, its
+        version, your operating system and version, processor type and
+        language.</li>
+        <li><strong>What is removed first.</strong> Before anything is saved
+        for sending, every piece of free text is stripped of your user and
+        computer names, home folder, IP and MAC addresses, e-mail addresses,
+        and anything shaped like a key, token or device ID. Button contents,
+        commands, typed text and deck names are never part of a report in
+        the first place.</li>
+        <li><strong>How it is identified.</strong> By a random install ID
+        created on your computer, which is not derived from and cannot be
+        linked to the key your computer uses to pair with your phone. The
+        service does not store the address your reports came from.</li>
+        <li><strong>Your choice.</strong> During the closed test this is on
+        by default, in every region. <strong>Desk → Settings → Privacy →
+        Send usage and crash reports</strong> turns it off at any time, and
+        turning it off deletes every report still waiting on your computer,
+        so nothing collected before that moment is sent afterwards. Setting
+        the environment variable <code>DECKHAND_TELEMETRY=0</code> turns it
+        off regardless of the switch.</li>
+        <li><strong>Where it goes and for how long.</strong> To the same
+        private service described above, on our own hardware, over an
+        encrypted connection, shared with no one, and deleted when the closed
+        test ends.</li>
       </ul>
     </div>
   </section>
@@ -460,12 +546,13 @@
       it is not a readable dashboard record. Ask and the service deletes the
       retained data associated with that installation.</p>
       <ul>
-        <li><strong>Analytics and crash reporting</strong> — turn it off at
-        any time in Settings → Privacy, and use Reset analytics ID for the
-        erasure mechanism described under <a href="#firebase">What we
-        collect via Firebase</a>. Since the data is pseudonymous and tied to
-        no account, rotating that identifier is what a deletion request
-        would otherwise achieve.</li>
+        <li><strong>Analytics and crash reporting</strong> — on the phone,
+        turn it off in Settings → Privacy wherever that toggle is shown (see
+        <a href="#firebase">What we collect via Firebase</a> for where it is
+        during the closed test); on the computer, in Desk → Settings →
+        Privacy. Both are pseudonymous and tied to no account, and everything
+        collected during the closed test is deleted when it ends; ask and we
+        delete it sooner.</li>
         <li><strong>Ad personalization</strong> — controlled at the OS level
         (Android Settings → Privacy → Ads; iOS Settings → Privacy →
         Tracking), not by us.</li>
