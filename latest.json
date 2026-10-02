@@ -1,28 +1,28 @@
 {
-  "version": "0.1.40",
-  "notes": "Your deck and Deckhand Desk now follow each other live: an edit on either side appears on the other within a second, with no Push button (with the latest phone app). Presses now report why they failed, and Desk's stepper matches the phone's new look.",
+  "version": "0.1.41",
+  "notes": "AI Studio now preserves deliberate layouts and checks control bindings before showing a result. Update the phone app too for matching previews and placement, page renaming, easier reconnecting, and improved editor scrolling. New zoom presets use the platform modifier; saved plus/minus key names are also accepted.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.40",
-          "sha256": "35a5832147f51202af50de69cf0b806930feafe81273be8c48b5798093d16471"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.41",
+          "sha256": "edab8dfc3fd320e4caf966ac0c6282c323d027e08fd0680b33d7d8673f2b25ff"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.40",
-          "sha256": "f786b3189999cebee3640e7eee769fcf088aa313f0ab91836c12865fb60cea0b"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.41",
+          "sha256": "6b10e90a2a19674cab2722c8ddd025d33ce7ca163cf65560bef5d159d1342ce8"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.40.exe",
-          "sha256": "cccfc9d9634b69dcfda951e2de7619dc186bd64338a1fb9b297584d068721203"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.41.exe",
+          "sha256": "5620c942aad81cf525a7d6aacb93bf1c0175d1054c7d8e6f05a1b29c3d184217"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.40.exe",
-          "sha256": "87a16dc59a17efccebf51ea204f82686d3b8b35f2aece1cdd641e08c6949ee10"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.41.exe",
+          "sha256": "a167b51d2ba11b9ffa5e0d566cd5e6c8629f2e11fcc2d53d7afec29edc995039"
         }
       }
     }
