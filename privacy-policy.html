@@ -419,11 +419,18 @@
         from analytics consent. <strong>The prompt is mandatory in the closed
         test</strong>: it cannot be dismissed, it appears in every region
         whether or not you accepted analytics, and the app does not open past
-        it until the service has confirmed the name, so it stays shut if the
-        service cannot be reached. The app re-checks with the service each
-        time it opens and about once a minute while open, so if an operator
-        clears your name or blocks your installation the prompt returns or the
-        app stays locked. The service associates the name with that phone's
+        it until the service has confirmed the name. If the service cannot be
+        reached, the app stays shut unless the service confirmed your
+        installation within the previous 24 hours, in which case it stays
+        usable for the rest of that 24 hours so a short outage of the service
+        or of your internet does not stop you controlling your computer, and
+        then closes behind the prompt again. A name saved on the phone is never
+        enough by itself; only that recent confirmation by the service counts.
+        The app re-checks with the service each time it opens and about once a
+        minute while open, and whenever the service answers it acts on the
+        answer at once, with no grace period, so if an operator clears your
+        name or blocks your installation the prompt returns or the app stays
+        locked straight away. The service associates the name with that phone's
         install ID and records that the name is held by that one installation,
         so the same name cannot be used on a second one; an operator can clear
         the stored name, lock it against changes, or block the installation.
