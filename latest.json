@@ -1,28 +1,28 @@
 {
-  "version": "0.1.42",
-  "notes": "Deckhand Desk now says so on the Pairing page when it cannot reach its background service, and keeps retrying, instead of showing an empty page with no code.",
+  "version": "0.1.43",
+  "notes": "AI Studio in Deckhand Desk now builds a new page at the size the AI generated, instead of the size of the page you had open. AI requests also now carry the paired phone, so the closed test's access rules apply to them.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.42",
-          "sha256": "b8ee89bd3cacddaaafaef38ff7f464abe72886e664ecf42fd74469db6ee4fa00"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.43",
+          "sha256": "2aaff4e3e82aff923b739773d0243541f7e9f042736b31a1717db8f293370f4e"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.42",
-          "sha256": "37568441001805f069059583f958c3a5c2e33ab3da72866af93999755e8641b4"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.43",
+          "sha256": "42648e18546fa961654d031f6acaca5849c567636bff021d1630e238fa3247e6"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.42.exe",
-          "sha256": "4cb83583a342018952b917f5929773464e992e439a69d5ba14f3cf04bbcf409c"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.43.exe",
+          "sha256": "4f03b88f5e84175656cfdfc1f82ed89ab966474715958cc286e04fc252895213"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.42.exe",
-          "sha256": "1c0b9a604cc9269040f16b93a8a7ecd894cee206ea5967a1e711c9e5ed19fb18"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.43.exe",
+          "sha256": "ae576da47dace65f27446103b15b7ee12a611ee48ab13e453583c315465039bc"
         }
       }
     }
