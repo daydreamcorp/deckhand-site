@@ -1,28 +1,28 @@
 {
-  "version": "0.1.43",
-  "notes": "AI Studio in Deckhand Desk now builds a new page at the size the AI generated, instead of the size of the page you had open. AI requests also now carry the paired phone, so the closed test's access rules apply to them.",
+  "version": "0.1.44",
+  "notes": "A long AI answer no longer fails outright on the lower tiers: tiles that do not fit are shown locked instead of the whole page being lost. Deckhand Desk's error reports also stay within the reporting service's size limits.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.43",
-          "sha256": "2aaff4e3e82aff923b739773d0243541f7e9f042736b31a1717db8f293370f4e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.44",
+          "sha256": "1ab579355692975ab50f3b74080d5cb38f900be87d1d343f055a28315a6a4893"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.43",
-          "sha256": "42648e18546fa961654d031f6acaca5849c567636bff021d1630e238fa3247e6"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.44",
+          "sha256": "2b3a7ead91f17e92325e0c351383c3d007349c7a2f02ad4b6fb94bb244c766c4"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.43.exe",
-          "sha256": "4f03b88f5e84175656cfdfc1f82ed89ab966474715958cc286e04fc252895213"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.44.exe",
+          "sha256": "b33df22c8e9f4363802c99164636f154c111b9faad4ce06fa6ec949f7ec92a7e"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.43.exe",
-          "sha256": "ae576da47dace65f27446103b15b7ee12a611ee48ab13e453583c315465039bc"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.44.exe",
+          "sha256": "8cd9e142c1389e4f24424c6482454368d60ecf80d8a8df299503a4fa23525443"
         }
       }
     }
