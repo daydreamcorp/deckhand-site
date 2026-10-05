@@ -160,7 +160,7 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-10-01</span>
+      <span><b>Last updated</b> 2026-10-05</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
     </div>
     <div class="draft-flag">
@@ -218,12 +218,50 @@
       one release cycle, per the commitment in <a href="#changes">Changes to
       this policy</a>.
     </div>
+    <div class="draft-flag">
+      <strong>Material change, 2026-10-04.</strong> Configured closed-test
+      builds now ask for a tester name once at launch. The name is stored in
+      Deckhand's private Admin service against the phone's install ID and
+      appears with that phone's paired-computer summary telemetry in Admin.
+      It is not sent to Firebase and does not depend on analytics consent.
+    </div>
+    <div class="draft-flag">
+      <strong>Material change, 2026-10-04.</strong> When diagnostic collection
+      is enabled, Deckhand automatically captures its own app window when it
+      reports a caught error. Desk captures its visible app window for Desk
+      errors and may answer a Host error request while visible. Images can show
+      Deckhand's displayed content; they do not capture another app or the
+      rest of the device screen. The existing manual screenshot control remains.
+    </div>
+    <div class="draft-flag">
+      <strong>Material change, 2026-10-05.</strong> This version corrects
+      statements that understated what closed-test builds collect. The tester
+      name prompt is mandatory in the closed test: the app cannot be used past
+      it until Deckhand's private Admin service has confirmed a name. When the
+      app reports an error it sends the error's category, the screen name, the
+      page number and count, the app version and a stack trace and, during the
+      closed test only, a screenshot of its own window. A screenshot shows
+      whatever the window shows, which can include deck and button names, host
+      names, typed text and the pairing screen, so the earlier wording that
+      button or deck names and host names are not collected now applies only to
+      the usage events. Screenshots are kept up to a capacity limit and deleted
+      when the closed test ends. Foreground, screen and deck-page changes are
+      sent immediately, so the person running the test can see who is using the
+      app right now. <a href="#rights">Your rights</a> now covers all of this.
+      See <a href="#firebase">What we collect via Firebase</a>.
+    </div>
   </header>
 
   <div class="summary">
     <h2>In short</h2>
-    <p>Deckhand has <strong>no account system</strong>. Your deck layout
-    and pairing information stay on your phone and your paired computer. Two
+    <p>Deckhand has <strong>no general account system</strong>. Your deck layout
+    and pairing information stay on your phone and your paired computer. In
+    configured closed-test builds, a one-time tester name is linked by the
+    private Admin service to the phone's install ID, its usage telemetry
+    (including whether you are using the app right now), its error reports and
+    error screenshots, and paired-computer summary telemetry; it is not sent to
+    Firebase. The name prompt is mandatory in the closed test: the app does not
+    open past it until the service has confirmed the name. Two
     features send something built from them to a small Deckhand-run service:
     AI page generation (<a href="#ai">§4</a>), off until you turn it on, and
     the desktop app's suggestion notifications (<a href="#suggestions">§5</a>),
@@ -231,7 +269,9 @@
     test, the phone app and the desktop app also send usage and crash
     reports — the desktop app to that same service
     (<a href="#desktop-reports">§3</a>), with a switch in Desk's Settings.
-    None of them include what your buttons do. The outside
+    None of them include what your buttons do, with one exception: a
+    closed-test error screenshot (<a href="#error-reports">§3</a>) shows
+    whatever the app window displayed at that moment. The outside
     parties involved are your app store (for purchases), that service and the
     AI providers behind it (OpenRouter and DeepSeek), Google (for Firebase analytics and crash reporting, for ads
     on the free tier, and for OS-level speech recognition if you use voice
@@ -259,6 +299,18 @@
         <li><strong>Device identity key</strong> — a cryptographic keypair
         generated on your phone the first time you pair a computer, proving
         it's really your phone reconnecting later. Stays on your phone.</li>
+        <li><strong>Tester name (configured closed-test builds only)</strong> —
+        entered in a launch modal, saved by the private Admin service against
+        the phone's install ID, and cached in app-private storage (a file
+        called <code class="inline">tester_name.txt</code>) after the service
+        confirms it. Entering it is mandatory in the closed test: the prompt
+        cannot be dismissed and the app does not open past it until the service
+        has confirmed the name. The app checks the service first and does not
+        ask again once that install has a saved name. Android's Auto Backup is
+        not told to skip that file, so Android may include it in your phone's
+        Google backup and restore it after a reinstall or onto a new phone,
+        where it only fills in the name box; the service still has to confirm
+        the name.</li>
       </ul>
     </div>
   </section>
@@ -277,8 +329,12 @@
       you turn it on (<a href="#ai">§4</a>), suggestion notifications
       (<a href="#suggestions">§5</a>), and, during the closed test, usage
       and crash reports from the phone app and the desktop app
-      (<a href="#firebase">§3</a>). It runs on our own hardware and is
-      reachable only over an encrypted connection.</p>
+      (<a href="#firebase">§3</a>). Configured tester builds also send the
+      name entered in the boot prompt, associated with the mobile install ID,
+      and the error reports and screenshots described in
+      <a href="#error-reports">§3</a>. The name is not sent to Firebase. The
+      service runs on our own hardware
+      and is reachable only over an encrypted connection.</p>
       <p><strong>To your app store</strong> (Google Play / Apple App Store):
       purchase transactions for subscriptions and add-ons. We never see your
       payment details — the store handles that directly.</p>
@@ -320,7 +376,8 @@
       <p>None of this includes your deck layout, pairing records, geofence
       profiles, or anything else described under <a href="#storage">What
       Deckhand stores, and where</a> — those stay exactly as private as they
-      always have.</p>
+      always have. (The closed-test error screenshots described below go only
+      to Deckhand's own service, never to Firebase.)</p>
       <ul>
         <li><strong>During the closed test, analytics is always on outside
         the EEA and UK.</strong> Deckhand is in a closed testing phase, and
@@ -339,18 +396,79 @@
         <li><strong>What the test collects</strong>: which screens you open
         and for how long, which controls you touch and how, which action
         kinds you fire and whether they succeed, deck and page counts,
-        settings you change, permission outcomes, connection state and
-        latency, onboarding progress, and non-fatal errors. Never the
-        contents of anything: not your shell commands, macro steps, typed
-        text, clipboard, button or deck names, host names, IP addresses,
+        permission outcomes, connection state and
+        latency, onboarding progress, and non-fatal errors. The tester name is
+        sent separately to Admin; the Firebase event stream does not include
+        it or the contents of anything, such as your shell commands, macro
+        steps, typed text, clipboard, button or deck names, host names, IP addresses,
         Wi-Fi networks or geofence coordinates, and not which tile you
-        touched.</li>
+        touched. This describes the usage events: error screenshots are the
+        exception, see <a href="#error-reports">Error reports and
+        screenshots</a> below.</li>
         <li><strong>Where it goes during the closed test</strong>: test
         builds also send this same event stream to the small private service
-        we run ourselves, so that we can read it. It receives exactly what is
-        described here and nothing more, stores it on our own hardware, is
+        we run ourselves, so that we can read it. Besides this event stream it
+        receives only the tester identity and the error reports and screenshots
+        described in the next bullets; it stores them on our own hardware, is
         reachable only over an encrypted connection, and is not shared with
-        anyone. It is deleted when the closed test ends.</li>
+        anyone. The event stream, the error reports and the screenshots are
+        deleted when the closed test ends (tester identity records are the
+        exception, see below).</li>
+        <li><strong>Tester identity in the private Admin service</strong>:
+        configured tester builds ask once for a name and send it separately
+        from analytics consent. <strong>The prompt is mandatory in the closed
+        test</strong>: it cannot be dismissed, it appears in every region
+        whether or not you accepted analytics, and the app does not open past
+        it until the service has confirmed the name, so it stays shut if the
+        service cannot be reached. The app re-checks with the service each
+        time it opens and about once a minute while open, so if an operator
+        clears your name or blocks your installation the prompt returns or the
+        app stays locked. The service associates the name with that phone's
+        install ID and records that the name is held by that one installation,
+        so the same name cannot be used on a second one; an operator can clear
+        the stored name, lock it against changes, or block the installation.
+        Admin shows the name with the phone's telemetry, live presence, error
+        reports and screenshots, and the paired-computer summary forwarded by
+        that phone. The name is not part of the Firebase event stream. The
+        current Admin store does not expire identity rows automatically and
+        they are not covered by the closed-test deletion above; the name and
+        its one-installation record remain until an administrator removes the
+        service data. Contact us to request access, correction, or
+        removal.</li>
+        <li><strong>Live presence</strong> (closed test): when the app comes
+        to the foreground or goes to the background, when you open a screen
+        and when you switch deck page, the phone sends that event to the
+        private service straight away instead of waiting for the usual batch.
+        This lets the person running the test see in Admin who is using the app
+        right now, shown under the tester name, with the screen they are on,
+        the page number and page count (never the page's name) and whether the
+        app is in the foreground. It is part of the analytics event stream and
+        follows the same collection rules as above: always on outside the
+        EEA and UK during the closed test, consent first inside it.</li>
+        <li id="error-reports"><strong>Error reports and screenshots</strong>
+        (closed test): when the phone app catches an error, a configured test
+        build sends a report to the private service: the error's category, the
+        name of the screen you were on, the deck page number and count, the app
+        version, the install ID and a stack trace (code locations only, no
+        error message). During the closed test only, it also sends a
+        screenshot of Deckhand's own window as it looked when the error
+        happened. <strong>A screenshot shows whatever the window
+        shows</strong>, so it can contain deck and button names, host names,
+        text you have typed into a visible field and the pairing screen; it is
+        the exception to the lists of what is not collected above and in
+        <a href="#not-collected">§7</a>. It never captures another app or the
+        rest of the device screen, is made in memory rather than saved to your
+        phone's media library, and goes only to our own service, never to
+        Firebase. The phone sends these under the same collection rule as the
+        analytics stream (always on outside the EEA and UK during the closed
+        test; inside it, only if you agreed); Desk's own screenshots follow
+        Desk's switch, below. Admin shows each report and screenshot under the
+        tester name of the install that sent it. <strong>Retention</strong>:
+        screenshots are not deleted on a timer; the service keeps at most 200
+        images or 500 MB, whichever is reached first, and removes the oldest as
+        new ones arrive. Error reports and screenshots are deleted when the
+        closed test ends, and on request (see <a href="#rights">Your
+        rights</a>).</li>
         <li><strong>Retention</strong> — analytics data is kept for 2 months
         from collection, then automatically deleted from Firebase's systems.
         That is the shorter of the two retention windows Firebase offers,
@@ -362,9 +480,11 @@
         does not use this data to build its own advertising profile of you;
         Firebase Analytics data is walled off from Google Ads targeting
         unless a developer explicitly links the two, which we don't.</li>
-        <li><strong>Pseudonymous, not identified</strong> — none of this is
-        tied to your name, email, or any account, because there isn't one.
-        It is linked to a random identifier generated per install.</li>
+        <li><strong>Firebase remains pseudonymous</strong> — Firebase
+        analytics is not tied to the tester name entered for Deckhand Admin,
+        an email, or an account. It uses a random identifier generated per
+        install. The separate name-to-phone association exists only in
+        Deckhand's private Admin service.</li>
       </ul>
 
       <h3 id="desktop-reports">The desktop app's own reports</h3>
@@ -380,8 +500,7 @@
         how long phones stay connected, every 15 minutes how many actions
         ran and failed by kind and how long they took, its own CPU and memory
         use, which parts of Desk's window you used, how AI page generations
-        ended and how long they took (never what you typed), and which of
-        Desk's switches you changed. <em>Errors</em>: warning and error lines
+        ended and how long they took (never what you typed). <em>Errors</em>: warning and error lines
         from its own log, grouped by where in the code they came from, with a
         count. <em>Crashes</em>: when a part of the app stops unexpectedly,
         where in the code it happened, a stack trace, and the last few
@@ -395,7 +514,15 @@
         computer names, home folder, IP and MAC addresses, e-mail addresses,
         and anything shaped like a key, token or device ID. Button contents,
         commands, typed text and deck names are never part of a report in
-        the first place.</li>
+        the first place, with one exception. When reporting is enabled, Desk
+        also captures its visible app window for a new error group (including
+        a Host error, if Host asks while Desk is visible). That image can show
+        whatever Desk is displaying — deck and button names, host names, text in
+        visible fields, the pairing screen — and text scrubbing does not alter
+        pixels. Captures stay inside Desk's visible app window, are tied to the
+        same random install ID rather than to a name, and share the capacity
+        limit and end-of-test deletion described under <a
+        href="#error-reports">Error reports and screenshots</a>.</li>
         <li><strong>How it is identified.</strong> By a random install ID
         created on your computer, which is not derived from and cannot be
         linked to the key your computer uses to pair with your phone. The
@@ -510,14 +637,22 @@
             <tr><td>Location<br>(foreground)</td><td>Geofenced auto-profiles, while the deck screen is open</td><td>Only if you create a geofence</td></tr>
             <tr><td>Microphone</td><td>Voice-activated buttons</td><td>Only if you configure a voice trigger</td></tr>
             <tr><td>Motion sensor</td><td>Shake-to-trigger buttons</td><td>Always available — no permission prompt on either platform</td></tr>
-            <tr><td>Notifications</td><td>Persistent alpha control for sending the current Deckhand screen to the developer</td><td>Optional; without it the screenshot control cannot appear</td></tr>
+            <tr><td>Notifications</td><td>Persistent alpha control for manually sending the current Deckhand screen to the developer</td><td>Optional; without it the manual screenshot control cannot appear</td></tr>
           </tbody>
         </table>
       </div>
-      <p>During the alpha, tapping the persistent screenshot notification is the
-      only way Deckhand sends a screenshot. It renders Deckhand's own window
-      directly into memory, uploads the resulting PNG to the Pi, and does not
-      save an image to your phone's media library or capture another application.</p>
+      <p>During the closed test, when Analytics/diagnostic collection is
+      enabled, Deckhand automatically captures its own app window for a
+      reported error and uploads the PNG to the private Admin service. The
+      image is made in memory, not saved to your phone's media library, and can
+      show whatever Deckhand is displaying, including deck and button names,
+      host names, typed text or the pairing screen. It does not include another
+      application or the rest of the device screen. Desk follows its own
+      usage-report setting; Host can request a Desk capture for a new error
+      group, but only a visible Desk window can provide one. The persistent
+      notification remains an optional manual screenshot control. Diagnostic
+      images share the capacity limit and end-of-test deletion described under
+      <a href="#error-reports">Error reports and screenshots</a>.</p>
     </div>
   </section>
 
@@ -533,10 +668,16 @@
         Privacy.</li>
         <li>No collection of your deck layout's contents — what your buttons
         do, their bound actions, pairing records, or geofence profiles — by
-        Firebase or anything else. Suggestion notifications (<a href="#suggestions">§5</a>)
-        is a deliberate, narrow exception to "layout": it sends page
-        <em>names</em> and coarse per-kind usage counts, never button
-        contents, and you can turn it off.</li>
+        Firebase or anything else. There are two deliberate, narrow exceptions
+        to "layout". Suggestion notifications (<a href="#suggestions">§5</a>)
+        send page <em>names</em> and coarse per-kind usage counts, never
+        button contents, and you can turn them off. And, during the closed
+        test, an error screenshot is a picture of the app window, so it can
+        show anything on screen at that moment, including deck and button
+        names, host names, typed text and the pairing screen; it goes only to
+        our own service, never to Firebase, and is kept under the capacity
+        limit and end-of-test deletion described under <a
+        href="#error-reports">Error reports and screenshots</a>.</li>
       </ul>
     </div>
   </section>
@@ -544,10 +685,22 @@
   <section class="sec" id="rights">
     <div class="sec-head"><span class="sec-num">8</span><h2 class="sec-title">Your rights</h2></div>
     <div class="sec-body">
-      <p>Because Deckhand has no account system, there is no Deckhand-held
-      profile of you to request, correct, or delete. Almost everything above
-      either stays on your device or is handled by Google/Apple directly under
-      their own privacy terms. The one exception is AI page generation, and
+      <p>Deckhand has no general account system. During the closed test,
+      Deckhand's private Admin service does hold the tester name you enter,
+      associated with your phone's install ID, alongside that install's
+      telemetry (including live presence), error reports and error
+      screenshots; it also holds the desktop app's own reports and
+      screenshots, which carry a random install ID rather than a name, so they
+      can be found only through that ID. Contact us using the information
+      below (<a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a>)
+      to request access, correction, or deletion of any of it, and tell us the
+      tester name you entered so we can find your phone's records; an
+      administrator then removes them from the service. Without a request,
+      screenshots go only when the capacity limit pushes them out or the closed
+      test ends, and tester identity records are not deleted automatically.
+      Other data described above either stays on your device or is handled by
+      Google/Apple directly under their own privacy terms. The one remaining
+      exception is AI page generation, and
       only if you turned it on: Deckhand's own service keeps a count of pages
       generated per installation, against your computer's public pairing
       fingerprint, so a daily limit can be applied. The same consent retains
@@ -559,9 +712,16 @@
         turn it off in Settings → Privacy wherever that toggle is shown (see
         <a href="#firebase">What we collect via Firebase</a> for where it is
         during the closed test); on the computer, in Desk → Settings →
-        Privacy. Both are pseudonymous and tied to no account, and everything
-        collected during the closed test is deleted when it ends; ask and we
-        delete it sooner.</li>
+        Privacy. This stops the analytics and crash-reporting streams, and the
+        phone's automatic error reports and screenshots; it does not control
+        the separate tester-name record described above, which is mandatory in
+        the closed test. Firebase analytics remains pseudonymous, and
+        Firebase's 2-month retention then ages out what it already collected.
+        Where the toggle is hidden (outside the EEA and UK during the closed
+        test), uninstalling the test build or leaving the tester programme is
+        what stops collection, and it does not delete what our own service
+        already holds. Contact us to request removal of data held by the
+        private Admin service.</li>
         <li><strong>Ad personalization</strong> — controlled at the OS level
         (Android Settings → Privacy → Ads; iOS Settings → Privacy →
         Tracking), not by us.</li>
