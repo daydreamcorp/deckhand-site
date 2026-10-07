@@ -160,7 +160,7 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-10-06</span>
+      <span><b>Last updated</b> 2026-10-07</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
     </div>
     <div class="draft-flag">
@@ -250,6 +250,14 @@
       app right now. <a href="#rights">Your rights</a> now covers all of this.
       See <a href="#firebase">What we collect via Firebase</a>.
     </div>
+    <div class="draft-flag">
+      <strong>Material change, 2026-10-07.</strong> AI page generation now
+      has a daily free allowance and credit packs. Deckhand's service keeps a
+      count of credits per phone installation and, when packs open, records of
+      credit purchases made with them. Opening AI Studio sends the phone's
+      install ID and the paired computer's fingerprint to ask for the balance.
+      See <a href="#ai">AI page generation</a>.
+    </div>
   </header>
 
   <div class="summary">
@@ -326,7 +334,8 @@
       never goes through the internet or through any Deckhand-operated
       server.</p>
       <p><strong>To Deckhand's own service</strong>: AI page generation if
-      you turn it on (<a href="#ai">§4</a>), suggestion notifications
+      you turn it on, with your AI credit balance and credit purchases
+      (<a href="#ai">§4</a>), suggestion notifications
       (<a href="#suggestions">§5</a>), and, during the closed test, usage
       and crash reports from the phone app and the desktop app
       (<a href="#firebase">§3</a>). Configured tester builds also send the
@@ -336,7 +345,7 @@
       service runs on our own hardware
       and is reachable only over an encrypted connection.</p>
       <p><strong>To your app store</strong> (Google Play / Apple App Store):
-      purchase transactions for subscriptions and add-ons. We never see your
+      purchase transactions for subscriptions, add-ons and AI credit packs. We never see your
       payment details — the store handles that directly.</p>
       <p><strong>To Google</strong> (free tier only): standard AdMob
       advertising requests, which include an advertising identifier subject
@@ -594,6 +603,25 @@
       Deckhand's Pi, but holds neither an AI credential nor the encryption key.
       Generation also does nothing on a computer with no phone paired to it —
       there would be no deck to build for.</p>
+      <p><strong>AI credits.</strong> Every installation gets ten free
+      generations a day. More are bought as credit packs (10, 100 or 600),
+      which never expire and belong to the phone they were bought on. To keep
+      the count, Deckhand's service stores, for each phone installation, its
+      install ID and the credits it has bought and used. When you open AI
+      Studio or its credits page, your phone sends its install ID to ask for
+      those numbers, together with the fingerprint of the computer it is
+      connected to, because the free daily allowance is counted per computer.
+      That fingerprint is the public identifier of your computer's key, not its
+      name. When you buy a pack, the app store takes the payment and we never
+      see your payment details. Your phone then sends the store's purchase
+      token to Deckhand's service, which checks it with Google Play and
+      records your install ID, the pack, the time, a one-way hash of the token
+      and Google's order reference. Each generation paid for with credits is
+      recorded with your install ID and the time. These records are kept for
+      as long as the credits can be used, and to handle refunds and support
+      requests. You can ask us to delete them
+      (<a href="#contact">Contact</a>), which also deletes any credits you
+      have left.</p>
     </div>
   </section>
 
