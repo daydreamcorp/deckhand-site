@@ -1,28 +1,28 @@
 {
-  "version": "0.1.47",
-  "notes": "Three new instruments: a jog wheel that fires a step for every click you turn, a selector that keeps every option in view with the chosen one lit, and a countdown or stopwatch timer that can act when it starts and at zero. Desk draws and edits all three.",
+  "version": "0.1.48",
+  "notes": "Deckhand Desk now finishes an update on its own: if it could not restart onto a new version because its window was open, it checks again every few minutes and as soon as you close the window, and it records why it waited.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.47",
-          "sha256": "e55a8b3b64d2dfafffda3286aa170012f23884994f0c4fba12b5a6983a28ea9f"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.48",
+          "sha256": "4e0893049bd932ede00e4ed73267e05d4d39e28d05606747ae23b0b9d5c1fcf3"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.47",
-          "sha256": "0ff621c9a3ca98c29dfd66523a0b36d4b936369113ad075da0a214760c7e18b3"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.48",
+          "sha256": "37f0aaf87dd9dc52e3eff1b56220a3fcbfabe7032c367334f4ae3d4633e37668"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.47.exe",
-          "sha256": "fe2bfbcadf8a801278d6988974b0b20528a2cbab23535daff10b1806bd6e3c66"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.48.exe",
+          "sha256": "2306074d2dc872dcc36dc9c044e75fb2526731568ddf09a539a6e989f72e83db"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.47.exe",
-          "sha256": "964c71705d1b7efee2e8517f10a3e0268d5a8b20f05cb4773f1858dc4c4d5636"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.48.exe",
+          "sha256": "47496ad8dd448cd705f720bfe834d74af60cb7f5077de46612861f3cc0ae3dfb"
         }
       }
     }
