@@ -1,28 +1,28 @@
 {
-  "version": "0.1.45",
-  "notes": "Buttons that open an app through a link, like the Game Rig preset's Steam button, now open it on every computer instead of failing to launch.",
+  "version": "0.1.46",
+  "notes": "AI Studio edits now change only what you ask, keeping every other tile's own shortcut, link or text, and can remove, rename and move tiles; new pages use real shortcuts for 29 popular apps on your system. A blank pairing card in Desk now always says what is wrong.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.45",
-          "sha256": "d7733d44e1c85184bc09ea36fb07cb44d42179985b234420fb8f5d1fe38cd577"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.46",
+          "sha256": "45114c6d2b3659fb1424f00d90126d2e6c89e2278bfc5a9c8422239179331bf3"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.45",
-          "sha256": "9fe0133b5992c7bd2d29d4914463b8fe8daaa32778c9394b7bd6cdcbe8aca0f9"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.46",
+          "sha256": "5c4fc50c36eeb64fee6892f52035ef2ede8579cb9817f4653501599b2526621d"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.45.exe",
-          "sha256": "a0bfb34dc195980c5dba4564deddc1b0dcf8386e568752dcfb882d89efa440ce"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.46.exe",
+          "sha256": "0550b03df2fd46d46c5a3e2c95cc24b7aae8067dc4279ae9f96fd2f93adb5da3"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.45.exe",
-          "sha256": "407bb2e9552185a16b123d1a1bbfc79f3ad78b51a007186454e653342b2913d4"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.46.exe",
+          "sha256": "756cfa344d9921b025fad1fd2eb0eccaae1a809daffc550c6ad0b1a5248dea8e"
         }
       }
     }
