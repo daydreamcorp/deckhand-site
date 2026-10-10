@@ -1,28 +1,28 @@
 {
-  "version": "0.1.49",
-  "notes": "AI Studio can now build pages with the new instruments: jog wheels for scrolling and scrubbing, selectors for switching between scenes or modes, and countdown or stopwatch timers.",
+  "version": "0.1.50",
+  "notes": "The Desk editor now draws every instrument and button with the same recessed housings and lamps as the phone.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.49",
-          "sha256": "0b79817ee24d7cf79f64f56faf3c784b8d34019a23fafd34d161ff8060d79216"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.50",
+          "sha256": "5fe323c83db98663909cd4e63165eb34134ac118a85d93bd5e193f3dcad11d64"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.49",
-          "sha256": "4dbf4a1e19299d37d0ca1dc3bc300f09e4f96777b0faa52e734b46d602221ccb"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.50",
+          "sha256": "663124312bb9a715433c9ee2701fa5b1743b000e08abd1c3e08aeda6f45af774"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.49.exe",
-          "sha256": "5198ff4e78d1facdc1fa655fcfc5814264f37ee8a717b2f8a467396e4bcb745d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.50.exe",
+          "sha256": "260e068a1317351c1487dc90a550113b742fe9614426434123c6611cca41a937"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.49.exe",
-          "sha256": "7b95c4b63375ecf4ac9d112e7f808fc3eba55c17d18d97e652cab594428e5e32"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.50.exe",
+          "sha256": "c745cc684069f09b1f8998f775ecd3710fba366be1384b19600bea94e8c30ee3"
         }
       }
     }
