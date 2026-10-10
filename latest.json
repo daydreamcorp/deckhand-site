@@ -1,28 +1,28 @@
 {
-  "version": "0.1.51",
-  "notes": "Assign sound clips to instruments, choose computer audio outputs, or play imported clips offline on your phone or tablet.",
+  "version": "0.1.52",
+  "notes": "Phone and tablet soundboard playback is free; computer soundboard playback requires Creator or higher.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.51",
-          "sha256": "399c49901c14e8b57a9f1d71b3d17ca9358d84162aa8fb4b483f357170fd144a"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.52",
+          "sha256": "bed67ed951594a932ae95fd9ed1d60675f5472b7a270a5a5d3bf7c541c2d61c8"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.51",
-          "sha256": "d4cbadf57a159f87067a2980b9b216efa86ad395badb5fa93ce0e08fbf312804"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.52",
+          "sha256": "ec97bca8e212fe31894c86407b403f2e3487063c551317828f18ab9204b581ab"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.51.exe",
-          "sha256": "00a548977e17c4c6a4d7f8e811b0e62249e0f411d562a807c850d92498794bcc"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.52.exe",
+          "sha256": "47a437b3cbedec6640eb5e4d01a592087eceddbc4f423df5416e56897a1af031"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.51.exe",
-          "sha256": "05a88ac8b9f107cdb5c517cf4d86e2d5bab5811047b360b1610069258c927a45"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.52.exe",
+          "sha256": "7387edc1b3ee26be111a59d09c6ffd2bde863e87aa105ca7d68d300743924816"
         }
       }
     }
