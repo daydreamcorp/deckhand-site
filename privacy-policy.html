@@ -160,7 +160,7 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-10-07</span>
+      <span><b>Last updated</b> 2026-10-11</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
     </div>
     <div class="draft-flag">
@@ -170,6 +170,17 @@
       the pairing security audit rather than carried forward unchecked from
       an earlier draft — but a lawyer should review this before it's relied
       on.
+    </div>
+    <div class="draft-flag">
+      <strong>Material change, 2026-10-11.</strong> The Analytics controls have
+      been removed from Deckhand and Desk. During the closed test, mobile
+      collection follows Google's User Messaging Platform: a denial is honored,
+      a grant enables collection, and collection is enabled when UMP says
+      consent is not required. Desktop reports remain on during the closed test
+      unless the deployment kill switch disables them. The production consent
+      and withdrawal flow must be resolved before public release. See
+      <a href="#firebase">What we collect via Firebase</a> and
+      <a href="#desktop-reports">The desktop app's own reports</a>.
     </div>
     <div class="draft-flag">
       <strong>Material change.</strong> This version adds AI page generation
@@ -189,8 +200,7 @@
       Desk and the installer) now sends its own usage, error and crash
       reports to Deckhand's own service, instead of only handing counts to
       your phone to forward. During the closed test this is on by default;
-      <strong>Desk → Settings → Privacy → Send usage and crash reports</strong>
-      turns it off, and turning it off deletes anything not yet sent. See
+      the Settings control was removed on 2026-10-11. See
       <a href="#desktop-reports">The desktop app's own reports</a>. This
       version also brings this page in line with the closed-test rules the
       phone app already follows, and removes a "Reset analytics ID" control
@@ -276,7 +286,8 @@
     on by default and switched off in Desk's Settings. During the closed
     test, the phone app and the desktop app also send usage and crash
     reports — the desktop app to that same service
-    (<a href="#desktop-reports">§3</a>), with a switch in Desk's Settings.
+    (<a href="#desktop-reports">§3</a>), on by default during the closed
+    test unless the deployment kill switch is set.
     None of them include what your buttons do, with one exception: a
     closed-test error screenshot (<a href="#error-reports">§3</a>) shows
     whatever the app window displayed at that moment. The outside
@@ -388,20 +399,13 @@
       always have. (The closed-test error screenshots described below go only
       to Deckhand's own service, never to Firebase.)</p>
       <ul>
-        <li><strong>During the closed test, analytics is always on outside
-        the EEA and UK.</strong> Deckhand is in a closed testing phase, and
-        test builds of the phone app collect usage and crash data from the
-        start, without an off switch — the tester group is small enough that
-        a few opt-outs would leave the results unreadable. The
-        <strong>Settings → Privacy</strong> toggle is hidden in these builds
-        because it would not be honoured. This is temporary: when Deckhand
-        leaves the closed test, the toggle returns for everyone and this
-        paragraph goes with it.</li>
-        <li><strong>Inside the EEA and UK, nothing is forced.</strong>
-        Google's User Messaging Platform shows a consent prompt first,
-        collection only starts if you agree, and the <strong>Settings →
-        Privacy</strong> toggle stays visible so you can withdraw at any
-        time. A refusal is never overridden by a test build.</li>
+        <li><strong>During the closed test, mobile analytics follows the
+        consent result.</strong> Google's User Messaging Platform shows a
+        consent prompt where required. A denial is honored and collection is
+        disabled; a grant enables it. When UMP says consent is not required,
+        the test build enables collection. There is no Analytics control in
+        Settings during the closed test. A public release requires a consent
+        and withdrawal flow before these test rules can change.</li>
         <li><strong>What the test collects</strong>: which screens you open
         and for how long, which controls you touch and how, which action
         kinds you fire and whether they succeed, deck and page counts,
@@ -476,9 +480,8 @@
         rest of the device screen, is made in memory rather than saved to your
         phone's media library, and goes only to our own service, never to
         Firebase. The phone sends these under the same collection rule as the
-        analytics stream (always on outside the EEA and UK during the closed
-        test; inside it, only if you agreed); Desk's own screenshots follow
-        Desk's switch, below. Admin shows each report and screenshot under the
+        analytics stream's UMP result; Desk's own screenshots follow the
+        closed-test reporting policy, below. Admin shows each report and screenshot under the
         tester name of the install that sent it. <strong>Retention</strong>:
         screenshots are not deleted on a timer; the service keeps at most 200
         images or 500 MB, whichever is reached first, and removes the oldest as
@@ -543,13 +546,11 @@
         created on your computer, which is not derived from and cannot be
         linked to the key your computer uses to pair with your phone. The
         service does not store the address your reports came from.</li>
-        <li><strong>Your choice.</strong> During the closed test this is on
-        by default, in every region. <strong>Desk → Settings → Privacy →
-        Send usage and crash reports</strong> turns it off at any time, and
-        turning it off deletes every report still waiting on your computer,
-        so nothing collected before that moment is sent afterwards. Setting
-        the environment variable <code>DECKHAND_TELEMETRY=0</code> turns it
-        off regardless of the switch.</li>
+        <li><strong>During the closed test, reports are on by default.</strong>
+        There is no Analytics control in Desk Settings; saved opt-outs from
+        older builds are ignored during the closed test. A deployment setting,
+        <code>DECKHAND_TELEMETRY=0</code>, can disable reports. Desktop reports
+        do not change phone quests or participation.</li>
         <li><strong>Where it goes and for how long.</strong> To the same
         private service described above, on our own hardware, over an
         encrypted connection, shared with no one, and deleted when the closed
@@ -699,8 +700,7 @@
         <li>No selling or sharing of your data with third parties for their own purposes.</li>
         <li>No advertising once you're on a paid tier. The Firebase
         collection described above is separate from advertising and
-        continues on paid tiers unless you turn it off in Settings →
-        Privacy.</li>
+        continues on paid tiers.</li>
         <li>No collection of your deck layout's contents — what your buttons
         do, their bound actions, pairing records, or geofence profiles — by
         Firebase or anything else. There are two deliberate, narrow exceptions
@@ -743,19 +743,14 @@
       it is not a readable dashboard record. Ask and the service deletes the
       retained data associated with that installation.</p>
       <ul>
-        <li><strong>Analytics and crash reporting</strong> — on the phone,
-        turn it off in Settings → Privacy wherever that toggle is shown (see
-        <a href="#firebase">What we collect via Firebase</a> for where it is
-        during the closed test); on the computer, in Desk → Settings →
-        Privacy. This stops the analytics and crash-reporting streams, and the
-        phone's automatic error reports and screenshots; it does not control
-        the separate tester-name record described above, which is mandatory in
-        the closed test. Firebase analytics remains pseudonymous, and
-        Firebase's 2-month retention then ages out what it already collected.
-        Where the toggle is hidden (outside the EEA and UK during the closed
-        test), uninstalling the test build or leaving the tester programme is
-        what stops collection, and it does not delete what our own service
-        already holds. Contact us to request removal of data held by the
+        <li><strong>Analytics and crash reporting</strong> — mobile collection
+        follows the User Messaging Platform result where consent is required;
+        there is no Analytics control in Settings during the closed test. You
+        can stop test collection by uninstalling the test build. Desktop
+        reports can be disabled by the deployment
+        setting, <code>DECKHAND_TELEMETRY=0</code>. Firebase analytics remains
+        pseudonymous, and Firebase's 2-month retention then ages out what it
+        already collected. Contact us to request removal of data held by the
         private Admin service.</li>
         <li><strong>Ad personalization</strong> — controlled at the OS level
         (Android Settings → Privacy → Ads; iOS Settings → Privacy →
