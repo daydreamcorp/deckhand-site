@@ -1,28 +1,28 @@
 {
-  "version": "0.1.54",
-  "notes": "AI Studio macros and toggles now open in Deckhand and Desk. Reorder steps, adjust delays, and edit each toggle's on and off actions.",
+  "version": "0.1.55",
+  "notes": "Desk responds faster when selecting, editing, scrolling and moving controls. Linux rendering keeps animated decks smooth and pauses effects when hidden.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.54",
-          "sha256": "662ababc8fed0e5040e94320544212c175b1afb3fc8403714da476e0803faa9c"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.55",
+          "sha256": "dac81c9747ec62d91647cbb4de6f572317d945bd3638d0034c38be786490db0b"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.54",
-          "sha256": "e234ccd39b9ba23e78aa1fbaacedddd867db878d1ddc8cc48cbb436434cdf395"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.55",
+          "sha256": "2594bb5ff9ba5b485d5864a2b1f3dddb173ffbcdfa5cc424ba7bc38d1f1c777c"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.54.exe",
-          "sha256": "8c380f8a545469166ba6803c62e13439be33c8a3d50b7bc4bd178d7b077f88f9"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.55.exe",
+          "sha256": "8c8edb47082feaf4cdfccd16d4ebf7a8f2c1a02cb310d67c1298e4344b9351a2"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.54.exe",
-          "sha256": "c9f89e956746989741031da7cf2fe808ccaf24324d862b4bea6128adfe6010a8"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.55.exe",
+          "sha256": "f2863288ae12f83d5e0bf279f59971f43e6725f0d0d36c2082a67d5eb0a5bb23"
         }
       }
     }
