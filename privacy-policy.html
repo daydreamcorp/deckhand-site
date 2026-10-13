@@ -160,7 +160,7 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-10-11</span>
+      <span><b>Last updated</b> 2026-10-13</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
     </div>
     <div class="draft-flag">
@@ -170,6 +170,15 @@
       the pairing security audit rather than carried forward unchecked from
       an earlier draft — but a lawyer should review this before it's relied
       on.
+    </div>
+    <div class="draft-flag">
+      <strong>Material change, 2026-10-13.</strong> The phone app can now send
+      a screenshot of its own window when you ask. Tapping the camera hole
+      shows you a preview and lets you send it to the developer, or post it in
+      Deckhand's Discord forum, where everyone in the server can see it.
+      Nothing is sent until you press one of the two buttons. See
+      <a href="#shared-screenshots">Screenshots you choose to send</a> and
+      <a href="#community">The tester community on Discord</a>.
     </div>
     <div class="draft-flag">
       <strong>Material change, 2026-10-11.</strong> The Analytics controls have
@@ -488,6 +497,24 @@
         new ones arrive. Error reports and screenshots are deleted when the
         closed test ends, and on request (see <a href="#rights">Your
         rights</a>).</li>
+        <li id="shared-screenshots"><strong>Screenshots you choose to send</strong>:
+        tapping the phone's camera hole (with Deckhand in fullscreen, the
+        default) shows you a preview of Deckhand's own window and two buttons.
+        Nothing is sent until you press one. <strong>To the developer</strong>: the picture goes
+        to our private service, with your install ID, and is kept and deleted
+        as the error screenshots above are. <strong>To the Discord forum</strong>:
+        the picture is also kept there, and our bot posts it in a new post
+        titled with your tester name, <strong>visible to everyone in the
+        Deckhand Discord server</strong>. The name on the post is the tester
+        name our service already holds for your install, not anything sent with
+        the picture. An install can post at most three a day. To have a post
+        removed, ask in the server or contact us as in
+        <a href="#contact">Contact</a>; we delete the post and the stored copy.
+        As with error screenshots, <strong>a screenshot shows whatever the
+        window shows</strong> (deck and button names, host names, typed text,
+        the pairing screen), and it never captures another app or the rest of
+        the device screen; it is made in memory, not saved to your phone's
+        media library.</li>
         <li><strong>Retention</strong> — analytics data is kept for 2 months
         from collection, then automatically deleted from Firebase's systems.
         That is the shorter of the two retention windows Firebase offers,
@@ -825,6 +852,14 @@
       there. If you have opted out, the bot does not reply to you or mention you.
       To be taken out of a thanks line already posted, contact us as in
       <a href="#contact">Contact</a>.</p>
+      <p><strong>Screenshots you post from the app.</strong> If you choose
+      &ldquo;Post in the Discord forum&rdquo; in the app, our bot creates a new
+      post in the server's forum with your screenshot, titled with your tester
+      name. It is visible to everyone in the server like any other post. It is
+      the bot's post, not a message you wrote in Discord, so it is not saved for
+      the assistant described above; replies people write under it are saved as
+      any other message is. See
+      <a href="#shared-screenshots">Screenshots you choose to send</a>.</p>
       <p><strong>Your control.</strong> In the server,
       <code>/message-collection opt-out</code> deletes every message saved from
       you and stops it from continuing; <code>/message-collection status</code>
