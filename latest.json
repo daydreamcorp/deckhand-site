@@ -1,28 +1,28 @@
 {
-  "version": "0.1.57",
-  "notes": "Fixes a rare failure where the computer app could lose a save of your decks, devices or usage stats when two saves happened at the same moment.",
+  "version": "0.1.58",
+  "notes": "Adds the clock, readout, lamp and level-meter instruments to the deck editor, and lets AI Studio place them.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.57",
-          "sha256": "08b8a3a446c5798b5c6b90e8dbe27480d53786b0b664242720d14db750237581"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.58",
+          "sha256": "41d298a1f6940ccbc185a5df90eca9f1b48ad27683848468dd3a7b664fff16e2"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.57",
-          "sha256": "07f712abe4c351cd26304f5bad3d09fd89ffd1ccf85239785b05c8db10dcb135"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.58",
+          "sha256": "db113be3e0e81779a142e94972713c043a4054147bc5c64703847ff00dd06a3e"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.57.exe",
-          "sha256": "e70a68f75ee1dfd42315052253b5c7935f7aa8d95d36b8bd708fec567801a1d3"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.58.exe",
+          "sha256": "3e311bedfc586320fee7c2b23fb2ecb6379c6cabf96771303b1a380eddbc2e16"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.57.exe",
-          "sha256": "2a835894f64d25793f6fadbae259db5c418e787e2390ded0224c728f2fb8f8ac"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.58.exe",
+          "sha256": "79c892a335c8afa02c84fdcfdfe42e912c94524b912a78aa53a06137af86c2c5"
         }
       }
     }
