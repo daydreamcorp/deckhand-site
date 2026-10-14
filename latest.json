@@ -1,28 +1,28 @@
 {
-  "version": "0.1.56",
-  "notes": "AI Studio supports long prompts and shows the credit cost in Send. Create and edit add one credit per 1,000 prompt characters.",
+  "version": "0.1.57",
+  "notes": "Fixes a rare failure where the computer app could lose a save of your decks, devices or usage stats when two saves happened at the same moment.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.56",
-          "sha256": "dc6ec2ba012e124cc4819cf798ed90b8d04951dbe02216ab568d877297d937dd"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.57",
+          "sha256": "08b8a3a446c5798b5c6b90e8dbe27480d53786b0b664242720d14db750237581"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.56",
-          "sha256": "b2d01cc232b204e8adc6c8532d9943b9d24960f4e9dba5a20e2a5b0fefcada0e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.57",
+          "sha256": "07f712abe4c351cd26304f5bad3d09fd89ffd1ccf85239785b05c8db10dcb135"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.56.exe",
-          "sha256": "4670adf3c57b0d154a680f0cc3e97912eb90c81ec9b65199820eb0d4a3536aa0"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.57.exe",
+          "sha256": "e70a68f75ee1dfd42315052253b5c7935f7aa8d95d36b8bd708fec567801a1d3"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.56.exe",
-          "sha256": "9c2a299a969f3a902b1c10f427c308191e78348e9b4cb8a3bba5b2b1cacd08ea"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.57.exe",
+          "sha256": "2a835894f64d25793f6fadbae259db5c418e787e2390ded0224c728f2fb8f8ac"
         }
       }
     }
