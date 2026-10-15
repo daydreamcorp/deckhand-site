@@ -1,2 +1,54 @@
+# Deckhand — © 2026 Day Dream Corp. All rights reserved.
+# Text and data mining rights are reserved (Directive (EU) 2019/790, Art. 4(3)).
+# No part of this site may be collected to train, fine-tune or ground AI models.
+# Machine-readable reservation: /.well-known/tdmrep.json
+
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: YouBot
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: Timpibot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: ImagesiftBot
+User-agent: PetalBot
+User-agent: Scrapy
+User-agent: img2dataset
+User-agent: magpie-crawler
+User-agent: VelenPublicWebCrawler
+User-agent: iaskspider/2.0
+User-agent: Kangaroo Bot
+User-agent: Webzio-Extended
+User-agent: TurnitinBot
+User-agent: SemrushBot-OCOB
+User-agent: Brightbot 1.0
+User-agent: FirecrawlAgent
+User-agent: Crawl4AI
+Disallow: /
+
 User-agent: *
 Allow: /
