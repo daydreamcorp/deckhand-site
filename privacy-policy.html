@@ -1,3 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How Deckhand, by Day Dream Corp, handles your data: what stays on your devices, what is sent, to whom, and your rights.">
 <title>Deckhand — Privacy Policy</title>
 <style>
   :root {
@@ -69,12 +75,6 @@
   }
   .updated b { color: var(--ink-soft); font-weight: 600; font-family: var(--sans); }
 
-  .draft-flag {
-    margin-top: 1.5rem; padding: .9rem 1.1rem; border-radius: 6px;
-    background: var(--signal-soft); border-left: 3px solid var(--signal);
-    font-size: .875rem; color: var(--ink-soft);
-  }
-  .draft-flag strong { color: var(--ink); }
 
   .summary {
     margin: 2.5rem 0; padding: 1.4rem 1.5rem; border-radius: 8px;
@@ -87,6 +87,8 @@
   .summary p { margin: 0; font-size: .98rem; color: var(--ink-soft); }
   .summary p + p { margin-top: .7rem; }
   .summary strong { color: var(--ink); font-weight: 650; }
+  .summary ul { margin: .7rem 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .97rem; }
+  .summary li + li { margin-top: .35rem; }
 
   section.sec { padding-top: 2.6rem; border-top: 1px solid var(--rule); scroll-margin-top: 1.5rem; }
   section.sec:first-of-type { border-top: none; }
@@ -154,195 +156,86 @@
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
+</head>
+<body>
 
 <div class="page">
   <header class="top">
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-10-14</span>
-      <span><b>Applies to</b> com.daydreamcorp.deckhand</span>
-    </div>
-    <div class="draft-flag">
-      <strong>Not a substitute for legal review.</strong> Everything below
-      describes verified, current app behavior — cross-checked against the
-      Android manifest, the billing, geolocation and analytics source, and
-      the pairing security audit rather than carried forward unchecked from
-      an earlier draft — but a lawyer should review this before it's relied
-      on.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-13.</strong> The phone app can now send
-      a screenshot of its own window when you ask. Tapping the camera hole
-      shows you a preview and lets you send it to the developer, or post it in
-      Deckhand's Discord forum, where everyone in the server can see it.
-      Nothing is sent until you press one of the two buttons. <strong>From
-      2026-10-14</strong> the persistent &ldquo;Send a screenshot&rdquo;
-      notification opens the same menu: it used to send the screen straight to
-      the developer, and now it too shows you the preview and waits for your
-      choice. See
-      <a href="#shared-screenshots">Screenshots you choose to send</a> and
-      <a href="#community">The tester community on Discord</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-11.</strong> The Analytics controls have
-      been removed from Deckhand and Desk. During the closed test, mobile
-      collection follows Google's User Messaging Platform: a denial is honored,
-      a grant enables collection, and collection is enabled when UMP says
-      consent is not required. Desktop reports remain on during the closed test
-      unless the deployment kill switch disables them. The production consent
-      and withdrawal flow must be resolved before public release. See
-      <a href="#firebase">What we collect via Firebase</a> and
-      <a href="#desktop-reports">The desktop app's own reports</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change.</strong> This version adds AI page generation
-      (<a href="#ai">AI page generation</a>) — off until you turn it on, and
-      the first thing in Deckhand that sends anything you typed to a company
-      other than us. This version also adds Firebase
-      Analytics, Crashlytics, Performance Monitoring, Remote Config, and
-      Cloud Messaging. Earlier versions of this policy said Deckhand used no
-      analytics or crash-reporting SDK — that is no longer accurate, and
-      this document now describes what changed rather than leaving the old
-      claim in place. See <a href="#firebase">What we collect via
-      Firebase</a>. This notice stays for one release cycle, per the
-      commitment in <a href="#changes">Changes to this policy</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-09-30.</strong> The desktop app (Host,
-      Desk and the installer) now sends its own usage, error and crash
-      reports to Deckhand's own service, instead of only handing counts to
-      your phone to forward. During the closed test this is on by default;
-      the Settings control was removed on 2026-10-11. See
-      <a href="#desktop-reports">The desktop app's own reports</a>. This
-      version also brings this page in line with the closed-test rules the
-      phone app already follows, and removes a "Reset analytics ID" control
-      the app no longer has. This notice stays for one release cycle, per
-      the commitment in <a href="#changes">Changes to this policy</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-09-21.</strong> This version adds
-      <a href="#suggestions">suggestion notifications</a> — on by default,
-      switched off in Desk's Settings — the desktop app's second feature
-      (after AI page generation) that sends something built from your deck
-      to Deckhand's own service: page names and coarse per-kind usage
-      counts, never button contents. §7's "not collected" list is updated
-      to name this as a deliberate, narrow exception rather than leave an
-      unqualified claim standing against it. This notice stays for one
-      release cycle, per the commitment in <a href="#changes">Changes to
-      this policy</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-01.</strong> This version adds
-      <a href="#community">The tester community on Discord</a>. It does not
-      concern the app: it applies only if you join Deckhand's tester Discord
-      server, where what you write is now saved, read by an AI assistant to
-      fix and improve Deckhand, and deleted once used. This notice stays for
-      one release cycle, per the commitment in <a href="#changes">Changes to
-      this policy</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-04.</strong> Configured closed-test
-      builds now ask for a tester name once at launch. The name is stored in
-      Deckhand's private Admin service against the phone's install ID and
-      appears with that phone's paired-computer summary telemetry in Admin.
-      It is not sent to Firebase and does not depend on analytics consent.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-04.</strong> When diagnostic collection
-      is enabled, Deckhand automatically captures its own app window when it
-      reports a caught error. Desk captures its visible app window for Desk
-      errors and may answer a Host error request while visible. Images can show
-      Deckhand's displayed content; they do not capture another app or the
-      rest of the device screen. The existing manual screenshot control remains.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-05.</strong> This version corrects
-      statements that understated what closed-test builds collect. The tester
-      name prompt is mandatory in the closed test: the app cannot be used past
-      it until Deckhand's private Admin service has confirmed a name. When the
-      app reports an error it sends the error's category, the screen name, the
-      page number and count, the app version and a stack trace and, during the
-      closed test only, a screenshot of its own window. A screenshot shows
-      whatever the window shows, which can include deck and button names, host
-      names, typed text and the pairing screen, so the earlier wording that
-      button or deck names and host names are not collected now applies only to
-      the usage events. Screenshots are kept up to a capacity limit and deleted
-      when the closed test ends. Foreground, screen and deck-page changes are
-      sent immediately, so the person running the test can see who is using the
-      app right now. <a href="#rights">Your rights</a> now covers all of this.
-      See <a href="#firebase">What we collect via Firebase</a>.
-    </div>
-    <div class="draft-flag">
-      <strong>Material change, 2026-10-07.</strong> AI page generation now
-      has a daily free allowance and credit packs. Deckhand's service keeps a
-      count of credits per phone installation and, when packs open, records of
-      credit purchases made with them. Opening AI Studio sends the phone's
-      install ID and the paired computer's fingerprint to ask for the balance.
-      See <a href="#ai">AI page generation</a>.
+      <span><b>Last updated</b> 2026-10-15</span>
+      <span><b>Applies to</b> com.daydreamcorp.deckhand and the Deckhand desktop app</span>
     </div>
   </header>
 
   <div class="summary">
     <h2>In short</h2>
-    <p>Deckhand has <strong>no general account system</strong>. Your deck layout
-    and pairing information stay on your phone and your paired computer. In
-    configured closed-test builds, a one-time tester name is linked by the
-    private Admin service to the phone's install ID, its usage telemetry
-    (including whether you are using the app right now), its error reports and
-    error screenshots, and paired-computer summary telemetry; it is not sent to
-    Firebase. The name prompt is mandatory in the closed test: the app does not
-    open past it until the service has confirmed the name. Two
-    features send something built from them to a small Deckhand-run service:
-    AI page generation (<a href="#ai">§4</a>), off until you turn it on, and
-    the desktop app's suggestion notifications (<a href="#suggestions">§5</a>),
-    on by default and switched off in Desk's Settings. During the closed
-    test, the phone app and the desktop app also send usage and crash
-    reports — the desktop app to that same service
-    (<a href="#desktop-reports">§3</a>), on by default during the closed
-    test unless the deployment kill switch is set.
-    None of them include what your buttons do, with one exception: a
-    closed-test error screenshot (<a href="#error-reports">§3</a>) shows
-    whatever the app window displayed at that moment. The outside
-    parties involved are your app store (for purchases), that service and the
-    AI providers behind it (OpenRouter and DeepSeek), Google (for Firebase analytics and crash reporting, for ads
-    on the free tier, and for OS-level speech recognition if you use voice
-    triggers), and your phone's own location service if you use geofenced
-    pages.</p>
-    <p>Nothing below changes that — this document exists to describe the
-    handful of places data leaves your device, in full, not to hedge it.</p>
+    <p>This policy explains what personal data Deckhand processes, why, where
+    it goes and what you can do about it. Deckhand is made by Day Dream Corp
+    (“we”, “us”). It covers the Deckhand phone app, the Deckhand desktop app
+    (Deckhand Host, Deckhand Desk and the installer), the services they
+    connect to, and Deckhand's tester community on Discord.</p>
+    <p>Deckhand has <strong>no general account system</strong>. Your deck
+    layout and pairing information stay on your phone and your paired
+    computer, and travel between them only over your local network, encrypted
+    end to end. Data leaves your devices in these places only:</p>
+    <ul>
+      <li>usage, error and crash reports from the phone app (through Firebase
+      and our own service) and from the desktop app (to our own service) during
+      the closed test (<a href="#firebase">§3</a>);</li>
+      <li>a tester name, in closed-test builds, held by our own service
+      (<a href="#storage">§1</a>, <a href="#firebase">§3</a>);</li>
+      <li>screenshots of Deckhand's own window: automatically with an error
+      report during the closed test, and when you choose to send one
+      (<a href="#error-reports">§3</a>);</li>
+      <li>AI page generation, off until you turn it on, and AI credits
+      (<a href="#ai">§4</a>);</li>
+      <li>suggestion notifications from the desktop app, which you can switch
+      off (<a href="#suggestions">§5</a>);</li>
+      <li>purchases, handled by your app store; advertising on the free tier;
+      speech recognition if you use voice triggers; and your phone's location
+      service if you use geofenced pages (<a href="#network">§2</a>);</li>
+      <li>messages you write in the tester Discord server, if you join it
+      (<a href="#community">§10</a>).</li>
+    </ul>
+    <p>None of these include what your buttons do. The single exception is a
+    screenshot, which shows whatever Deckhand's window displayed at that
+    moment. We do not sell your data or share it with anyone for their own
+    purposes.</p>
   </div>
 
   <section class="sec" id="storage">
     <div class="sec-head"><span class="sec-num">1</span><h2 class="sec-title">What Deckhand stores, and where</h2></div>
     <div class="sec-body">
       <ul>
-        <li><strong>Deck layout</strong> (pages, buttons, dials, skins, bound
-        actions) — a local file on your phone. There is no cloud sync or
-        cloud backup feature today. The app does keep local safety copies of
-        that file before risky operations like a schema migration, but those
+        <li><strong>Deck layout</strong> (pages, buttons, dials, skins and the
+        actions bound to them) is a local file on your phone, kept in step
+        with Deckhand Desk on your paired computer. Deckhand has no cloud sync
+        or cloud backup feature. Before risky operations, such as a change of
+        file format, the app keeps local safety copies of that file; those
         copies never leave the device.</li>
-        <li><strong>Pairing records</strong> (which computers you've paired
-        with, and their public identity key — never a secret) — stored
+        <li><strong>Pairing records</strong> (which computers you have paired
+        with, and their public identity keys, never a secret) are stored
         locally on your phone.</li>
-        <li><strong>Geofence profiles</strong> (name, coordinates, radius,
-        which page to switch to) — stored locally on your phone. Never
-        transmitted to us, to the paired computer, or to any third party.</li>
-        <li><strong>Device identity key</strong> — a cryptographic keypair
-        generated on your phone the first time you pair a computer, proving
-        it's really your phone reconnecting later. Stays on your phone.</li>
-        <li><strong>Tester name (configured closed-test builds only)</strong> —
-        entered in a launch modal, saved by the private Admin service against
-        the phone's install ID, and cached in app-private storage (a file
-        called <code class="inline">tester_name.txt</code>) after the service
-        confirms it. Entering it is mandatory in the closed test: the prompt
-        cannot be dismissed and the app does not open past it until the service
-        has confirmed the name. The app checks the service first and does not
-        ask again once that install has a saved name. Android's Auto Backup is
-        not told to skip that file, so Android may include it in your phone's
-        Google backup and restore it after a reinstall or onto a new phone,
-        where it only fills in the name box; the service still has to confirm
-        the name.</li>
+        <li><strong>Geofence profiles</strong> (name, coordinates, radius and
+        which page to switch to) are stored locally on your phone and are never
+        transmitted to us, to the paired computer or to any third party.</li>
+        <li><strong>Device identity key</strong>: a cryptographic key pair
+        generated on your phone the first time you pair a computer, which
+        proves it is your phone when it reconnects. It stays on your
+        phone.</li>
+        <li><strong>Tester name</strong> (closed-test builds only) is entered
+        when the app starts, saved by our private Admin service against the
+        phone's install ID, and cached in the app's private storage (a file
+        called <code class="inline">tester_name.txt</code>) once the service
+        has confirmed it. Entering a name is mandatory during the closed test:
+        the prompt cannot be dismissed and the app does not open past it until
+        the service has confirmed the name. The app asks the service first and
+        does not ask again once that installation has a saved name. Android's
+        Auto Backup may include the cached file in your phone's Google backup
+        and restore it after a reinstall or onto a new phone, where it only
+        fills in the name box; the service still has to confirm the name.</li>
       </ul>
     </div>
   </section>
@@ -351,242 +244,201 @@
     <div class="sec-head"><span class="sec-num">2</span><h2 class="sec-title">What crosses the network, and to whom</h2></div>
     <div class="sec-body">
       <p><strong>To your paired computer, on your local network only:</strong>
-      your deck layout and button presses. The connection is end-to-end
-      encrypted at the application layer — X25519 key exchange, AES-GCM, both
-      devices' identities authenticated with Ed25519 signatures — independent
-      of whether the underlying local-network transport itself uses TLS. This
-      never goes through the internet or through any Deckhand-operated
-      server.</p>
-      <p><strong>To Deckhand's own service</strong>: AI page generation if
-      you turn it on, with your AI credit balance and credit purchases
-      (<a href="#ai">§4</a>), suggestion notifications
-      (<a href="#suggestions">§5</a>), and, during the closed test, usage
-      and crash reports from the phone app and the desktop app
-      (<a href="#firebase">§3</a>). Configured tester builds also send the
-      name entered in the boot prompt, associated with the mobile install ID,
-      and the error reports and screenshots described in
-      <a href="#error-reports">§3</a>. The name is not sent to Firebase. The
-      service runs on our own hardware
-      and is reachable only over an encrypted connection.</p>
-      <p><strong>To your app store</strong> (Google Play / Apple App Store):
-      purchase transactions for subscriptions, add-ons and AI credit packs. We never see your
-      payment details — the store handles that directly.</p>
-      <p><strong>To Google</strong> (free tier only): standard AdMob
-      advertising requests, which include an advertising identifier subject
-      to your OS-level ad-tracking settings, to show the banner ad and
-      rewarded-ad offers. This stops entirely — no requests at all — once
-      you're on a paid tier.</p>
-      <p><strong>To Google or Apple's speech recognition service</strong>
-      (only if you use a voice-activated button): recognizing what you said
-      may be processed on-device or by the platform's own cloud speech
-      service, depending on your phone's settings — an OS-level behavior we
-      don't control or see the result of beyond the recognized text, which
-      stays on your phone to compare against your configured phrase. We never
-      store or transmit your voice recording ourselves.</p>
-      <p><strong>To Google/Apple's location services</strong> (only if you
-      use geofenced pages): your phone's OS resolves your location; Deckhand
-      only ever sees a latitude/longitude pair it uses locally, never sent
-      anywhere by us.</p>
+      your deck layout and button presses. The connection is encrypted end to
+      end at the application layer (X25519 key exchange and AES-GCM, with both
+      devices' identities authenticated by Ed25519 signatures), independently
+      of whether the local-network transport itself uses TLS. This traffic
+      never goes through the internet or through any server we operate.</p>
+      <p><strong>To our own service:</strong> AI page generation if you turn it
+      on, your AI credit balance and credit purchases (<a href="#ai">§4</a>),
+      suggestion notifications (<a href="#suggestions">§5</a>) and, during the
+      closed test, usage and error reports from the phone app and the desktop
+      app, error screenshots, screenshots you choose to send, and your tester
+      name with your phone's install ID (<a href="#firebase">§3</a>). The
+      service runs on our own hardware, is reachable only over an encrypted
+      connection, and is not shared with anyone.</p>
+      <p><strong>To your app store (Google Play or the Apple App Store):</strong>
+      purchase transactions for subscriptions, skins and AI credit packs. We
+      never see your payment details; the store handles them directly.</p>
+      <p><strong>To Google, on the free tier only:</strong> standard AdMob
+      advertising requests, which include an advertising identifier subject to
+      your operating system's ad-tracking settings, to show the banner ad and
+      rewarded-ad offers. No advertising request is made on a paid tier.</p>
+      <p><strong>To Google's or Apple's speech recognition</strong> (only if you
+      use a voice-activated button): recognition may happen on the device or in
+      the platform's own cloud speech service, depending on your phone's
+      settings. Deckhand receives only the recognized text, which stays on your
+      phone to be compared with the phrase you set. We never store or transmit
+      your voice recording.</p>
+      <p><strong>To Google's or Apple's location services</strong> (only if you
+      use geofenced pages): your phone's operating system determines your
+      location, and Deckhand uses the resulting latitude and longitude on the
+      phone only. We never send it anywhere.</p>
     </div>
   </section>
 
   <section class="sec" id="firebase">
-    <div class="sec-head"><span class="sec-num">3</span><h2 class="sec-title">What we collect via Firebase</h2></div>
+    <div class="sec-head"><span class="sec-num">3</span><h2 class="sec-title">Usage, error and crash reports</h2></div>
     <div class="sec-body">
-      <p>Deckhand uses Firebase, a Google product, for five things:
-      <strong>Analytics</strong> (product usage — which screens and features
-      you use, pairing and subscription events, your subscription tier),
+      <h3>What we collect via Firebase</h3>
+      <p>The phone app uses Firebase, a Google product, for five things:
+      <strong>Analytics</strong> (product usage: which screens and features you
+      use, pairing and subscription events, your subscription tier);
       <strong>Crashlytics</strong> (crash and error reports, including device
-      model, OS version, and the state of the app when it crashed),
-      <strong>Performance Monitoring</strong> (automatic app-start,
-      network-request and screen-render timing — not the content of what you
-      did, only how long it took), <strong>Remote Config</strong> (lets us
-      tune a couple of app behaviors, such as the free-tier rewarded-ad
-      cadence, without shipping a new build), and <strong>Cloud
-      Messaging</strong> (push notification infrastructure — captures a
-      device token so a future update could send you a notification; as of
-      this build, none are sent).</p>
+      model, operating system version and the state of the app when it
+      crashed); <strong>Performance Monitoring</strong> (automatic timing of
+      app start, network requests and screen rendering: how long things took,
+      not what you did); <strong>Remote Config</strong> (adjusting a few app
+      behaviors, such as how often the free tier offers a rewarded ad, without a
+      new release); and <strong>Cloud Messaging</strong> (push-notification
+      infrastructure, which stores a device token; no push notifications are
+      currently sent).</p>
       <p>None of this includes your deck layout, pairing records, geofence
-      profiles, or anything else described under <a href="#storage">What
-      Deckhand stores, and where</a> — those stay exactly as private as they
-      always have. (The closed-test error screenshots described below go only
-      to Deckhand's own service, never to Firebase.)</p>
+      profiles or anything else described in <a href="#storage">§1</a>.
+      Screenshots go only to our own service, never to Firebase.</p>
       <ul>
-        <li><strong>During the closed test, mobile analytics follows the
-        consent result.</strong> Google's User Messaging Platform shows a
-        consent prompt where required. A denial is honored and collection is
-        disabled; a grant enables it. When UMP says consent is not required,
-        the test build enables collection. There is no Analytics control in
-        Settings during the closed test. A public release requires a consent
-        and withdrawal flow before these test rules can change.</li>
-        <li><strong>What the test collects</strong>: which screens you open
-        and for how long, which controls you touch and how, which action
-        kinds you fire and whether they succeed, deck and page counts,
-        permission outcomes, connection state and
-        latency, onboarding progress, and non-fatal errors. The tester name is
-        sent separately to Admin; the Firebase event stream does not include
-        it or the contents of anything, such as your shell commands, macro
-        steps, typed text, clipboard, button or deck names, host names, IP addresses,
-        Wi-Fi networks or geofence coordinates, and not which tile you
-        touched. This describes the usage events: error screenshots are the
-        exception, see <a href="#error-reports">Error reports and
-        screenshots</a> below.</li>
-        <li><strong>Where it goes during the closed test</strong>: test
-        builds also send this same event stream to the small private service
-        we run ourselves, so that we can read it. Besides this event stream it
-        receives only the tester identity and the error reports and screenshots
-        described in the next bullets; it stores them on our own hardware, is
-        reachable only over an encrypted connection, and is not shared with
-        anyone. The event stream, the error reports and the screenshots are
-        deleted when the closed test ends (tester identity records are the
-        exception, see below).</li>
-        <li><strong>Tester identity in the private Admin service</strong>:
-        configured tester builds ask once for a name and send it separately
-        from analytics consent. <strong>The prompt is mandatory in the closed
-        test</strong>: it cannot be dismissed, it appears in every region
-        whether or not you accepted analytics, and the app does not open past
-        it until the service has confirmed the name. If the service cannot be
-        reached, the app stays shut unless the service confirmed your
-        installation within the previous 24 hours, in which case it stays
-        usable for the rest of that 24 hours so a short outage of the service
-        or of your internet does not stop you controlling your computer, and
-        then closes behind the prompt again. A name saved on the phone is never
-        enough by itself; only that recent confirmation by the service counts.
-        The app re-checks with the service each time it opens and about once a
-        minute while open, and whenever the service answers it acts on the
-        answer at once, with no grace period, so if an operator clears your
-        name or blocks your installation the prompt returns or the app stays
-        locked straight away. The service associates the name with that phone's
-        install ID and records that the name is held by that one installation,
-        so the same name cannot be used on a second one; an operator can clear
-        the stored name, lock it against changes, or block the installation.
-        Admin shows the name with the phone's telemetry, live presence, error
-        reports and screenshots, and the paired-computer summary forwarded by
-        that phone. The name is not part of the Firebase event stream. The
-        current Admin store does not expire identity rows automatically and
-        they are not covered by the closed-test deletion above; the name and
-        its one-installation record remain until an administrator removes the
-        service data. Contact us to request access, correction, or
-        removal.</li>
-        <li><strong>Live presence</strong> (closed test): when the app comes
-        to the foreground or goes to the background, when you open a screen
-        and when you switch deck page, the phone sends that event to the
-        private service straight away instead of waiting for the usual batch.
-        This lets the person running the test see in Admin who is using the app
-        right now, shown under the tester name, with the screen they are on,
-        the page number and page count (never the page's name) and whether the
-        app is in the foreground. It is part of the analytics event stream and
-        follows the same collection rules as above: always on outside the
-        EEA and UK during the closed test, consent first inside it.</li>
+        <li><strong>Consent.</strong> During the closed test, collection by the
+        phone app follows the result of Google's User Messaging Platform (UMP),
+        which shows a consent prompt where one is required. If you refuse,
+        collection is disabled; if you accept, it is enabled; where UMP reports
+        that no consent is required, the test build enables it. Test builds
+        have no Analytics setting. A consent and withdrawal setting will be in
+        place before any public release.</li>
+        <li><strong>What the closed test collects:</strong> which screens you
+        open and for how long, which controls you touch and how, which kinds of
+        action you fire and whether they succeed, deck and page counts,
+        permission outcomes, connection state and latency, onboarding progress,
+        and non-fatal errors. These usage events never contain your tester
+        name, your shell commands, macro steps, typed text, clipboard, button
+        or deck names, host names, IP addresses, Wi-Fi networks or geofence
+        coordinates, or which tile you touched. Screenshots are the exception
+        to this list; see <a href="#error-reports">Error reports and
+        screenshots</a>.</li>
+        <li><strong>Our own copy during the closed test.</strong> Test builds
+        also send the same event stream to our private service so that we can
+        read it. Besides that stream, the service receives only the tester
+        identity, error reports and screenshots described below. The event
+        stream, error reports and screenshots are deleted when the closed test
+        ends; tester identity records are kept as described below.</li>
+        <li><strong>Tester identity.</strong> Closed-test builds ask once for a
+        name, independently of analytics consent and in every region, and the
+        app does not open past the prompt until our service has confirmed the
+        name. If the service cannot be reached, the app stays closed unless the
+        service confirmed your installation within the previous 24 hours, in
+        which case it remains usable until those 24 hours have passed. A name
+        saved on the phone is never enough by itself. The app checks with the
+        service each time it opens and about once a minute while it is open,
+        and acts on the answer immediately, so if an operator clears your name
+        or blocks your installation, the prompt returns or the app locks at
+        once. The service associates the name with the phone's install ID and
+        records that the name belongs to that one installation, so the same
+        name cannot be used on a second one. An operator can clear a stored
+        name, lock it against changes, or block an installation. Our Admin
+        service shows the name with the phone's usage data, live presence,
+        error reports and screenshots, and the paired-computer summary that
+        phone forwards. Identity records do not expire automatically: the name
+        and its installation record remain until an administrator removes them,
+        including at your request (<a href="#rights">§8</a>).</li>
+        <li><strong>Live presence</strong> (closed test): when the app comes to
+        the foreground or goes to the background, when you open a screen and
+        when you switch deck page, the phone sends that event to our service
+        at once rather than in the usual batch. This lets the person running
+        the test see who is using the app at that moment, under the tester
+        name, with the screen in use, the page number and page count (never the
+        page's name) and whether the app is in the foreground. It is part of
+        the usage event stream and follows the same consent rule.</li>
         <li id="error-reports"><strong>Error reports and screenshots</strong>
-        (closed test): when the phone app catches an error, a configured test
-        build sends a report to the private service: the error's category, the
-        name of the screen you were on, the deck page number and count, the app
-        version, the install ID and a stack trace (code locations only, no
-        error message). During the closed test only, it also sends a
-        screenshot of Deckhand's own window as it looked when the error
-        happened. <strong>A screenshot shows whatever the window
-        shows</strong>, so it can contain deck and button names, host names,
-        text you have typed into a visible field and the pairing screen; it is
-        the exception to the lists of what is not collected above and in
-        <a href="#not-collected">§7</a>. It never captures another app or the
+        (closed test): when the phone app catches an error, it sends our
+        service a report containing the error's category, the screen you were
+        on, the deck page number and count, the app version, the install ID and
+        a stack trace (code locations only, without the error message). It also
+        sends a screenshot of Deckhand's own window as it looked when the error
+        happened. A screenshot shows whatever the window shows, so it can
+        contain deck and button names, host names, text typed into a visible
+        field and the pairing screen. It never captures another app or the
         rest of the device screen, is made in memory rather than saved to your
         phone's media library, and goes only to our own service, never to
-        Firebase. The phone sends these under the same collection rule as the
-        analytics stream's UMP result; Desk's own screenshots follow the
-        closed-test reporting policy, below. Admin shows each report and screenshot under the
-        tester name of the install that sent it. <strong>Retention</strong>:
-        screenshots are not deleted on a timer; the service keeps at most 200
-        images or 500 MB, whichever is reached first, and removes the oldest as
-        new ones arrive. Error reports and screenshots are deleted when the
-        closed test ends, and on request (see <a href="#rights">Your
-        rights</a>).</li>
-        <li id="shared-screenshots"><strong>Screenshots you choose to send</strong>:
-        tapping the phone's camera hole (with Deckhand in fullscreen, the
-        default), or the &ldquo;Send a screenshot&rdquo; notification, shows
-        you a preview of Deckhand's own window and two buttons. Nothing is sent
-        until you press one. <strong>To the developer</strong>: the picture goes
-        to our private service, with your install ID, and is kept and deleted
-        as the error screenshots above are. <strong>To the Discord forum</strong>:
-        the picture is also kept there, and our bot posts it in a new post
-        titled with your tester name, <strong>visible to everyone in the
-        Deckhand Discord server</strong>. The name on the post is the tester
-        name our service already holds for your install, not anything sent with
-        the picture. An install can post at most three a day. To have a post
-        removed, ask in the server or contact us as in
-        <a href="#contact">Contact</a>; we delete the post and the stored copy.
-        As with error screenshots, <strong>a screenshot shows whatever the
-        window shows</strong> (deck and button names, host names, typed text,
-        the pairing screen), and it never captures another app or the rest of
-        the device screen; it is made in memory, not saved to your phone's
-        media library.</li>
-        <li><strong>Retention</strong> — analytics data is kept for 2 months
-        from collection, then automatically deleted from Firebase's systems.
-        That is the shorter of the two retention windows Firebase offers,
-        chosen deliberately to keep only what is useful for recent
-        troubleshooting and trends.</li>
-        <li><strong>Where it goes</strong> — to Google, as the processor
-        operating Firebase on our behalf, under Google's Standard
-        Contractual Clauses for any transfer outside your region. Google
-        does not use this data to build its own advertising profile of you;
-        Firebase Analytics data is walled off from Google Ads targeting
-        unless a developer explicitly links the two, which we don't.</li>
-        <li><strong>Firebase remains pseudonymous</strong> — Firebase
-        analytics is not tied to the tester name entered for Deckhand Admin,
-        an email, or an account. It uses a random identifier generated per
-        install. The separate name-to-phone association exists only in
-        Deckhand's private Admin service.</li>
+        Firebase. The phone sends these reports under the same consent rule as
+        the usage events. Our Admin service shows each report and screenshot
+        under the tester name of the installation that sent it.
+        <em>Retention:</em> the service keeps at most 200 images or 500 MB,
+        whichever is reached first, removing the oldest as new ones arrive.
+        Error reports and screenshots are deleted when the closed test ends,
+        or earlier on request (<a href="#rights">§8</a>).</li>
+        <li id="shared-screenshots"><strong>Screenshots you choose to
+        send:</strong> tapping the phone's camera hole while Deckhand is full
+        screen (the default), or tapping the “Send a screenshot” notification,
+        shows a preview of Deckhand's own window and two buttons. Nothing is
+        sent until you press one of them. <em>To the developer</em>: the
+        picture goes to our private service with your install ID, and is kept
+        and deleted like the error screenshots above. <em>To the Discord
+        forum</em>: the picture is also stored by our service, and our bot
+        posts it as a new post in the Deckhand Discord server's forum, titled
+        with the tester name our service holds for your installation and
+        visible to everyone in the server. An installation can post at most
+        three screenshots a day. To have a post removed, ask in the server or
+        contact us (<a href="#contact">§13</a>); we delete the post and the
+        stored copy. Like error screenshots, these show whatever Deckhand's
+        window shows, never capture another app or the rest of the screen, and
+        are made in memory rather than saved to your media library.</li>
+        <li><strong>Firebase retention:</strong> analytics data is kept for two
+        months from collection and then deleted automatically from Firebase's
+        systems, the shorter of the two retention periods Firebase offers.</li>
+        <li><strong>Processor and transfers:</strong> Google operates Firebase
+        as our processor, under Google's Standard Contractual Clauses for any
+        transfer outside your region. Firebase Analytics data is not linked to
+        Google advertising, and Google does not use it to build an advertising
+        profile of you.</li>
+        <li><strong>Pseudonymous:</strong> Firebase data uses a random
+        identifier generated for each installation and is not tied to your
+        tester name, an email address or an account. The link between a name
+        and a phone exists only in our private Admin service.</li>
       </ul>
 
       <h3 id="desktop-reports">The desktop app's own reports</h3>
-      <p>The desktop app — Deckhand Host, Deckhand Desk and the installer —
-      reports on itself directly to Deckhand's own service. It does not use
-      Firebase or any other third-party SDK. Before this, a desktop app with
-      no phone paired, or one that crashed, left nothing but a log file on
-      your computer.</p>
+      <p>The desktop app (Deckhand Host, Deckhand Desk and the installer)
+      reports on itself directly to our own service. It uses no Firebase or
+      other third-party analytics SDK.</p>
       <ul>
-        <li><strong>What it sends.</strong> <em>Usage</em>: when it starts
-        and stops and why, whether an update installed, whether pairing a
-        phone worked (and if not, what kind of failure — never the PIN),
-        how long phones stay connected, every 15 minutes how many actions
-        ran and failed by kind and how long they took, its own CPU and memory
-        use, which parts of Desk's window you used, how AI page generations
-        ended and how long they took (never what you typed). <em>Errors</em>: warning and error lines
-        from its own log, grouped by where in the code they came from, with a
-        count. <em>Crashes</em>: when a part of the app stops unexpectedly,
-        where in the code it happened, a stack trace, and the last few
-        hundred lines of its log; and, when the app was stopped without
-        shutting down, that it happened and whether the computer had been
-        restarted. Each report says which of the three programs sent it, its
-        version, your operating system and version, processor type and
-        language.</li>
-        <li><strong>What is removed first.</strong> Before anything is saved
-        for sending, every piece of free text is stripped of your user and
-        computer names, home folder, IP and MAC addresses, e-mail addresses,
-        and anything shaped like a key, token or device ID. Button contents,
-        commands, typed text and deck names are never part of a report in
-        the first place, with one exception. When reporting is enabled, Desk
-        also captures its visible app window for a new error group (including
-        a Host error, if Host asks while Desk is visible). That image can show
-        whatever Desk is displaying — deck and button names, host names, text in
-        visible fields, the pairing screen — and text scrubbing does not alter
-        pixels. Captures stay inside Desk's visible app window, are tied to the
-        same random install ID rather than to a name, and share the capacity
-        limit and end-of-test deletion described under <a
-        href="#error-reports">Error reports and screenshots</a>.</li>
+        <li><strong>What it sends.</strong> <em>Usage</em>: when it starts and
+        stops and why; whether an update installed; whether pairing a phone
+        worked and, if not, the kind of failure (never the PIN); how long
+        phones stay connected; every 15 minutes, how many actions ran and
+        failed, by kind, and how long they took; its own processor and memory
+        use; which parts of Desk's window you use; and how AI page generations
+        ended and how long they took (never what you typed).
+        <em>Errors</em>: warning and error lines from its own log, grouped by
+        where in the code they came from, with a count. <em>Crashes</em>: where
+        in the code a part of the app stopped unexpectedly, a stack trace and
+        the last few hundred lines of its log; and, if the app was stopped
+        without shutting down, that this happened and whether the computer had
+        been restarted. Each report states which program sent it, its version,
+        your operating system and version, processor type and language.</li>
+        <li><strong>What is removed first.</strong> Before anything is queued
+        for sending, all free text is stripped of user and computer names, home
+        folders, IP and MAC addresses, email addresses and anything shaped like
+        a key, token or device ID. Button contents, commands, typed text and
+        deck names are never part of a report. The one exception is a
+        screenshot: when Desk records a new kind of error (including a Host
+        error, if Host asks while Desk is visible), it captures its own visible
+        window. That image can show whatever Desk is displaying (deck and
+        button names, host names, text in visible fields, the pairing screen),
+        and text scrubbing does not alter images. Captures never extend beyond
+        Desk's visible window, are tied to the random install ID rather than
+        to a name, and follow the retention described under
+        <a href="#error-reports">Error reports and screenshots</a>.</li>
         <li><strong>How it is identified.</strong> By a random install ID
-        created on your computer, which is not derived from and cannot be
-        linked to the key your computer uses to pair with your phone. The
+        created on your computer, which is not derived from, and cannot be
+        linked to, the key your computer uses to pair with your phone. The
         service does not store the address your reports came from.</li>
-        <li><strong>During the closed test, reports are on by default.</strong>
-        There is no Analytics control in Desk Settings; saved opt-outs from
-        older builds are ignored during the closed test. A deployment setting,
-        <code>DECKHAND_TELEMETRY=0</code>, can disable reports. Desktop reports
-        do not change phone quests or participation.</li>
-        <li><strong>Where it goes and for how long.</strong> To the same
-        private service described above, on our own hardware, over an
-        encrypted connection, shared with no one, and deleted when the closed
-        test ends.</li>
+        <li><strong>During the closed test, reports are on.</strong> Desk has
+        no Analytics setting during the closed test, and opt-outs saved by
+        older versions are not applied. Reports can be disabled with the
+        deployment setting <code>DECKHAND_TELEMETRY=0</code>. Desktop reports
+        do not affect phone quests or test participation.</li>
+        <li><strong>Where they go and for how long.</strong> To our private
+        service described above, over an encrypted connection, shared with no
+        one, and deleted when the closed test ends.</li>
       </ul>
     </div>
   </section>
@@ -594,102 +446,98 @@
   <section class="sec" id="ai">
     <div class="sec-head"><span class="sec-num">4</span><h2 class="sec-title">AI page generation</h2></div>
     <div class="sec-body">
-      <p><strong>This is off until you turn it on.</strong> Deckhand can build a
-      deck page from a sentence you type. Doing that means sending something to
-      a company outside Deckhand, so nothing is sent until you have read what
-      goes and said yes. Turning it back off stops it again.</p>
-      <p><strong>Who receives it.</strong> First a small service Deckhand runs
-      itself, which holds the AI account and forwards the request; then
-      <a href="https://openrouter.ai/privacy" rel="noopener" target="_blank">OpenRouter</a>,
-      which routes it to DeepSeek's <code>deepseek-v4.1-flash</code> model.
-      Every request is sent with routing that asks providers not to retain or
-      train on it. Reaching that service from the public internet may involve a
-      network provider that relays the connection; it carries the request the
-      same way any internet hop does.</p>
-      <p>The service keeps a count of how many pages each installation has
-      generated, so a daily limit can be applied. Separately, when you agree
-      to this AI consent, the description is retained on Deckhand's Pi in
-      AES-256-GCM encrypted form for automated AI Studio improvements. The key
-      remains on that Pi; the prompt is not included in analytics or exposed
-      through a human-readable dashboard.</p>
-      <p><strong>What is sent.</strong> Only these:</p>
+      <p><strong>This is off until you turn it on.</strong> Deckhand can build
+      a deck page from a description you type. Because this sends information
+      to companies outside Day Dream Corp, nothing is sent until you have been
+      shown what is sent and have agreed. Turning the feature off stops it.</p>
+      <p><strong>Who receives it.</strong> First our own service, which holds
+      the AI account and forwards the request; then
+      <a href="https://openrouter.ai/privacy">OpenRouter</a>, which routes it
+      to DeepSeek's <code>deepseek-v4.1-flash</code> model. Every request is
+      sent with routing that asks providers not to retain it or train on it.
+      Reaching our service from the public internet may involve a network
+      provider relaying the connection, as with any internet traffic.</p>
+      <p><strong>What is sent.</strong> Only:</p>
       <ul>
-        <li>The description you typed.</li>
-        <li>The size of the page being filled — its rows and columns.</li>
-        <li>Your computer's operating system, because a keyboard shortcut for
-        the wrong one simply does nothing.</li>
-        <li>If OBS is connected, the names of its scenes.</li>
-        <li>When you ask to extend or revise an existing page: the
-        <em>labels</em> of the tiles already on it and what <em>type</em> of
-        thing each one does — "a hotkey", "a web request" — and nothing more.</li>
+        <li>the description you typed;</li>
+        <li>the size of the page being filled (its rows and columns);</li>
+        <li>your computer's operating system, so that keyboard shortcuts match
+        it;</li>
+        <li>if OBS is connected, the names of its scenes;</li>
+        <li>when you ask to extend or revise an existing page, the labels of the
+        tiles already on it and the type of thing each one does (for example
+        “a hotkey” or “a web request”), and nothing more.</li>
       </ul>
-      <p><strong>What is never sent.</strong> What your buttons actually do. Not
-      the commands, not the addresses, not the text you have saved, not the
-      contents of any header — a button can hold a password you typed or a token
-      for a service you use, and those are stripped before the request is built
-      rather than filtered out of it afterwards. Also never sent: your computer's
-      name, your phone's name, or the name of your deck.</p>
+      <p><strong>What is never sent.</strong> What your buttons actually do:
+      not the commands, the addresses, the text you have saved or the contents
+      of any header. A button can hold a password or a token for a service you
+      use, so these are removed before the request is built rather than
+      filtered out afterwards. Your computer's name, your phone's name and the
+      name of your deck are never sent either.</p>
       <p><strong>Neither of your devices holds an AI account.</strong> Your
-      phone asks the computer you have paired with; that computer asks
-      Deckhand's service; the service holds the account and pays for the
-      request. The phone additionally uploads a consented retention copy to
-      Deckhand's Pi, but holds neither an AI credential nor the encryption key.
-      Generation also does nothing on a computer with no phone paired to it —
-      there would be no deck to build for.</p>
-      <p><strong>AI credits.</strong> Every installation gets ten free
-      generations a day. More are bought as credit packs (10, 100 or 600),
-      which never expire and belong to the phone they were bought on. To keep
-      the count, Deckhand's service stores, for each phone installation, its
-      install ID and the credits it has bought and used. When you open AI
-      Studio or its credits page, your phone sends its install ID to ask for
-      those numbers, together with the fingerprint of the computer it is
-      connected to, because the free daily allowance is counted per computer.
-      That fingerprint is the public identifier of your computer's key, not its
-      name. When you buy a pack, the app store takes the payment and we never
-      see your payment details. Your phone then sends the store's purchase
-      token to Deckhand's service, which checks it with Google Play and
-      records your install ID, the pack, the time, a one-way hash of the token
-      and Google's order reference. Each generation paid for with credits is
-      recorded with your install ID and the time. These records are kept for
-      as long as the credits can be used, and to handle refunds and support
-      requests. You can ask us to delete them
-      (<a href="#contact">Contact</a>), which also deletes any credits you
-      have left.</p>
+      phone asks the computer it is paired with; that computer asks our
+      service; the service holds the account and pays for the request.
+      Generation does nothing on a computer with no phone paired to it.</p>
+      <p><strong>What our service keeps.</strong> A count of generations for
+      each installation and paired computer, so that daily limits can be
+      applied. With your agreement to use the feature, the description you
+      typed is also kept on our own server in encrypted form (AES-256-GCM) to
+      improve AI Studio automatically. The key stays on that server; the
+      description is not part of analytics and is not shown in any
+      human-readable dashboard. Your phone uploads this copy but holds neither
+      an AI credential nor the encryption key.</p>
+      <p><strong>AI credits.</strong> Each paired computer receives ten free
+      generations a day. More are available as credit packs, which never
+      expire and belong to the phone they were bought on; the app shows how
+      many credits a request will use before you send it. To keep the count,
+      our service stores, for each phone installation, its install ID and the
+      credits it has bought and used. When you open AI Studio or its credits
+      page, your phone sends its install ID, together with the fingerprint of
+      the computer it is connected to, because the free daily allowance is
+      counted per computer. That fingerprint is the public identifier of your
+      computer's key, not its name. When you buy a pack, your app store takes
+      the payment and we never see your payment details; your phone then sends
+      the store's purchase token to our service, which checks it with Google
+      Play and records your install ID, the pack, the time, a one-way hash of
+      the token and Google's order reference. Each generation paid for with
+      credits is recorded with your install ID and the time. These records are
+      kept for as long as the credits can be used and as needed to handle
+      refunds and support requests. You can ask us to delete them
+      (<a href="#contact">§13</a>); doing so also deletes any credits you have
+      left.</p>
     </div>
   </section>
 
   <section class="sec" id="suggestions">
     <div class="sec-head"><span class="sec-num">5</span><h2 class="sec-title">Suggestion notifications</h2></div>
     <div class="sec-body">
-      <p><strong>This is on by default.</strong> Deckhand's desktop app (Host
-      and Desk) can notice how you actually use your deck and, up to four
-      times a day, show a short notification suggesting something to try
-      next — clicking it opens AI Studio with that suggestion already typed
-      in. Desk's Settings has a switch for this; turning it off stops both
-      the notifications and the once-a-day request that generates them.</p>
-      <p><strong>Who receives it.</strong> The same small Deckhand-run
-      service <a href="#ai">AI page generation</a> uses, and from there
-      OpenRouter and the same underlying model — no new outside party.</p>
-      <p><strong>What is sent, once a day.</strong> A plain-text summary
-      built on your paired computer, not your phone:</p>
+      <p><strong>This is on by default.</strong> The desktop app (Host and
+      Desk) can notice how you use your deck and, up to four times a day, show
+      a short notification suggesting something to try; clicking it opens AI
+      Studio with the suggestion already typed in. A switch in Desk's Settings
+      turns this off, which stops both the notifications and the daily request
+      that produces them.</p>
+      <p><strong>Who receives it.</strong> The same service AI page generation
+      uses, and from there OpenRouter and the same model. No other party is
+      involved.</p>
+      <p><strong>What is sent, once a day.</strong> A plain-text summary built
+      on your paired computer, not your phone:</p>
       <ul>
-        <li>The <em>names</em> of the pages in your deck, and how full each
-        one is — a count, not its contents.</li>
-        <li>Which kinds of action and control you've used, and how often —
-        "hotkey", "OBS", "a bounded dial" — as counts, not what any specific
-        one does.</li>
-        <li>Whether you've opened AI Studio before.</li>
-        <li>Whether you've changed your deck's skin from the default.</li>
+        <li>the names of the pages in your deck and how full each one is (a
+        count, not its contents);</li>
+        <li>which kinds of action and control you have used, and how often (for
+        example “hotkey”, “OBS” or “a bounded dial”), as counts, not what any
+        specific one does;</li>
+        <li>whether you have opened AI Studio before;</li>
+        <li>whether you have changed your deck's skin from the default.</li>
       </ul>
-      <p><strong>What is never sent.</strong> The same rule AI page
-      generation follows: what your buttons actually do. Not commands, not
-      addresses, not saved text, not header contents. Also never sent: your
-      computer's name, your phone's name, or the name of your deck.</p>
-      <p>This local usage summary is kept only on your paired computer. It is
-      separate from the Firebase analytics described in
-      <a href="#firebase">What we collect via Firebase</a> and is read only
-      to build the daily request above — never uploaded anywhere on its
-      own.</p>
+      <p><strong>What is never sent.</strong> As with AI page generation, what
+      your buttons actually do (commands, addresses, saved text, header
+      contents), your computer's name, your phone's name and the name of your
+      deck.</p>
+      <p>The usage summary itself is kept only on your paired computer, is
+      separate from the reports described in <a href="#firebase">§3</a>, and is
+      read only to build the daily request above.</p>
     </div>
   </section>
 
@@ -700,27 +548,18 @@
         <table>
           <thead><tr><th>Permission</th><th>Why</th><th>Optional?</th></tr></thead>
           <tbody>
-            <tr><td>Local network</td><td>Discover and pair with your desktop host app</td><td>Required for the app to do anything</td></tr>
-            <tr><td>Camera</td><td>Scan the QR code the host app shows during pairing. The feed is never recorded or stored.</td><td>Only for that moment</td></tr>
-            <tr><td>Location<br>(foreground)</td><td>Geofenced auto-profiles, while the deck screen is open</td><td>Only if you create a geofence</td></tr>
-            <tr><td>Microphone</td><td>Voice-activated buttons</td><td>Only if you configure a voice trigger</td></tr>
-            <tr><td>Motion sensor</td><td>Shake-to-trigger buttons</td><td>Always available — no permission prompt on either platform</td></tr>
-            <tr><td>Notifications</td><td>Persistent alpha control for previewing the current Deckhand screen and, if you choose, sending it to the developer or posting it in the Discord forum</td><td>Optional; without it the manual screenshot control cannot appear</td></tr>
+            <tr><td>Local network</td><td>Discover and pair with the Deckhand desktop app</td><td>Required for the app to work</td></tr>
+            <tr><td>Camera</td><td>Scan the QR code the desktop app shows during pairing. The image is never recorded or stored.</td><td>Only for that moment</td></tr>
+            <tr><td>Location<br>(foreground)</td><td>Geofenced pages, while the deck screen is open</td><td>Only if you create a geofence</td></tr>
+            <tr><td>Microphone</td><td>Voice-activated buttons</td><td>Only if you set up a voice trigger</td></tr>
+            <tr><td>Motion sensor</td><td>Shake-to-trigger buttons</td><td>Always available; no permission prompt on either platform</td></tr>
+            <tr><td>Notifications</td><td>The persistent “Send a screenshot” notification, which previews Deckhand's window and, if you choose, sends it to the developer or posts it in the Discord forum (<a href="#shared-screenshots">§3</a>)</td><td>Optional; without it that notification cannot appear</td></tr>
           </tbody>
         </table>
       </div>
-      <p>During the closed test, when Analytics/diagnostic collection is
-      enabled, Deckhand automatically captures its own app window for a
-      reported error and uploads the PNG to the private Admin service. The
-      image is made in memory, not saved to your phone's media library, and can
-      show whatever Deckhand is displaying, including deck and button names,
-      host names, typed text or the pairing screen. It does not include another
-      application or the rest of the device screen. Desk follows its own
-      usage-report setting; Host can request a Desk capture for a new error
-      group, but only a visible Desk window can provide one. The persistent
-      notification remains an optional manual screenshot control. Diagnostic
-      images share the capacity limit and end-of-test deletion described under
-      <a href="#error-reports">Error reports and screenshots</a>.</p>
+      <p>Screenshots taken automatically with an error report need no
+      permission: Deckhand captures only its own window
+      (<a href="#error-reports">§3</a>).</p>
     </div>
   </section>
 
@@ -730,21 +569,16 @@
       <ul class="not-collected">
         <li>No account system, no sign-up, no password.</li>
         <li>No selling or sharing of your data with third parties for their own purposes.</li>
-        <li>No advertising once you're on a paid tier. The Firebase
-        collection described above is separate from advertising and
-        continues on paid tiers.</li>
-        <li>No collection of your deck layout's contents — what your buttons
-        do, their bound actions, pairing records, or geofence profiles — by
-        Firebase or anything else. There are two deliberate, narrow exceptions
-        to "layout". Suggestion notifications (<a href="#suggestions">§5</a>)
-        send page <em>names</em> and coarse per-kind usage counts, never
-        button contents, and you can turn them off. And, during the closed
-        test, an error screenshot is a picture of the app window, so it can
-        show anything on screen at that moment, including deck and button
-        names, host names, typed text and the pairing screen; it goes only to
-        our own service, never to Firebase, and is kept under the capacity
-        limit and end-of-test deletion described under <a
-        href="#error-reports">Error reports and screenshots</a>.</li>
+        <li>No advertising on a paid tier. The reports described in
+        <a href="#firebase">§3</a> are separate from advertising and continue on
+        paid tiers.</li>
+        <li>No collection of your deck layout's contents (what your buttons do,
+        their bound actions, pairing records or geofence profiles), with two
+        narrow exceptions: suggestion notifications (<a href="#suggestions">§5</a>)
+        send page names and per-kind usage counts, never button contents, and
+        can be switched off; and a screenshot (<a href="#error-reports">§3</a>)
+        shows whatever Deckhand's window displayed, including deck and button
+        names, host names, typed text and the pairing screen.</li>
       </ul>
     </div>
   </section>
@@ -752,68 +586,53 @@
   <section class="sec" id="rights">
     <div class="sec-head"><span class="sec-num">8</span><h2 class="sec-title">Your rights</h2></div>
     <div class="sec-body">
-      <p>Deckhand has no general account system. During the closed test,
-      Deckhand's private Admin service does hold the tester name you enter,
-      associated with your phone's install ID, alongside that install's
-      telemetry (including live presence), error reports and error
-      screenshots; it also holds the desktop app's own reports and
-      screenshots, which carry a random install ID rather than a name, so they
-      can be found only through that ID. Contact us using the information
-      below (<a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a>)
-      to request access, correction, or deletion of any of it, and tell us the
-      tester name you entered so we can find your phone's records; an
-      administrator then removes them from the service. Without a request,
-      screenshots go only when the capacity limit pushes them out or the closed
-      test ends, and tester identity records are not deleted automatically.
-      Other data described above either stays on your device or is handled by
-      Google/Apple directly under their own privacy terms. The one remaining
-      exception is AI page generation, and
-      only if you turned it on: Deckhand's own service keeps a count of pages
-      generated per installation, against your computer's public pairing
-      fingerprint, so a daily limit can be applied. The same consent retains
-      the AI Studio description encrypted for automated product improvements;
-      it is not a readable dashboard record. Ask and the service deletes the
-      retained data associated with that installation.</p>
+      <p>You can ask us for access to, correction of or deletion of the
+      personal data we hold about you by writing to
+      <a href="mailto:admin@daydreamcorp.com">admin@daydreamcorp.com</a>.
+      During the closed test our private Admin service holds your tester name
+      with your phone's install ID, that installation's usage data (including
+      live presence), error reports and screenshots, and the desktop app's own
+      reports and screenshots, which carry a random install ID rather than a
+      name. Tell us the tester name you entered so we can find your phone's
+      records; an administrator then removes them. Without a request,
+      screenshots are removed only when the capacity limit replaces them or the
+      closed test ends, and tester identity records are not deleted
+      automatically. If you used AI page generation, we can also delete the
+      generation counts, AI credit records and retained descriptions linked to
+      your installation (<a href="#ai">§4</a>).</p>
       <ul>
-        <li><strong>Analytics and crash reporting</strong> — mobile collection
-        follows the User Messaging Platform result where consent is required;
-        there is no Analytics control in Settings during the closed test. You
-        can stop test collection by uninstalling the test build. Desktop
-        reports can be disabled by the deployment
-        setting, <code>DECKHAND_TELEMETRY=0</code>. Firebase analytics remains
-        pseudonymous, and Firebase's 2-month retention then ages out what it
-        already collected. Contact us to request removal of data held by the
-        private Admin service.</li>
-        <li><strong>Ad personalization</strong> — controlled at the OS level
-        (Android Settings → Privacy → Ads; iOS Settings → Privacy →
-        Tracking), not by us.</li>
+        <li><strong>Usage and crash reports:</strong> collection by the phone
+        app follows your answer to the consent prompt where one is required;
+        test builds have no Analytics setting, and uninstalling the test build
+        stops collection. Desktop reports can be disabled with the deployment
+        setting <code>DECKHAND_TELEMETRY=0</code>. Firebase data is
+        pseudonymous and is deleted after two months.</li>
+        <li><strong>Ad personalization</strong> is controlled in your operating
+        system (Android: Settings → Privacy → Ads; iOS: Settings → Privacy →
+        Tracking).</li>
         <li><strong>Location, camera, microphone and notification
-        permissions</strong> — revocable any time in your device's
-        app-permission settings; the corresponding features simply stop
-        working until re-granted, or for notifications nothing changes,
-        since none are sent yet.</li>
-        <li><strong>Purchase records</strong> — held by your app store;
-        requests about them go to Google Play or the App Store directly.</li>
+        permissions</strong> can be revoked at any time in your device's app
+        permission settings; the related features stop working until you grant
+        them again.</li>
+        <li><strong>Purchase records</strong> are held by your app store;
+        requests about them go to Google Play or the App Store.</li>
+        <li><strong>Discord messages:</strong> see <a href="#community">§10</a>.</li>
       </ul>
-      <p>If this section doesn't cover a request you have, use the contact
-      information below and we'll do our best to help even where we hold no
-      data ourselves.</p>
+      <p>Other data described in this policy either stays on your devices or is
+      handled by Google or Apple under their own privacy terms. If you have a
+      request this section does not cover, contact us and we will help where we
+      can. You may also have the right to lodge a complaint with your local data
+      protection authority.</p>
     </div>
   </section>
 
   <section class="sec" id="children">
     <div class="sec-head"><span class="sec-num">9</span><h2 class="sec-title">Children's privacy</h2></div>
     <div class="sec-body">
-      <p>Deckhand is a utility for controlling your own computer and isn't
-      directed at children, and we don't knowingly collect data from them.
-      This section carried more weight when the app collected nothing at
-      all; now that analytics and crash reporting ship (see <a
-      href="#firebase">What we collect via Firebase</a>), a real legal
-      review should confirm both this section and the app's actual Firebase
-      configuration — Google's child-directed-treatment settings in
-      particular — are sufficient before store submission. COPPA and GDPR-K
-      requirements vary by jurisdiction and this draft doesn't attempt to
-      satisfy them on its own.</p>
+      <p>Deckhand is a utility for controlling your own computer. It is not
+      directed at children, and we do not knowingly collect personal data from
+      them. If you believe a child has provided personal data through Deckhand,
+      contact us and we will delete it.</p>
     </div>
   </section>
 
@@ -823,73 +642,70 @@
       <p><strong>This is separate from the app.</strong> It applies only to
       people who join Deckhand's tester Discord server. Installing or using
       Deckhand does not put you there, and nothing in the app depends on it.
-      Discord itself hosts the server and handles your account under
-      <a href="https://discord.com/privacy" rel="noopener" target="_blank">its own privacy policy</a>;
-      what follows is what Day Dream Corp does with what you write there.</p>
-      <p><strong>What is saved.</strong> The messages you write in the
-      server's channels and threads, with your Discord user ID and names, the
-      channel they were written in, when, and any image or text file you attach
-      (other kinds of file are recorded by name only). Not saved: direct
-      messages, other bots' messages, and the server's admin-log channel. Saving
-      is automatic for everything written in the server, filed per channel.
-      When it was introduced, the previous 60 days of messages were saved
-      too; anything older was not.</p>
+      Discord hosts the server and handles your account under
+      <a href="https://discord.com/privacy">its own privacy policy</a>; this
+      section describes what Day Dream Corp does with what you write there.</p>
+      <p><strong>What is saved.</strong> The messages you write in the server's
+      channels and threads, with your Discord user ID and names, the channel,
+      the time, and any image or text file you attach (other kinds of file are
+      recorded by name only). Direct messages, other bots' messages and the
+      server's admin-log channel are not saved. Saving is automatic for
+      everything written in the server, filed by channel, and includes messages
+      written in the 60 days before saving began.</p>
       <p><strong>Why, and who sees it.</strong> To find bugs and improvements
-      to make to Deckhand from what testers tell us. The messages are stored on
-      Deckhand's own Raspberry Pi, readable only by the service's own account and
-      its administrator, and read once a day by an automated AI assistant, Claude, made by Anthropic.
-      That means the text you wrote is sent to Anthropic while the assistant
+      to Deckhand in what testers tell us. Messages are stored on our own
+      server, readable only by the service's own account and its
+      administrator, and read once a day by an automated AI assistant, Claude,
+      made by <a href="https://www.anthropic.com/legal/privacy">Anthropic</a>,
+      which means the text you wrote is sent to Anthropic while the assistant
       reads it. The assistant treats what you write as a description of a
       problem, never as an instruction.</p>
-      <p><strong>How long.</strong> Once a message has been read and used, it is
-      deleted from the Pi and from the computer the assistant runs on. A
-      message that has not been read is deleted after 60 days regardless.
-      When a message helps change Deckhand, we keep a private log entry — your
-      Discord name, a short quote of the part that helped, and what changed —
-      so the people who helped can be thanked, privately in our log and publicly
-      as described below. That log is kept until you ask us to remove your
-      entries.</p>
+      <p><strong>How long.</strong> Once a message has been read and used, it
+      is deleted from our server and from the computer the assistant runs on. A
+      message that has not been read is deleted after 60 days. When a message
+      helps change Deckhand, we keep a private log entry (your Discord name, a
+      short quote of the part that helped, and what changed) so the people who
+      helped can be thanked, privately in our log and publicly as described
+      below. That log is kept until you ask us to remove your entries.</p>
       <p><strong>Replies and thanks in the server.</strong> When a message helps
-      change Deckhand, or is logged as a report we are looking into, our bot may
-      reply to that message in the server to say so. The daily update posted in
-      the announcements channel may also thank you by mentioning your Discord
-      account. Both are visible to everyone in the server, like any other message
-      there. If you have opted out, the bot does not reply to you or mention you.
-      To be taken out of a thanks line already posted, contact us as in
-      <a href="#contact">Contact</a>.</p>
+      change Deckhand, or is logged as a report we are looking into, our bot
+      may reply to it in the server to say so, and the daily update in the
+      announcements channel may thank you by mentioning your Discord account.
+      Both are visible to everyone in the server. If you have opted out, the
+      bot does not reply to you or mention you. To be removed from a thanks
+      line already posted, contact us (<a href="#contact">§13</a>).</p>
       <p><strong>Screenshots you post from the app.</strong> If you choose
-      &ldquo;Post in the Discord forum&rdquo; in the app, our bot creates a new
-      post in the server's forum with your screenshot, titled with your tester
-      name. It is visible to everyone in the server like any other post. It is
-      the bot's post, not a message you wrote in Discord, so it is not saved for
-      the assistant described above; replies people write under it are saved as
-      any other message is. See
-      <a href="#shared-screenshots">Screenshots you choose to send</a>.</p>
+      “Post in the Discord forum” in the app, our bot creates a new forum post
+      with your screenshot, titled with your tester name and visible to
+      everyone in the server (<a href="#shared-screenshots">§3</a>). Because it
+      is the bot's post rather than a message you wrote, it is not saved for the
+      assistant; replies written under it are saved like any other message.</p>
       <p><strong>Your control.</strong> In the server,
       <code>/message-collection opt-out</code> deletes every message saved from
-      you and stops it from continuing; <code>/message-collection status</code>
-      shows what is held; deleting one of your messages in Discord deletes our
-      copy; editing it replaces ours. Do not post passwords, pairing PINs or
-      keys: anything you post is saved. To have your name removed from the
-      thanks log, or for any other request about this, contact us as in
-      <a href="#contact">Contact</a>.</p>
+      you and stops further saving; <code>/message-collection status</code>
+      shows what is held. Deleting one of your messages in Discord deletes our
+      copy, and editing it replaces our copy. Do not post passwords, pairing
+      PINs or keys: anything you post is saved. To have your name removed from
+      the thanks log, or for any other request about this, contact us
+      (<a href="#contact">§13</a>).</p>
     </div>
   </section>
 
   <section class="sec" id="changes">
     <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">Changes to this policy</h2></div>
     <div class="sec-body">
-      <p>If what Deckhand does with data changes — for example, if a
-      cloud-backup feature ships — this document will be updated and the
-      date at the top will change. Material changes will be called out here
-      for one release cycle rather than folded in silently.</p>
+      <p>We update this policy whenever what Deckhand does with data changes,
+      and the date at the top shows when it was last revised. This page always
+      contains the complete current policy. When a change is material, we will
+      also tell you in the app or on our website.</p>
     </div>
   </section>
 
   <section class="sec" id="responsible">
     <div class="sec-head"><span class="sec-num">12</span><h2 class="sec-title">Who is responsible for this app</h2></div>
     <div class="sec-body">
-      <p>Day Dream Corp is responsible for Deckhand.</p>
+      <p>Day Dream Corp is responsible for Deckhand and for the processing of
+      personal data described in this policy.</p>
     </div>
   </section>
 
@@ -902,7 +718,9 @@
   </section>
 
   <footer class="bottom">
-    <span>Source: <code>marketing/privacy_policy.md</code></span>
-    <span>Verified against the app's current permissions and network behavior, not assumed</span>
+    <span>© 2026 Day Dream Corp</span>
+    <span>Deckhand Privacy Policy · last updated 2026-10-15</span>
   </footer>
 </div>
+</body>
+</html>
