@@ -1,28 +1,28 @@
 {
-  "version": "0.1.59",
-  "notes": "Adds friendly page reminders when a page becomes part of your routine, with 32 rotating messages and direct access to the page on desktop and phone.",
+  "version": "0.1.60",
+  "notes": "Adds friendly page reminders in all 40 supported languages, with 32 rotating messages and direct access to the page on desktop and phone.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.59",
-          "sha256": "9958e39257e2fcb18bc8b4b5ee7d186eb848c26cf5149f1636417ec6e3123701"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.60",
+          "sha256": "a1b6556b4d9e25ed7cbe1f625a35ed0bffb2191b80597f1cbee01836ebf27c7e"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.59",
-          "sha256": "b1dbed91a617f04e353dc2ae26d7a251e3a3335c36bd7b54350f5e0ee5f047e9"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.60",
+          "sha256": "d1287a71a3c8c352d09599ed86d5c17b6d369dd4b42ca171cd2d7864ec2f0209"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.59.exe",
-          "sha256": "005950ce6ca6ce84101e7be535266283d4df31d9b99fef39e4710c9928aa0238"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.60.exe",
+          "sha256": "b48f5fc751a78061d307464ec0ab5b4449e82ba7d1b36c746392193bacc1a4a4"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.59.exe",
-          "sha256": "1f178b723a4f752cada0b51a2a35688f8f65af3d81727c0e7ae1619669653197"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.60.exe",
+          "sha256": "2f1c184ac286e8e3dd71838b6922071a1b79edfead419f23d777891a3df537ea"
         }
       }
     }
