@@ -164,7 +164,7 @@
     <p class="eyebrow">Deckhand</p>
     <h1>Privacy Policy</h1>
     <div class="updated">
-      <span><b>Last updated</b> 2026-10-15</span>
+      <span><b>Last updated</b> 2026-10-21</span>
       <span><b>Applies to</b> com.daydreamcorp.deckhand and the Deckhand desktop app</span>
     </div>
   </header>
@@ -254,8 +254,9 @@
       on, your AI credit balance and credit purchases (<a href="#ai">§4</a>),
       suggestion notifications (<a href="#suggestions">§5</a>) and, during the
       closed test, usage and error reports from the phone app and the desktop
-      app, error screenshots, screenshots you choose to send, and your tester
-      name with your phone's install ID (<a href="#firebase">§3</a>). The
+      app, error screenshots, screenshots you choose to send, records of the
+      messages the developer sends you, and your tester name with your
+      phone's install ID (<a href="#firebase">§3</a>). The
       service runs on our own hardware, is reachable only over an encrypted
       connection, and is not shared with anyone.</p>
       <p><strong>To your app store (Google Play or the Apple App Store):</strong>
@@ -318,9 +319,10 @@
         <li><strong>Our own copy during the closed test.</strong> Test builds
         also send the same event stream to our private service so that we can
         read it. Besides that stream, the service receives only the tester
-        identity, error reports and screenshots described below. The event
-        stream, error reports and screenshots are deleted when the closed test
-        ends; tester identity records are kept as described below.</li>
+        identity, the message records, and the error reports and screenshots
+        described below. The event stream, message records, error reports and
+        screenshots are deleted when the closed test ends; tester identity
+        records are kept as described below.</li>
         <li><strong>Tester identity.</strong> Closed-test builds ask once for a
         name, independently of analytics consent and in every region, and the
         app does not open past the prompt until our service has confirmed the
@@ -348,6 +350,14 @@
         name, with the screen in use, the page number and page count (never the
         page's name) and whether the app is in the foreground. It is part of
         the usage event stream and follows the same consent rule.</li>
+        <li><strong>Messages from the developer</strong> (closed test): the
+        developer can send a notification, or show a message in front of the
+        app. Our service records, per installation, that the message was
+        delivered or shown and whether it was closed or which button was
+        pressed, so that we can see whether it reached people and so that a
+        message shown once is not shown again. These records are kept with the
+        phone's install ID, do not depend on the analytics choice, and are
+        deleted when the closed test ends.</li>
         <li id="error-reports"><strong>Error reports and screenshots</strong>
         (closed test): when the phone app catches an error, it sends our
         service a report containing the error's category, the screen you were
