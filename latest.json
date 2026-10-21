@@ -1,28 +1,28 @@
 {
-  "version": "0.1.65",
-  "notes": "The leaderboard's cards are back to their full width: the fire of whoever is acing the ranking now stands in the margin around the card.",
+  "version": "0.1.66",
+  "notes": "The leaderboard's cards show what made each tester's Elo and wear a border for how they are doing: a thin blink, a glitching fade, or rust.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.65",
-          "sha256": "7c121d02d5cbe2df160911c54d97e1228a814f7d9a3c151069f4b156deb83c35"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.66",
+          "sha256": "b57bb689447b522e7a33042e944be36e1c6eed5d718e1cb8415541523cf6d957"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.65",
-          "sha256": "c0fd08df579b4272eb3164a1c5253ab30c2b78ddcac6ebcee3dc5eab610a773c"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.66",
+          "sha256": "fe4e334971481571f66c7934a29225dae51029906f7be12c701ec32c983f38fd"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.65.exe",
-          "sha256": "89ceb1918e62de8505f367b8d6cac472e32109c7843f81b1cebae6259d37e115"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.66.exe",
+          "sha256": "8f843e2c58d01128ce75d7f0bc23ec67058de590cd7e764255ccca8df0d32298"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.65.exe",
-          "sha256": "b707083f9b3863027270dda06fbbfd1dd462e947ec8a8dd6e5647e915e817a60"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.66.exe",
+          "sha256": "7a1be649a514c56a2da9981b4f9d223e1b4bcfa5bcc7e8a1ef5f05763c519612"
         }
       }
     }
