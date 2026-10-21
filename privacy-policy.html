@@ -379,19 +379,35 @@
         <li id="shared-screenshots"><strong>Screenshots you choose to
         send:</strong> tapping the phone's camera hole while Deckhand is full
         screen (the default), or tapping the “Send a screenshot” notification,
-        shows a preview of Deckhand's own window and two buttons. Nothing is
-        sent until you press one of them. <em>To the developer</em>: the
-        picture goes to our private service with your install ID, and is kept
-        and deleted like the error screenshots above. <em>To the Discord
-        forum</em>: the picture is also stored by our service, and our bot
-        posts it as a new post in the Deckhand Discord server's forum, titled
-        with the tester name our service holds for your installation and
-        visible to everyone in the server. An installation can post at most
-        three screenshots a day. To have a post removed, ask in the server or
-        contact us (<a href="#contact">§13</a>); we delete the post and the
-        stored copy. Like error screenshots, these show whatever Deckhand's
-        window shows, never capture another app or the rest of the screen, and
-        are made in memory rather than saved to your media library.</li>
+        shows a preview of Deckhand's own window and three choices. Nothing is
+        sent until you press <em>Send to the developer</em> or, after writing
+        what goes with the picture, <em>Post</em>. <em>To the developer</em>:
+        the picture goes to our private service with your install ID, and is
+        kept and deleted like the error screenshots above. <em>To the Discord
+        forum, as a page</em>: you may add a short note and, if the page was
+        made with AI Studio, choose to include the prompts you typed to make
+        it (the app shows how many there are and how the first one begins;
+        they are kept on your phone, and are not sent unless you switch this
+        on). Our service stores the picture, your note and those prompts, and
+        our bot posts them as a new post in the Deckhand Discord server's
+        forum for pages, titled with the tester name our service holds for
+        your installation. One prompt appears in the post; several are
+        attached as a web page file (HTML) that anyone in the server can
+        download. <em>To the Discord forum, as a bug report</em>: you write a
+        title, optionally an area, what went wrong, the steps to reproduce and
+        what you expected; our bot posts them with the picture as a new post
+        in the bug-reports forum, with your tester name, the app version, your
+        phone model and its system version. Every post is <strong>visible to
+        everyone in the server</strong>, so do not put passwords, pairing PINs
+        or other private details in a note, a prompt or a report. Our service
+        keeps the text of a note, prompts or bug report for seven days and
+        then deletes it; the picture is kept like the error screenshots above.
+        An installation can post at most three pages and five bug reports a
+        day. To have a post removed, ask in the server or contact us
+        (<a href="#contact">§13</a>); we delete the post and the stored copy.
+        Like error screenshots, these show whatever Deckhand's window shows,
+        never capture another app or the rest of the screen, and are made in
+        memory rather than saved to your media library.</li>
         <li><strong>Firebase retention:</strong> analytics data is kept for two
         months from collection and then deleted automatically from Firebase's
         systems, the shorter of the two retention periods Firebase offers.</li>
@@ -693,12 +709,14 @@
       Both are visible to everyone in the server. If you have opted out, the
       bot does not reply to you or mention you. To be removed from a thanks
       line already posted, contact us (<a href="#contact">§13</a>).</p>
-      <p><strong>Screenshots you post from the app.</strong> If you choose
-      “Post in the Discord forum” in the app, our bot creates a new forum post
-      with your screenshot, titled with your tester name and visible to
-      everyone in the server (<a href="#shared-screenshots">§3</a>). Because it
-      is the bot's post rather than a message you wrote, it is not saved for the
-      assistant; replies written under it are saved like any other message.</p>
+      <p><strong>Posts you make from the app.</strong> If you choose
+      “Post in the Discord forum” or “Report a bug on Discord” in the app, our
+      bot creates a new forum post with your screenshot and the text you wrote
+      (a note and, if you switch it on, the prompts that made the page; or a
+      bug report), under your tester name and visible to everyone in the
+      server (<a href="#shared-screenshots">§3</a>). Because it is the bot's
+      post rather than a message you wrote, it is not saved for the assistant;
+      replies written under it are saved like any other message.</p>
       <p><strong>Your control.</strong> In the server,
       <code>/message-collection opt-out</code> deletes every message saved from
       you and stops further saving; <code>/message-collection status</code>
@@ -738,7 +756,7 @@
 
   <footer class="bottom">
     <span>© 2026 Day Dream Corp</span>
-    <span>Deckhand Privacy Policy · last updated 2026-10-15</span>
+    <span>Deckhand Privacy Policy · last updated 2026-10-21</span>
   </footer>
 </div>
 </body>
