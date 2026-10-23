@@ -1,28 +1,28 @@
 {
-  "version": "0.1.70",
-  "notes": "On Windows no console window flashes up any more, hotkeys work on every keyboard layout, desktop shortcuts and pasted paths launch, and MIDI faders connect. HTTP tiles now show the status the server answered.",
+  "version": "0.1.71",
+  "notes": "Desk's deck editor now names any hotkey key the computer would not understand, as you type it, and keeps a trailing plus key in ctrl++.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.70",
-          "sha256": "13018667f3a6992656298fbded04677ecdb36ec1e8ecc723ea3afe4ffba240ae"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.71",
+          "sha256": "a620bca7d2c6521d0706c87dc22edcf3db637dc420f22b3dd92d27ab368ac5db"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.70",
-          "sha256": "e6d49c1f22bd0bb4a2f3aabc79762a2b0519f39e4dd7008a3953ad975ec20053"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.71",
+          "sha256": "8901958ec78d067ec17557ec2055187d2e2338204ae842c0ef136448a77190d6"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.70.exe",
-          "sha256": "fb7bef75486fcd7760864607c26681fbc219d63b6900b94b235b004635d579aa"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.71.exe",
+          "sha256": "84c46d03038da870c19a4425dc576c5ac510bf658221007d4b3618e6d2e18ac0"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.70.exe",
-          "sha256": "2864cefa5465355945c248d5f4e9594c44ae76aab8f9e761c045b79b862a48d2"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.71.exe",
+          "sha256": "9893892662bb95a9602a4e8f423855a21f91f8e1c6c9d78efab9ac0205682556"
         }
       }
     }
