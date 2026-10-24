@@ -6,11 +6,11 @@
       "binaries": {
         "deckhand-host": {
           "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.73",
-          "sha256": "53233ee85f90988480b4df9347efd5086f7c80b1908b8eddebd6bf878987f54e"
+          "sha256": "17c93fd34b5d49e7f33e18d1bf02e7ed6d4695a167aa8e4b3999a18e3b2ac8df"
         },
         "deckhand-desk": {
           "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.73",
-          "sha256": "e3240317a0b8c6ba19b8e5d78deca6691b5bb7dbb426f24d0ae66f258b594c6c"
+          "sha256": "7e3724b3b504c3786e69088217923c487a2e0cbf64c8cded1bf17d911c700a4e"
         }
       }
     },
@@ -18,11 +18,11 @@
       "binaries": {
         "deckhand-host.exe": {
           "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.73.exe",
-          "sha256": "9d7e4fdd181b852e5cc1f6735cf38568a898611a08039d95639e2264027ba3a9"
+          "sha256": "08a3db6b415c7f231fdbd4d016acafc2be1abd7e6beaa5b0c684624df2f6d26d"
         },
         "deckhand-desk.exe": {
           "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.73.exe",
-          "sha256": "56d25e00546ff014fca42b582e3612830e39bccf7a29a9b3acb7a74c85946bae"
+          "sha256": "e7b6f104edb3003f5d4db7fd4da0ac4af9632fcfc91eb2e465487e3745dc2941"
         }
       }
     }
