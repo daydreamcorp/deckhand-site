@@ -1,28 +1,28 @@
 {
-  "version": "0.1.75",
-  "notes": "",
+  "version": "0.1.76",
+  "notes": "The flame on a burning tester's graph line is now brighter than every other line effect.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.75",
-          "sha256": "b2cb5e952f040e957a127d23c59120daedb95df4e0940685b64362db2ee87de9"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.76",
+          "sha256": "8021b0a6cf98b01c982a32d93a35dec382e803791741a201c63cbf73c2edb91a"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.75",
-          "sha256": "7827880c37f4b96cc651dc7f5c37d168c958317e4418a19d4905c3697716efeb"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.76",
+          "sha256": "95f13f6fd80bb1d6da7bf2571d42fffc422b2eabf0029234c14b8fbdce8d5d16"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.75.exe",
-          "sha256": "8b87322372aed286329cc21347f319717c6d2e0ccf7c2a3ae49a8377c44eeedc"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.76.exe",
+          "sha256": "93f06aad3ef7ad0a43e16ee2bb2fba130d6ddcf223a988d0d2c59f109b93ecce"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.75.exe",
-          "sha256": "204d0ec83a761258fd2e3e5ee112773f8f3f456c3a0edab57699e9749d150962"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.76.exe",
+          "sha256": "caa133dd775aad263ef5cc5b9a0fb90c46c648b7ee0e0bae6a8d05ff78fed5c6"
         }
       }
     }
