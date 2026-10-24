@@ -1,28 +1,28 @@
 {
-  "version": "0.1.73",
-  "notes": "The Leaderboard now shows the progress graph first, above the developer's card.",
+  "version": "0.1.75",
+  "notes": "",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.73",
-          "sha256": "17c93fd34b5d49e7f33e18d1bf02e7ed6d4695a167aa8e4b3999a18e3b2ac8df"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.75",
+          "sha256": "b2cb5e952f040e957a127d23c59120daedb95df4e0940685b64362db2ee87de9"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.73",
-          "sha256": "7e3724b3b504c3786e69088217923c487a2e0cbf64c8cded1bf17d911c700a4e"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.75",
+          "sha256": "7827880c37f4b96cc651dc7f5c37d168c958317e4418a19d4905c3697716efeb"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.73.exe",
-          "sha256": "08a3db6b415c7f231fdbd4d016acafc2be1abd7e6beaa5b0c684624df2f6d26d"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.75.exe",
+          "sha256": "8b87322372aed286329cc21347f319717c6d2e0ccf7c2a3ae49a8377c44eeedc"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.73.exe",
-          "sha256": "e7b6f104edb3003f5d4db7fd4da0ac4af9632fcfc91eb2e465487e3745dc2941"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.75.exe",
+          "sha256": "204d0ec83a761258fd2e3e5ee112773f8f3f456c3a0edab57699e9749d150962"
         }
       }
     }
