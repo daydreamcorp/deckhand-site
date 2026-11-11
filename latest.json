@@ -1,28 +1,28 @@
 {
-  "version": "0.1.80",
-  "notes": "AI Studio 2.0: describe a page, pick ready-made widgets from the new Library (no AI, no credits) or edit the page you have, and leave any new tile out before you apply. Desk can now add every instrument from the Library, draws and edits three new ones (Label, Sign, Slide to confirm), and its studio reads on light skins. A What's new tour shows it all.",
+  "version": "0.1.81",
+  "notes": "Slide to confirm looks better: its handle is a round, domed button with a lit rim, a double arrow and a glow that wakes as you slide, and the light behind it runs right up to the button. A What's new page shows it.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.80",
-          "sha256": "6b73e476607388fe6c1d2087e2cbe0c4650781c9e39b2d22c2b61ce6686275c5"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.81",
+          "sha256": "f7608449e96121cf361b5034f2caa10364ca919277f439dc0041bfa948a36cc0"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.80",
-          "sha256": "418391ba8a8bde7aef4cce24552881b63eddc8d7e7c681e2a6e4036128f4034b"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.81",
+          "sha256": "76df6ada58321fe882f5c592e31c3032b5ad1c4f1aad14831dd023d2797503b5"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.80.exe",
-          "sha256": "2d2d60977059027e99da89380e0f0d50ae130233d22b0aa0161d0c902732e38b"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.81.exe",
+          "sha256": "1c99752834ccae962e014a45be6ecd1600b6eb432338b63268429912a6aa1f1f"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.80.exe",
-          "sha256": "3c5982bb62a5119d9acd53f183dcef0ab4140f5602010088d523ddf08a6e2d79"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.81.exe",
+          "sha256": "c413c578717379acaba0a91aa9aa3fe2c790ab2d6a0694a7b8d4ed25b6513a02"
         }
       }
     }
