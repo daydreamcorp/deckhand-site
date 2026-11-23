@@ -1,28 +1,28 @@
 {
-  "version": "0.1.81",
-  "notes": "Slide to confirm looks better: its handle is a round, domed button with a lit rim, a double arrow and a glow that wakes as you slide, and the light behind it runs right up to the button. A What's new page shows it.",
+  "version": "0.1.82",
+  "notes": "Deckhand now tells you when it has updated: a small card slides into the corner of your screen, and one click shows what changed. A What's new page shows it.",
   "targets": {
     "linux-x86_64": {
       "binaries": {
         "deckhand-host": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.81",
-          "sha256": "f7608449e96121cf361b5034f2caa10364ca919277f439dc0041bfa948a36cc0"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-linux-x86_64-0.1.82",
+          "sha256": "b0748deb70b41312f4fddcb4c7a35a486ed80f68c97bcc0093036ef9383adf71"
         },
         "deckhand-desk": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.81",
-          "sha256": "76df6ada58321fe882f5c592e31c3032b5ad1c4f1aad14831dd023d2797503b5"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-linux-x86_64-0.1.82",
+          "sha256": "afc8ead6bb5c74518691ac260856fff5d71f4346e595e71b8187bcdafab0705e"
         }
       }
     },
     "windows-x86_64": {
       "binaries": {
         "deckhand-host.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.81.exe",
-          "sha256": "1c99752834ccae962e014a45be6ecd1600b6eb432338b63268429912a6aa1f1f"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-host-windows-x86_64-0.1.82.exe",
+          "sha256": "2b4c6e509791b7e3d681e04fe23770084700659f639a0bab2ed970104f8daed0"
         },
         "deckhand-desk.exe": {
-          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.81.exe",
-          "sha256": "c413c578717379acaba0a91aa9aa3fe2c790ab2d6a0694a7b8d4ed25b6513a02"
+          "url": "https://github.com/daydreamcorp/deckhand-site/releases/download/latest/deckhand-desk-windows-x86_64-0.1.82.exe",
+          "sha256": "4b0a07122d7d3d43f372b9ebfd8b55bde447275e27b2e17d3a0d5c1a992b28c5"
         }
       }
     }
